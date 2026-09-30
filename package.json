@@ -1,0 +1,38 @@
+{
+  "name": "@unveil/interlinked",
+  "type": "module",
+  "version": "0.0.0",
+  "description": "Detect AI-agent-written PR descriptions",
+  "author": "Matteo Gabriele <m.gabriele.dev@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/unveil-project/interlinked#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unveil-project/interlinked.git"
+  },
+  "bugs": {
+    "url": "https://github.com/unveil-project/interlinked/issues"
+  },
+  "exports": {
+    ".": "./dist/index.mjs",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit",
+    "release": "bumpp",
+    "prepublishOnly": "pnpm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.1",
+    "bumpp": "^11.1.0",
+    "tsdown": "^0.22.5",
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.10"
+  }
+}
