@@ -12,15 +12,28 @@ export function matches(pattern: RegExp) {
 	return (text: string) => text.match(globalPattern)?.length ?? 0;
 }
 
-/** Occurrences per 1,000 characters. */
-export function density(pattern: RegExp) {
+/**
+ * Like `matches`, but ignores checklist items: a ticked template box such as
+ * "I reviewed AI-generated code" is the maintainers' wording, not the author's.
+ */
+export function matchesOutsideChecklists(pattern: RegExp) {
 	const count = matches(pattern);
+	return (text: string) => count(text.replace(/^\s*[-*] \[[ xX]\].*$/gm, ""));
+}
+
+/** Occurrences per 1,000 characters. */
+export function density(pattern: RegExp, count = matches(pattern)) {
 	return (text: string) => {
 		if (text.length === 0) {
 			return 0;
 		}
 		return (count(text) / Math.max(text.length, MIN_DENSITY_LENGTH)) * 1000;
 	};
+}
+
+/** Like `density`, but occurrences inside checklist items don't count. */
+export function densityOutsideChecklists(pattern: RegExp) {
+	return density(pattern, matchesOutsideChecklists(pattern));
 }
 
 /** Prose lines of five or more words that don't end in punctuation. */
@@ -33,4 +46,15 @@ export function unpunctuatedLines(text: string) {
 		.split("\n")
 		.map((line) => line.trim())
 		.filter((line) => isSentence(line) && !isPunctuated(line)).length;
+}
+
+/** Prose paragraphs of fifty or more words, not wrapped or broken into bullets. */
+export function longParagraphs(text: string) {
+	return prose(text)
+		.split("\n")
+		.filter(
+			(line) =>
+				!/^\s*(?:[-*#|>]|\d+\.)/.test(line) &&
+				line.trim().split(/\s+/).length >= 50,
+		).length;
 }

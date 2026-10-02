@@ -1,17 +1,2058 @@
 {
 	"summary": {
-		"fixtures": 22,
-		"correct": 21,
-		"accuracy": 0.955,
-		"logLoss": 0.245
+		"fixtures": 205,
+		"correct": 185,
+		"accuracy": 0.902,
+		"logLoss": 0.26
 	},
 	"fixtures": {
-		"ai/pr1.md": {
+		"ai/BerriAI-litellm-44023.md": {
+			"label": "ai",
+			"probability": 0.666,
+			"signals": {
+				"code-span-density": 1.19,
+				"scope-disclaimer": 0.4
+			}
+		},
+		"ai/BerriAI-litellm-44034.md": {
+			"label": "ai",
+			"probability": 0.997,
+			"signals": {
+				"fails-before-fix": 2.2,
+				"test-tally": 0.8,
+				"epistemic-hedge": 0.75,
+				"code-span-density": 0.61,
+				"long-paragraphs": 0.6,
+				"template-headings": 0.5,
+				"semicolons": 0.45,
+				"scope-disclaimer": 0.4,
+				"test-reference": 0.23,
+				"file-paths": 0.2,
+				"now-verbs": 0.2,
+				"commit-shas": 0.13,
+				"arrows": 0.13,
+				"agent-vocabulary": 0.13,
+				"em-dash": 0.04,
+				"unpunctuated-lines": -0.5
+			}
+		},
+		"ai/BerriAI-litellm-44053.md": {
+			"label": "ai",
+			"probability": 0.719,
+			"signals": {
+				"long-paragraphs": 0.6,
+				"now-verbs": 0.6,
+				"semicolons": 0.52,
+				"commit-shas": 0.5,
+				"template-headings": 0.5,
+				"file-paths": 0.5,
+				"scope-disclaimer": 0.4,
+				"existing-precedent": 0.4,
+				"test-reference": 0.23,
+				"code-span-density": 0.22,
+				"tables": 0.15,
+				"colon-bullets": 0.09,
+				"questions": -0.07,
+				"bare-urls": -0.3,
+				"unpunctuated-lines": -0.5,
+				"this-pr": -0.8,
+				"template-checkboxes": -1.2
+			}
+		},
+		"ai/BerriAI-litellm-44070.md": {
+			"label": "ai",
+			"probability": 0.779,
+			"signals": {
+				"fails-before-fix": 1.1,
+				"scope-disclaimer": 0.8,
+				"test-tally": 0.8,
+				"long-paragraphs": 0.6,
+				"code-span-density": 0.31,
+				"semicolons": 0.27,
+				"commit-shas": 0.25,
+				"test-reference": 0.23,
+				"unpunctuated-lines": -0.5,
+				"this-pr": -0.8,
+				"template-checkboxes": -0.9
+			}
+		},
+		"ai/BerriAI-litellm-44077.md": {
+			"label": "ai",
+			"probability": 0.902,
+			"signals": {
+				"fails-before-fix": 2.2,
+				"code-span-density": 0.6,
+				"test-tally": 0.4,
+				"existing-precedent": 0.4,
+				"semicolons": 0.39,
+				"arrows": 0.13,
+				"file-paths": 0.1,
+				"bare-urls": -0.15,
+				"unpunctuated-lines": -0.2,
+				"template-checkboxes": -0.75
+			}
+		},
+		"ai/BerriAI-litellm-44103.md": {
+			"label": "ai",
+			"probability": 0.814,
+			"signals": {
+				"agent-attribution": 4,
+				"code-span-density": 0.08,
+				"contractions": -0.02,
+				"unpunctuated-lines": -0.1,
+				"screenshots": -0.11,
+				"this-pr": -0.27,
+				"bare-urls": -0.3,
+				"template-checkboxes": -0.9
+			}
+		},
+		"ai/BerriAI-litellm-44187.md": {
+			"label": "ai",
+			"probability": 0.846,
+			"signals": {
+				"fails-before-fix": 1.1,
+				"so-chains": 1,
+				"scope-disclaimer": 0.4,
+				"code-span-density": 0.36,
+				"long-paragraphs": 0.3,
+				"semicolons": 0.22,
+				"file-paths": 0.2,
+				"now-verbs": 0.2,
+				"colon-bullets": 0.09,
+				"contractions": -0.03,
+				"bare-urls": -0.07,
+				"this-pr": -0.27,
+				"template-checkboxes": -0.9
+			}
+		},
+		"ai/BerriAI-litellm-44191.md": {
+			"label": "ai",
+			"probability": 0.159,
+			"signals": {
+				"code-span-density": 0.37,
+				"semicolons": 0.28,
+				"contractions": -0.05,
+				"unpunctuated-lines": -0.2,
+				"this-pr": -0.27,
+				"template-checkboxes": -0.9
+			}
+		},
+		"ai/ClickHouse-ClickHouse-123410.md": {
+			"label": "ai",
+			"probability": 1,
+			"signals": {
+				"agent-attribution": 4,
+				"ai-disclosure": 3,
+				"verification-label": 1,
+				"code-span-density": 0.9,
+				"long-paragraphs": 0.6,
+				"test-tally": 0.4,
+				"so-chains": 0.33,
+				"semicolons": 0.23,
+				"arrows": 0.13,
+				"colon-bullets": 0.09,
+				"bare-urls": -0.07
+			}
+		},
+		"ai/PostHog-posthog-109878.md": {
+			"label": "ai",
+			"probability": 1,
+			"signals": {
+				"agent-attribution": 4,
+				"ai-disclosure": 3,
+				"fails-before-fix": 1.1,
+				"so-chains": 1,
+				"colon-bullets": 0.52,
+				"code-span-density": 0.41,
+				"scope-disclaimer": 0.4,
+				"now-verbs": 0.4,
+				"bold-lead-bullets": 0.28,
+				"file-paths": 0.2,
+				"agent-vocabulary": 0.13,
+				"semicolons": 0.06,
+				"questions": -0.07,
+				"template-checkboxes": -0.6
+			}
+		},
+		"ai/PostHog-posthog-109936.md": {
+			"label": "ai",
+			"probability": 1,
+			"signals": {
+				"agent-attribution": 4,
+				"ai-disclosure": 3,
+				"code-span-density": 0.89,
+				"so-chains": 0.67,
+				"colon-bullets": 0.35,
+				"bold-lead-bullets": 0.28,
+				"agent-vocabulary": 0.13,
+				"tables": 0.11,
+				"questions": -0.07,
+				"template-checkboxes": -0.6
+			}
+		},
+		"ai/PostHog-posthog-110034.md": {
+			"label": "ai",
+			"probability": 0.999,
+			"signals": {
+				"agent-attribution": 4,
+				"ai-disclosure": 3,
+				"scope-disclaimer": 0.8,
+				"code-span-density": 0.67,
+				"bold-lead-bullets": 0.28,
+				"colon-bullets": 0.26,
+				"now-verbs": 0.2,
+				"file-paths": 0.1,
+				"questions": -0.07,
+				"this-pr": -0.53,
+				"template-checkboxes": -0.6
+			}
+		},
+		"ai/PostHog-posthog-110197.md": {
+			"label": "ai",
+			"probability": 0.995,
+			"signals": {
+				"ai-disclosure": 3,
+				"so-chains": 1,
+				"code-span-density": 0.83,
+				"colon-bullets": 0.7,
+				"file-paths": 0.4,
+				"now-verbs": 0.4,
+				"long-paragraphs": 0.3,
+				"test-reference": 0.23,
+				"bold-lead-bullets": 0.18,
+				"agent-vocabulary": 0.13,
+				"questions": -0.07,
+				"this-pr": -0.27,
+				"template-checkboxes": -0.6
+			}
+		},
+		"ai/PostHog-posthog-110207.md": {
+			"label": "ai",
+			"probability": 0.977,
+			"signals": {
+				"ai-disclosure": 3,
+				"code-span-density": 0.52,
+				"scope-disclaimer": 0.4,
+				"so-chains": 0.33,
+				"bold-lead-bullets": 0.28,
+				"colon-bullets": 0.26,
+				"test-reference": 0.23,
+				"now-verbs": 0.2,
+				"file-paths": 0.1,
+				"questions": -0.07,
+				"template-checkboxes": -0.6
+			}
+		},
+		"ai/PostHog-posthog-110267.md": {
+			"label": "ai",
+			"probability": 0.954,
+			"signals": {
+				"ai-disclosure": 3,
+				"commit-shas": 0.5,
+				"test-reference": 0.47,
+				"bold-lead-bullets": 0.28,
+				"semicolons": 0.21,
+				"now-verbs": 0.2,
+				"file-paths": 0.1,
+				"code-span-density": 0.09,
+				"questions": -0.07,
+				"screenshots": -0.22,
+				"template-checkboxes": -0.6
+			}
+		},
+		"ai/PostHog-posthog-110396.md": {
+			"label": "ai",
+			"probability": 0.882,
+			"signals": {
+				"ai-disclosure": 3,
+				"epistemic-hedge": 0.75,
+				"commit-shas": 0.38,
+				"bold-lead-bullets": 0.28,
+				"test-reference": 0.23,
+				"colon-bullets": 0.09,
+				"code-span-density": 0.06,
+				"questions": -0.07,
+				"bare-urls": -0.22,
+				"unpunctuated-lines": -0.3,
+				"template-checkboxes": -0.6,
+				"screenshots": -0.67
+			}
+		},
+		"ai/PostHog-posthog-110397.md": {
+			"label": "ai",
+			"probability": 0.998,
+			"signals": {
+				"ai-disclosure": 3,
+				"so-chains": 1,
+				"existing-precedent": 0.8,
+				"bold-lead-bullets": 0.73,
+				"long-paragraphs": 0.6,
+				"scope-disclaimer": 0.4,
+				"code-span-density": 0.37,
+				"semicolons": 0.29,
+				"now-verbs": 0.2,
+				"agent-vocabulary": 0.13,
+				"file-paths": 0.1,
+				"questions": -0.07,
+				"template-checkboxes": -0.3
+			}
+		},
+		"ai/PostHog-posthog-110561.md": {
+			"label": "ai",
+			"probability": 0.998,
+			"signals": {
+				"agent-attribution": 4,
+				"ai-disclosure": 3,
+				"code-span-density": 0.44,
+				"bold-lead-bullets": 0.28,
+				"colon-bullets": 0.18,
+				"questions": -0.07,
+				"template-checkboxes": -0.6
+			}
+		},
+		"ai/Stirling-Tools-Stirling-PDF-8312.md": {
+			"label": "ai",
+			"probability": 0.562,
+			"signals": {
+				"so-chains": 1,
+				"scope-disclaimer": 0.8,
+				"commit-shas": 0.5,
+				"file-paths": 0.5,
+				"bold-lead-bullets": 0.46,
+				"code-span-density": 0.41,
+				"colon-bullets": 0.26,
+				"now-verbs": 0.2,
+				"tables": 0.14,
+				"semicolons": 0.12,
+				"first-person": -0.17,
+				"this-pr": -0.27,
+				"bare-urls": -0.3,
+				"unpunctuated-lines": -0.4,
+				"screenshots": -0.9,
+				"template-checkboxes": -1.2
+			}
+		},
+		"ai/TanStack-form-2416.md": {
+			"label": "ai",
+			"probability": 0.395,
+			"signals": {
+				"verification-label": 0.5,
+				"scope-disclaimer": 0.4,
+				"long-paragraphs": 0.3,
+				"code-span-density": 0.29,
+				"this-pr": -0.27,
+				"template-checkboxes": -0.75
+			}
+		},
+		"ai/ToolJet-ToolJet-18202.md": {
+			"label": "ai",
+			"probability": 0.975,
+			"signals": {
+				"code-span-density": 1.04,
+				"so-chains": 1,
+				"colon-bullets": 0.7,
+				"lint-clean": 0.5,
+				"file-paths": 0.5,
+				"scope-disclaimer": 0.4,
+				"test-tally": 0.4,
+				"commit-shas": 0.13,
+				"semicolons": 0.09,
+				"bare-urls": -0.07,
+				"first-person": -0.1
+			}
+		},
+		"ai/angular-angular-71134.md": {
+			"label": "ai",
+			"probability": 0.698,
+			"signals": {
+				"fails-before-fix": 1.1,
+				"scope-disclaimer": 0.8,
+				"code-span-density": 0.78,
+				"test-reference": 0.23,
+				"file-paths": 0.1,
+				"bare-urls": -0.07,
+				"template-checkboxes": -1.2
+			}
+		},
+		"ai/anthropics-skills-1947.md": {
+			"label": "ai",
+			"probability": 0.578,
+			"signals": {
+				"template-headings": 0.5,
+				"code-span-density": 0.32,
+				"semicolons": 0.31,
+				"test-reference": 0.23,
+				"file-paths": 0.1,
+				"first-person": -0.24
+			}
+		},
+		"ai/apache-airflow-74067.md": {
+			"label": "ai",
+			"probability": 0.997,
+			"signals": {
+				"ai-disclosure": 3,
+				"fails-before-fix": 1.1,
+				"so-chains": 0.67,
+				"bold-lead-bullets": 0.55,
+				"code-span-density": 0.48,
+				"file-paths": 0.4,
+				"test-tally": 0.4,
+				"long-paragraphs": 0.3,
+				"colon-bullets": 0.26,
+				"semicolons": 0.14,
+				"tables": 0.08,
+				"unpunctuated-lines": -0.1,
+				"template-checkboxes": -0.15,
+				"this-pr": -0.27
+			}
+		},
+		"ai/apache-echarts-21775.md": {
+			"label": "ai",
+			"probability": 0.877,
+			"signals": {
+				"fails-before-fix": 2.2,
+				"verification-label": 1,
+				"code-span-density": 0.69,
+				"scope-disclaimer": 0.4,
+				"so-chains": 0.33,
+				"long-paragraphs": 0.3,
+				"file-paths": 0.1,
+				"colon-bullets": 0.09,
+				"bare-urls": -0.07,
+				"contractions": -0.08,
+				"unpunctuated-lines": -0.1,
+				"this-pr": -0.8,
+				"template-checkboxes": -1.2
+			}
+		},
+		"ai/apache-spark-59191.md": {
+			"label": "ai",
+			"probability": 0.999,
+			"signals": {
+				"ai-disclosure": 3,
+				"git-diff-check": 2.5,
+				"scope-disclaimer": 0.8,
+				"epistemic-hedge": 0.75,
+				"semicolons": 0.64,
+				"code-span-density": 0.5,
+				"file-paths": 0.1,
+				"questions": -0.3,
+				"this-pr": -0.53
+			}
+		},
+		"ai/apache-spark-59207.md": {
+			"label": "ai",
+			"probability": 0.964,
+			"signals": {
+				"ai-disclosure": 3,
+				"so-chains": 1,
+				"code-span-density": 0.66,
+				"scope-disclaimer": 0.4,
+				"existing-precedent": 0.4,
+				"test-reference": 0.23,
+				"semicolons": 0.09,
+				"tables": 0.08,
+				"contractions": -0.07,
+				"questions": -0.3,
+				"unpunctuated-lines": -0.5,
+				"this-pr": -0.8
+			}
+		},
+		"ai/apache-superset-44895.md": {
+			"label": "ai",
+			"probability": 0.993,
+			"signals": {
+				"code-span-density": 1.4,
+				"scope-disclaimer": 1.2,
+				"existing-precedent": 0.8,
+				"epistemic-hedge": 0.75,
+				"long-paragraphs": 0.6,
+				"semicolons": 0.57,
+				"template-headings": 0.5,
+				"arrows": 0.5,
+				"file-paths": 0.4,
+				"so-chains": 0.33,
+				"first-person": -0.04,
+				"bare-urls": -0.07,
+				"contractions": -0.21,
+				"this-pr": -0.8
+			}
+		},
+		"ai/apollographql-router-10377.md": {
+			"label": "ai",
+			"probability": 0.97,
+			"signals": {
+				"fails-before-fix": 2.2,
+				"so-chains": 1,
+				"long-paragraphs": 0.6,
+				"code-span-density": 0.56,
+				"template-headings": 0.5,
+				"scope-disclaimer": 0.4,
+				"semicolons": 0.29,
+				"test-reference": 0.23,
+				"file-paths": 0.1,
+				"contractions": -0.05,
+				"this-pr": -0.27,
+				"template-checkboxes": -1.2
+			}
+		},
+		"ai/astral-sh-ruff-29040.md": {
+			"label": "ai",
+			"probability": 0.567,
+			"signals": {
+				"code-span-density": 1.17
+			}
+		},
+		"ai/astral-sh-ruff-29072.md": {
+			"label": "ai",
+			"probability": 0.949,
+			"signals": {
+				"ai-disclosure": 3,
+				"semicolons": 0.82,
+				"code-span-density": 0.11,
+				"file-paths": 0.1,
+				"unpunctuated-lines": -0.2
+			}
+		},
+		"ai/astral-sh-uv-22135.md": {
+			"label": "ai",
+			"probability": 0.589,
+			"signals": {
+				"code-span-density": 0.84,
+				"test-reference": 0.23,
+				"bold-lead-bullets": 0.18
+			}
+		},
+		"ai/atuinsh-atuin-4310.md": {
+			"label": "ai",
+			"probability": 0.684,
+			"signals": {
+				"fails-before-fix": 1.1,
+				"code-span-density": 0.65,
+				"scope-disclaimer": 0.4,
+				"long-paragraphs": 0.3,
+				"contractions": -0.1,
+				"first-person": -0.11,
+				"this-pr": -0.27,
+				"template-checkboxes": -0.3
+			}
+		},
+		"ai/axios-axios-11264.md": {
+			"label": "ai",
+			"probability": 1,
+			"signals": {
+				"git-diff-check": 2.5,
+				"fails-before-fix": 2.2,
+				"scope-disclaimer": 1.2,
+				"test-tally": 0.8,
+				"lint-clean": 0.5,
+				"template-headings": 0.5,
+				"code-span-density": 0.49,
+				"test-reference": 0.47,
+				"semicolons": 0.43,
+				"now-verbs": 0.4,
+				"commit-shas": 0.13,
+				"em-dash": 0.08,
+				"screenshots": -0.11,
+				"unpunctuated-lines": -0.2,
+				"bare-urls": -0.3,
+				"template-checkboxes": -0.45
+			}
+		},
+		"ai/axios-axios-11265.md": {
+			"label": "ai",
+			"probability": 0.955,
+			"signals": {
+				"scope-disclaimer": 0.8,
+				"test-tally": 0.8,
+				"semicolons": 0.64,
+				"long-paragraphs": 0.6,
+				"lint-clean": 0.5,
+				"verification-label": 0.5,
+				"template-headings": 0.5,
+				"code-span-density": 0.25,
+				"now-verbs": 0.2,
+				"commit-shas": 0.13,
+				"colon-bullets": 0.09,
+				"em-dash": 0.06,
+				"first-person": -0.04,
+				"screenshots": -0.11,
+				"unpunctuated-lines": -0.2,
+				"bare-urls": -0.3,
+				"template-checkboxes": -0.45
+			}
+		},
+		"ai/binwiederhier-ntfy-1978.md": {
+			"label": "ai",
+			"probability": 0.785,
+			"signals": {
+				"semicolons": 0.76,
+				"verification-label": 0.5,
+				"scope-disclaimer": 0.4,
+				"long-paragraphs": 0.3,
+				"code-span-density": 0.26,
+				"test-reference": 0.23,
+				"this-pr": -0.27
+			}
+		},
+		"ai/browser-use-browser-use-5966.md": {
+			"label": "ai",
+			"probability": 0.694,
+			"signals": {
+				"semicolons": 0.55,
+				"verification-label": 0.5,
+				"test-tally": 0.4,
+				"test-reference": 0.23,
+				"colon-bullets": 0.18,
+				"agent-vocabulary": 0.13,
+				"this-pr": -0.27
+			}
+		},
+		"ai/charmbracelet-bubbletea-1829.md": {
+			"label": "ai",
+			"probability": 0.988,
+			"signals": {
+				"git-diff-check": 2.5,
+				"code-span-density": 0.87,
+				"em-dash": 0.8,
+				"template-headings": 0.5,
+				"semicolons": 0.42,
+				"test-reference": 0.23,
+				"commit-shas": 0.13,
+				"file-paths": 0.1,
+				"colon-bullets": 0.09,
+				"template-checkboxes": -0.3
+			}
+		},
+		"ai/charmbracelet-lipgloss-748.md": {
+			"label": "ai",
+			"probability": 0.916,
+			"signals": {
+				"code-span-density": 1.4,
+				"template-headings": 1,
+				"existing-precedent": 0.4,
+				"long-paragraphs": 0.3,
+				"semicolons": 0.19
+			}
+		},
+		"ai/chroma-core-chroma-7831.md": {
+			"label": "ai",
+			"probability": 1,
+			"signals": {
+				"agent-attribution": 4,
+				"ai-disclosure": 3,
+				"fails-before-fix": 2.2,
+				"code-span-density": 1.4,
+				"semicolons": 1.14,
+				"file-paths": 0.4,
+				"test-tally": 0.4,
+				"now-verbs": 0.2,
+				"arrows": 0.06,
+				"template-checkboxes": -0.15
+			}
+		},
+		"ai/chroma-core-chroma-7841.md": {
+			"label": "ai",
+			"probability": 0.864,
+			"signals": {
+				"so-chains": 1,
+				"long-paragraphs": 0.6,
+				"template-headings": 0.5,
+				"semicolons": 0.35,
+				"tables": 0.3,
+				"test-reference": 0.23,
+				"em-dash": 0.2,
+				"code-span-density": 0.17,
+				"commit-shas": 0.13,
+				"file-paths": 0.1,
+				"bold-lead-bullets": 0.09,
+				"contractions": -0.02,
+				"unpunctuated-lines": -0.1,
+				"this-pr": -0.8
+			}
+		},
+		"ai/cline-cline-14741.md": {
+			"label": "ai",
+			"probability": 0.998,
+			"signals": {
+				"maintainer-deference": 1.3,
+				"test-tally": 1.2,
+				"fails-before-fix": 1.1,
+				"so-chains": 1,
+				"bold-lead-bullets": 0.64,
+				"code-span-density": 0.55,
+				"lint-clean": 0.5,
+				"scope-disclaimer": 0.4,
+				"existing-precedent": 0.4,
+				"long-paragraphs": 0.3,
+				"em-dash": 0.2,
+				"now-verbs": 0.2,
+				"agent-vocabulary": 0.13,
+				"first-person": -0.12,
+				"unpunctuated-lines": -0.2,
+				"this-pr": -0.27
+			}
+		},
+		"ai/cline-cline-14762.md": {
+			"label": "ai",
+			"probability": 0.997,
+			"signals": {
+				"git-diff-check": 2.5,
+				"epistemic-hedge": 1.5,
+				"bold-lead-bullets": 0.73,
+				"long-paragraphs": 0.6,
+				"commit-shas": 0.5,
+				"file-paths": 0.5,
+				"semicolons": 0.49,
+				"test-reference": 0.47,
+				"scope-disclaimer": 0.4,
+				"code-span-density": 0.31,
+				"tables": 0.26,
+				"arrows": 0.25,
+				"agent-vocabulary": 0.25,
+				"screenshots": -0.34,
+				"this-pr": -0.53,
+				"template-checkboxes": -1.2
+			}
+		},
+		"ai/crewAIInc-crewAI-7849.md": {
+			"label": "ai",
+			"probability": 1,
+			"signals": {
+				"ai-disclosure": 3,
+				"git-diff-check": 2.5,
+				"scope-disclaimer": 1.2,
+				"long-paragraphs": 0.6,
+				"now-verbs": 0.6,
+				"semicolons": 0.56,
+				"code-span-density": 0.46,
+				"test-reference": 0.23,
+				"commit-shas": 0.13,
+				"this-pr": -0.27,
+				"template-checkboxes": -0.3
+			}
+		},
+		"ai/crewAIInc-crewAI-7854.md": {
+			"label": "ai",
+			"probability": 1,
+			"signals": {
+				"agent-attribution": 4,
+				"ai-disclosure": 3,
+				"semicolons": 0.51,
+				"lint-clean": 0.5,
+				"verification-label": 0.5,
+				"file-paths": 0.5,
+				"scope-disclaimer": 0.4,
+				"code-span-density": 0.33,
+				"long-paragraphs": 0.3,
+				"commit-shas": 0.13,
+				"bare-urls": -0.07
+			}
+		},
+		"ai/date-fns-date-fns-4342.md": {
+			"label": "ai",
+			"probability": 0.826,
+			"signals": {
+				"test-reference": 0.7,
+				"semicolons": 0.57,
+				"verification-label": 0.5,
+				"test-tally": 0.4,
+				"code-span-density": 0.29
+			}
+		},
+		"ai/deepspeedai-DeepSpeed-8722.md": {
+			"label": "ai",
+			"probability": 0.933,
+			"signals": {
+				"code-span-density": 0.83,
+				"test-tally": 0.8,
+				"so-chains": 0.67,
+				"long-paragraphs": 0.6,
+				"existing-precedent": 0.4,
+				"semicolons": 0.13,
+				"file-paths": 0.1
+			}
+		},
+		"ai/deepspeedai-DeepSpeed-8724.md": {
+			"label": "ai",
+			"probability": 0.999,
+			"signals": {
+				"ai-disclosure": 3,
+				"code-span-density": 1.23,
+				"test-tally": 1.2,
+				"epistemic-hedge": 0.75,
+				"so-chains": 0.67,
+				"template-headings": 0.5,
+				"file-paths": 0.5,
+				"scope-disclaimer": 0.4,
+				"existing-precedent": 0.4,
+				"colon-bullets": 0.18,
+				"semicolons": 0.13,
+				"first-person": -0.05,
+				"unpunctuated-lines": -0.5
+			}
+		},
+		"ai/denoland-deno-36938.md": {
+			"label": "ai",
+			"probability": 0.513,
+			"signals": {
+				"code-span-density": 1.4,
+				"colon-bullets": 0.18,
+				"unpunctuated-lines": -0.3,
+				"contractions": -0.32
+			}
+		},
+		"ai/diesel-rs-diesel-5259.md": {
+			"label": "ai",
+			"probability": 0.511,
+			"signals": {
+				"code-span-density": 0.94
+			}
+		},
+		"ai/dotnet-aspnetcore-69634.md": {
+			"label": "ai",
+			"probability": 1,
+			"signals": {
+				"agent-attribution": 4,
+				"git-diff-check": 2.5,
+				"scope-disclaimer": 1.2,
+				"bold-lead-bullets": 1.1,
+				"code-span-density": 0.65,
+				"template-headings": 0.5,
+				"file-paths": 0.5,
+				"test-tally": 0.4,
+				"existing-precedent": 0.4,
+				"semicolons": 0.39,
+				"long-paragraphs": 0.3,
+				"colon-bullets": 0.26,
+				"commit-shas": 0.25,
+				"now-verbs": 0.2,
+				"agent-vocabulary": 0.13,
+				"unpunctuated-lines": -0.1,
+				"contractions": -0.19,
+				"this-pr": -0.27,
+				"template-checkboxes": -0.6
+			}
+		},
+		"ai/drizzle-team-drizzle-orm-6414.md": {
+			"label": "ai",
+			"probability": 0.642,
+			"signals": {
+				"code-span-density": 0.79,
+				"template-headings": 0.5,
+				"file-paths": 0.2
+			}
+		},
+		"ai/elastic-elasticsearch-160737.md": {
+			"label": "ai",
+			"probability": 0.723,
+			"signals": {
+				"code-span-density": 0.95,
+				"semicolons": 0.91
+			}
+		},
+		"ai/elastic-elasticsearch-160776.md": {
+			"label": "ai",
+			"probability": 0.69,
+			"signals": {
+				"code-span-density": 1.4,
+				"long-paragraphs": 0.3
+			}
+		},
+		"ai/elastic-elasticsearch-160793.md": {
+			"label": "ai",
+			"probability": 1,
+			"signals": {
+				"agent-attribution": 4,
+				"ai-disclosure": 3,
+				"code-span-density": 1.09,
+				"bold-lead-bullets": 0.92,
+				"scope-disclaimer": 0.4,
+				"long-paragraphs": 0.3,
+				"colon-bullets": 0.26,
+				"arrows": 0.25,
+				"semicolons": 0.22,
+				"now-verbs": 0.2,
+				"agent-vocabulary": 0.13,
+				"contractions": -0.04,
+				"this-pr": -0.27
+			}
+		},
+		"ai/emberjs-ember.js-21650.md": {
+			"label": "ai",
+			"probability": 1,
+			"signals": {
+				"agent-attribution": 4,
+				"ai-disclosure": 3,
+				"code-span-density": 0.62,
+				"lint-clean": 0.5,
+				"template-headings": 0.5,
+				"scope-disclaimer": 0.4,
+				"test-tally": 0.4,
+				"now-verbs": 0.4,
+				"tables": 0.3,
+				"file-paths": 0.1,
+				"colon-bullets": 0.09,
+				"bare-urls": -0.07,
+				"unpunctuated-lines": -0.1,
+				"this-pr": -0.8
+			}
+		},
+		"ai/envoyproxy-envoy-47941.md": {
+			"label": "ai",
+			"probability": 0.989,
+			"signals": {
+				"ai-disclosure": 3,
+				"semicolons": 0.61,
+				"verification-label": 0.5,
+				"existing-precedent": 0.4,
+				"code-span-density": 0.32,
+				"long-paragraphs": 0.3,
+				"test-reference": 0.23,
+				"em-dash": 0.23,
+				"arrows": 0.06,
+				"unpunctuated-lines": -0.1,
+				"first-person": -0.16
+			}
+		},
+		"ai/evanw-esbuild-4546.md": {
+			"label": "ai",
+			"probability": 0.885,
+			"signals": {
+				"code-span-density": 1.4,
+				"template-headings": 0.5,
+				"scope-disclaimer": 0.4,
+				"semicolons": 0.28,
+				"file-paths": 0.2,
+				"em-dash": 0.16
+			}
+		},
+		"ai/evanw-esbuild-4547.md": {
+			"label": "ai",
+			"probability": 0.611,
+			"signals": {
+				"code-span-density": 0.62,
+				"verification-label": 0.5,
+				"test-reference": 0.23
+			}
+		},
+		"ai/facebook-docusaurus-12571.md": {
+			"label": "ai",
+			"probability": 1,
+			"signals": {
+				"agent-attribution": 4,
+				"ai-disclosure": 3,
+				"scope-disclaimer": 1.2,
+				"code-span-density": 1.11,
+				"bold-lead-bullets": 0.73,
+				"colon-bullets": 0.7,
+				"test-tally": 0.4,
+				"so-chains": 0.33,
+				"file-paths": 0.3,
+				"long-paragraphs": 0.3,
+				"now-verbs": 0.2,
+				"semicolons": 0.19,
+				"agent-vocabulary": 0.13,
+				"arrows": 0.06,
+				"contractions": -0.05,
+				"first-person": -0.1,
+				"bare-urls": -0.3,
+				"template-checkboxes": -0.45,
+				"this-pr": -0.8
+			}
+		},
+		"ai/flutter-flutter-193675.md": {
+			"label": "ai",
+			"probability": 0.305,
+			"signals": {
+				"code-span-density": 0.77,
+				"verification-label": 0.5,
+				"scope-disclaimer": 0.4,
+				"so-chains": 0.33,
+				"long-paragraphs": 0.3,
+				"questions": -0.07,
+				"bare-urls": -0.15,
+				"this-pr": -0.8,
+				"template-checkboxes": -1.2
+			}
+		},
+		"ai/flutter-flutter-193710.md": {
+			"label": "ai",
+			"probability": 0.999,
+			"signals": {
+				"ai-disclosure": 3,
+				"git-diff-check": 2.5,
+				"test-tally": 1.2,
+				"fails-before-fix": 1.1,
+				"scope-disclaimer": 0.8,
+				"template-headings": 0.5,
+				"em-dash": 0.42,
+				"test-reference": 0.23,
+				"code-span-density": 0.23,
+				"file-paths": 0.1,
+				"bare-urls": -0.07,
+				"unpunctuated-lines": -0.5,
+				"this-pr": -0.53,
+				"template-checkboxes": -1.2
+			}
+		},
+		"ai/freeCodeCamp-freeCodeCamp-70545.md": {
+			"label": "ai",
+			"probability": 0.274,
+			"signals": {
+				"scope-disclaimer": 0.4,
+				"code-span-density": 0.12,
+				"template-checkboxes": -0.6
+			}
+		},
+		"ai/freeCodeCamp-freeCodeCamp-70546.md": {
+			"label": "ai",
+			"probability": 0.304,
+			"signals": {
+				"code-span-density": 0.47,
+				"now-verbs": 0.2,
+				"template-checkboxes": -0.6
+			}
+		},
+		"ai/freeCodeCamp-freeCodeCamp-70556.md": {
+			"label": "ai",
+			"probability": 0.982,
+			"signals": {
+				"ai-disclosure": 3,
+				"code-span-density": 0.69,
+				"template-headings": 0.5,
+				"scope-disclaimer": 0.4,
+				"so-chains": 0.33,
+				"em-dash": 0.3,
+				"long-paragraphs": 0.3,
+				"file-paths": 0.1,
+				"first-person": -0.11,
+				"template-checkboxes": -0.6
+			}
+		},
+		"ai/freeCodeCamp-freeCodeCamp-70558.md": {
+			"label": "ai",
+			"probability": 0.973,
+			"signals": {
+				"git-diff-check": 2.5,
+				"template-headings": 1,
+				"epistemic-hedge": 0.75,
+				"code-span-density": 0.24
+			}
+		},
+		"ai/freeCodeCamp-freeCodeCamp-70563.md": {
+			"label": "ai",
+			"probability": 0.657,
+			"signals": {
+				"template-headings": 1,
+				"code-span-density": 0.49,
+				"test-tally": 0.4,
+				"em-dash": 0.26,
+				"template-checkboxes": -0.6
+			}
+		},
+		"ai/getsentry-sentry-126286.md": {
+			"label": "ai",
+			"probability": 0.144,
+			"signals": {
+				"commit-shas": 0.5,
+				"long-paragraphs": 0.3,
+				"code-span-density": 0.02,
+				"bare-urls": -0.3,
+				"unpunctuated-lines": -0.5,
+				"screenshots": -0.9
+			}
+		},
+		"ai/getsentry-sentry-126329.md": {
+			"label": "ai",
+			"probability": 0.533,
+			"signals": {
+				"code-span-density": 1.4,
+				"contractions": -0.37
+			}
+		},
+		"ai/go-chi-chi-1199.md": {
+			"label": "ai",
+			"probability": 0.985,
+			"signals": {
+				"ai-disclosure": 3,
+				"epistemic-hedge": 0.75,
+				"code-span-density": 0.71,
+				"existing-precedent": 0.4,
+				"test-reference": 0.23
+			}
+		},
+		"ai/gofiber-fiber-4730.md": {
+			"label": "ai",
+			"probability": 0.999,
+			"signals": {
+				"agent-attribution": 4,
+				"ai-disclosure": 3,
+				"code-span-density": 1.4,
+				"semicolons": 0.23,
+				"file-paths": 0.2,
+				"arrows": 0.13,
+				"colon-bullets": 0.09,
+				"unpunctuated-lines": -0.1,
+				"template-checkboxes": -0.45
+			}
+		},
+		"ai/grafana-alloy-7277.md": {
+			"label": "ai",
+			"probability": 0.604,
+			"signals": {
+				"code-span-density": 0.73,
+				"template-headings": 0.5,
+				"colon-bullets": 0.09
+			}
+		},
+		"ai/grafana-alloy-7287.md": {
+			"label": "ai",
+			"probability": 0.296,
+			"signals": {
+				"long-paragraphs": 0.6,
+				"now-verbs": 0.2,
+				"file-paths": 0.1,
+				"this-pr": -0.27,
+				"template-checkboxes": -0.6
+			}
+		},
+		"ai/grafana-grafana-134010.md": {
+			"label": "ai",
+			"probability": 0.625,
+			"signals": {
+				"fails-before-fix": 1.1,
+				"test-tally": 0.4,
+				"test-reference": 0.23,
+				"code-span-density": 0.16,
+				"colon-bullets": 0.09,
+				"first-person": -0.13,
+				"template-checkboxes": -0.45
+			}
+		},
+		"ai/grafana-k6-6516.md": {
+			"label": "ai",
+			"probability": 0.997,
+			"signals": {
+				"ai-disclosure": 3,
+				"code-span-density": 1.4,
+				"fails-before-fix": 1.1,
+				"epistemic-hedge": 0.75,
+				"semicolons": 0.43,
+				"existing-precedent": 0.4,
+				"test-reference": 0.23,
+				"now-verbs": 0.2,
+				"bold-lead-bullets": 0.18,
+				"contractions": -0.08,
+				"first-person": -0.17,
+				"this-pr": -0.27,
+				"template-checkboxes": -0.6
+			}
+		},
+		"ai/grafana-loki-24872.md": {
+			"label": "ai",
+			"probability": 0.715,
+			"signals": {
+				"fails-before-fix": 1.1,
+				"code-span-density": 0.57,
+				"scope-disclaimer": 0.4,
+				"so-chains": 0.33,
+				"file-paths": 0.2,
+				"now-verbs": 0.2,
+				"first-person": -0.09,
+				"template-checkboxes": -0.9
+			}
+		},
+		"ai/grafana-loki-24884.md": {
+			"label": "ai",
+			"probability": 0.996,
+			"signals": {
+				"ai-disclosure": 3,
+				"scope-disclaimer": 1.2,
+				"verification-label": 1,
+				"code-span-density": 0.82,
+				"so-chains": 0.67,
+				"long-paragraphs": 0.6,
+				"existing-precedent": 0.4,
+				"semicolons": 0.22,
+				"file-paths": 0.2,
+				"arrows": 0.06,
+				"tables": 0.06,
+				"contractions": -0.08,
+				"first-person": -0.17,
+				"this-pr": -0.53,
+				"template-checkboxes": -0.9
+			}
+		},
+		"ai/hashicorp-vault-32136.md": {
+			"label": "ai",
+			"probability": 0.959,
+			"signals": {
+				"git-diff-check": 2.5,
+				"code-span-density": 0.74,
+				"template-headings": 0.5,
+				"long-paragraphs": 0.3
+			}
+		},
+		"ai/helix-editor-helix-16336.md": {
+			"label": "ai",
+			"probability": 0.969,
+			"signals": {
+				"ai-disclosure": 3,
+				"long-paragraphs": 0.6,
+				"existing-precedent": 0.4,
+				"code-span-density": 0.3,
+				"test-reference": 0.23,
+				"semicolons": 0.23,
+				"bare-urls": -0.07,
+				"first-person": -0.09,
+				"contractions": -0.26
+			}
+		},
+		"ai/helix-editor-helix-16337.md": {
+			"label": "ai",
+			"probability": 0.386,
+			"signals": {
+				"code-span-density": 0.31,
+				"commit-shas": 0.13
+			}
+		},
+		"ai/helix-editor-helix-16338.md": {
+			"label": "ai",
+			"probability": 0.399,
+			"signals": {
+				"code-span-density": 0.26,
+				"test-reference": 0.23
+			}
+		},
+		"ai/home-assistant-core-183934.md": {
+			"label": "ai",
+			"probability": 0.247,
+			"signals": {
+				"code-span-density": 0.45,
+				"scope-disclaimer": 0.4,
+				"existing-precedent": 0.4,
+				"long-paragraphs": 0.3,
+				"now-verbs": 0.2,
+				"colon-bullets": 0.09,
+				"first-person": -0.05,
+				"this-pr": -0.8,
+				"template-checkboxes": -1.2
+			}
+		},
+		"ai/home-assistant-core-184000.md": {
 			"label": "ai",
 			"probability": 0.519,
 			"signals": {
-				"code-span-density": 0.68,
+				"code-span-density": 1.15,
+				"file-paths": 0.3,
+				"long-paragraphs": 0.3,
+				"arrows": 0.25,
+				"tables": 0.24,
+				"semicolons": 0.2,
+				"this-pr": -0.27,
+				"template-checkboxes": -1.2
+			}
+		},
+		"ai/home-assistant-core-184059.md": {
+			"label": "ai",
+			"probability": 0.193,
+			"signals": {
 				"scope-disclaimer": 0.4,
+				"colon-bullets": 0.26,
+				"test-reference": 0.23,
+				"code-span-density": 0.19,
+				"bare-urls": -0.15,
+				"this-pr": -0.27,
+				"template-checkboxes": -1.2
+			}
+		},
+		"ai/honojs-hono-5503.md": {
+			"label": "ai",
+			"probability": 0.999,
+			"signals": {
+				"agent-attribution": 4,
+				"ai-disclosure": 3,
+				"code-span-density": 1.27,
+				"colon-bullets": 0.26,
+				"contractions": -0.05,
+				"first-person": -0.06,
+				"template-checkboxes": -0.6
+			}
+		},
+		"ai/huggingface-peft-3860.md": {
+			"label": "ai",
+			"probability": 0.98,
+			"signals": {
+				"scope-disclaimer": 0.8,
+				"test-tally": 0.8,
+				"epistemic-hedge": 0.75,
+				"code-span-density": 0.74,
+				"template-headings": 0.5,
+				"arrows": 0.44,
+				"existing-precedent": 0.4,
+				"colon-bullets": 0.35,
+				"semicolons": 0.34,
+				"so-chains": 0.33,
+				"file-paths": 0.3,
+				"test-reference": 0.23,
+				"tables": 0.14,
+				"em-dash": 0.06,
+				"questions": -0.07,
+				"unpunctuated-lines": -0.5,
+				"this-pr": -0.8
+			}
+		},
+		"ai/huggingface-transformers-49257.md": {
+			"label": "ai",
+			"probability": 0.45,
+			"signals": {
+				"template-headings": 0.5,
+				"test-reference": 0.47,
+				"long-paragraphs": 0.3,
+				"questions": -0.07,
+				"screenshots": -0.22,
+				"this-pr": -0.27
+			}
+		},
+		"ai/invoke-ai-InvokeAI-9638.md": {
+			"label": "ai",
+			"probability": 0.521,
+			"signals": {
+				"code-span-density": 1.4,
+				"existing-precedent": 0.4,
+				"so-chains": 0.33,
+				"file-paths": 0.1,
+				"colon-bullets": 0.09,
+				"this-pr": -0.27,
+				"contractions": -0.32,
+				"template-checkboxes": -0.75
+			}
+		},
+		"ai/jaegertracing-jaeger-9722.md": {
+			"label": "ai",
+			"probability": 0.872,
+			"signals": {
+				"template-headings": 1,
+				"epistemic-hedge": 0.75,
+				"code-span-density": 0.64,
+				"scope-disclaimer": 0.4,
+				"semicolons": 0.31,
+				"first-person": -0.12,
+				"template-checkboxes": -0.15
+			}
+		},
+		"ai/jestjs-jest-16478.md": {
+			"label": "ai",
+			"probability": 0.983,
+			"signals": {
+				"fails-before-fix": 1.1,
+				"code-span-density": 0.8,
+				"test-tally": 0.8,
+				"semicolons": 0.6,
+				"scope-disclaimer": 0.4,
+				"existing-precedent": 0.4,
+				"long-paragraphs": 0.3,
+				"commit-shas": 0.25,
+				"arrows": 0.25,
+				"test-reference": 0.23,
+				"colon-bullets": 0.09,
+				"this-pr": -0.27
+			}
+		},
+		"ai/juanfont-headscale-3521.md": {
+			"label": "ai",
+			"probability": 0.917,
+			"signals": {
+				"ai-disclosure": 3,
+				"long-paragraphs": 0.3
+			}
+		},
+		"ai/jupyterlab-jupyterlab-19974.md": {
+			"label": "ai",
+			"probability": 0.879,
+			"signals": {
+				"ai-disclosure": 3,
+				"colon-bullets": 0.26,
+				"test-reference": 0.23,
+				"bold-lead-bullets": 0.18,
+				"this-pr": -0.8
+			}
+		},
+		"ai/k3s-io-k3s-14732.md": {
+			"label": "ai",
+			"probability": 0.992,
+			"signals": {
+				"ai-disclosure": 3,
+				"so-chains": 1,
+				"code-span-density": 0.87,
+				"maintainer-deference": 0.65,
+				"file-paths": 0.5,
+				"long-paragraphs": 0.3,
+				"test-reference": 0.23,
+				"first-person": -0.29,
+				"unpunctuated-lines": -0.5
+			}
+		},
+		"ai/kubernetes-kubernetes-142600.md": {
+			"label": "ai",
+			"probability": 0.991,
+			"signals": {
+				"ai-disclosure": 3,
+				"code-span-density": 1.4,
+				"semicolons": 1.15,
+				"arrows": 0.38,
+				"now-verbs": 0.2,
+				"colon-bullets": 0.18,
+				"em-dash": 0.13,
+				"bare-urls": -0.07,
+				"contractions": -0.17,
+				"first-person": -0.27,
+				"this-pr": -0.27
+			}
+		},
+		"ai/kubernetes-website-57853.md": {
+			"label": "ai",
+			"probability": 0.931,
+			"signals": {
+				"ai-disclosure": 3,
+				"code-span-density": 0.84,
+				"long-paragraphs": 0.3,
+				"first-person": -0.64
+			}
+		},
+		"ai/kubernetes-website-57859.md": {
+			"label": "ai",
+			"probability": 0.942,
+			"signals": {
+				"ai-disclosure": 3,
+				"semicolons": 0.33,
+				"code-span-density": 0.26,
+				"file-paths": 0.1
+			}
+		},
+		"ai/langchain-ai-langchain-41001.md": {
+			"label": "ai",
+			"probability": 0.645,
+			"signals": {
+				"code-span-density": 0.71,
+				"semicolons": 0.41,
+				"test-reference": 0.23,
+				"commit-shas": 0.13,
+				"colon-bullets": 0.09,
+				"bare-urls": -0.07
+			}
+		},
+		"ai/langgenius-dify-43327.md": {
+			"label": "ai",
+			"probability": 0.983,
+			"signals": {
+				"git-diff-check": 2.5,
+				"semicolons": 0.79,
+				"template-headings": 0.5,
+				"scope-disclaimer": 0.4,
+				"test-tally": 0.4,
+				"code-span-density": 0.31,
+				"colon-bullets": 0.09
+			}
+		},
+		"ai/langgenius-dify-43329.md": {
+			"label": "ai",
+			"probability": 0.124,
+			"signals": {
+				"code-span-density": 0.33,
+				"test-reference": 0.23,
+				"tables": 0.02,
+				"contractions": -0.35,
+				"this-pr": -0.53,
+				"template-checkboxes": -0.75
+			}
+		},
+		"ai/langgenius-dify-43337.md": {
+			"label": "ai",
+			"probability": 0.962,
+			"signals": {
+				"fails-before-fix": 1.1,
+				"so-chains": 0.67,
+				"template-headings": 0.5,
+				"code-span-density": 0.45,
+				"file-paths": 0.4,
+				"test-tally": 0.4,
+				"long-paragraphs": 0.3,
+				"test-reference": 0.23,
+				"colon-bullets": 0.09
+			}
+		},
+		"ai/langgenius-dify-43354.md": {
+			"label": "ai",
+			"probability": 0.85,
+			"signals": {
+				"fails-before-fix": 1.1,
+				"epistemic-hedge": 0.75,
+				"code-span-density": 0.52,
+				"template-headings": 0.5,
+				"semicolons": 0.43,
+				"colon-bullets": 0.26,
+				"test-reference": 0.23,
+				"tables": 0.02,
+				"contractions": -0.16,
+				"this-pr": -0.27,
+				"template-checkboxes": -0.75
+			}
+		},
+		"ai/lobehub-lobehub-20275.md": {
+			"label": "ai",
+			"probability": 0.965,
+			"signals": {
+				"ai-disclosure": 3,
+				"code-span-density": 0.43,
+				"semicolons": 0.42,
+				"long-paragraphs": 0.3,
+				"em-dash": 0.23,
+				"now-verbs": 0.2,
+				"colon-bullets": 0.09,
+				"template-checkboxes": -0.45
+			}
+		},
+		"ai/mem0ai-mem0-7530.md": {
+			"label": "ai",
+			"probability": 0.957,
+			"signals": {
+				"code-span-density": 1.4,
+				"fails-before-fix": 1.1,
+				"lint-clean": 0.5,
+				"test-tally": 0.4,
+				"long-paragraphs": 0.3,
+				"file-paths": 0.2,
+				"now-verbs": 0.2,
+				"unpunctuated-lines": -0.1
+			}
+		},
+		"ai/micronaut-projects-micronaut-core-13628.md": {
+			"label": "ai",
+			"probability": 0.945,
+			"signals": {
+				"scope-disclaimer": 1.2,
+				"template-headings": 0.5,
+				"colon-bullets": 0.44,
+				"code-span-density": 0.31,
+				"tables": 0.3,
+				"semicolons": 0.29,
+				"test-reference": 0.23,
+				"commit-shas": 0.13,
+				"arrows": 0.13,
+				"agent-vocabulary": 0.13,
+				"bold-lead-bullets": 0.09
+			}
+		},
+		"ai/microsoft-vscode-339107.md": {
+			"label": "ai",
+			"probability": 0.977,
+			"signals": {
+				"code-span-density": 0.78,
+				"so-chains": 0.67,
+				"long-paragraphs": 0.6,
+				"template-headings": 0.5,
+				"file-paths": 0.5,
+				"existing-precedent": 0.4,
+				"now-verbs": 0.4,
+				"agent-vocabulary": 0.25,
+				"tables": 0.2,
+				"em-dash": 0.18,
+				"semicolons": 0.11,
+				"bold-lead-bullets": 0.09,
+				"contractions": -0.02
+			}
+		},
+		"ai/microsoft-vscode-339129.md": {
+			"label": "ai",
+			"probability": 0.999,
+			"signals": {
+				"git-diff-check": 2.5,
+				"semicolons": 1.6,
+				"code-span-density": 1.4,
+				"template-headings": 1,
+				"colon-bullets": 0.7,
+				"file-paths": 0.5,
+				"test-tally": 0.4,
+				"bold-lead-bullets": 0.28,
+				"this-pr": -0.27
+			}
+		},
+		"ai/n8n-io-n8n-40082.md": {
+			"label": "ai",
+			"probability": 0.059,
+			"signals": {
+				"commit-shas": 0.5,
+				"code-span-density": 0.14,
+				"file-paths": 0.1,
+				"contractions": -0.05,
+				"this-pr": -0.27,
+				"bare-urls": -0.3,
+				"unpunctuated-lines": -0.5,
+				"template-checkboxes": -0.6,
+				"screenshots": -0.9
+			}
+		},
+		"ai/nestjs-nest-17978.md": {
+			"label": "ai",
+			"probability": 0.595,
+			"signals": {
+				"code-span-density": 1.22,
+				"scope-disclaimer": 1.2,
+				"em-dash": 0.11,
+				"file-paths": 0.1,
+				"bare-urls": -0.07,
+				"questions": -0.07,
+				"template-checkboxes": -1.2
+			}
+		},
+		"ai/nodejs-node-66453.md": {
+			"label": "ai",
+			"probability": 0.977,
+			"signals": {
+				"ai-disclosure": 3,
+				"code-span-density": 1.4,
+				"semicolons": 0.67,
+				"file-paths": 0.1,
+				"first-person": -0.53
+			}
+		},
+		"ai/nrwl-nx-37249.md": {
+			"label": "ai",
+			"probability": 0.922,
+			"signals": {
+				"fails-before-fix": 2.2,
+				"code-span-density": 0.9,
+				"long-paragraphs": 0.6,
+				"now-verbs": 0.2,
+				"contractions": -0.09,
+				"first-person": -0.18,
+				"this-pr": -0.27
+			}
+		},
+		"ai/ollama-ollama-18745.md": {
+			"label": "ai",
+			"probability": 0.652,
+			"signals": {
+				"code-span-density": 0.9,
+				"scope-disclaimer": 0.4,
+				"so-chains": 0.33,
+				"first-person": -0.11
+			}
+		},
+		"ai/onyx-dot-app-onyx-15398.md": {
+			"label": "ai",
+			"probability": 1,
+			"signals": {
+				"agent-attribution": 4,
+				"ai-disclosure": 3,
+				"so-chains": 1,
+				"stacked-pr": 0.8,
+				"scope-disclaimer": 0.8,
+				"code-span-density": 0.78,
+				"bold-lead-bullets": 0.73,
+				"colon-bullets": 0.7,
+				"existing-precedent": 0.4,
+				"semicolons": 0.29,
+				"test-reference": 0.23,
+				"now-verbs": 0.2,
+				"commit-shas": 0.13,
+				"file-paths": 0.1,
+				"screenshots": -0.11,
+				"unpunctuated-lines": -0.2,
+				"this-pr": -0.27,
+				"template-checkboxes": -0.3,
+				"bare-urls": -0.3
+			}
+		},
+		"ai/open-telemetry-opentelemetry-collector-16078.md": {
+			"label": "ai",
+			"probability": 0.831,
+			"signals": {
+				"so-chains": 1,
+				"code-span-density": 0.85,
+				"now-verbs": 0.6,
+				"scope-disclaimer": 0.4,
+				"long-paragraphs": 0.3,
+				"first-person": -0.12,
+				"contractions": -0.12,
+				"template-checkboxes": -0.15,
+				"this-pr": -0.27
+			}
+		},
+		"ai/open-webui-open-webui-31865.md": {
+			"label": "ai",
+			"probability": 0.553,
+			"signals": {
+				"scope-disclaimer": 0.8,
+				"code-span-density": 0.68,
+				"so-chains": 0.67,
+				"existing-precedent": 0.4,
+				"semicolons": 0.33,
+				"long-paragraphs": 0.3,
+				"em-dash": 0.18,
+				"first-person": -0.04,
+				"bare-urls": -0.07,
+				"contractions": -0.12,
+				"this-pr": -0.8,
+				"template-checkboxes": -1.2
+			}
+		},
+		"ai/openclaw-openclaw-162624.md": {
+			"label": "ai",
+			"probability": 0.819,
+			"signals": {
+				"fails-before-fix": 1.1,
+				"code-span-density": 0.81,
+				"lint-clean": 0.5
+			}
+		},
+		"ai/openclaw-openclaw-162665.md": {
+			"label": "ai",
+			"probability": 1,
+			"signals": {
+				"agent-attribution": 4,
+				"git-diff-check": 2.5,
+				"fails-before-fix": 1.1,
+				"semicolons": 0.81,
+				"test-tally": 0.8,
+				"epistemic-hedge": 0.75,
+				"code-span-density": 0.1,
+				"file-paths": 0.1
+			}
+		},
+		"ai/openclaw-openclaw-162684.md": {
+			"label": "ai",
+			"probability": 1,
+			"signals": {
+				"ai-disclosure": 3,
+				"live-verification": 1.2,
+				"scope-disclaimer": 1.2,
+				"lint-clean": 1,
+				"so-chains": 1,
+				"code-span-density": 0.88,
+				"epistemic-hedge": 0.75,
+				"long-paragraphs": 0.6,
+				"file-paths": 0.5,
+				"now-verbs": 0.4,
+				"colon-bullets": 0.35,
+				"test-reference": 0.23,
+				"semicolons": 0.04,
+				"questions": -0.07,
+				"unpunctuated-lines": -0.1,
+				"this-pr": -0.53
+			}
+		},
+		"ai/openclaw-openclaw-162887.md": {
+			"label": "ai",
+			"probability": 0.928,
+			"signals": {
+				"scope-disclaimer": 1.2,
+				"semicolons": 0.96,
+				"colon-bullets": 0.61,
+				"long-paragraphs": 0.6,
+				"commit-shas": 0.5,
+				"file-paths": 0.5,
+				"test-reference": 0.23,
+				"code-span-density": 0.21,
+				"now-verbs": 0.2,
+				"bold-lead-bullets": 0.09,
+				"em-dash": 0.08,
+				"arrows": 0.06,
+				"unpunctuated-lines": -0.1,
+				"this-pr": -0.8,
+				"screenshots": -0.9
+			}
+		},
+		"ai/openclaw-openclaw-162985.md": {
+			"label": "ai",
+			"probability": 0.928,
+			"signals": {
+				"template-headings": 1,
+				"semicolons": 0.84,
+				"code-span-density": 0.49,
+				"test-tally": 0.4,
+				"file-paths": 0.2,
+				"now-verbs": 0.2,
+				"arrows": 0.19,
+				"colon-bullets": 0.18,
+				"em-dash": 0.12,
+				"template-checkboxes": -0.15
+			}
+		},
+		"ai/openclaw-openclaw-163016.md": {
+			"label": "ai",
+			"probability": 1,
+			"signals": {
+				"agent-attribution": 4,
+				"git-diff-check": 2.5,
+				"review-severity": 2,
+				"scope-disclaimer": 1.2,
+				"test-tally": 1.2,
+				"semicolons": 1.18,
+				"so-chains": 1,
+				"long-paragraphs": 0.6,
+				"now-verbs": 0.6,
+				"lint-clean": 0.5,
+				"file-paths": 0.5,
+				"code-span-density": 0.39,
+				"colon-bullets": 0.35,
+				"tables": 0.3,
+				"commit-shas": 0.25,
+				"bold-lead-bullets": 0.18,
+				"agent-vocabulary": 0.13,
+				"arrows": 0.06,
+				"first-person": 0,
+				"contractions": -0.01,
+				"this-pr": -0.27,
+				"bare-urls": -0.3
+			}
+		},
+		"ai/openclaw-openclaw-163154.md": {
+			"label": "ai",
+			"probability": 1,
+			"signals": {
+				"agent-attribution": 4,
+				"review-severity": 2,
+				"test-tally": 0.8,
+				"semicolons": 0.62,
+				"long-paragraphs": 0.6,
+				"commit-shas": 0.5,
+				"agent-vocabulary": 0.5,
+				"now-verbs": 0.2,
+				"code-span-density": 0.13,
+				"file-paths": 0.1,
+				"bold-lead-bullets": 0.09,
+				"this-pr": -0.27
+			}
+		},
+		"ai/openclaw-openclaw-163545.md": {
+			"label": "ai",
+			"probability": 0.999,
+			"signals": {
+				"agent-attribution": 4,
+				"live-verification": 1.2,
+				"test-tally": 1.2,
+				"file-paths": 0.5,
+				"semicolons": 0.41,
+				"code-span-density": 0.4,
+				"commit-shas": 0.38,
+				"em-dash": 0.28,
+				"colon-bullets": 0.26,
+				"agent-vocabulary": 0.13,
+				"screenshots": -0.45
+			}
+		},
+		"ai/openclaw-openclaw-163555.md": {
+			"label": "ai",
+			"probability": 0.963,
+			"signals": {
+				"fails-before-fix": 1.1,
+				"scope-disclaimer": 0.8,
+				"test-tally": 0.8,
+				"code-span-density": 0.65,
+				"template-headings": 0.5,
+				"file-paths": 0.5,
+				"semicolons": 0.44,
+				"colon-bullets": 0.18,
+				"this-pr": -0.8
+			}
+		},
+		"ai/openclaw-openclaw-163589.md": {
+			"label": "ai",
+			"probability": 0.962,
+			"signals": {
+				"code-span-density": 0.77,
+				"long-paragraphs": 0.6,
+				"bold-lead-bullets": 0.55,
+				"template-headings": 0.5,
+				"file-paths": 0.5,
+				"test-tally": 0.4,
+				"existing-precedent": 0.4,
+				"now-verbs": 0.4
+			}
+		},
+		"ai/openrct2-OpenRCT2-27224.md": {
+			"label": "ai",
+			"probability": 0.859,
+			"signals": {
+				"ai-disclosure": 3,
+				"scope-disclaimer": 0.4,
+				"code-span-density": 0.31,
+				"first-person": -1
+			}
+		},
+		"ai/pandas-dev-pandas-70108.md": {
+			"label": "ai",
+			"probability": 0.542,
+			"signals": {
+				"code-span-density": 0.83,
+				"so-chains": 0.67,
+				"long-paragraphs": 0.6,
+				"verification-label": 0.5,
+				"now-verbs": 0.4,
+				"file-paths": 0.1,
+				"tables": 0.09,
+				"first-person": -0.12,
+				"this-pr": -0.8,
+				"template-checkboxes": -1.2
+			}
+		},
+		"ai/pandas-dev-pandas-70150.md": {
+			"label": "ai",
+			"probability": 0.989,
+			"signals": {
+				"ai-disclosure": 3,
+				"code-span-density": 1.4,
+				"colon-bullets": 0.7,
+				"now-verbs": 0.2,
+				"agent-vocabulary": 0.13
+			}
+		},
+		"ai/payloadcms-payload-18429.md": {
+			"label": "ai",
+			"probability": 0.996,
+			"signals": {
+				"fails-before-fix": 2.2,
+				"code-span-density": 1.27,
+				"test-tally": 0.8,
+				"lint-clean": 0.5,
+				"template-headings": 0.5,
+				"scope-disclaimer": 0.4,
+				"existing-precedent": 0.4,
+				"long-paragraphs": 0.3,
+				"file-paths": 0.2,
+				"colon-bullets": 0.09,
+				"first-person": -0.08,
+				"contractions": -0.08
+			}
+		},
+		"ai/payloadcms-payload-18450.md": {
+			"label": "ai",
+			"probability": 0.835,
+			"signals": {
+				"scope-disclaimer": 1.2,
+				"code-span-density": 0.93,
+				"em-dash": 0.33,
+				"bold-lead-bullets": 0.28,
+				"file-paths": 0.2,
+				"now-verbs": 0.2,
+				"contractions": -0.04,
+				"bare-urls": -0.07,
+				"unpunctuated-lines": -0.5
+			}
+		},
+		"ai/playcanvas-engine-9635.md": {
+			"label": "ai",
+			"probability": 1,
+			"signals": {
+				"agent-attribution": 4,
+				"ai-disclosure": 3,
+				"scope-disclaimer": 1.2,
+				"code-span-density": 0.8,
+				"template-headings": 0.5,
+				"bold-lead-bullets": 0.37,
+				"so-chains": 0.33,
+				"semicolons": 0.27,
+				"tables": 0.14
+			}
+		},
+		"ai/plotly-plotly.js-8096.md": {
+			"label": "ai",
+			"probability": 0.992,
+			"signals": {
+				"fails-before-fix": 2.2,
+				"code-span-density": 1.4,
+				"epistemic-hedge": 0.75,
+				"template-headings": 0.5,
+				"file-paths": 0.4,
+				"long-paragraphs": 0.3,
+				"test-reference": 0.23,
+				"now-verbs": 0.2,
+				"bare-urls": -0.07,
+				"first-person": -0.16
+			}
+		},
+		"ai/pnpm-pnpm-16507.md": {
+			"label": "ai",
+			"probability": 0.988,
+			"signals": {
+				"ai-disclosure": 3,
+				"live-verification": 1.2,
+				"so-chains": 1,
+				"semicolons": 0.68,
+				"colon-bullets": 0.52,
+				"file-paths": 0.5,
+				"code-span-density": 0.38,
+				"now-verbs": 0.2,
+				"agent-vocabulary": 0.13,
+				"tables": 0.08,
+				"arrows": 0.06,
+				"screenshots": -0.22,
+				"bare-urls": -0.3,
+				"questions": -0.3,
+				"unpunctuated-lines": -0.5,
+				"this-pr": -0.53,
+				"template-checkboxes": -0.6
+			}
+		},
+		"ai/pnpm-pnpm-16510.md": {
+			"label": "ai",
+			"probability": 0.137,
+			"signals": {
+				"now-verbs": 0.4,
+				"so-chains": 0.33,
+				"long-paragraphs": 0.3,
+				"code-span-density": 0.28,
+				"semicolons": 0.12,
+				"questions": -0.07,
+				"screenshots": -0.22,
+				"bare-urls": -0.3,
+				"unpunctuated-lines": -0.5,
+				"this-pr": -0.53,
+				"template-checkboxes": -0.75
+			}
+		},
+		"ai/pnpm-pnpm-16512.md": {
+			"label": "ai",
+			"probability": 0.978,
+			"signals": {
+				"ai-disclosure": 3,
+				"code-span-density": 1,
+				"long-paragraphs": 0.6,
+				"verification-label": 0.5,
+				"test-tally": 0.4,
+				"existing-precedent": 0.4,
+				"so-chains": 0.33,
+				"first-person": -0.16,
+				"this-pr": -0.27,
+				"unpunctuated-lines": -0.5,
+				"template-checkboxes": -0.6
+			}
+		},
+		"ai/pnpm-pnpm-16524.md": {
+			"label": "ai",
+			"probability": 0.417,
+			"signals": {
+				"code-span-density": 0.66,
+				"template-headings": 0.5,
+				"test-reference": 0.47,
+				"questions": -0.07,
+				"unpunctuated-lines": -0.2,
+				"screenshots": -0.22,
+				"this-pr": -0.27,
+				"bare-urls": -0.3
+			}
+		},
+		"ai/pr1.md": {
+			"label": "ai",
+			"probability": 0.878,
+			"signals": {
+				"fails-before-fix": 1.1,
+				"scope-disclaimer": 0.8,
+				"code-span-density": 0.68,
+				"existing-precedent": 0.4,
 				"agent-vocabulary": 0.13,
 				"arrows": 0.06,
 				"contractions": -0.29
@@ -37,14 +2078,719 @@
 		},
 		"ai/pr4.md": {
 			"label": "ai",
-			"probability": 0.982,
+			"probability": 0.992,
 			"signals": {
 				"git-diff-check": 2.5,
 				"test-tally": 0.8,
 				"code-span-density": 0.64,
 				"file-paths": 0.5,
+				"scope-disclaimer": 0.4,
+				"existing-precedent": 0.4,
 				"em-dash": 0.25,
 				"semicolons": 0.22
+			}
+		},
+		"ai/prisma-orm-30575.md": {
+			"label": "ai",
+			"probability": 0.939,
+			"signals": {
+				"fails-before-fix": 1.1,
+				"code-span-density": 0.94,
+				"template-headings": 0.5,
+				"scope-disclaimer": 0.4,
+				"long-paragraphs": 0.3,
+				"file-paths": 0.2,
+				"now-verbs": 0.2
+			}
+		},
+		"ai/prisma-orm-30577.md": {
+			"label": "ai",
+			"probability": 1,
+			"signals": {
+				"agent-attribution": 4,
+				"ai-disclosure": 3,
+				"scope-disclaimer": 1.2,
+				"bold-lead-bullets": 1.1,
+				"so-chains": 1,
+				"code-span-density": 0.87,
+				"file-paths": 0.5,
+				"colon-bullets": 0.35,
+				"semicolons": 0.32,
+				"long-paragraphs": 0.3,
+				"agent-vocabulary": 0.25,
+				"now-verbs": 0.2,
+				"em-dash": 0.04,
+				"template-checkboxes": -0.75,
+				"this-pr": -0.8
+			}
+		},
+		"ai/pulumi-pulumi-24995.md": {
+			"label": "ai",
+			"probability": 0.888,
+			"signals": {
+				"scope-disclaimer": 1.2,
+				"fails-before-fix": 1.1,
+				"long-paragraphs": 0.6,
+				"code-span-density": 0.58,
+				"so-chains": 0.33,
+				"test-reference": 0.23,
+				"em-dash": 0.22,
+				"now-verbs": 0.2,
+				"first-person": -0.03,
+				"this-pr": -0.27,
+				"template-checkboxes": -1.2
+			}
+		},
+		"ai/pulumi-pulumi-25007.md": {
+			"label": "ai",
+			"probability": 0.901,
+			"signals": {
+				"fails-before-fix": 1.1,
+				"code-span-density": 0.97,
+				"template-headings": 0.5,
+				"long-paragraphs": 0.3,
+				"agent-vocabulary": 0.25,
+				"test-reference": 0.23,
+				"semicolons": 0.13,
+				"first-person": -0.11,
+				"this-pr": -0.27
+			}
+		},
+		"ai/pytest-dev-pytest-15120.md": {
+			"label": "ai",
+			"probability": 0.883,
+			"signals": {
+				"code-span-density": 1.1,
+				"test-tally": 0.8,
+				"template-headings": 0.5,
+				"scope-disclaimer": 0.4,
+				"file-paths": 0.3,
+				"test-reference": 0.23,
+				"em-dash": 0.22,
+				"semicolons": 0.13,
+				"this-pr": -0.27,
+				"unpunctuated-lines": -0.5
+			}
+		},
+		"ai/pytorch-pytorch-199273.md": {
+			"label": "ai",
+			"probability": 0.976,
+			"signals": {
+				"code-span-density": 1.38,
+				"template-headings": 1,
+				"so-chains": 1,
+				"test-reference": 0.47,
+				"scope-disclaimer": 0.4,
+				"long-paragraphs": 0.3,
+				"file-paths": 0.2,
+				"colon-bullets": 0.09,
+				"contractions": -0.06,
+				"first-person": -0.19
+			}
+		},
+		"ai/pytorch-pytorch-199284.md": {
+			"label": "ai",
+			"probability": 0.992,
+			"signals": {
+				"ai-disclosure": 3,
+				"so-chains": 1,
+				"test-tally": 0.8,
+				"now-verbs": 0.6,
+				"file-paths": 0.5,
+				"semicolons": 0.41,
+				"first-person": -0.05,
+				"unpunctuated-lines": -0.5
+			}
+		},
+		"ai/pytorch-pytorch-199415.md": {
+			"label": "ai",
+			"probability": 0.907,
+			"signals": {
+				"ai-disclosure": 3,
+				"commit-shas": 0.5,
+				"scope-disclaimer": 0.4,
+				"existing-precedent": 0.4,
+				"so-chains": 0.33,
+				"semicolons": 0.18,
+				"code-span-density": 0.17,
+				"file-paths": 0.1,
+				"questions": -0.07,
+				"unpunctuated-lines": -0.1,
+				"bare-urls": -0.3,
+				"this-pr": -0.53,
+				"screenshots": -0.9
+			}
+		},
+		"ai/pytorch-pytorch-199416.md": {
+			"label": "ai",
+			"probability": 0.949,
+			"signals": {
+				"ai-disclosure": 3,
+				"semicolons": 0.48,
+				"code-span-density": 0.37,
+				"test-reference": 0.23,
+				"file-paths": 0.1,
+				"unpunctuated-lines": -0.1,
+				"this-pr": -0.27
+			}
+		},
+		"ai/qdrant-qdrant-10909.md": {
+			"label": "ai",
+			"probability": 0.993,
+			"signals": {
+				"code-span-density": 1.33,
+				"template-headings": 1,
+				"so-chains": 1,
+				"long-paragraphs": 0.6,
+				"semicolons": 0.45,
+				"scope-disclaimer": 0.4,
+				"colon-bullets": 0.35,
+				"file-paths": 0.3,
+				"bold-lead-bullets": 0.28,
+				"now-verbs": 0.2,
+				"agent-vocabulary": 0.13,
+				"em-dash": 0.1,
+				"this-pr": -0.27
+			}
+		},
+		"ai/react-react-native-58806.md": {
+			"label": "ai",
+			"probability": 0.923,
+			"signals": {
+				"git-diff-check": 2.5,
+				"semicolons": 0.69,
+				"code-span-density": 0.18,
+				"commit-shas": 0.13,
+				"file-paths": 0.1,
+				"arrows": 0.06,
+				"this-pr": -0.27
+			}
+		},
+		"ai/redis-redis-15894.md": {
+			"label": "ai",
+			"probability": 1,
+			"signals": {
+				"ai-disclosure": 3,
+				"fails-before-fix": 2.2,
+				"scope-disclaimer": 1.2,
+				"so-chains": 1,
+				"code-span-density": 0.85,
+				"template-headings": 0.5,
+				"test-reference": 0.23,
+				"now-verbs": 0.2,
+				"em-dash": 0.17,
+				"semicolons": 0.15,
+				"commit-shas": 0.13,
+				"arrows": 0.06,
+				"first-person": -0.03,
+				"questions": -0.07,
+				"this-pr": -0.27,
+				"unpunctuated-lines": -0.5
+			}
+		},
+		"ai/remotion-dev-remotion-11945.md": {
+			"label": "ai",
+			"probability": 0.529,
+			"signals": {
+				"template-headings": 1,
+				"code-span-density": 0.02
+			}
+		},
+		"ai/rolldown-rolldown-11080.md": {
+			"label": "ai",
+			"probability": 0.481,
+			"signals": {
+				"code-span-density": 0.62,
+				"now-verbs": 0.2
+			}
+		},
+		"ai/rolldown-rolldown-11089.md": {
+			"label": "ai",
+			"probability": 0.963,
+			"signals": {
+				"code-span-density": 1.4,
+				"so-chains": 1,
+				"file-paths": 0.5,
+				"scope-disclaimer": 0.4,
+				"existing-precedent": 0.4,
+				"long-paragraphs": 0.3,
+				"now-verbs": 0.2,
+				"bold-lead-bullets": 0.18,
+				"colon-bullets": 0.09,
+				"first-person": -0.06,
+				"this-pr": -0.27
+			}
+		},
+		"ai/seaweedfs-seaweedfs-11567.md": {
+			"label": "ai",
+			"probability": 0.999,
+			"signals": {
+				"agent-attribution": 4,
+				"fails-before-fix": 2.2,
+				"so-chains": 1,
+				"long-paragraphs": 0.6,
+				"code-span-density": 0.5,
+				"scope-disclaimer": 0.4,
+				"bold-lead-bullets": 0.37,
+				"em-dash": 0.18,
+				"agent-vocabulary": 0.13,
+				"semicolons": 0.08,
+				"unpunctuated-lines": -0.1,
+				"screenshots": -0.11,
+				"bare-urls": -0.22,
+				"this-pr": -0.27,
+				"template-checkboxes": -0.75
+			}
+		},
+		"ai/seaweedfs-seaweedfs-11574.md": {
+			"label": "ai",
+			"probability": 0.981,
+			"signals": {
+				"agent-attribution": 4,
+				"template-headings": 0.5,
+				"file-paths": 0.5,
+				"long-paragraphs": 0.3,
+				"unpunctuated-lines": -0.1,
+				"screenshots": -0.11,
+				"bare-urls": -0.22
+			}
+		},
+		"ai/sgl-project-sglang-42047.md": {
+			"label": "ai",
+			"probability": 0.953,
+			"signals": {
+				"ai-disclosure": 3,
+				"semicolons": 0.53,
+				"scope-disclaimer": 0.4,
+				"test-reference": 0.23,
+				"tables": 0.12,
+				"file-paths": 0.1,
+				"code-span-density": 0.08,
+				"unpunctuated-lines": -0.1,
+				"template-checkboxes": -0.45
+			}
+		},
+		"ai/sgl-project-sglang-42093.md": {
+			"label": "ai",
+			"probability": 0.999,
+			"signals": {
+				"ai-disclosure": 3,
+				"git-diff-check": 2.5,
+				"epistemic-hedge": 0.75,
+				"semicolons": 0.54,
+				"template-headings": 0.5,
+				"code-span-density": 0.42,
+				"test-reference": 0.23,
+				"file-paths": 0.1,
+				"questions": -0.07
+			}
+		},
+		"ai/sgl-project-sglang-42151.md": {
+			"label": "ai",
+			"probability": 0.7,
+			"signals": {
+				"fails-before-fix": 1.1,
+				"scope-disclaimer": 0.4,
+				"file-paths": 0.3,
+				"code-span-density": 0.22,
+				"colon-bullets": 0.18,
+				"template-checkboxes": -0.45
+			}
+		},
+		"ai/sharkdp-bat-4035.md": {
+			"label": "ai",
+			"probability": 0.991,
+			"signals": {
+				"code-span-density": 1.4,
+				"template-headings": 1,
+				"em-dash": 0.76,
+				"test-reference": 0.47,
+				"existing-precedent": 0.4,
+				"arrows": 0.38,
+				"agent-vocabulary": 0.38,
+				"colon-bullets": 0.26,
+				"file-paths": 0.2,
+				"now-verbs": 0.2,
+				"semicolons": 0.17
+			}
+		},
+		"ai/solidjs-solid-3745.md": {
+			"label": "ai",
+			"probability": 0.725,
+			"signals": {
+				"code-span-density": 1.07,
+				"em-dash": 0.42,
+				"semicolons": 0.38
+			}
+		},
+		"ai/strapi-strapi-27895.md": {
+			"label": "ai",
+			"probability": 1,
+			"signals": {
+				"agent-attribution": 4,
+				"ai-disclosure": 3,
+				"fails-before-fix": 1.1,
+				"code-span-density": 0.94,
+				"scope-disclaimer": 0.8,
+				"so-chains": 0.67,
+				"long-paragraphs": 0.3,
+				"file-paths": 0.2,
+				"semicolons": 0.16,
+				"first-person": -0.06,
+				"contractions": -0.06
+			}
+		},
+		"ai/sveltejs-svelte-18903.md": {
+			"label": "ai",
+			"probability": 0.957,
+			"signals": {
+				"fails-before-fix": 2.2,
+				"code-span-density": 0.96,
+				"long-paragraphs": 0.6,
+				"lint-clean": 0.5,
+				"semicolons": 0.41,
+				"test-tally": 0.4,
+				"so-chains": 0.33,
+				"colon-bullets": 0.26,
+				"bare-urls": -0.07,
+				"first-person": -0.08,
+				"contractions": -0.08,
+				"this-pr": -0.53,
+				"template-checkboxes": -0.9
+			}
+		},
+		"ai/swc-project-swc-12472.md": {
+			"label": "ai",
+			"probability": 0.904,
+			"signals": {
+				"test-tally": 0.8,
+				"long-paragraphs": 0.6,
+				"code-span-density": 0.56,
+				"existing-precedent": 0.4,
+				"now-verbs": 0.4,
+				"em-dash": 0.2,
+				"semicolons": 0.18
+			}
+		},
+		"ai/symfony-symfony-66536.md": {
+			"label": "ai",
+			"probability": 1,
+			"signals": {
+				"agent-attribution": 4,
+				"ai-disclosure": 3,
+				"code-span-density": 1.07,
+				"long-paragraphs": 0.6,
+				"template-headings": 0.5,
+				"scope-disclaimer": 0.4,
+				"existing-precedent": 0.4,
+				"so-chains": 0.33,
+				"test-reference": 0.23,
+				"bare-urls": -0.07,
+				"questions": -0.3
+			}
+		},
+		"ai/tensorflow-tensorflow-128388.md": {
+			"label": "ai",
+			"probability": 0.604,
+			"signals": {
+				"code-span-density": 1.22,
+				"file-paths": 0.1
+			}
+		},
+		"ai/tensorflow-tensorflow-128416.md": {
+			"label": "ai",
+			"probability": 0.633,
+			"signals": {
+				"em-dash": 0.75,
+				"existing-precedent": 0.4,
+				"long-paragraphs": 0.3
+			}
+		},
+		"ai/trpc-trpc-7623.md": {
+			"label": "ai",
+			"probability": 0.889,
+			"signals": {
+				"code-span-density": 1.4,
+				"existing-precedent": 0.8,
+				"verification-label": 0.5,
+				"so-chains": 0.33,
+				"long-paragraphs": 0.3,
+				"file-paths": 0.1,
+				"template-checkboxes": -0.45
+			}
+		},
+		"ai/tusen-ai-naive-ui-8230.md": {
+			"label": "ai",
+			"probability": 0.869,
+			"signals": {
+				"test-tally": 1.2,
+				"long-paragraphs": 0.6,
+				"semicolons": 0.42,
+				"test-reference": 0.23,
+				"colon-bullets": 0.18,
+				"code-span-density": 0.16
+			}
+		},
+		"ai/umami-software-umami-4592.md": {
+			"label": "ai",
+			"probability": 0.998,
+			"signals": {
+				"ai-disclosure": 3,
+				"test-tally": 1.2,
+				"so-chains": 1,
+				"code-span-density": 0.61,
+				"long-paragraphs": 0.6,
+				"verification-label": 0.5,
+				"file-paths": 0.5,
+				"arrows": 0.31,
+				"semicolons": 0.23,
+				"agent-vocabulary": 0.13,
+				"questions": -0.07,
+				"unpunctuated-lines": -0.2,
+				"screenshots": -0.22,
+				"this-pr": -0.27,
+				"bare-urls": -0.3
+			}
+		},
+		"ai/unjs-unhead-998.md": {
+			"label": "ai",
+			"probability": 0.819,
+			"signals": {
+				"code-span-density": 1.3,
+				"scope-disclaimer": 0.4,
+				"bold-lead-bullets": 0.37,
+				"colon-bullets": 0.35,
+				"em-dash": 0.23,
+				"file-paths": 0.1,
+				"bare-urls": -0.07,
+				"this-pr": -0.27
+			}
+		},
+		"ai/vendurehq-vendure-5477.md": {
+			"label": "ai",
+			"probability": 0.892,
+			"signals": {
+				"fails-before-fix": 1.1,
+				"code-span-density": 0.76,
+				"em-dash": 0.5,
+				"template-headings": 0.5,
+				"existing-precedent": 0.4,
+				"semicolons": 0.22,
+				"colon-bullets": 0.18,
+				"file-paths": 0.1,
+				"template-checkboxes": -0.75
+			}
+		},
+		"ai/vercel-ai-21950.md": {
+			"label": "ai",
+			"probability": 0.446,
+			"signals": {
+				"code-span-density": 1.4,
+				"file-paths": 0.3,
+				"this-pr": -0.27,
+				"template-checkboxes": -0.75
+			}
+		},
+		"ai/vercel-ai-21962.md": {
+			"label": "ai",
+			"probability": 0.428,
+			"signals": {
+				"code-span-density": 0.91,
+				"template-checkboxes": -0.3
+			}
+		},
+		"ai/vercel-next.js-99534.md": {
+			"label": "ai",
+			"probability": 0.854,
+			"signals": {
+				"template-headings": 1,
+				"lint-clean": 0.5,
+				"test-tally": 0.4,
+				"code-span-density": 0.34,
+				"semicolons": 0.33,
+				"file-paths": 0.1
+			}
+		},
+		"ai/vercel-next.js-99544.md": {
+			"label": "ai",
+			"probability": 0.58,
+			"signals": {
+				"code-span-density": 1.21,
+				"scope-disclaimer": 0.4,
+				"test-reference": 0.23,
+				"contractions": -0.17,
+				"first-person": -0.19,
+				"this-pr": -0.27
+			}
+		},
+		"ai/vercel-next.js-99548.md": {
+			"label": "ai",
+			"probability": 0.892,
+			"signals": {
+				"template-headings": 1,
+				"semicolons": 0.46,
+				"scope-disclaimer": 0.4,
+				"existing-precedent": 0.4,
+				"code-span-density": 0.36,
+				"colon-bullets": 0.18,
+				"arrows": 0.13,
+				"file-paths": 0.1
+			}
+		},
+		"ai/vercel-next.js-99590.md": {
+			"label": "ai",
+			"probability": 1,
+			"signals": {
+				"agent-attribution": 4,
+				"ai-disclosure": 3,
+				"code-span-density": 1.4,
+				"template-headings": 1,
+				"now-verbs": 0.4,
+				"bold-lead-bullets": 0.28
+			}
+		},
+		"ai/vitest-dev-vitest-11438.md": {
+			"label": "ai",
+			"probability": 0.993,
+			"signals": {
+				"ai-disclosure": 3,
+				"fails-before-fix": 1.1,
+				"code-span-density": 0.78,
+				"epistemic-hedge": 0.75,
+				"verification-label": 0.5,
+				"scope-disclaimer": 0.4,
+				"test-tally": 0.4,
+				"semicolons": 0.37,
+				"contractions": -0.14,
+				"this-pr": -0.27,
+				"template-checkboxes": -1.05
+			}
+		},
+		"ai/vitest-dev-vitest-11441.md": {
+			"label": "ai",
+			"probability": 0.983,
+			"signals": {
+				"code-span-density": 1.16,
+				"fails-before-fix": 1.1,
+				"scope-disclaimer": 0.8,
+				"test-tally": 0.8,
+				"so-chains": 0.67,
+				"file-paths": 0.4,
+				"now-verbs": 0.2,
+				"semicolons": 0.14,
+				"colon-bullets": 0.09,
+				"em-dash": 0.08,
+				"unpunctuated-lines": -0.5
+			}
+		},
+		"ai/vllm-project-vllm-59629.md": {
+			"label": "ai",
+			"probability": 0.997,
+			"signals": {
+				"ai-disclosure": 3,
+				"test-tally": 1.2,
+				"so-chains": 1,
+				"code-span-density": 0.7,
+				"long-paragraphs": 0.6,
+				"verification-label": 0.5,
+				"file-paths": 0.5,
+				"now-verbs": 0.2,
+				"colon-bullets": 0.18,
+				"semicolons": 0.14,
+				"first-person": -0.08,
+				"this-pr": -0.27,
+				"template-checkboxes": -0.9
+			}
+		},
+		"ai/vllm-project-vllm-59754.md": {
+			"label": "ai",
+			"probability": 0.746,
+			"signals": {
+				"test-tally": 0.8,
+				"code-span-density": 0.6,
+				"template-headings": 0.5,
+				"file-paths": 0.3,
+				"test-reference": 0.23,
+				"now-verbs": 0.2,
+				"semicolons": 0.18,
+				"colon-bullets": 0.18,
+				"agent-vocabulary": 0.13,
+				"first-person": -0.11,
+				"unpunctuated-lines": -0.5,
+				"this-pr": -0.53
+			}
+		},
+		"ai/vllm-project-vllm-59788.md": {
+			"label": "ai",
+			"probability": 1,
+			"signals": {
+				"agent-attribution": 4,
+				"ai-disclosure": 3,
+				"semicolons": 0.93,
+				"code-span-density": 0.85,
+				"scope-disclaimer": 0.8,
+				"colon-bullets": 0.52,
+				"template-headings": 0.5,
+				"test-tally": 0.4,
+				"file-paths": 0.2,
+				"bold-lead-bullets": 0.18,
+				"agent-vocabulary": 0.13,
+				"arrows": 0.06,
+				"this-pr": -0.27
+			}
+		},
+		"ai/vllm-project-vllm-59795.md": {
+			"label": "ai",
+			"probability": 0.993,
+			"signals": {
+				"ai-disclosure": 3,
+				"code-span-density": 0.78,
+				"template-headings": 0.5,
+				"scope-disclaimer": 0.4,
+				"test-tally": 0.4,
+				"file-paths": 0.3,
+				"test-reference": 0.23,
+				"em-dash": 0.16,
+				"semicolons": 0.14,
+				"colon-bullets": 0.09,
+				"first-person": -0.11
+			}
+		},
+		"ai/vuejs-core-15746.md": {
+			"label": "ai",
+			"probability": 0.983,
+			"signals": {
+				"git-diff-check": 2.5,
+				"code-span-density": 1.24,
+				"template-headings": 1,
+				"test-reference": 0.23
+			}
+		},
+		"ai/wazuh-wazuh-39845.md": {
+			"label": "ai",
+			"probability": 0.746,
+			"signals": {
+				"code-span-density": 0.73,
+				"existing-precedent": 0.4,
+				"em-dash": 0.39,
+				"so-chains": 0.33,
+				"commit-shas": 0.13
+			}
+		},
+		"ai/zellij-org-zellij-5673.md": {
+			"label": "ai",
+			"probability": 0.855,
+			"signals": {
+				"so-chains": 0.67,
+				"long-paragraphs": 0.6,
+				"template-headings": 0.5,
+				"test-reference": 0.47,
+				"em-dash": 0.45,
+				"code-span-density": 0.38,
+				"file-paths": 0.1,
+				"bare-urls": -0.07,
+				"contractions": -0.15,
+				"this-pr": -0.27
 			}
 		},
 		"human/django-django-14534.md": {

@@ -1,0 +1,1 @@
+Adds Flow language detection, Tree-sitter highlighting, and the existing Flow LSP to Helix. The grammar source is pinned to the published tree-sitter-flow commit `2e0cfb80a52a72d08a00b9ac9afc5889c31fe71c`.
