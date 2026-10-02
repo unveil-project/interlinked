@@ -1,0 +1,222 @@
+{
+	"summary": {
+		"fixtures": 22,
+		"correct": 21,
+		"accuracy": 0.955,
+		"logLoss": 0.245
+	},
+	"fixtures": {
+		"ai/pr1.md": {
+			"label": "ai",
+			"probability": 0.519,
+			"signals": {
+				"code-span-density": 0.68,
+				"scope-disclaimer": 0.4,
+				"agent-vocabulary": 0.13,
+				"arrows": 0.06,
+				"contractions": -0.29
+			}
+		},
+		"ai/pr2.md": {
+			"label": "ai",
+			"probability": 0.774,
+			"signals": {
+				"validation-line": 2,
+				"test-reference": 0.23,
+				"unpunctuated-lines": -0.1
+			}
+		},
+		"ai/pr3.md": {
+			"label": "ai",
+			"probability": 0.854,
+			"signals": {
+				"code-span-density": 1.4,
+				"semicolons": 1.2,
+				"arrows": 0.06
+			}
+		},
+		"ai/pr4.md": {
+			"label": "ai",
+			"probability": 0.982,
+			"signals": {
+				"git-diff-check": 2.5,
+				"test-tally": 0.8,
+				"code-span-density": 0.64,
+				"file-paths": 0.5,
+				"em-dash": 0.25,
+				"semicolons": 0.22
+			}
+		},
+		"human/django-django-14534.md": {
+			"label": "human",
+			"probability": 0.622,
+			"signals": {
+				"code-span-density": 1.4
+			}
+		},
+		"human/django-django-14538.md": {
+			"label": "human",
+			"probability": 0.169,
+			"signals": {
+				"code-span-density": 0.48,
+				"tentative": -0.1,
+				"contractions": -0.26,
+				"this-pr": -0.27,
+				"first-person": -0.55
+			}
+		},
+		"human/expressjs-express-4174.md": {
+			"label": "human",
+			"probability": 0.34,
+			"signals": {
+				"code-span-density": 0.31,
+				"bare-urls": -0.07
+			}
+		},
+		"human/expressjs-express-4321.md": {
+			"label": "human",
+			"probability": 0.062,
+			"signals": {
+				"code-span-density": 0.25,
+				"tentative": -0.1,
+				"this-pr": -0.27,
+				"contractions": -0.7,
+				"first-person": -1
+			}
+		},
+		"human/nodejs-node-39128.md": {
+			"label": "human",
+			"probability": 0.181,
+			"signals": {
+				"code-span-density": 0.31,
+				"contractions": -0.44,
+				"first-person": -0.48
+			}
+		},
+		"human/nodejs-node-39187.md": {
+			"label": "human",
+			"probability": 0.115,
+			"signals": {
+				"semicolons": 0.27,
+				"bare-urls": -0.07,
+				"unpunctuated-lines": -0.1,
+				"tentative": -0.1,
+				"contractions": -0.39,
+				"first-person": -0.74
+			}
+		},
+		"human/rails-rails-42633.md": {
+			"label": "human",
+			"probability": 0.139,
+			"signals": {
+				"contractions": -0.44,
+				"first-person": -0.48
+			}
+		},
+		"human/rails-rails-42640.md": {
+			"label": "human",
+			"probability": 0.083,
+			"signals": {
+				"short-body": -1.5
+			}
+		},
+		"human/rust-lang-cargo-9577.md": {
+			"label": "human",
+			"probability": 0.333,
+			"signals": {
+				"code-span-density": 0.53,
+				"first-person": -0.32
+			}
+		},
+		"human/rust-lang-cargo-9586.md": {
+			"label": "human",
+			"probability": 0.25,
+			"signals": {
+				"unpunctuated-lines": -0.2
+			}
+		},
+		"human/sveltejs-svelte-6425.md": {
+			"label": "human",
+			"probability": 0.121,
+			"signals": {
+				"bare-urls": -0.07,
+				"this-pr": -0.27,
+				"contractions": -0.29,
+				"template-checkboxes": -0.45
+			}
+		},
+		"human/sveltejs-svelte-6429.md": {
+			"label": "human",
+			"probability": 0.244,
+			"signals": {
+				"code-span-density": 0.78,
+				"bare-urls": -0.07,
+				"contractions": -0.22,
+				"this-pr": -0.27,
+				"template-checkboxes": -0.45
+			}
+		},
+		"human/tailwindlabs-tailwindcss-4571.md": {
+			"label": "human",
+			"probability": 0.087,
+			"signals": {
+				"code-span-density": 0.31,
+				"this-pr": -0.27,
+				"short-body": -1.5
+			}
+		},
+		"human/tailwindlabs-tailwindcss-4666.md": {
+			"label": "human",
+			"probability": 0.367,
+			"signals": {
+				"code-span-density": 0.62,
+				"this-pr": -0.27
+			}
+		},
+		"human/vercel-next.js-26629.md": {
+			"label": "human",
+			"probability": 0.148,
+			"signals": {
+				"code-span-density": 0.23,
+				"file-paths": 0.1,
+				"bare-urls": -0.07,
+				"template-checkboxes": -0.3,
+				"contractions": -0.8
+			}
+		},
+		"human/vercel-next.js-26705.md": {
+			"label": "human",
+			"probability": 0.077,
+			"signals": {
+				"code-span-density": 0.31,
+				"unpunctuated-lines": -0.1,
+				"template-checkboxes": -0.3,
+				"short-body": -1.5
+			}
+		},
+		"human/vuejs-vue-11706.md": {
+			"label": "human",
+			"probability": 0.094,
+			"signals": {
+				"code-span-density": 0.31,
+				"file-paths": 0.1,
+				"colon-bullets": 0.09,
+				"bare-urls": -0.07,
+				"contractions": -0.6,
+				"template-checkboxes": -1.2
+			}
+		},
+		"human/vuejs-vue-12104.md": {
+			"label": "human",
+			"probability": 0.105,
+			"signals": {
+				"code-span-density": 0.37,
+				"file-paths": 0.1,
+				"colon-bullets": 0.09,
+				"bare-urls": -0.07,
+				"contractions": -0.53,
+				"template-checkboxes": -1.2
+			}
+		}
+	}
+}

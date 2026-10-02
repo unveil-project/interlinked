@@ -24,6 +24,8 @@
     "build": "tsdown",
     "dev": "tsdown --watch",
     "test": "vitest",
+    "test:regression": "vitest run tests/regression.test.ts --reporter=verbose",
+    "test:regression:update": "UPDATE_BASELINE=1 vitest run tests/regression.test.ts",
     "typecheck": "tsc --noEmit",
     "release": "bumpp",
     "prepublishOnly": "pnpm run build"
@@ -32,6 +34,7 @@
     "@types/node": "^26.1.1",
     "bumpp": "^11.1.0",
     "tsdown": "^0.22.5",
+    "tsx": "^4.19.2",
     "typescript": "^7.0.2",
     "vitest": "^4.1.10"
   }

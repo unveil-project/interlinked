@@ -1,0 +1,1 @@
+Mark every task in the completed dependency closure as transitively done after wait returns. This lets later waits skip redundant traversals. Add a dependency-chain regression test.\n\nValidation: go test ./go/ir -run TestTaskWaitMarksDependenciesTransitivelyDone -count=1

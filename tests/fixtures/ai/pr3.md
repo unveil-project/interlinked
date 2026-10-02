@@ -1,0 +1,1 @@
+Fixes a user-visible error string in `bun publish`: `missing \`token\` field in reponse json` → `response`. The adjacent generated typings typo (bun-inspector-protocol `index.d.ts`) comes from the protocol definition and was left alone. One-line change; DCO signed off.
