@@ -7,7 +7,9 @@ import { prose } from "./text";
 const MIN_DENSITY_LENGTH = 300;
 
 export function matches(pattern: RegExp) {
-	const flags = pattern.flags.includes("g") ? pattern.flags : `${pattern.flags}g`;
+	const flags = pattern.flags.includes("g")
+		? pattern.flags
+		: `${pattern.flags}g`;
 	const globalPattern = new RegExp(pattern.source, flags);
 	return (text: string) => text.match(globalPattern)?.length ?? 0;
 }
@@ -19,6 +21,25 @@ export function matches(pattern: RegExp) {
 export function matchesOutsideChecklists(pattern: RegExp) {
 	const count = matches(pattern);
 	return (text: string) => count(text.replace(/^\s*[-*] \[[ xX]\].*$/gm, ""));
+}
+
+/**
+ * Like `matchesOutsideChecklists`, but also skips questions ("Was this patch
+ * authored using AI tooling?") and lines answering one with a no, which are a
+ * template's prompt rather than the author's statement.
+ */
+export function matchesInStatements(pattern: RegExp) {
+	const count = matches(pattern);
+	return (text: string) =>
+		text
+			.split("\n")
+			.filter(
+				(line) =>
+					!/^\s*[-*] \[[ xX]\]/.test(line) &&
+					!/\?\s*(?:\*\*)?\s*$/.test(line) &&
+					!/:\s*(?:\*\*)?\s*(?:no|none|n\/a)\b/i.test(line),
+			)
+			.reduce((sum, line) => sum + count(line), 0);
 }
 
 /** Occurrences per 1,000 characters. */

@@ -72,7 +72,9 @@ function measure(): Record<string, BaselineEntry> {
 	return entries;
 }
 
-function summarize(entries: Record<string, BaselineEntry>): Baseline["summary"] {
+function summarize(
+	entries: Record<string, BaselineEntry>,
+): Baseline["summary"] {
 	const values = Object.values(entries);
 	const correct = values.filter(
 		(e) => (e.probability >= 0.5 ? "ai" : "human") === e.label,
@@ -102,7 +104,10 @@ function signalDiff(before: BaselineEntry, after: BaselineEntry) {
 	]);
 	return [...ids]
 		.filter((id) => (before.signals[id] ?? 0) !== (after.signals[id] ?? 0))
-		.map((id) => `  ${id}: ${before.signals[id] ?? 0} -> ${after.signals[id] ?? 0}`)
+		.map(
+			(id) =>
+				`  ${id}: ${before.signals[id] ?? 0} -> ${after.signals[id] ?? 0}`,
+		)
 		.join("\n");
 }
 
@@ -126,7 +131,7 @@ describe("regression", () => {
 	});
 
 	describe.each(Object.keys(current))("%s", (name) => {
-		const now = current[name]!;
+		const now = current[name];
 		const before = baseline.fixtures[name];
 
 		it.runIf(before)("probability does not move away from its label", () => {
@@ -154,6 +159,8 @@ describe("regression", () => {
 		const now = summarize(current);
 		console.table({ baseline: baseline.summary, current: now });
 		expect(now.correct).toBeGreaterThanOrEqual(baseline.summary.correct);
-		expect(now.logLoss).toBeLessThanOrEqual(baseline.summary.logLoss + TOLERANCE);
+		expect(now.logLoss).toBeLessThanOrEqual(
+			baseline.summary.logLoss + TOLERANCE,
+		);
 	});
 });

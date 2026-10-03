@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 /**
  * Helper script to add a new fixture and label it as AI or human.
- * 
+ *
  * Usage:
  *   npx tsx scripts/add-fixture.ts --file <path> --label <ai|human> [--reason "..."]
  *   npx tsx scripts/add-fixture.ts --interactive
  */
 
-import { readFileSync, writeFileSync, existsSync } from "node:fs";
-import { join, basename, resolve } from "node:path";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
+import { basename, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
@@ -17,69 +17,69 @@ const FIXTURES_DIR = join(PROJECT_ROOT, "tests", "fixtures");
 const MANIFEST_PATH = join(FIXTURES_DIR, "regression.json");
 
 interface FixtureManifest {
-  version: number;
-  fixtures: Record<string, {
-    label: "ai" | "human";
-    reason?: string;
-  }>;
+	version: number;
+	fixtures: Record<
+		string,
+		{
+			label: "ai" | "human";
+			reason?: string;
+		}
+	>;
 }
 
 function loadManifest(): FixtureManifest {
-  if (!existsSync(MANIFEST_PATH)) {
-    return {
-      version: 1,
-      fixtures: {},
-    };
-  }
-  const content = readFileSync(MANIFEST_PATH, "utf-8");
-  return JSON.parse(content) as FixtureManifest;
+	if (!existsSync(MANIFEST_PATH)) {
+		return {
+			version: 1,
+			fixtures: {},
+		};
+	}
+	const content = readFileSync(MANIFEST_PATH, "utf-8");
+	return JSON.parse(content) as FixtureManifest;
 }
 
 function saveManifest(manifest: FixtureManifest): void {
-  writeFileSync(
-    MANIFEST_PATH,
-    JSON.stringify(manifest, null, 2) + "\n"
-  );
+	writeFileSync(MANIFEST_PATH, `${JSON.stringify(manifest, null, 2)}\n`);
 }
 
 function parseArgs(args: string[]): {
-  file?: string;
-  label?: "ai" | "human";
-  reason?: string;
-  interactive?: boolean;
-  help?: boolean;
+	file?: string;
+	label?: "ai" | "human";
+	reason?: string;
+	interactive?: boolean;
+	help?: boolean;
 } {
-  const result: ReturnType<typeof parseArgs> = {};
+	const result: ReturnType<typeof parseArgs> = {};
 
-  for (let i = 0; i < args.length; i++) {
-    const arg = args[i];
+	for (let i = 0; i < args.length; i++) {
+		const arg = args[i];
 
-    switch (arg) {
-      case "--file":
-        result.file = args[++i];
-        break;
-      case "--label":
-        result.label = args[++i] as "ai" | "human";
-        break;
-      case "--reason":
-        result.reason = args[++i];
-        break;
-      case "--interactive":
-      case "-i":
-        result.interactive = true;
-        break;
-      case "--help":
-      case "-h":
-        result.help = true;
-        break;
-    }
-  }
+		switch (arg) {
+			case "--file":
+				result.file = args[++i];
+				break;
+			case "--label":
+				result.label = args[++i] as "ai" | "human";
+				break;
+			case "--reason":
+				result.reason = args[++i];
+				break;
+			case "--interactive":
+			case "-i":
+				result.interactive = true;
+				break;
+			case "--help":
+			case "-h":
+				result.help = true;
+				break;
+		}
+	}
 
-  return result;
+	return result;
 }
 
 function printHelp(): void {
-  console.log(`
+	console.log(`
 Usage:
   npx tsx scripts/add-fixture.ts [options]
 
@@ -97,131 +97,133 @@ Examples:
 }
 
 async function getUserInput(prompt: string): Promise<string> {
-  const readline = (await import("node:readline")).createInterface({
-    input: process.stdin,
-    output: process.stdout,
-  });
+	const readline = (await import("node:readline")).createInterface({
+		input: process.stdin,
+		output: process.stdout,
+	});
 
-  return new Promise((resolve) => {
-    readline.question(prompt, (answer) => {
-      readline.close();
-      resolve(answer.trim());
-    });
-  });
+	return new Promise((resolve) => {
+		readline.question(prompt, (answer) => {
+			readline.close();
+			resolve(answer.trim());
+		});
+	});
 }
 
 async function interactiveMode(): Promise<void> {
-  console.log("\n=== Add New Fixture (Interactive Mode) ===\n");
+	console.log("\n=== Add New Fixture (Interactive Mode) ===\n");
 
-  const filePath = await getUserInput("Enter path to markdown file: ");
-  
-  if (!existsSync(filePath)) {
-    console.error(`Error: File not found: ${filePath}`);
-    process.exit(1);
-  }
+	const filePath = await getUserInput("Enter path to markdown file: ");
 
-  let label: "ai" | "human" | undefined;
-  while (!label) {
-    const input = await getUserInput(
-      "Label as (ai/human): "
-    ).then((r) => r.toLowerCase());
-    
-    if (input === "ai" || input === "human") {
-      label = input;
-    } else {
-      console.log("Please enter 'ai' or 'human'");
-    }
-  }
+	if (!existsSync(filePath)) {
+		console.error(`Error: File not found: ${filePath}`);
+		process.exit(1);
+	}
 
-  const reason = await getUserInput("Reason (optional, press Enter to skip): ");
+	let label: "ai" | "human" | undefined;
+	while (!label) {
+		const input = await getUserInput("Label as (ai/human): ").then((r) =>
+			r.toLowerCase(),
+		);
 
-  await addFixture(filePath, label, reason || undefined);
+		if (input === "ai" || input === "human") {
+			label = input;
+		} else {
+			console.log("Please enter 'ai' or 'human'");
+		}
+	}
+
+	const reason = await getUserInput("Reason (optional, press Enter to skip): ");
+
+	await addFixture(filePath, label, reason || undefined);
 }
 
 function validateLabel(label: string | undefined): label is "ai" | "human" {
-  return label === "ai" || label === "human";
+	return label === "ai" || label === "human";
 }
 
 async function addFixture(
-  filePath: string,
-  label: "ai" | "human",
-  reason?: string
+	filePath: string,
+	label: "ai" | "human",
+	reason?: string,
 ): Promise<void> {
-  // Resolve the path and get the filename
-  const absolutePath = resolve(filePath);
-  const filename = basename(absolutePath);
-  const targetPath = join(FIXTURES_DIR, filename);
+	// Resolve the path and get the filename
+	const absolutePath = resolve(filePath);
+	const filename = basename(absolutePath);
+	const targetPath = join(FIXTURES_DIR, filename);
 
-  // Check if file exists
-  if (!existsSync(absolutePath)) {
-    console.error(`Error: Source file not found: ${absolutePath}`);
-    process.exit(1);
-  }
+	// Check if file exists
+	if (!existsSync(absolutePath)) {
+		console.error(`Error: Source file not found: ${absolutePath}`);
+		process.exit(1);
+	}
 
-  // Copy file to fixtures directory
-  const fs = await import("node:fs/promises");
-  await fs.cp(absolutePath, targetPath, { force: true });
-  console.log(`Copied ${filename} to fixtures directory`);
+	// Copy file to fixtures directory
+	const fs = await import("node:fs/promises");
+	await fs.cp(absolutePath, targetPath, { force: true });
+	console.log(`Copied ${filename} to fixtures directory`);
 
-  // Update manifest
-  const manifest = loadManifest();
+	// Update manifest
+	const manifest = loadManifest();
 
-  if (manifest.fixtures[filename]) {
-    console.log(`Warning: ${filename} already exists in manifest. Overwriting...`);
-  }
+	if (manifest.fixtures[filename]) {
+		console.log(
+			`Warning: ${filename} already exists in manifest. Overwriting...`,
+		);
+	}
 
-  manifest.fixtures[filename] = {
-    label,
-    ...(reason && { reason }),
-  };
+	manifest.fixtures[filename] = {
+		label,
+		...(reason && { reason }),
+	};
 
-  saveManifest(manifest);
-  console.log(`Updated regression.json with label: ${label}`);
+	saveManifest(manifest);
+	console.log(`Updated regression.json with label: ${label}`);
 
-  if (reason) {
-    console.log(`  Reason: ${reason}`);
-  }
+	if (reason) {
+		console.log(`  Reason: ${reason}`);
+	}
 
-  console.log(`\n✓ Fixture added successfully!`);
-  console.log(`  File: ${filename}`);
-  console.log(`  Label: ${label}`);
-  console.log(`\nRun tests with: npm test`);
+	console.log(`\n✓ Fixture added successfully!`);
+	console.log(`  File: ${filename}`);
+	console.log(`  Label: ${label}`);
+	console.log(`\nRun tests with: npm test`);
 }
 
 async function main(): Promise<void> {
-  const args = parseArgs(process.argv.slice(2));
+	const args = parseArgs(process.argv.slice(2));
 
-  if (args.help) {
-    printHelp();
-    process.exit(0);
-  }
+	if (args.help) {
+		printHelp();
+		process.exit(0);
+	}
 
-  if (args.interactive) {
-    await interactiveMode();
-    return;
-  }
+	if (args.interactive) {
+		await interactiveMode();
+		return;
+	}
 
-  if (!args.file) {
-    console.error("Error: --file is required in non-interactive mode");
-    printHelp();
-    process.exit(1);
-  }
+	if (!args.file) {
+		console.error("Error: --file is required in non-interactive mode");
+		printHelp();
+		process.exit(1);
+	}
 
-  if (!args.label) {
-    console.error("Error: --label is required in non-interactive mode");
-    printHelp();
-    process.exit(1);
-  }
+	if (!args.label) {
+		console.error("Error: --label is required in non-interactive mode");
+		printHelp();
+		process.exit(1);
+	}
 
-  if (!validateLabel(args.label)) {
-    console.error("Error: --label must be 'ai' or 'human'");
-    process.exit(1);
-  }
+	if (!validateLabel(args.label)) {
+		console.error("Error: --label must be 'ai' or 'human'");
+		process.exit(1);
+	}
 
-  await addFixture(args.file, args.label, args.reason);
+	await addFixture(args.file, args.label, args.reason);
 }
 
 main().catch((error) => {
-  console.error("Error:", error);
-  process.exit(1);
+	console.error("Error:", error);
+	process.exit(1);
 });

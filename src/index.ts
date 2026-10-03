@@ -1,9 +1,9 @@
+import { measure } from "./measure";
 import { SIGNALS } from "./signals";
-import { authoredText, withoutTemplate } from "./text";
 import { round, sigmoid } from "./utils";
 
-export { SIGNALS };
 export type { Signal } from "./signals";
+export { SIGNALS };
 
 export interface SignalHit {
 	id: string;
@@ -27,10 +27,11 @@ export interface AnalyzeTextOptions {
 }
 
 /**
- * Starting log-odds before any evidence, from the fit. Negative so that plain
- * text leans human; the `short-body` signal pushes further for one-liners.
+ * Starting log-odds before any evidence, from the fit, set so about 3% of
+ * pre-agent PR descriptions read as agent-written: a false accusation costs
+ * more than a miss.
  */
-const BIAS = -0.9;
+const BIAS = -1.99;
 
 /** At or above this probability the verdict is "ai". */
 export const AI_THRESHOLD = 0.5;
@@ -49,21 +50,15 @@ export function analyzeText(
 	markdown: string,
 	options: AnalyzeTextOptions = {},
 ): AnalyzeTextResult {
-	const authored = authoredText(markdown ?? "");
-	const text = options.template
-		? withoutTemplate(authored, options.template)
-		: authored;
-
 	let logit = BIAS;
 	const signals: SignalHit[] = [];
 
-	for (const signal of SIGNALS) {
-		const hits = signal.count(text);
-		if (hits <= 0) {
-			continue;
-		}
-
-		const strength = Math.min(hits, signal.cap) / signal.cap;
+	const active = SIGNALS.filter((signal) => signal.weight !== 0);
+	for (const { signal, hits, strength } of measure(
+		markdown,
+		options.template,
+		active,
+	)) {
 		const contribution = signal.weight * strength;
 		logit += contribution;
 		signals.push({

@@ -40,16 +40,20 @@ export function withoutTemplate(text: string, template: string) {
 	return text
 		.split("\n")
 		.filter(
-			(line) => CHECKBOX_LINE.test(line) || !templateLines.has(templateKey(line)),
+			(line) =>
+				CHECKBOX_LINE.test(line) || !templateLines.has(templateKey(line)),
 		)
 		.join("\n")
 		.trim();
 }
 
-/** The text with fenced, indented and inline code blanked out. */
+/**
+ * The text with fenced, indented and inline code blanked out. Indented lines
+ * that are list items are nested bullets, not code, so they stay.
+ */
 export function prose(text: string) {
 	return text
 		.replace(/```[\s\S]*?```/g, "")
-		.replace(/^ {4}.*$/gm, "")
+		.replace(/^ {4,}(?![-*+] |\d+\. ).*$/gm, "")
 		.replace(/`[^`\n]*`/g, "X");
 }

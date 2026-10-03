@@ -1,140 +1,124 @@
 {
 	"summary": {
 		"fixtures": 205,
-		"correct": 185,
-		"accuracy": 0.902,
-		"logLoss": 0.26
+		"correct": 181,
+		"accuracy": 0.883,
+		"logLoss": 0.23
 	},
 	"fixtures": {
 		"ai/BerriAI-litellm-44023.md": {
 			"label": "ai",
-			"probability": 0.666,
+			"probability": 0.603,
 			"signals": {
-				"code-span-density": 1.19,
-				"scope-disclaimer": 0.4
+				"code-span-density": 1.79,
+				"scope-disclaimer": 0.62
 			}
 		},
 		"ai/BerriAI-litellm-44034.md": {
 			"label": "ai",
 			"probability": 0.997,
 			"signals": {
-				"fails-before-fix": 2.2,
-				"test-tally": 0.8,
-				"epistemic-hedge": 0.75,
-				"code-span-density": 0.61,
-				"long-paragraphs": 0.6,
-				"template-headings": 0.5,
-				"semicolons": 0.45,
-				"scope-disclaimer": 0.4,
-				"test-reference": 0.23,
-				"file-paths": 0.2,
-				"now-verbs": 0.2,
-				"commit-shas": 0.13,
-				"arrows": 0.13,
+				"long-paragraphs": 1.44,
+				"test-tally": 1.01,
+				"code-span-density": 0.92,
+				"fails-before-fix": 0.88,
+				"semicolons": 0.7,
+				"scope-disclaimer": 0.62,
+				"now-verbs": 0.62,
+				"template-headings": 0.55,
+				"file-paths": 0.32,
+				"test-reference": 0.29,
+				"epistemic-hedge": 0.25,
+				"arrows": 0.19,
 				"agent-vocabulary": 0.13,
-				"em-dash": 0.04,
-				"unpunctuated-lines": -0.5
+				"em-dash": 0.06,
+				"unpunctuated-lines": -0.12
 			}
 		},
 		"ai/BerriAI-litellm-44053.md": {
 			"label": "ai",
-			"probability": 0.719,
+			"probability": 0.997,
 			"signals": {
-				"long-paragraphs": 0.6,
-				"now-verbs": 0.6,
-				"semicolons": 0.52,
-				"commit-shas": 0.5,
-				"template-headings": 0.5,
-				"file-paths": 0.5,
-				"scope-disclaimer": 0.4,
-				"existing-precedent": 0.4,
-				"test-reference": 0.23,
-				"code-span-density": 0.22,
-				"tables": 0.15,
-				"colon-bullets": 0.09,
-				"questions": -0.07,
-				"bare-urls": -0.3,
-				"unpunctuated-lines": -0.5,
-				"this-pr": -0.8,
-				"template-checkboxes": -1.2
+				"now-verbs": 1.86,
+				"long-paragraphs": 1.44,
+				"semicolons": 0.86,
+				"file-paths": 0.79,
+				"scope-disclaimer": 0.62,
+				"existing-precedent": 0.6,
+				"template-headings": 0.55,
+				"tables": 0.48,
+				"code-span-density": 0.33,
+				"test-reference": 0.29,
+				"this-pr": -0.04,
+				"unpunctuated-lines": -0.12
 			}
 		},
 		"ai/BerriAI-litellm-44070.md": {
 			"label": "ai",
-			"probability": 0.779,
+			"probability": 0.967,
 			"signals": {
-				"fails-before-fix": 1.1,
-				"scope-disclaimer": 0.8,
-				"test-tally": 0.8,
-				"long-paragraphs": 0.6,
-				"code-span-density": 0.31,
-				"semicolons": 0.27,
-				"commit-shas": 0.25,
-				"test-reference": 0.23,
-				"unpunctuated-lines": -0.5,
-				"this-pr": -0.8,
-				"template-checkboxes": -0.9
+				"long-paragraphs": 1.44,
+				"scope-disclaimer": 1.24,
+				"test-tally": 1.01,
+				"semicolons": 0.64,
+				"code-span-density": 0.46,
+				"fails-before-fix": 0.44,
+				"test-reference": 0.29,
+				"this-pr": -0.04,
+				"unpunctuated-lines": -0.12
 			}
 		},
 		"ai/BerriAI-litellm-44077.md": {
 			"label": "ai",
-			"probability": 0.902,
+			"probability": 0.863,
 			"signals": {
-				"fails-before-fix": 2.2,
-				"code-span-density": 0.6,
-				"test-tally": 0.4,
-				"existing-precedent": 0.4,
-				"semicolons": 0.39,
-				"arrows": 0.13,
-				"file-paths": 0.1,
-				"bare-urls": -0.15,
-				"unpunctuated-lines": -0.2,
-				"template-checkboxes": -0.75
+				"code-span-density": 0.91,
+				"fails-before-fix": 0.88,
+				"semicolons": 0.64,
+				"existing-precedent": 0.6,
+				"test-tally": 0.5,
+				"arrows": 0.19,
+				"file-paths": 0.16,
+				"unpunctuated-lines": -0.05
 			}
 		},
 		"ai/BerriAI-litellm-44103.md": {
 			"label": "ai",
-			"probability": 0.814,
+			"probability": 0.875,
 			"signals": {
 				"agent-attribution": 4,
-				"code-span-density": 0.08,
-				"contractions": -0.02,
-				"unpunctuated-lines": -0.1,
-				"screenshots": -0.11,
-				"this-pr": -0.27,
-				"bare-urls": -0.3,
-				"template-checkboxes": -0.9
+				"code-span-density": 0.12,
+				"this-pr": -0.01,
+				"unpunctuated-lines": -0.02,
+				"contractions": -0.15
 			}
 		},
 		"ai/BerriAI-litellm-44187.md": {
 			"label": "ai",
-			"probability": 0.846,
+			"probability": 0.979,
 			"signals": {
-				"fails-before-fix": 1.1,
-				"so-chains": 1,
-				"scope-disclaimer": 0.4,
-				"code-span-density": 0.36,
-				"long-paragraphs": 0.3,
-				"semicolons": 0.22,
-				"file-paths": 0.2,
-				"now-verbs": 0.2,
-				"colon-bullets": 0.09,
-				"contractions": -0.03,
-				"bare-urls": -0.07,
-				"this-pr": -0.27,
-				"template-checkboxes": -0.9
+				"so-chains": 2.04,
+				"long-paragraphs": 0.72,
+				"scope-disclaimer": 0.62,
+				"now-verbs": 0.62,
+				"code-span-density": 0.55,
+				"fails-before-fix": 0.44,
+				"semicolons": 0.44,
+				"file-paths": 0.32,
+				"colon-bullets": 0.19,
+				"this-pr": -0.01,
+				"contractions": -0.07
 			}
 		},
 		"ai/BerriAI-litellm-44191.md": {
 			"label": "ai",
-			"probability": 0.159,
+			"probability": 0.248,
 			"signals": {
-				"code-span-density": 0.37,
-				"semicolons": 0.28,
-				"contractions": -0.05,
-				"unpunctuated-lines": -0.2,
-				"this-pr": -0.27,
-				"template-checkboxes": -0.9
+				"code-span-density": 0.55,
+				"semicolons": 0.51,
+				"this-pr": -0.01,
+				"unpunctuated-lines": -0.05,
+				"contractions": -0.12
 			}
 		},
 		"ai/ClickHouse-ClickHouse-123410.md": {
@@ -143,15 +127,13 @@
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
-				"verification-label": 1,
-				"code-span-density": 0.9,
-				"long-paragraphs": 0.6,
-				"test-tally": 0.4,
-				"so-chains": 0.33,
-				"semicolons": 0.23,
-				"arrows": 0.13,
-				"colon-bullets": 0.09,
-				"bare-urls": -0.07
+				"long-paragraphs": 1.44,
+				"code-span-density": 1.35,
+				"verification-label": 0.71,
+				"so-chains": 0.68,
+				"semicolons": 0.52,
+				"test-tally": 0.5,
+				"colon-bullets": 0.19
 			}
 		},
 		"ai/PostHog-posthog-109878.md": {
@@ -160,18 +142,17 @@
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
-				"fails-before-fix": 1.1,
-				"so-chains": 1,
-				"colon-bullets": 0.52,
-				"code-span-density": 0.41,
-				"scope-disclaimer": 0.4,
-				"now-verbs": 0.4,
-				"bold-lead-bullets": 0.28,
-				"file-paths": 0.2,
+				"so-chains": 2.04,
+				"now-verbs": 1.24,
+				"colon-bullets": 0.77,
+				"code-span-density": 0.62,
+				"scope-disclaimer": 0.62,
+				"fails-before-fix": 0.44,
+				"file-paths": 0.32,
+				"bold-lead-bullets": 0.24,
 				"agent-vocabulary": 0.13,
-				"semicolons": 0.06,
-				"questions": -0.07,
-				"template-checkboxes": -0.6
+				"semicolons": 0.12,
+				"questions": -0.06
 			}
 		},
 		"ai/PostHog-posthog-109936.md": {
@@ -180,67 +161,63 @@
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
-				"code-span-density": 0.89,
-				"so-chains": 0.67,
-				"colon-bullets": 0.35,
-				"bold-lead-bullets": 0.28,
+				"so-chains": 1.36,
+				"code-span-density": 1.34,
+				"colon-bullets": 0.77,
+				"tables": 0.33,
+				"bold-lead-bullets": 0.24,
 				"agent-vocabulary": 0.13,
-				"tables": 0.11,
-				"questions": -0.07,
-				"template-checkboxes": -0.6
+				"questions": -0.06
 			}
 		},
 		"ai/PostHog-posthog-110034.md": {
 			"label": "ai",
-			"probability": 0.999,
+			"probability": 1,
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
-				"scope-disclaimer": 0.8,
-				"code-span-density": 0.67,
-				"bold-lead-bullets": 0.28,
-				"colon-bullets": 0.26,
-				"now-verbs": 0.2,
-				"file-paths": 0.1,
-				"questions": -0.07,
-				"this-pr": -0.53,
-				"template-checkboxes": -0.6
+				"scope-disclaimer": 1.24,
+				"code-span-density": 1.01,
+				"now-verbs": 0.62,
+				"colon-bullets": 0.58,
+				"bold-lead-bullets": 0.24,
+				"file-paths": 0.16,
+				"this-pr": -0.03,
+				"questions": -0.06
 			}
 		},
 		"ai/PostHog-posthog-110197.md": {
 			"label": "ai",
-			"probability": 0.995,
+			"probability": 1,
 			"signals": {
 				"ai-disclosure": 3,
-				"so-chains": 1,
-				"code-span-density": 0.83,
-				"colon-bullets": 0.7,
-				"file-paths": 0.4,
-				"now-verbs": 0.4,
-				"long-paragraphs": 0.3,
-				"test-reference": 0.23,
-				"bold-lead-bullets": 0.18,
+				"so-chains": 2.04,
+				"colon-bullets": 1.54,
+				"code-span-density": 1.25,
+				"now-verbs": 1.24,
+				"long-paragraphs": 0.72,
+				"file-paths": 0.63,
+				"test-reference": 0.29,
+				"bold-lead-bullets": 0.16,
 				"agent-vocabulary": 0.13,
-				"questions": -0.07,
-				"this-pr": -0.27,
-				"template-checkboxes": -0.6
+				"this-pr": -0.01,
+				"questions": -0.06
 			}
 		},
 		"ai/PostHog-posthog-110207.md": {
 			"label": "ai",
-			"probability": 0.977,
+			"probability": 0.993,
 			"signals": {
 				"ai-disclosure": 3,
-				"code-span-density": 0.52,
-				"scope-disclaimer": 0.4,
-				"so-chains": 0.33,
-				"bold-lead-bullets": 0.28,
-				"colon-bullets": 0.26,
-				"test-reference": 0.23,
-				"now-verbs": 0.2,
-				"file-paths": 0.1,
-				"questions": -0.07,
-				"template-checkboxes": -0.6
+				"code-span-density": 0.78,
+				"so-chains": 0.68,
+				"scope-disclaimer": 0.62,
+				"now-verbs": 0.62,
+				"colon-bullets": 0.58,
+				"test-reference": 0.29,
+				"bold-lead-bullets": 0.24,
+				"file-paths": 0.16,
+				"questions": -0.06
 			}
 		},
 		"ai/PostHog-posthog-110267.md": {
@@ -248,53 +225,45 @@
 			"probability": 0.954,
 			"signals": {
 				"ai-disclosure": 3,
-				"commit-shas": 0.5,
-				"test-reference": 0.47,
-				"bold-lead-bullets": 0.28,
-				"semicolons": 0.21,
-				"now-verbs": 0.2,
-				"file-paths": 0.1,
-				"code-span-density": 0.09,
-				"questions": -0.07,
-				"screenshots": -0.22,
-				"template-checkboxes": -0.6
+				"now-verbs": 0.62,
+				"test-reference": 0.58,
+				"semicolons": 0.35,
+				"bold-lead-bullets": 0.24,
+				"file-paths": 0.16,
+				"code-span-density": 0.13,
+				"questions": -0.06
 			}
 		},
 		"ai/PostHog-posthog-110396.md": {
 			"label": "ai",
-			"probability": 0.882,
+			"probability": 0.875,
 			"signals": {
 				"ai-disclosure": 3,
-				"epistemic-hedge": 0.75,
-				"commit-shas": 0.38,
-				"bold-lead-bullets": 0.28,
-				"test-reference": 0.23,
-				"colon-bullets": 0.09,
-				"code-span-density": 0.06,
-				"questions": -0.07,
-				"bare-urls": -0.22,
-				"unpunctuated-lines": -0.3,
-				"template-checkboxes": -0.6,
-				"screenshots": -0.67
+				"test-reference": 0.29,
+				"epistemic-hedge": 0.25,
+				"bold-lead-bullets": 0.24,
+				"colon-bullets": 0.19,
+				"code-span-density": 0.1,
+				"questions": -0.06,
+				"unpunctuated-lines": -0.07
 			}
 		},
 		"ai/PostHog-posthog-110397.md": {
 			"label": "ai",
-			"probability": 0.998,
+			"probability": 1,
 			"signals": {
 				"ai-disclosure": 3,
-				"so-chains": 1,
-				"existing-precedent": 0.8,
-				"bold-lead-bullets": 0.73,
-				"long-paragraphs": 0.6,
-				"scope-disclaimer": 0.4,
-				"code-span-density": 0.37,
-				"semicolons": 0.29,
-				"now-verbs": 0.2,
+				"so-chains": 2.04,
+				"long-paragraphs": 1.44,
+				"existing-precedent": 1.2,
+				"bold-lead-bullets": 0.63,
+				"scope-disclaimer": 0.62,
+				"now-verbs": 0.62,
+				"code-span-density": 0.55,
+				"semicolons": 0.45,
+				"file-paths": 0.16,
 				"agent-vocabulary": 0.13,
-				"file-paths": 0.1,
-				"questions": -0.07,
-				"template-checkboxes": -0.3
+				"questions": -0.06
 			}
 		},
 		"ai/PostHog-posthog-110561.md": {
@@ -303,336 +272,308 @@
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
-				"code-span-density": 0.44,
-				"bold-lead-bullets": 0.28,
-				"colon-bullets": 0.18,
-				"questions": -0.07,
-				"template-checkboxes": -0.6
+				"code-span-density": 0.66,
+				"colon-bullets": 0.39,
+				"bold-lead-bullets": 0.24,
+				"questions": -0.06
 			}
 		},
 		"ai/Stirling-Tools-Stirling-PDF-8312.md": {
 			"label": "ai",
-			"probability": 0.562,
+			"probability": 0.993,
 			"signals": {
-				"so-chains": 1,
-				"scope-disclaimer": 0.8,
-				"commit-shas": 0.5,
-				"file-paths": 0.5,
-				"bold-lead-bullets": 0.46,
-				"code-span-density": 0.41,
-				"colon-bullets": 0.26,
-				"now-verbs": 0.2,
-				"tables": 0.14,
-				"semicolons": 0.12,
-				"first-person": -0.17,
-				"this-pr": -0.27,
-				"bare-urls": -0.3,
-				"unpunctuated-lines": -0.4,
-				"screenshots": -0.9,
-				"template-checkboxes": -1.2
+				"so-chains": 2.04,
+				"scope-disclaimer": 1.24,
+				"colon-bullets": 0.96,
+				"file-paths": 0.79,
+				"code-span-density": 0.62,
+				"now-verbs": 0.62,
+				"tables": 0.43,
+				"bold-lead-bullets": 0.4,
+				"semicolons": 0.18,
+				"this-pr": -0.01,
+				"unpunctuated-lines": -0.1,
+				"first-person": -0.19
 			}
 		},
 		"ai/TanStack-form-2416.md": {
 			"label": "ai",
-			"probability": 0.395,
+			"probability": 0.532,
 			"signals": {
-				"verification-label": 0.5,
-				"scope-disclaimer": 0.4,
-				"long-paragraphs": 0.3,
-				"code-span-density": 0.29,
-				"this-pr": -0.27,
-				"template-checkboxes": -0.75
+				"long-paragraphs": 0.72,
+				"scope-disclaimer": 0.62,
+				"code-span-density": 0.44,
+				"verification-label": 0.36,
+				"this-pr": -0.01
 			}
 		},
 		"ai/ToolJet-ToolJet-18202.md": {
 			"label": "ai",
-			"probability": 0.975,
+			"probability": 0.995,
 			"signals": {
-				"code-span-density": 1.04,
-				"so-chains": 1,
-				"colon-bullets": 0.7,
-				"lint-clean": 0.5,
-				"file-paths": 0.5,
-				"scope-disclaimer": 0.4,
-				"test-tally": 0.4,
-				"commit-shas": 0.13,
-				"semicolons": 0.09,
-				"bare-urls": -0.07,
-				"first-person": -0.1
+				"so-chains": 2.04,
+				"code-span-density": 1.56,
+				"colon-bullets": 1.54,
+				"file-paths": 0.79,
+				"scope-disclaimer": 0.62,
+				"test-tally": 0.5,
+				"lint-clean": 0.2,
+				"semicolons": 0.16,
+				"first-person": -0.14
 			}
 		},
 		"ai/angular-angular-71134.md": {
 			"label": "ai",
-			"probability": 0.698,
+			"probability": 0.88,
 			"signals": {
-				"fails-before-fix": 1.1,
-				"scope-disclaimer": 0.8,
-				"code-span-density": 0.78,
-				"test-reference": 0.23,
-				"file-paths": 0.1,
-				"bare-urls": -0.07,
-				"template-checkboxes": -1.2
+				"scope-disclaimer": 1.24,
+				"code-span-density": 1.17,
+				"so-chains": 0.68,
+				"fails-before-fix": 0.44,
+				"test-reference": 0.29,
+				"file-paths": 0.16
 			}
 		},
 		"ai/anthropics-skills-1947.md": {
 			"label": "ai",
-			"probability": 0.578,
+			"probability": 0.374,
 			"signals": {
-				"template-headings": 0.5,
-				"code-span-density": 0.32,
-				"semicolons": 0.31,
-				"test-reference": 0.23,
-				"file-paths": 0.1,
-				"first-person": -0.24
+				"template-headings": 0.55,
+				"code-span-density": 0.48,
+				"test-reference": 0.29,
+				"file-paths": 0.16
 			}
 		},
 		"ai/apache-airflow-74067.md": {
 			"label": "ai",
-			"probability": 0.997,
+			"probability": 0.999,
 			"signals": {
 				"ai-disclosure": 3,
-				"fails-before-fix": 1.1,
-				"so-chains": 0.67,
-				"bold-lead-bullets": 0.55,
-				"code-span-density": 0.48,
-				"file-paths": 0.4,
-				"test-tally": 0.4,
-				"long-paragraphs": 0.3,
-				"colon-bullets": 0.26,
+				"so-chains": 1.36,
+				"code-span-density": 0.72,
+				"long-paragraphs": 0.72,
+				"file-paths": 0.63,
+				"test-tally": 0.5,
+				"bold-lead-bullets": 0.48,
+				"fails-before-fix": 0.44,
+				"colon-bullets": 0.39,
+				"tables": 0.24,
 				"semicolons": 0.14,
-				"tables": 0.08,
-				"unpunctuated-lines": -0.1,
-				"template-checkboxes": -0.15,
-				"this-pr": -0.27
+				"this-pr": -0.01,
+				"unpunctuated-lines": -0.02
 			}
 		},
 		"ai/apache-echarts-21775.md": {
 			"label": "ai",
-			"probability": 0.877,
+			"probability": 0.97,
 			"signals": {
-				"fails-before-fix": 2.2,
-				"verification-label": 1,
-				"code-span-density": 0.69,
-				"scope-disclaimer": 0.4,
-				"so-chains": 0.33,
-				"long-paragraphs": 0.3,
-				"file-paths": 0.1,
-				"colon-bullets": 0.09,
-				"bare-urls": -0.07,
-				"contractions": -0.08,
-				"unpunctuated-lines": -0.1,
-				"this-pr": -0.8,
-				"template-checkboxes": -1.2
+				"so-chains": 1.36,
+				"code-span-density": 1.04,
+				"fails-before-fix": 0.88,
+				"long-paragraphs": 0.72,
+				"verification-label": 0.71,
+				"scope-disclaimer": 0.62,
+				"colon-bullets": 0.19,
+				"file-paths": 0.16,
+				"unpunctuated-lines": -0.02,
+				"this-pr": -0.04,
+				"contractions": -0.16
 			}
 		},
 		"ai/apache-spark-59191.md": {
 			"label": "ai",
-			"probability": 0.999,
+			"probability": 0.994,
 			"signals": {
 				"ai-disclosure": 3,
-				"git-diff-check": 2.5,
-				"scope-disclaimer": 0.8,
-				"epistemic-hedge": 0.75,
-				"semicolons": 0.64,
-				"code-span-density": 0.5,
-				"file-paths": 0.1,
-				"questions": -0.3,
-				"this-pr": -0.53
+				"scope-disclaimer": 1.24,
+				"git-diff-check": 1.04,
+				"semicolons": 1,
+				"code-span-density": 0.75,
+				"epistemic-hedge": 0.25,
+				"file-paths": 0.16,
+				"this-pr": -0.03,
+				"questions": -0.23
 			}
 		},
 		"ai/apache-spark-59207.md": {
 			"label": "ai",
-			"probability": 0.964,
+			"probability": 0.917,
 			"signals": {
-				"ai-disclosure": 3,
-				"so-chains": 1,
-				"code-span-density": 0.66,
-				"scope-disclaimer": 0.4,
-				"existing-precedent": 0.4,
-				"test-reference": 0.23,
-				"semicolons": 0.09,
-				"tables": 0.08,
-				"contractions": -0.07,
-				"questions": -0.3,
-				"unpunctuated-lines": -0.5,
-				"this-pr": -0.8
+				"so-chains": 2.04,
+				"code-span-density": 0.98,
+				"scope-disclaimer": 0.62,
+				"existing-precedent": 0.6,
+				"test-reference": 0.29,
+				"tables": 0.24,
+				"semicolons": 0.15,
+				"this-pr": -0.04,
+				"unpunctuated-lines": -0.12,
+				"contractions": -0.14,
+				"questions": -0.23
 			}
 		},
 		"ai/apache-superset-44895.md": {
 			"label": "ai",
-			"probability": 0.993,
+			"probability": 1,
 			"signals": {
-				"code-span-density": 1.4,
-				"scope-disclaimer": 1.2,
-				"existing-precedent": 0.8,
-				"epistemic-hedge": 0.75,
-				"long-paragraphs": 0.6,
-				"semicolons": 0.57,
-				"template-headings": 0.5,
-				"arrows": 0.5,
-				"file-paths": 0.4,
-				"so-chains": 0.33,
-				"first-person": -0.04,
-				"bare-urls": -0.07,
-				"contractions": -0.21,
-				"this-pr": -0.8
+				"code-span-density": 2.1,
+				"scope-disclaimer": 1.86,
+				"long-paragraphs": 1.44,
+				"existing-precedent": 1.2,
+				"semicolons": 1.02,
+				"arrows": 0.77,
+				"so-chains": 0.68,
+				"file-paths": 0.63,
+				"template-headings": 0.55,
+				"epistemic-hedge": 0.25,
+				"this-pr": -0.04,
+				"first-person": -0.05,
+				"contractions": -0.49
 			}
 		},
 		"ai/apollographql-router-10377.md": {
 			"label": "ai",
-			"probability": 0.97,
+			"probability": 0.994,
 			"signals": {
-				"fails-before-fix": 2.2,
-				"so-chains": 1,
-				"long-paragraphs": 0.6,
-				"code-span-density": 0.56,
-				"template-headings": 0.5,
-				"scope-disclaimer": 0.4,
-				"semicolons": 0.29,
-				"test-reference": 0.23,
-				"file-paths": 0.1,
-				"contractions": -0.05,
-				"this-pr": -0.27,
-				"template-checkboxes": -1.2
+				"so-chains": 2.04,
+				"long-paragraphs": 1.44,
+				"fails-before-fix": 0.88,
+				"code-span-density": 0.84,
+				"scope-disclaimer": 0.62,
+				"template-headings": 0.55,
+				"semicolons": 0.45,
+				"test-reference": 0.29,
+				"file-paths": 0.16,
+				"this-pr": -0.01,
+				"contractions": -0.11
 			}
 		},
 		"ai/astral-sh-ruff-29040.md": {
 			"label": "ai",
-			"probability": 0.567,
+			"probability": 0.442,
 			"signals": {
-				"code-span-density": 1.17
+				"code-span-density": 1.76
 			}
 		},
 		"ai/astral-sh-ruff-29072.md": {
 			"label": "ai",
-			"probability": 0.949,
+			"probability": 0.92,
 			"signals": {
 				"ai-disclosure": 3,
-				"semicolons": 0.82,
-				"code-span-density": 0.11,
-				"file-paths": 0.1,
-				"unpunctuated-lines": -0.2
+				"semicolons": 1.16,
+				"code-span-density": 0.16,
+				"file-paths": 0.16,
+				"unpunctuated-lines": -0.05
 			}
 		},
 		"ai/astral-sh-uv-22135.md": {
 			"label": "ai",
-			"probability": 0.589,
+			"probability": 0.431,
 			"signals": {
-				"code-span-density": 0.84,
-				"test-reference": 0.23,
-				"bold-lead-bullets": 0.18
+				"code-span-density": 1.26,
+				"test-reference": 0.29,
+				"bold-lead-bullets": 0.16
 			}
 		},
 		"ai/atuinsh-atuin-4310.md": {
 			"label": "ai",
-			"probability": 0.684,
+			"probability": 0.602,
 			"signals": {
-				"fails-before-fix": 1.1,
-				"code-span-density": 0.65,
-				"scope-disclaimer": 0.4,
-				"long-paragraphs": 0.3,
-				"contractions": -0.1,
-				"first-person": -0.11,
-				"this-pr": -0.27,
-				"template-checkboxes": -0.3
+				"code-span-density": 0.98,
+				"long-paragraphs": 0.72,
+				"scope-disclaimer": 0.62,
+				"fails-before-fix": 0.44,
+				"this-pr": -0.01,
+				"first-person": -0.13,
+				"contractions": -0.22
 			}
 		},
 		"ai/axios-axios-11264.md": {
 			"label": "ai",
-			"probability": 1,
+			"probability": 0.999,
 			"signals": {
-				"git-diff-check": 2.5,
-				"fails-before-fix": 2.2,
-				"scope-disclaimer": 1.2,
-				"test-tally": 0.8,
-				"lint-clean": 0.5,
-				"template-headings": 0.5,
-				"code-span-density": 0.49,
-				"test-reference": 0.47,
-				"semicolons": 0.43,
-				"now-verbs": 0.4,
-				"commit-shas": 0.13,
-				"em-dash": 0.08,
-				"screenshots": -0.11,
-				"unpunctuated-lines": -0.2,
-				"bare-urls": -0.3,
-				"template-checkboxes": -0.45
+				"scope-disclaimer": 1.86,
+				"now-verbs": 1.24,
+				"git-diff-check": 1.04,
+				"test-tally": 1.01,
+				"fails-before-fix": 0.88,
+				"code-span-density": 0.73,
+				"semicolons": 0.66,
+				"test-reference": 0.58,
+				"template-headings": 0.55,
+				"lint-clean": 0.2,
+				"em-dash": 0.13,
+				"unpunctuated-lines": -0.05
 			}
 		},
 		"ai/axios-axios-11265.md": {
 			"label": "ai",
-			"probability": 0.955,
+			"probability": 0.993,
 			"signals": {
-				"scope-disclaimer": 0.8,
-				"test-tally": 0.8,
-				"semicolons": 0.64,
-				"long-paragraphs": 0.6,
-				"lint-clean": 0.5,
-				"verification-label": 0.5,
-				"template-headings": 0.5,
-				"code-span-density": 0.25,
-				"now-verbs": 0.2,
-				"commit-shas": 0.13,
-				"colon-bullets": 0.09,
-				"em-dash": 0.06,
+				"long-paragraphs": 1.44,
+				"scope-disclaimer": 1.24,
+				"test-tally": 1.01,
+				"semicolons": 0.93,
+				"now-verbs": 0.62,
+				"template-headings": 0.55,
+				"code-span-density": 0.37,
+				"verification-label": 0.36,
+				"lint-clean": 0.2,
+				"colon-bullets": 0.19,
+				"em-dash": 0.09,
 				"first-person": -0.04,
-				"screenshots": -0.11,
-				"unpunctuated-lines": -0.2,
-				"bare-urls": -0.3,
-				"template-checkboxes": -0.45
+				"unpunctuated-lines": -0.05
 			}
 		},
 		"ai/binwiederhier-ntfy-1978.md": {
 			"label": "ai",
-			"probability": 0.785,
+			"probability": 0.82,
 			"signals": {
-				"semicolons": 0.76,
-				"verification-label": 0.5,
-				"scope-disclaimer": 0.4,
-				"long-paragraphs": 0.3,
-				"code-span-density": 0.26,
-				"test-reference": 0.23,
-				"this-pr": -0.27
+				"semicolons": 1.14,
+				"long-paragraphs": 0.72,
+				"scope-disclaimer": 0.62,
+				"code-span-density": 0.4,
+				"verification-label": 0.36,
+				"test-reference": 0.29,
+				"this-pr": -0.01
 			}
 		},
 		"ai/browser-use-browser-use-5966.md": {
 			"label": "ai",
-			"probability": 0.694,
+			"probability": 0.605,
 			"signals": {
-				"semicolons": 0.55,
-				"verification-label": 0.5,
-				"test-tally": 0.4,
-				"test-reference": 0.23,
-				"colon-bullets": 0.18,
+				"semicolons": 0.77,
+				"test-tally": 0.5,
+				"colon-bullets": 0.39,
+				"verification-label": 0.36,
+				"test-reference": 0.29,
 				"agent-vocabulary": 0.13,
-				"this-pr": -0.27
+				"this-pr": -0.01
 			}
 		},
 		"ai/charmbracelet-bubbletea-1829.md": {
 			"label": "ai",
-			"probability": 0.988,
+			"probability": 0.974,
 			"signals": {
-				"git-diff-check": 2.5,
-				"code-span-density": 0.87,
-				"em-dash": 0.8,
-				"template-headings": 0.5,
-				"semicolons": 0.42,
-				"test-reference": 0.23,
-				"commit-shas": 0.13,
-				"file-paths": 0.1,
-				"colon-bullets": 0.09,
-				"template-checkboxes": -0.3
+				"code-span-density": 1.31,
+				"em-dash": 1.17,
+				"git-diff-check": 1.04,
+				"semicolons": 0.92,
+				"template-headings": 0.55,
+				"test-reference": 0.29,
+				"colon-bullets": 0.19,
+				"file-paths": 0.16
 			}
 		},
 		"ai/charmbracelet-lipgloss-748.md": {
 			"label": "ai",
-			"probability": 0.916,
+			"probability": 0.955,
 			"signals": {
-				"code-span-density": 1.4,
-				"template-headings": 1,
-				"existing-precedent": 0.4,
-				"long-paragraphs": 0.3,
-				"semicolons": 0.19
+				"code-span-density": 2.1,
+				"template-headings": 1.1,
+				"long-paragraphs": 0.72,
+				"existing-precedent": 0.6,
+				"semicolons": 0.52
 			}
 		},
 		"ai/chroma-core-chroma-7831.md": {
@@ -641,78 +582,73 @@
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
-				"fails-before-fix": 2.2,
-				"code-span-density": 1.4,
-				"semicolons": 1.14,
-				"file-paths": 0.4,
-				"test-tally": 0.4,
-				"now-verbs": 0.2,
-				"arrows": 0.06,
-				"template-checkboxes": -0.15
+				"semicolons": 2.49,
+				"code-span-density": 2.1,
+				"fails-before-fix": 0.88,
+				"file-paths": 0.63,
+				"now-verbs": 0.62,
+				"test-tally": 0.5,
+				"arrows": 0.1
 			}
 		},
 		"ai/chroma-core-chroma-7841.md": {
 			"label": "ai",
-			"probability": 0.864,
+			"probability": 0.989,
 			"signals": {
-				"so-chains": 1,
-				"long-paragraphs": 0.6,
-				"template-headings": 0.5,
-				"semicolons": 0.35,
-				"tables": 0.3,
-				"test-reference": 0.23,
-				"em-dash": 0.2,
-				"code-span-density": 0.17,
-				"commit-shas": 0.13,
-				"file-paths": 0.1,
-				"bold-lead-bullets": 0.09,
-				"contractions": -0.02,
-				"unpunctuated-lines": -0.1,
-				"this-pr": -0.8
+				"so-chains": 2.04,
+				"long-paragraphs": 1.44,
+				"tables": 0.95,
+				"template-headings": 0.55,
+				"semicolons": 0.52,
+				"em-dash": 0.3,
+				"test-reference": 0.29,
+				"code-span-density": 0.26,
+				"file-paths": 0.16,
+				"bold-lead-bullets": 0.08,
+				"unpunctuated-lines": -0.02,
+				"contractions": -0.03,
+				"this-pr": -0.04
 			}
 		},
 		"ai/cline-cline-14741.md": {
 			"label": "ai",
-			"probability": 0.998,
+			"probability": 1,
 			"signals": {
+				"so-chains": 2.04,
+				"test-tally": 1.51,
 				"maintainer-deference": 1.3,
-				"test-tally": 1.2,
-				"fails-before-fix": 1.1,
-				"so-chains": 1,
-				"bold-lead-bullets": 0.64,
-				"code-span-density": 0.55,
-				"lint-clean": 0.5,
-				"scope-disclaimer": 0.4,
-				"existing-precedent": 0.4,
-				"long-paragraphs": 0.3,
-				"em-dash": 0.2,
-				"now-verbs": 0.2,
+				"code-span-density": 0.83,
+				"long-paragraphs": 0.72,
+				"scope-disclaimer": 0.62,
+				"now-verbs": 0.62,
+				"existing-precedent": 0.6,
+				"bold-lead-bullets": 0.55,
+				"fails-before-fix": 0.44,
+				"em-dash": 0.36,
+				"lint-clean": 0.2,
 				"agent-vocabulary": 0.13,
-				"first-person": -0.12,
-				"unpunctuated-lines": -0.2,
-				"this-pr": -0.27
+				"this-pr": -0.01,
+				"unpunctuated-lines": -0.05,
+				"first-person": -0.14
 			}
 		},
 		"ai/cline-cline-14762.md": {
 			"label": "ai",
-			"probability": 0.997,
+			"probability": 0.998,
 			"signals": {
-				"git-diff-check": 2.5,
-				"epistemic-hedge": 1.5,
-				"bold-lead-bullets": 0.73,
-				"long-paragraphs": 0.6,
-				"commit-shas": 0.5,
-				"file-paths": 0.5,
-				"semicolons": 0.49,
-				"test-reference": 0.47,
-				"scope-disclaimer": 0.4,
-				"code-span-density": 0.31,
-				"tables": 0.26,
-				"arrows": 0.25,
-				"agent-vocabulary": 0.25,
-				"screenshots": -0.34,
-				"this-pr": -0.53,
-				"template-checkboxes": -1.2
+				"long-paragraphs": 1.44,
+				"git-diff-check": 1.04,
+				"tables": 0.81,
+				"file-paths": 0.79,
+				"semicolons": 0.74,
+				"bold-lead-bullets": 0.63,
+				"scope-disclaimer": 0.62,
+				"test-reference": 0.58,
+				"epistemic-hedge": 0.5,
+				"code-span-density": 0.47,
+				"arrows": 0.39,
+				"agent-vocabulary": 0.26,
+				"this-pr": -0.03
 			}
 		},
 		"ai/crewAIInc-crewAI-7849.md": {
@@ -720,16 +656,14 @@
 			"probability": 1,
 			"signals": {
 				"ai-disclosure": 3,
-				"git-diff-check": 2.5,
-				"scope-disclaimer": 1.2,
-				"long-paragraphs": 0.6,
-				"now-verbs": 0.6,
-				"semicolons": 0.56,
-				"code-span-density": 0.46,
-				"test-reference": 0.23,
-				"commit-shas": 0.13,
-				"this-pr": -0.27,
-				"template-checkboxes": -0.3
+				"scope-disclaimer": 1.86,
+				"now-verbs": 1.86,
+				"long-paragraphs": 1.44,
+				"git-diff-check": 1.04,
+				"semicolons": 0.84,
+				"code-span-density": 0.69,
+				"test-reference": 0.29,
+				"this-pr": -0.01
 			}
 		},
 		"ai/crewAIInc-crewAI-7854.md": {
@@ -738,75 +672,71 @@
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
-				"semicolons": 0.51,
-				"lint-clean": 0.5,
-				"verification-label": 0.5,
-				"file-paths": 0.5,
-				"scope-disclaimer": 0.4,
-				"code-span-density": 0.33,
-				"long-paragraphs": 0.3,
-				"commit-shas": 0.13,
-				"bare-urls": -0.07
+				"file-paths": 0.79,
+				"semicolons": 0.77,
+				"long-paragraphs": 0.72,
+				"scope-disclaimer": 0.62,
+				"code-span-density": 0.5,
+				"verification-label": 0.36,
+				"lint-clean": 0.2
 			}
 		},
 		"ai/date-fns-date-fns-4342.md": {
 			"label": "ai",
-			"probability": 0.826,
+			"probability": 0.728,
 			"signals": {
-				"test-reference": 0.7,
-				"semicolons": 0.57,
-				"verification-label": 0.5,
-				"test-tally": 0.4,
-				"code-span-density": 0.29
+				"test-reference": 0.87,
+				"semicolons": 0.81,
+				"test-tally": 0.5,
+				"code-span-density": 0.44,
+				"verification-label": 0.36
 			}
 		},
 		"ai/deepspeedai-DeepSpeed-8722.md": {
 			"label": "ai",
-			"probability": 0.933,
+			"probability": 0.992,
 			"signals": {
-				"code-span-density": 0.83,
-				"test-tally": 0.8,
-				"so-chains": 0.67,
-				"long-paragraphs": 0.6,
-				"existing-precedent": 0.4,
-				"semicolons": 0.13,
-				"file-paths": 0.1
+				"so-chains": 2.04,
+				"long-paragraphs": 1.44,
+				"code-span-density": 1.24,
+				"test-tally": 1.01,
+				"existing-precedent": 0.6,
+				"semicolons": 0.26,
+				"file-paths": 0.16
 			}
 		},
 		"ai/deepspeedai-DeepSpeed-8724.md": {
 			"label": "ai",
-			"probability": 0.999,
+			"probability": 1,
 			"signals": {
 				"ai-disclosure": 3,
-				"code-span-density": 1.23,
-				"test-tally": 1.2,
-				"epistemic-hedge": 0.75,
-				"so-chains": 0.67,
-				"template-headings": 0.5,
-				"file-paths": 0.5,
-				"scope-disclaimer": 0.4,
-				"existing-precedent": 0.4,
-				"colon-bullets": 0.18,
-				"semicolons": 0.13,
-				"first-person": -0.05,
-				"unpunctuated-lines": -0.5
+				"code-span-density": 1.84,
+				"test-tally": 1.51,
+				"so-chains": 1.36,
+				"file-paths": 0.79,
+				"scope-disclaimer": 0.62,
+				"existing-precedent": 0.6,
+				"template-headings": 0.55,
+				"semicolons": 0.33,
+				"epistemic-hedge": 0.25,
+				"first-person": -0.09,
+				"unpunctuated-lines": -0.12
 			}
 		},
 		"ai/denoland-deno-36938.md": {
 			"label": "ai",
-			"probability": 0.513,
+			"probability": 0.317,
 			"signals": {
-				"code-span-density": 1.4,
-				"colon-bullets": 0.18,
-				"unpunctuated-lines": -0.3,
-				"contractions": -0.32
+				"code-span-density": 2.1,
+				"unpunctuated-lines": -0.07,
+				"contractions": -0.81
 			}
 		},
 		"ai/diesel-rs-diesel-5259.md": {
 			"label": "ai",
-			"probability": 0.511,
+			"probability": 0.36,
 			"signals": {
-				"code-span-density": 0.94
+				"code-span-density": 1.42
 			}
 		},
 		"ai/dotnet-aspnetcore-69634.md": {
@@ -814,49 +744,47 @@
 			"probability": 1,
 			"signals": {
 				"agent-attribution": 4,
-				"git-diff-check": 2.5,
-				"scope-disclaimer": 1.2,
-				"bold-lead-bullets": 1.1,
-				"code-span-density": 0.65,
-				"template-headings": 0.5,
-				"file-paths": 0.5,
-				"test-tally": 0.4,
-				"existing-precedent": 0.4,
-				"semicolons": 0.39,
-				"long-paragraphs": 0.3,
-				"colon-bullets": 0.26,
-				"commit-shas": 0.25,
-				"now-verbs": 0.2,
+				"scope-disclaimer": 1.86,
+				"git-diff-check": 1.04,
+				"code-span-density": 0.98,
+				"bold-lead-bullets": 0.95,
+				"file-paths": 0.79,
+				"colon-bullets": 0.77,
+				"long-paragraphs": 0.72,
+				"semicolons": 0.66,
+				"now-verbs": 0.62,
+				"existing-precedent": 0.6,
+				"template-headings": 0.55,
+				"test-tally": 0.5,
 				"agent-vocabulary": 0.13,
-				"unpunctuated-lines": -0.1,
-				"contractions": -0.19,
-				"this-pr": -0.27,
-				"template-checkboxes": -0.6
+				"this-pr": -0.01,
+				"unpunctuated-lines": -0.02,
+				"contractions": -0.41
 			}
 		},
 		"ai/drizzle-team-drizzle-orm-6414.md": {
 			"label": "ai",
-			"probability": 0.642,
+			"probability": 0.513,
 			"signals": {
-				"code-span-density": 0.79,
-				"template-headings": 0.5,
-				"file-paths": 0.2
+				"code-span-density": 1.18,
+				"template-headings": 0.55,
+				"file-paths": 0.32
 			}
 		},
 		"ai/elastic-elasticsearch-160737.md": {
 			"label": "ai",
-			"probability": 0.723,
+			"probability": 0.747,
 			"signals": {
-				"code-span-density": 0.95,
-				"semicolons": 0.91
+				"semicolons": 1.65,
+				"code-span-density": 1.42
 			}
 		},
 		"ai/elastic-elasticsearch-160776.md": {
 			"label": "ai",
-			"probability": 0.69,
+			"probability": 0.696,
 			"signals": {
-				"code-span-density": 1.4,
-				"long-paragraphs": 0.3
+				"code-span-density": 2.1,
+				"long-paragraphs": 0.72
 			}
 		},
 		"ai/elastic-elasticsearch-160793.md": {
@@ -865,17 +793,17 @@
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
-				"code-span-density": 1.09,
-				"bold-lead-bullets": 0.92,
-				"scope-disclaimer": 0.4,
-				"long-paragraphs": 0.3,
-				"colon-bullets": 0.26,
-				"arrows": 0.25,
-				"semicolons": 0.22,
-				"now-verbs": 0.2,
+				"code-span-density": 1.64,
+				"bold-lead-bullets": 0.79,
+				"colon-bullets": 0.77,
+				"long-paragraphs": 0.72,
+				"scope-disclaimer": 0.62,
+				"now-verbs": 0.62,
+				"semicolons": 0.39,
+				"arrows": 0.39,
 				"agent-vocabulary": 0.13,
-				"contractions": -0.04,
-				"this-pr": -0.27
+				"this-pr": -0.01,
+				"contractions": -0.09
 			}
 		},
 		"ai/emberjs-ember.js-21650.md": {
@@ -884,56 +812,55 @@
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
-				"code-span-density": 0.62,
-				"lint-clean": 0.5,
-				"template-headings": 0.5,
-				"scope-disclaimer": 0.4,
-				"test-tally": 0.4,
-				"now-verbs": 0.4,
-				"tables": 0.3,
-				"file-paths": 0.1,
-				"colon-bullets": 0.09,
-				"bare-urls": -0.07,
-				"unpunctuated-lines": -0.1,
-				"this-pr": -0.8
+				"now-verbs": 1.24,
+				"tables": 0.95,
+				"code-span-density": 0.92,
+				"so-chains": 0.68,
+				"scope-disclaimer": 0.62,
+				"template-headings": 0.55,
+				"test-tally": 0.5,
+				"lint-clean": 0.2,
+				"colon-bullets": 0.19,
+				"file-paths": 0.16,
+				"unpunctuated-lines": -0.02,
+				"this-pr": -0.04
 			}
 		},
 		"ai/envoyproxy-envoy-47941.md": {
 			"label": "ai",
-			"probability": 0.989,
+			"probability": 0.99,
 			"signals": {
 				"ai-disclosure": 3,
-				"semicolons": 0.61,
-				"verification-label": 0.5,
-				"existing-precedent": 0.4,
-				"code-span-density": 0.32,
-				"long-paragraphs": 0.3,
-				"test-reference": 0.23,
-				"em-dash": 0.23,
-				"arrows": 0.06,
-				"unpunctuated-lines": -0.1,
-				"first-person": -0.16
+				"semicolons": 0.89,
+				"long-paragraphs": 0.72,
+				"existing-precedent": 0.6,
+				"code-span-density": 0.48,
+				"verification-label": 0.36,
+				"em-dash": 0.34,
+				"test-reference": 0.29,
+				"arrows": 0.1,
+				"unpunctuated-lines": -0.02,
+				"first-person": -0.17
 			}
 		},
 		"ai/evanw-esbuild-4546.md": {
 			"label": "ai",
-			"probability": 0.885,
+			"probability": 0.875,
 			"signals": {
-				"code-span-density": 1.4,
-				"template-headings": 0.5,
-				"scope-disclaimer": 0.4,
-				"semicolons": 0.28,
-				"file-paths": 0.2,
-				"em-dash": 0.16
+				"code-span-density": 2.1,
+				"scope-disclaimer": 0.62,
+				"template-headings": 0.55,
+				"em-dash": 0.35,
+				"file-paths": 0.32
 			}
 		},
 		"ai/evanw-esbuild-4547.md": {
 			"label": "ai",
-			"probability": 0.611,
+			"probability": 0.398,
 			"signals": {
-				"code-span-density": 0.62,
-				"verification-label": 0.5,
-				"test-reference": 0.23
+				"code-span-density": 0.93,
+				"verification-label": 0.36,
+				"test-reference": 0.29
 			}
 		},
 		"ai/facebook-docusaurus-12571.md": {
@@ -942,38 +869,32 @@
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
-				"scope-disclaimer": 1.2,
-				"code-span-density": 1.11,
-				"bold-lead-bullets": 0.73,
-				"colon-bullets": 0.7,
-				"test-tally": 0.4,
-				"so-chains": 0.33,
-				"file-paths": 0.3,
-				"long-paragraphs": 0.3,
-				"now-verbs": 0.2,
-				"semicolons": 0.19,
+				"scope-disclaimer": 1.86,
+				"code-span-density": 1.66,
+				"long-paragraphs": 0.72,
+				"so-chains": 0.68,
+				"bold-lead-bullets": 0.63,
+				"now-verbs": 0.62,
+				"colon-bullets": 0.58,
+				"test-tally": 0.5,
+				"file-paths": 0.47,
 				"agent-vocabulary": 0.13,
-				"arrows": 0.06,
-				"contractions": -0.05,
-				"first-person": -0.1,
-				"bare-urls": -0.3,
-				"template-checkboxes": -0.45,
-				"this-pr": -0.8
+				"arrows": 0.1,
+				"this-pr": -0.04,
+				"contractions": -0.1,
+				"first-person": -0.13
 			}
 		},
 		"ai/flutter-flutter-193675.md": {
 			"label": "ai",
-			"probability": 0.305,
+			"probability": 0.817,
 			"signals": {
-				"code-span-density": 0.77,
-				"verification-label": 0.5,
-				"scope-disclaimer": 0.4,
-				"so-chains": 0.33,
-				"long-paragraphs": 0.3,
-				"questions": -0.07,
-				"bare-urls": -0.15,
-				"this-pr": -0.8,
-				"template-checkboxes": -1.2
+				"code-span-density": 1.15,
+				"long-paragraphs": 0.72,
+				"so-chains": 0.68,
+				"scope-disclaimer": 0.62,
+				"verification-label": 0.36,
+				"this-pr": -0.04
 			}
 		},
 		"ai/flutter-flutter-193710.md": {
@@ -981,153 +902,142 @@
 			"probability": 0.999,
 			"signals": {
 				"ai-disclosure": 3,
-				"git-diff-check": 2.5,
-				"test-tally": 1.2,
-				"fails-before-fix": 1.1,
-				"scope-disclaimer": 0.8,
-				"template-headings": 0.5,
-				"em-dash": 0.42,
-				"test-reference": 0.23,
-				"code-span-density": 0.23,
-				"file-paths": 0.1,
-				"bare-urls": -0.07,
-				"unpunctuated-lines": -0.5,
-				"this-pr": -0.53,
-				"template-checkboxes": -1.2
+				"test-tally": 1.51,
+				"scope-disclaimer": 1.24,
+				"git-diff-check": 1.04,
+				"em-dash": 0.85,
+				"template-headings": 0.55,
+				"fails-before-fix": 0.44,
+				"code-span-density": 0.35,
+				"test-reference": 0.29,
+				"file-paths": 0.16,
+				"this-pr": -0.03,
+				"unpunctuated-lines": -0.12
 			}
 		},
 		"ai/freeCodeCamp-freeCodeCamp-70545.md": {
 			"label": "ai",
-			"probability": 0.274,
+			"probability": 0.235,
 			"signals": {
-				"scope-disclaimer": 0.4,
-				"code-span-density": 0.12,
-				"template-checkboxes": -0.6
+				"scope-disclaimer": 0.62,
+				"code-span-density": 0.19
 			}
 		},
 		"ai/freeCodeCamp-freeCodeCamp-70546.md": {
 			"label": "ai",
-			"probability": 0.304,
+			"probability": 0.341,
 			"signals": {
-				"code-span-density": 0.47,
-				"now-verbs": 0.2,
-				"template-checkboxes": -0.6
+				"code-span-density": 0.71,
+				"now-verbs": 0.62
 			}
 		},
 		"ai/freeCodeCamp-freeCodeCamp-70556.md": {
 			"label": "ai",
-			"probability": 0.982,
+			"probability": 0.996,
 			"signals": {
 				"ai-disclosure": 3,
-				"code-span-density": 0.69,
-				"template-headings": 0.5,
-				"scope-disclaimer": 0.4,
-				"so-chains": 0.33,
-				"em-dash": 0.3,
-				"long-paragraphs": 0.3,
-				"file-paths": 0.1,
-				"first-person": -0.11,
-				"template-checkboxes": -0.6
+				"code-span-density": 1.03,
+				"long-paragraphs": 0.72,
+				"so-chains": 0.68,
+				"scope-disclaimer": 0.62,
+				"template-headings": 0.55,
+				"em-dash": 0.49,
+				"colon-bullets": 0.39,
+				"file-paths": 0.16,
+				"first-person": -0.12
 			}
 		},
 		"ai/freeCodeCamp-freeCodeCamp-70558.md": {
 			"label": "ai",
-			"probability": 0.973,
+			"probability": 0.68,
 			"signals": {
-				"git-diff-check": 2.5,
-				"template-headings": 1,
-				"epistemic-hedge": 0.75,
-				"code-span-density": 0.24
+				"template-headings": 1.1,
+				"git-diff-check": 1.04,
+				"code-span-density": 0.35,
+				"epistemic-hedge": 0.25
 			}
 		},
 		"ai/freeCodeCamp-freeCodeCamp-70563.md": {
 			"label": "ai",
-			"probability": 0.657,
+			"probability": 0.68,
 			"signals": {
-				"template-headings": 1,
-				"code-span-density": 0.49,
-				"test-tally": 0.4,
-				"em-dash": 0.26,
-				"template-checkboxes": -0.6
+				"template-headings": 1.1,
+				"code-span-density": 0.73,
+				"test-tally": 0.5,
+				"em-dash": 0.41
 			}
 		},
 		"ai/getsentry-sentry-126286.md": {
 			"label": "ai",
-			"probability": 0.144,
+			"probability": 0.203,
 			"signals": {
-				"commit-shas": 0.5,
-				"long-paragraphs": 0.3,
-				"code-span-density": 0.02,
-				"bare-urls": -0.3,
-				"unpunctuated-lines": -0.5,
-				"screenshots": -0.9
+				"long-paragraphs": 0.72,
+				"code-span-density": 0.03,
+				"unpunctuated-lines": -0.12
 			}
 		},
 		"ai/getsentry-sentry-126329.md": {
 			"label": "ai",
-			"probability": 0.533,
+			"probability": 0.333,
 			"signals": {
-				"code-span-density": 1.4,
-				"contractions": -0.37
+				"code-span-density": 2.1,
+				"contractions": -0.81
 			}
 		},
 		"ai/go-chi-chi-1199.md": {
 			"label": "ai",
-			"probability": 0.985,
+			"probability": 0.961,
 			"signals": {
 				"ai-disclosure": 3,
-				"epistemic-hedge": 0.75,
-				"code-span-density": 0.71,
-				"existing-precedent": 0.4,
-				"test-reference": 0.23
+				"code-span-density": 1.06,
+				"existing-precedent": 0.6,
+				"test-reference": 0.29,
+				"epistemic-hedge": 0.25
 			}
 		},
 		"ai/gofiber-fiber-4730.md": {
 			"label": "ai",
-			"probability": 0.999,
+			"probability": 1,
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
-				"code-span-density": 1.4,
-				"semicolons": 0.23,
-				"file-paths": 0.2,
-				"arrows": 0.13,
-				"colon-bullets": 0.09,
-				"unpunctuated-lines": -0.1,
-				"template-checkboxes": -0.45
+				"code-span-density": 2.1,
+				"semicolons": 0.51,
+				"file-paths": 0.32,
+				"colon-bullets": 0.19,
+				"arrows": 0.19,
+				"unpunctuated-lines": -0.02
 			}
 		},
 		"ai/grafana-alloy-7277.md": {
 			"label": "ai",
-			"probability": 0.604,
+			"probability": 0.463,
 			"signals": {
-				"code-span-density": 0.73,
-				"template-headings": 0.5,
-				"colon-bullets": 0.09
+				"code-span-density": 1.1,
+				"template-headings": 0.55,
+				"colon-bullets": 0.19
 			}
 		},
 		"ai/grafana-alloy-7287.md": {
 			"label": "ai",
-			"probability": 0.296,
+			"probability": 0.553,
 			"signals": {
-				"long-paragraphs": 0.6,
-				"now-verbs": 0.2,
-				"file-paths": 0.1,
-				"this-pr": -0.27,
-				"template-checkboxes": -0.6
+				"long-paragraphs": 1.44,
+				"now-verbs": 0.62,
+				"file-paths": 0.16,
+				"this-pr": -0.01
 			}
 		},
 		"ai/grafana-grafana-134010.md": {
 			"label": "ai",
-			"probability": 0.625,
+			"probability": 0.39,
 			"signals": {
-				"fails-before-fix": 1.1,
-				"test-tally": 0.4,
-				"test-reference": 0.23,
-				"code-span-density": 0.16,
-				"colon-bullets": 0.09,
-				"first-person": -0.13,
-				"template-checkboxes": -0.45
+				"test-tally": 0.5,
+				"fails-before-fix": 0.44,
+				"test-reference": 0.29,
+				"code-span-density": 0.25,
+				"colon-bullets": 0.19,
+				"first-person": -0.13
 			}
 		},
 		"ai/grafana-k6-6516.md": {
@@ -1135,136 +1045,127 @@
 			"probability": 0.997,
 			"signals": {
 				"ai-disclosure": 3,
-				"code-span-density": 1.4,
-				"fails-before-fix": 1.1,
-				"epistemic-hedge": 0.75,
-				"semicolons": 0.43,
-				"existing-precedent": 0.4,
-				"test-reference": 0.23,
-				"now-verbs": 0.2,
-				"bold-lead-bullets": 0.18,
-				"contractions": -0.08,
-				"first-person": -0.17,
-				"this-pr": -0.27,
-				"template-checkboxes": -0.6
+				"code-span-density": 2.1,
+				"semicolons": 0.73,
+				"now-verbs": 0.62,
+				"existing-precedent": 0.6,
+				"fails-before-fix": 0.44,
+				"test-reference": 0.29,
+				"epistemic-hedge": 0.25,
+				"bold-lead-bullets": 0.16,
+				"this-pr": -0.01,
+				"contractions": -0.17,
+				"first-person": -0.21
 			}
 		},
 		"ai/grafana-loki-24872.md": {
 			"label": "ai",
-			"probability": 0.715,
+			"probability": 0.892,
 			"signals": {
-				"fails-before-fix": 1.1,
-				"code-span-density": 0.57,
-				"scope-disclaimer": 0.4,
-				"so-chains": 0.33,
-				"file-paths": 0.2,
-				"now-verbs": 0.2,
-				"first-person": -0.09,
-				"template-checkboxes": -0.9
+				"so-chains": 1.36,
+				"code-span-density": 0.86,
+				"scope-disclaimer": 0.62,
+				"now-verbs": 0.62,
+				"fails-before-fix": 0.44,
+				"file-paths": 0.32,
+				"first-person": -0.11
 			}
 		},
 		"ai/grafana-loki-24884.md": {
 			"label": "ai",
-			"probability": 0.996,
+			"probability": 1,
 			"signals": {
 				"ai-disclosure": 3,
-				"scope-disclaimer": 1.2,
-				"verification-label": 1,
-				"code-span-density": 0.82,
-				"so-chains": 0.67,
-				"long-paragraphs": 0.6,
-				"existing-precedent": 0.4,
-				"semicolons": 0.22,
-				"file-paths": 0.2,
-				"arrows": 0.06,
-				"tables": 0.06,
-				"contractions": -0.08,
-				"first-person": -0.17,
-				"this-pr": -0.53,
-				"template-checkboxes": -0.9
+				"scope-disclaimer": 1.86,
+				"long-paragraphs": 1.44,
+				"so-chains": 1.36,
+				"code-span-density": 1.23,
+				"verification-label": 0.71,
+				"existing-precedent": 0.6,
+				"semicolons": 0.36,
+				"file-paths": 0.32,
+				"tables": 0.19,
+				"arrows": 0.1,
+				"this-pr": -0.03,
+				"contractions": -0.17,
+				"first-person": -0.21
 			}
 		},
 		"ai/hashicorp-vault-32136.md": {
 			"label": "ai",
-			"probability": 0.959,
+			"probability": 0.807,
 			"signals": {
-				"git-diff-check": 2.5,
-				"code-span-density": 0.74,
-				"template-headings": 0.5,
-				"long-paragraphs": 0.3
+				"code-span-density": 1.11,
+				"git-diff-check": 1.04,
+				"long-paragraphs": 0.72,
+				"template-headings": 0.55
 			}
 		},
 		"ai/helix-editor-helix-16336.md": {
 			"label": "ai",
-			"probability": 0.969,
+			"probability": 0.972,
 			"signals": {
 				"ai-disclosure": 3,
-				"long-paragraphs": 0.6,
-				"existing-precedent": 0.4,
-				"code-span-density": 0.3,
-				"test-reference": 0.23,
-				"semicolons": 0.23,
-				"bare-urls": -0.07,
-				"first-person": -0.09,
-				"contractions": -0.26
+				"long-paragraphs": 1.44,
+				"existing-precedent": 0.6,
+				"code-span-density": 0.45,
+				"semicolons": 0.34,
+				"test-reference": 0.29,
+				"first-person": -0.1,
+				"contractions": -0.48
 			}
 		},
 		"ai/helix-editor-helix-16337.md": {
 			"label": "ai",
-			"probability": 0.386,
+			"probability": 0.179,
 			"signals": {
-				"code-span-density": 0.31,
-				"commit-shas": 0.13
+				"code-span-density": 0.47
 			}
 		},
 		"ai/helix-editor-helix-16338.md": {
 			"label": "ai",
-			"probability": 0.399,
+			"probability": 0.211,
 			"signals": {
-				"code-span-density": 0.26,
-				"test-reference": 0.23
+				"code-span-density": 0.38,
+				"test-reference": 0.29
 			}
 		},
 		"ai/home-assistant-core-183934.md": {
 			"label": "ai",
-			"probability": 0.247,
+			"probability": 0.792,
 			"signals": {
-				"code-span-density": 0.45,
-				"scope-disclaimer": 0.4,
-				"existing-precedent": 0.4,
-				"long-paragraphs": 0.3,
-				"now-verbs": 0.2,
-				"colon-bullets": 0.09,
-				"first-person": -0.05,
-				"this-pr": -0.8,
-				"template-checkboxes": -1.2
+				"long-paragraphs": 0.72,
+				"code-span-density": 0.67,
+				"scope-disclaimer": 0.62,
+				"now-verbs": 0.62,
+				"existing-precedent": 0.6,
+				"colon-bullets": 0.19,
+				"this-pr": -0.04,
+				"first-person": -0.06
 			}
 		},
 		"ai/home-assistant-core-184000.md": {
 			"label": "ai",
-			"probability": 0.519,
+			"probability": 0.918,
 			"signals": {
-				"code-span-density": 1.15,
-				"file-paths": 0.3,
-				"long-paragraphs": 0.3,
-				"arrows": 0.25,
-				"tables": 0.24,
-				"semicolons": 0.2,
-				"this-pr": -0.27,
-				"template-checkboxes": -1.2
+				"code-span-density": 1.73,
+				"tables": 0.76,
+				"long-paragraphs": 0.72,
+				"file-paths": 0.47,
+				"arrows": 0.39,
+				"semicolons": 0.35,
+				"this-pr": -0.01
 			}
 		},
 		"ai/home-assistant-core-184059.md": {
 			"label": "ai",
-			"probability": 0.193,
+			"probability": 0.444,
 			"signals": {
-				"scope-disclaimer": 0.4,
-				"colon-bullets": 0.26,
-				"test-reference": 0.23,
-				"code-span-density": 0.19,
-				"bare-urls": -0.15,
-				"this-pr": -0.27,
-				"template-checkboxes": -1.2
+				"scope-disclaimer": 0.62,
+				"colon-bullets": 0.58,
+				"test-reference": 0.29,
+				"code-span-density": 0.29,
+				"this-pr": -0.01
 			}
 		},
 		"ai/honojs-hono-5503.md": {
@@ -1273,372 +1174,351 @@
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
-				"code-span-density": 1.27,
-				"colon-bullets": 0.26,
-				"contractions": -0.05,
-				"first-person": -0.06,
-				"template-checkboxes": -0.6
+				"code-span-density": 1.9,
+				"colon-bullets": 0.39,
+				"first-person": -0.09,
+				"contractions": -0.14
 			}
 		},
 		"ai/huggingface-peft-3860.md": {
 			"label": "ai",
-			"probability": 0.98,
+			"probability": 0.998,
 			"signals": {
-				"scope-disclaimer": 0.8,
-				"test-tally": 0.8,
-				"epistemic-hedge": 0.75,
-				"code-span-density": 0.74,
-				"template-headings": 0.5,
-				"arrows": 0.44,
-				"existing-precedent": 0.4,
-				"colon-bullets": 0.35,
-				"semicolons": 0.34,
-				"so-chains": 0.33,
-				"file-paths": 0.3,
-				"test-reference": 0.23,
-				"tables": 0.14,
-				"em-dash": 0.06,
-				"questions": -0.07,
-				"unpunctuated-lines": -0.5,
-				"this-pr": -0.8
+				"scope-disclaimer": 1.24,
+				"code-span-density": 1.11,
+				"test-tally": 1.01,
+				"so-chains": 0.68,
+				"arrows": 0.67,
+				"semicolons": 0.63,
+				"existing-precedent": 0.6,
+				"template-headings": 0.55,
+				"file-paths": 0.47,
+				"tables": 0.43,
+				"colon-bullets": 0.39,
+				"test-reference": 0.29,
+				"epistemic-hedge": 0.25,
+				"em-dash": 0.12,
+				"this-pr": -0.04,
+				"questions": -0.06,
+				"unpunctuated-lines": -0.12
 			}
 		},
 		"ai/huggingface-transformers-49257.md": {
 			"label": "ai",
-			"probability": 0.45,
+			"probability": 0.447,
 			"signals": {
-				"template-headings": 0.5,
-				"test-reference": 0.47,
-				"long-paragraphs": 0.3,
-				"questions": -0.07,
-				"screenshots": -0.22,
-				"this-pr": -0.27
+				"long-paragraphs": 0.72,
+				"test-reference": 0.58,
+				"template-headings": 0.55,
+				"this-pr": -0.01,
+				"questions": -0.06
 			}
 		},
 		"ai/invoke-ai-InvokeAI-9638.md": {
 			"label": "ai",
-			"probability": 0.521,
+			"probability": 0.744,
 			"signals": {
-				"code-span-density": 1.4,
-				"existing-precedent": 0.4,
-				"so-chains": 0.33,
-				"file-paths": 0.1,
-				"colon-bullets": 0.09,
-				"this-pr": -0.27,
-				"contractions": -0.32,
-				"template-checkboxes": -0.75
+				"code-span-density": 2.1,
+				"so-chains": 0.68,
+				"existing-precedent": 0.6,
+				"colon-bullets": 0.19,
+				"file-paths": 0.16,
+				"this-pr": -0.01,
+				"contractions": -0.66
 			}
 		},
 		"ai/jaegertracing-jaeger-9722.md": {
 			"label": "ai",
-			"probability": 0.872,
+			"probability": 0.785,
 			"signals": {
-				"template-headings": 1,
-				"epistemic-hedge": 0.75,
-				"code-span-density": 0.64,
-				"scope-disclaimer": 0.4,
-				"semicolons": 0.31,
-				"first-person": -0.12,
-				"template-checkboxes": -0.15
+				"template-headings": 1.1,
+				"code-span-density": 0.96,
+				"scope-disclaimer": 0.62,
+				"semicolons": 0.5,
+				"epistemic-hedge": 0.25,
+				"first-person": -0.14
 			}
 		},
 		"ai/jestjs-jest-16478.md": {
 			"label": "ai",
-			"probability": 0.983,
+			"probability": 0.986,
 			"signals": {
-				"fails-before-fix": 1.1,
-				"code-span-density": 0.8,
-				"test-tally": 0.8,
-				"semicolons": 0.6,
-				"scope-disclaimer": 0.4,
-				"existing-precedent": 0.4,
-				"long-paragraphs": 0.3,
-				"commit-shas": 0.25,
-				"arrows": 0.25,
-				"test-reference": 0.23,
-				"colon-bullets": 0.09,
-				"this-pr": -0.27
+				"code-span-density": 1.21,
+				"test-tally": 1.01,
+				"semicolons": 0.98,
+				"long-paragraphs": 0.72,
+				"scope-disclaimer": 0.62,
+				"existing-precedent": 0.6,
+				"fails-before-fix": 0.44,
+				"arrows": 0.39,
+				"test-reference": 0.29,
+				"this-pr": -0.01
 			}
 		},
 		"ai/juanfont-headscale-3521.md": {
 			"label": "ai",
-			"probability": 0.917,
+			"probability": 0.849,
 			"signals": {
 				"ai-disclosure": 3,
-				"long-paragraphs": 0.3
+				"long-paragraphs": 0.72
 			}
 		},
 		"ai/jupyterlab-jupyterlab-19974.md": {
 			"label": "ai",
-			"probability": 0.879,
+			"probability": 0.88,
 			"signals": {
 				"ai-disclosure": 3,
-				"colon-bullets": 0.26,
-				"test-reference": 0.23,
-				"bold-lead-bullets": 0.18,
-				"this-pr": -0.8
+				"colon-bullets": 0.58,
+				"test-reference": 0.29,
+				"bold-lead-bullets": 0.16,
+				"this-pr": -0.04
 			}
 		},
 		"ai/k3s-io-k3s-14732.md": {
 			"label": "ai",
-			"probability": 0.992,
+			"probability": 0.998,
 			"signals": {
 				"ai-disclosure": 3,
-				"so-chains": 1,
-				"code-span-density": 0.87,
+				"so-chains": 2.04,
+				"code-span-density": 1.31,
+				"file-paths": 0.79,
+				"long-paragraphs": 0.72,
 				"maintainer-deference": 0.65,
-				"file-paths": 0.5,
-				"long-paragraphs": 0.3,
-				"test-reference": 0.23,
-				"first-person": -0.29,
-				"unpunctuated-lines": -0.5
+				"test-reference": 0.29,
+				"unpunctuated-lines": -0.12,
+				"first-person": -0.34
 			}
 		},
 		"ai/kubernetes-kubernetes-142600.md": {
 			"label": "ai",
-			"probability": 0.991,
+			"probability": 0.998,
 			"signals": {
 				"ai-disclosure": 3,
-				"code-span-density": 1.4,
-				"semicolons": 1.15,
-				"arrows": 0.38,
-				"now-verbs": 0.2,
-				"colon-bullets": 0.18,
-				"em-dash": 0.13,
-				"bare-urls": -0.07,
-				"contractions": -0.17,
-				"first-person": -0.27,
-				"this-pr": -0.27
+				"semicolons": 2.52,
+				"code-span-density": 2.1,
+				"now-verbs": 0.62,
+				"arrows": 0.58,
+				"em-dash": 0.35,
+				"colon-bullets": 0.19,
+				"this-pr": -0.01,
+				"first-person": -0.51,
+				"contractions": -0.57
 			}
 		},
 		"ai/kubernetes-website-57853.md": {
 			"label": "ai",
-			"probability": 0.931,
+			"probability": 0.906,
 			"signals": {
 				"ai-disclosure": 3,
-				"code-span-density": 0.84,
-				"long-paragraphs": 0.3,
-				"first-person": -0.64
+				"code-span-density": 1.26,
+				"long-paragraphs": 0.72,
+				"first-person": -0.73
 			}
 		},
 		"ai/kubernetes-website-57859.md": {
 			"label": "ai",
-			"probability": 0.942,
+			"probability": 0.883,
 			"signals": {
 				"ai-disclosure": 3,
-				"semicolons": 0.33,
-				"code-span-density": 0.26,
-				"file-paths": 0.1
+				"semicolons": 0.47,
+				"code-span-density": 0.38,
+				"file-paths": 0.16
 			}
 		},
 		"ai/langchain-ai-langchain-41001.md": {
 			"label": "ai",
-			"probability": 0.645,
+			"probability": 0.554,
 			"signals": {
-				"code-span-density": 0.71,
-				"semicolons": 0.41,
-				"test-reference": 0.23,
-				"commit-shas": 0.13,
-				"colon-bullets": 0.09,
-				"bare-urls": -0.07
+				"code-span-density": 1.07,
+				"semicolons": 0.65,
+				"test-reference": 0.29,
+				"colon-bullets": 0.19
 			}
 		},
 		"ai/langgenius-dify-43327.md": {
 			"label": "ai",
-			"probability": 0.983,
+			"probability": 0.928,
 			"signals": {
-				"git-diff-check": 2.5,
-				"semicolons": 0.79,
-				"template-headings": 0.5,
-				"scope-disclaimer": 0.4,
-				"test-tally": 0.4,
-				"code-span-density": 0.31,
-				"colon-bullets": 0.09
+				"semicolons": 1.18,
+				"git-diff-check": 1.04,
+				"scope-disclaimer": 0.62,
+				"template-headings": 0.55,
+				"test-tally": 0.5,
+				"code-span-density": 0.46,
+				"colon-bullets": 0.19
 			}
 		},
 		"ai/langgenius-dify-43329.md": {
 			"label": "ai",
-			"probability": 0.124,
+			"probability": 0.133,
 			"signals": {
-				"code-span-density": 0.33,
-				"test-reference": 0.23,
-				"tables": 0.02,
-				"contractions": -0.35,
-				"this-pr": -0.53,
-				"template-checkboxes": -0.75
+				"code-span-density": 0.49,
+				"test-reference": 0.29,
+				"tables": 0.05,
+				"this-pr": -0.03,
+				"contractions": -0.69
 			}
 		},
 		"ai/langgenius-dify-43337.md": {
 			"label": "ai",
-			"probability": 0.962,
+			"probability": 0.967,
 			"signals": {
-				"fails-before-fix": 1.1,
-				"so-chains": 0.67,
-				"template-headings": 0.5,
-				"code-span-density": 0.45,
-				"file-paths": 0.4,
-				"test-tally": 0.4,
-				"long-paragraphs": 0.3,
-				"test-reference": 0.23,
-				"colon-bullets": 0.09
+				"so-chains": 1.36,
+				"long-paragraphs": 0.72,
+				"code-span-density": 0.67,
+				"file-paths": 0.63,
+				"template-headings": 0.55,
+				"test-tally": 0.5,
+				"fails-before-fix": 0.44,
+				"test-reference": 0.29,
+				"colon-bullets": 0.19
 			}
 		},
 		"ai/langgenius-dify-43354.md": {
 			"label": "ai",
-			"probability": 0.85,
+			"probability": 0.781,
 			"signals": {
-				"fails-before-fix": 1.1,
-				"epistemic-hedge": 0.75,
-				"code-span-density": 0.52,
-				"template-headings": 0.5,
-				"semicolons": 0.43,
-				"colon-bullets": 0.26,
-				"test-reference": 0.23,
-				"tables": 0.02,
-				"contractions": -0.16,
-				"this-pr": -0.27,
-				"template-checkboxes": -0.75
+				"code-span-density": 0.78,
+				"semicolons": 0.65,
+				"colon-bullets": 0.58,
+				"template-headings": 0.55,
+				"fails-before-fix": 0.44,
+				"test-reference": 0.29,
+				"epistemic-hedge": 0.25,
+				"tables": 0.05,
+				"this-pr": -0.01,
+				"contractions": -0.31
 			}
 		},
 		"ai/lobehub-lobehub-20275.md": {
 			"label": "ai",
-			"probability": 0.965,
+			"probability": 0.985,
 			"signals": {
 				"ai-disclosure": 3,
-				"code-span-density": 0.43,
-				"semicolons": 0.42,
-				"long-paragraphs": 0.3,
-				"em-dash": 0.23,
-				"now-verbs": 0.2,
-				"colon-bullets": 0.09,
-				"template-checkboxes": -0.45
+				"long-paragraphs": 0.72,
+				"code-span-density": 0.65,
+				"semicolons": 0.64,
+				"now-verbs": 0.62,
+				"em-dash": 0.37,
+				"colon-bullets": 0.19
 			}
 		},
 		"ai/mem0ai-mem0-7530.md": {
 			"label": "ai",
-			"probability": 0.957,
+			"probability": 0.947,
 			"signals": {
-				"code-span-density": 1.4,
-				"fails-before-fix": 1.1,
-				"lint-clean": 0.5,
-				"test-tally": 0.4,
-				"long-paragraphs": 0.3,
-				"file-paths": 0.2,
-				"now-verbs": 0.2,
-				"unpunctuated-lines": -0.1
+				"code-span-density": 2.1,
+				"long-paragraphs": 0.72,
+				"now-verbs": 0.62,
+				"test-tally": 0.5,
+				"fails-before-fix": 0.44,
+				"file-paths": 0.32,
+				"lint-clean": 0.2,
+				"unpunctuated-lines": -0.02
 			}
 		},
 		"ai/micronaut-projects-micronaut-core-13628.md": {
 			"label": "ai",
-			"probability": 0.945,
+			"probability": 0.981,
 			"signals": {
-				"scope-disclaimer": 1.2,
-				"template-headings": 0.5,
-				"colon-bullets": 0.44,
-				"code-span-density": 0.31,
-				"tables": 0.3,
-				"semicolons": 0.29,
-				"test-reference": 0.23,
-				"commit-shas": 0.13,
-				"arrows": 0.13,
+				"scope-disclaimer": 1.86,
+				"colon-bullets": 0.96,
+				"tables": 0.95,
+				"template-headings": 0.55,
+				"code-span-density": 0.47,
+				"semicolons": 0.46,
+				"test-reference": 0.29,
+				"arrows": 0.19,
 				"agent-vocabulary": 0.13,
-				"bold-lead-bullets": 0.09
+				"bold-lead-bullets": 0.08
 			}
 		},
 		"ai/microsoft-vscode-339107.md": {
 			"label": "ai",
-			"probability": 0.977,
+			"probability": 0.997,
 			"signals": {
-				"code-span-density": 0.78,
-				"so-chains": 0.67,
-				"long-paragraphs": 0.6,
-				"template-headings": 0.5,
-				"file-paths": 0.5,
-				"existing-precedent": 0.4,
-				"now-verbs": 0.4,
-				"agent-vocabulary": 0.25,
-				"tables": 0.2,
-				"em-dash": 0.18,
-				"semicolons": 0.11,
-				"bold-lead-bullets": 0.09,
-				"contractions": -0.02
+				"long-paragraphs": 1.44,
+				"so-chains": 1.36,
+				"now-verbs": 1.24,
+				"code-span-density": 1.17,
+				"file-paths": 0.79,
+				"tables": 0.62,
+				"template-headings": 0.55,
+				"em-dash": 0.34,
+				"agent-vocabulary": 0.26,
+				"bold-lead-bullets": 0.08,
+				"contractions": -0.06
 			}
 		},
 		"ai/microsoft-vscode-339129.md": {
 			"label": "ai",
 			"probability": 0.999,
 			"signals": {
-				"git-diff-check": 2.5,
-				"semicolons": 1.6,
-				"code-span-density": 1.4,
-				"template-headings": 1,
-				"colon-bullets": 0.7,
-				"file-paths": 0.5,
-				"test-tally": 0.4,
-				"bold-lead-bullets": 0.28,
-				"this-pr": -0.27
+				"semicolons": 2.52,
+				"code-span-density": 2.1,
+				"template-headings": 1.1,
+				"git-diff-check": 1.04,
+				"file-paths": 0.79,
+				"colon-bullets": 0.58,
+				"test-tally": 0.5,
+				"bold-lead-bullets": 0.24,
+				"this-pr": -0.01
 			}
 		},
 		"ai/n8n-io-n8n-40082.md": {
 			"label": "ai",
-			"probability": 0.059,
+			"probability": 0.136,
 			"signals": {
-				"commit-shas": 0.5,
-				"code-span-density": 0.14,
-				"file-paths": 0.1,
-				"contractions": -0.05,
-				"this-pr": -0.27,
-				"bare-urls": -0.3,
-				"unpunctuated-lines": -0.5,
-				"template-checkboxes": -0.6,
-				"screenshots": -0.9
+				"code-span-density": 0.21,
+				"file-paths": 0.16,
+				"this-pr": -0.01,
+				"contractions": -0.09,
+				"unpunctuated-lines": -0.12
 			}
 		},
 		"ai/nestjs-nest-17978.md": {
 			"label": "ai",
-			"probability": 0.595,
+			"probability": 0.888,
 			"signals": {
-				"code-span-density": 1.22,
-				"scope-disclaimer": 1.2,
-				"em-dash": 0.11,
-				"file-paths": 0.1,
-				"bare-urls": -0.07,
-				"questions": -0.07,
-				"template-checkboxes": -1.2
+				"scope-disclaimer": 1.86,
+				"code-span-density": 1.83,
+				"em-dash": 0.21,
+				"file-paths": 0.16
 			}
 		},
 		"ai/nodejs-node-66453.md": {
 			"label": "ai",
-			"probability": 0.977,
+			"probability": 0.979,
 			"signals": {
 				"ai-disclosure": 3,
-				"code-span-density": 1.4,
-				"semicolons": 0.67,
-				"file-paths": 0.1,
-				"first-person": -0.53
+				"code-span-density": 2.1,
+				"semicolons": 1.31,
+				"file-paths": 0.16,
+				"first-person": -0.75
 			}
 		},
 		"ai/nrwl-nx-37249.md": {
 			"label": "ai",
-			"probability": 0.922,
+			"probability": 0.961,
 			"signals": {
-				"fails-before-fix": 2.2,
-				"code-span-density": 0.9,
-				"long-paragraphs": 0.6,
-				"now-verbs": 0.2,
-				"contractions": -0.09,
-				"first-person": -0.18,
-				"this-pr": -0.27
+				"long-paragraphs": 1.44,
+				"so-chains": 1.36,
+				"code-span-density": 1.35,
+				"fails-before-fix": 0.88,
+				"now-verbs": 0.62,
+				"this-pr": -0.01,
+				"contractions": -0.21,
+				"first-person": -0.25
 			}
 		},
 		"ai/ollama-ollama-18745.md": {
 			"label": "ai",
-			"probability": 0.652,
+			"probability": 0.629,
 			"signals": {
-				"code-span-density": 0.9,
-				"scope-disclaimer": 0.4,
-				"so-chains": 0.33,
-				"first-person": -0.11
+				"code-span-density": 1.35,
+				"so-chains": 0.68,
+				"scope-disclaimer": 0.62,
+				"first-person": -0.13
 			}
 		},
 		"ai/onyx-dot-app-onyx-15398.md": {
@@ -1647,79 +1527,73 @@
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
-				"so-chains": 1,
-				"stacked-pr": 0.8,
-				"scope-disclaimer": 0.8,
-				"code-span-density": 0.78,
-				"bold-lead-bullets": 0.73,
-				"colon-bullets": 0.7,
-				"existing-precedent": 0.4,
-				"semicolons": 0.29,
-				"test-reference": 0.23,
-				"now-verbs": 0.2,
-				"commit-shas": 0.13,
-				"file-paths": 0.1,
-				"screenshots": -0.11,
-				"unpunctuated-lines": -0.2,
-				"this-pr": -0.27,
-				"template-checkboxes": -0.3,
-				"bare-urls": -0.3
+				"so-chains": 2.04,
+				"colon-bullets": 1.35,
+				"scope-disclaimer": 1.24,
+				"code-span-density": 1.17,
+				"bold-lead-bullets": 0.63,
+				"now-verbs": 0.62,
+				"existing-precedent": 0.6,
+				"semicolons": 0.5,
+				"stacked-pr": 0.47,
+				"test-reference": 0.29,
+				"file-paths": 0.16,
+				"this-pr": -0.01,
+				"unpunctuated-lines": -0.05
 			}
 		},
 		"ai/open-telemetry-opentelemetry-collector-16078.md": {
 			"label": "ai",
-			"probability": 0.831,
+			"probability": 0.987,
 			"signals": {
-				"so-chains": 1,
-				"code-span-density": 0.85,
-				"now-verbs": 0.6,
-				"scope-disclaimer": 0.4,
-				"long-paragraphs": 0.3,
-				"first-person": -0.12,
-				"contractions": -0.12,
-				"template-checkboxes": -0.15,
-				"this-pr": -0.27
+				"so-chains": 2.04,
+				"now-verbs": 1.86,
+				"code-span-density": 1.28,
+				"long-paragraphs": 0.72,
+				"scope-disclaimer": 0.62,
+				"colon-bullets": 0.19,
+				"this-pr": -0.01,
+				"first-person": -0.15,
+				"contractions": -0.25
 			}
 		},
 		"ai/open-webui-open-webui-31865.md": {
 			"label": "ai",
-			"probability": 0.553,
+			"probability": 0.97,
 			"signals": {
-				"scope-disclaimer": 0.8,
-				"code-span-density": 0.68,
-				"so-chains": 0.67,
-				"existing-precedent": 0.4,
-				"semicolons": 0.33,
-				"long-paragraphs": 0.3,
-				"em-dash": 0.18,
-				"first-person": -0.04,
-				"bare-urls": -0.07,
-				"contractions": -0.12,
-				"this-pr": -0.8,
-				"template-checkboxes": -1.2
+				"so-chains": 1.36,
+				"scope-disclaimer": 1.24,
+				"code-span-density": 1.01,
+				"long-paragraphs": 0.72,
+				"existing-precedent": 0.6,
+				"semicolons": 0.57,
+				"em-dash": 0.33,
+				"this-pr": -0.04,
+				"first-person": -0.05,
+				"contractions": -0.27
 			}
 		},
 		"ai/openclaw-openclaw-162624.md": {
 			"label": "ai",
-			"probability": 0.819,
+			"probability": 0.466,
 			"signals": {
-				"fails-before-fix": 1.1,
-				"code-span-density": 0.81,
-				"lint-clean": 0.5
+				"code-span-density": 1.21,
+				"fails-before-fix": 0.44,
+				"lint-clean": 0.2
 			}
 		},
 		"ai/openclaw-openclaw-162665.md": {
 			"label": "ai",
-			"probability": 1,
+			"probability": 0.998,
 			"signals": {
 				"agent-attribution": 4,
-				"git-diff-check": 2.5,
-				"fails-before-fix": 1.1,
-				"semicolons": 0.81,
-				"test-tally": 0.8,
-				"epistemic-hedge": 0.75,
-				"code-span-density": 0.1,
-				"file-paths": 0.1
+				"semicolons": 1.19,
+				"git-diff-check": 1.04,
+				"test-tally": 1.01,
+				"fails-before-fix": 0.44,
+				"epistemic-hedge": 0.25,
+				"code-span-density": 0.16,
+				"file-paths": 0.16
 			}
 		},
 		"ai/openclaw-openclaw-162684.md": {
@@ -1727,58 +1601,53 @@
 			"probability": 1,
 			"signals": {
 				"ai-disclosure": 3,
+				"so-chains": 2.04,
+				"scope-disclaimer": 1.86,
+				"long-paragraphs": 1.44,
+				"colon-bullets": 1.35,
+				"code-span-density": 1.32,
+				"now-verbs": 1.24,
 				"live-verification": 1.2,
-				"scope-disclaimer": 1.2,
-				"lint-clean": 1,
-				"so-chains": 1,
-				"code-span-density": 0.88,
-				"epistemic-hedge": 0.75,
-				"long-paragraphs": 0.6,
-				"file-paths": 0.5,
-				"now-verbs": 0.4,
-				"colon-bullets": 0.35,
-				"test-reference": 0.23,
-				"semicolons": 0.04,
-				"questions": -0.07,
-				"unpunctuated-lines": -0.1,
-				"this-pr": -0.53
+				"file-paths": 0.79,
+				"lint-clean": 0.4,
+				"test-reference": 0.29,
+				"epistemic-hedge": 0.25,
+				"semicolons": 0.06,
+				"unpunctuated-lines": -0.02,
+				"this-pr": -0.03
 			}
 		},
 		"ai/openclaw-openclaw-162887.md": {
 			"label": "ai",
-			"probability": 0.928,
+			"probability": 0.997,
 			"signals": {
-				"scope-disclaimer": 1.2,
-				"semicolons": 0.96,
-				"colon-bullets": 0.61,
-				"long-paragraphs": 0.6,
-				"commit-shas": 0.5,
-				"file-paths": 0.5,
-				"test-reference": 0.23,
-				"code-span-density": 0.21,
-				"now-verbs": 0.2,
-				"bold-lead-bullets": 0.09,
-				"em-dash": 0.08,
-				"arrows": 0.06,
-				"unpunctuated-lines": -0.1,
-				"this-pr": -0.8,
-				"screenshots": -0.9
+				"scope-disclaimer": 1.86,
+				"long-paragraphs": 1.44,
+				"colon-bullets": 1.35,
+				"semicolons": 1.07,
+				"file-paths": 0.79,
+				"now-verbs": 0.62,
+				"code-span-density": 0.31,
+				"test-reference": 0.29,
+				"bold-lead-bullets": 0.08,
+				"em-dash": 0.06,
+				"unpunctuated-lines": -0.02,
+				"this-pr": -0.04
 			}
 		},
 		"ai/openclaw-openclaw-162985.md": {
 			"label": "ai",
-			"probability": 0.928,
+			"probability": 0.984,
 			"signals": {
-				"template-headings": 1,
-				"semicolons": 0.84,
-				"code-span-density": 0.49,
-				"test-tally": 0.4,
-				"file-paths": 0.2,
-				"now-verbs": 0.2,
-				"arrows": 0.19,
-				"colon-bullets": 0.18,
-				"em-dash": 0.12,
-				"template-checkboxes": -0.15
+				"semicolons": 1.9,
+				"template-headings": 1.1,
+				"code-span-density": 0.73,
+				"now-verbs": 0.62,
+				"test-tally": 0.5,
+				"colon-bullets": 0.39,
+				"file-paths": 0.32,
+				"arrows": 0.29,
+				"em-dash": 0.28
 			}
 		},
 		"ai/openclaw-openclaw-163016.md": {
@@ -1786,27 +1655,25 @@
 			"probability": 1,
 			"signals": {
 				"agent-attribution": 4,
-				"git-diff-check": 2.5,
+				"so-chains": 2.04,
 				"review-severity": 2,
-				"scope-disclaimer": 1.2,
-				"test-tally": 1.2,
-				"semicolons": 1.18,
-				"so-chains": 1,
-				"long-paragraphs": 0.6,
-				"now-verbs": 0.6,
-				"lint-clean": 0.5,
-				"file-paths": 0.5,
-				"code-span-density": 0.39,
-				"colon-bullets": 0.35,
-				"tables": 0.3,
-				"commit-shas": 0.25,
-				"bold-lead-bullets": 0.18,
+				"semicolons": 2,
+				"scope-disclaimer": 1.86,
+				"now-verbs": 1.86,
+				"test-tally": 1.51,
+				"long-paragraphs": 1.44,
+				"git-diff-check": 1.04,
+				"tables": 0.95,
+				"file-paths": 0.79,
+				"code-span-density": 0.59,
+				"colon-bullets": 0.39,
+				"lint-clean": 0.2,
+				"bold-lead-bullets": 0.16,
 				"agent-vocabulary": 0.13,
-				"arrows": 0.06,
+				"arrows": 0.1,
 				"first-person": 0,
-				"contractions": -0.01,
-				"this-pr": -0.27,
-				"bare-urls": -0.3
+				"this-pr": -0.01,
+				"contractions": -0.01
 			}
 		},
 		"ai/openclaw-openclaw-163154.md": {
@@ -1815,132 +1682,127 @@
 			"signals": {
 				"agent-attribution": 4,
 				"review-severity": 2,
-				"test-tally": 0.8,
-				"semicolons": 0.62,
-				"long-paragraphs": 0.6,
-				"commit-shas": 0.5,
-				"agent-vocabulary": 0.5,
-				"now-verbs": 0.2,
-				"code-span-density": 0.13,
-				"file-paths": 0.1,
-				"bold-lead-bullets": 0.09,
-				"this-pr": -0.27
+				"long-paragraphs": 1.44,
+				"test-tally": 1.01,
+				"semicolons": 0.98,
+				"now-verbs": 0.62,
+				"agent-vocabulary": 0.51,
+				"code-span-density": 0.2,
+				"colon-bullets": 0.19,
+				"file-paths": 0.16,
+				"bold-lead-bullets": 0.08,
+				"this-pr": -0.01
 			}
 		},
 		"ai/openclaw-openclaw-163545.md": {
 			"label": "ai",
-			"probability": 0.999,
+			"probability": 1,
 			"signals": {
 				"agent-attribution": 4,
+				"test-tally": 1.51,
 				"live-verification": 1.2,
-				"test-tally": 1.2,
-				"file-paths": 0.5,
-				"semicolons": 0.41,
-				"code-span-density": 0.4,
-				"commit-shas": 0.38,
-				"em-dash": 0.28,
-				"colon-bullets": 0.26,
-				"agent-vocabulary": 0.13,
-				"screenshots": -0.45
+				"file-paths": 0.79,
+				"semicolons": 0.75,
+				"code-span-density": 0.59,
+				"colon-bullets": 0.58,
+				"em-dash": 0.54,
+				"agent-vocabulary": 0.13
 			}
 		},
 		"ai/openclaw-openclaw-163555.md": {
 			"label": "ai",
-			"probability": 0.963,
+			"probability": 0.983,
 			"signals": {
-				"fails-before-fix": 1.1,
-				"scope-disclaimer": 0.8,
-				"test-tally": 0.8,
-				"code-span-density": 0.65,
-				"template-headings": 0.5,
-				"file-paths": 0.5,
-				"semicolons": 0.44,
-				"colon-bullets": 0.18,
-				"this-pr": -0.8
+				"scope-disclaimer": 1.24,
+				"test-tally": 1.01,
+				"code-span-density": 0.97,
+				"file-paths": 0.79,
+				"semicolons": 0.71,
+				"template-headings": 0.55,
+				"fails-before-fix": 0.44,
+				"colon-bullets": 0.39,
+				"this-pr": -0.04
 			}
 		},
 		"ai/openclaw-openclaw-163589.md": {
 			"label": "ai",
-			"probability": 0.962,
+			"probability": 0.992,
 			"signals": {
-				"code-span-density": 0.77,
-				"long-paragraphs": 0.6,
-				"bold-lead-bullets": 0.55,
-				"template-headings": 0.5,
-				"file-paths": 0.5,
-				"test-tally": 0.4,
-				"existing-precedent": 0.4,
-				"now-verbs": 0.4
+				"long-paragraphs": 1.44,
+				"now-verbs": 1.24,
+				"code-span-density": 1.16,
+				"file-paths": 0.79,
+				"existing-precedent": 0.6,
+				"template-headings": 0.55,
+				"test-tally": 0.5,
+				"bold-lead-bullets": 0.48
 			}
 		},
 		"ai/openrct2-OpenRCT2-27224.md": {
 			"label": "ai",
-			"probability": 0.859,
+			"probability": 0.748,
 			"signals": {
 				"ai-disclosure": 3,
-				"scope-disclaimer": 0.4,
-				"code-span-density": 0.31,
-				"first-person": -1
+				"scope-disclaimer": 0.62,
+				"code-span-density": 0.47,
+				"first-person": -1.01
 			}
 		},
 		"ai/pandas-dev-pandas-70108.md": {
 			"label": "ai",
-			"probability": 0.542,
+			"probability": 0.98,
 			"signals": {
-				"code-span-density": 0.83,
-				"so-chains": 0.67,
-				"long-paragraphs": 0.6,
-				"verification-label": 0.5,
-				"now-verbs": 0.4,
-				"file-paths": 0.1,
-				"tables": 0.09,
-				"first-person": -0.12,
-				"this-pr": -0.8,
-				"template-checkboxes": -1.2
+				"long-paragraphs": 1.44,
+				"so-chains": 1.36,
+				"code-span-density": 1.24,
+				"now-verbs": 1.24,
+				"verification-label": 0.36,
+				"tables": 0.28,
+				"file-paths": 0.16,
+				"this-pr": -0.04,
+				"first-person": -0.14
 			}
 		},
 		"ai/pandas-dev-pandas-70150.md": {
 			"label": "ai",
-			"probability": 0.989,
+			"probability": 0.995,
 			"signals": {
 				"ai-disclosure": 3,
-				"code-span-density": 1.4,
-				"colon-bullets": 0.7,
-				"now-verbs": 0.2,
+				"code-span-density": 2.1,
+				"colon-bullets": 1.54,
+				"now-verbs": 0.62,
 				"agent-vocabulary": 0.13
 			}
 		},
 		"ai/payloadcms-payload-18429.md": {
 			"label": "ai",
-			"probability": 0.996,
+			"probability": 0.989,
 			"signals": {
-				"fails-before-fix": 2.2,
-				"code-span-density": 1.27,
-				"test-tally": 0.8,
-				"lint-clean": 0.5,
-				"template-headings": 0.5,
-				"scope-disclaimer": 0.4,
-				"existing-precedent": 0.4,
-				"long-paragraphs": 0.3,
-				"file-paths": 0.2,
-				"colon-bullets": 0.09,
-				"first-person": -0.08,
-				"contractions": -0.08
+				"code-span-density": 1.9,
+				"test-tally": 1.01,
+				"fails-before-fix": 0.88,
+				"long-paragraphs": 0.72,
+				"scope-disclaimer": 0.62,
+				"existing-precedent": 0.6,
+				"template-headings": 0.55,
+				"file-paths": 0.32,
+				"lint-clean": 0.2,
+				"first-person": -0.11,
+				"contractions": -0.19
 			}
 		},
 		"ai/payloadcms-payload-18450.md": {
 			"label": "ai",
-			"probability": 0.835,
+			"probability": 0.953,
 			"signals": {
-				"scope-disclaimer": 1.2,
-				"code-span-density": 0.93,
-				"em-dash": 0.33,
-				"bold-lead-bullets": 0.28,
-				"file-paths": 0.2,
-				"now-verbs": 0.2,
-				"contractions": -0.04,
-				"bare-urls": -0.07,
-				"unpunctuated-lines": -0.5
+				"scope-disclaimer": 1.86,
+				"code-span-density": 1.4,
+				"em-dash": 0.82,
+				"now-verbs": 0.62,
+				"file-paths": 0.32,
+				"bold-lead-bullets": 0.24,
+				"unpunctuated-lines": -0.12,
+				"contractions": -0.14
 			}
 		},
 		"ai/playcanvas-engine-9635.md": {
@@ -1949,158 +1811,148 @@
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
-				"scope-disclaimer": 1.2,
-				"code-span-density": 0.8,
-				"template-headings": 0.5,
-				"bold-lead-bullets": 0.37,
-				"so-chains": 0.33,
-				"semicolons": 0.27,
-				"tables": 0.14
+				"scope-disclaimer": 1.86,
+				"code-span-density": 1.2,
+				"so-chains": 0.68,
+				"template-headings": 0.55,
+				"semicolons": 0.43,
+				"tables": 0.43,
+				"bold-lead-bullets": 0.32
 			}
 		},
 		"ai/plotly-plotly.js-8096.md": {
 			"label": "ai",
-			"probability": 0.992,
+			"probability": 0.982,
 			"signals": {
-				"fails-before-fix": 2.2,
-				"code-span-density": 1.4,
-				"epistemic-hedge": 0.75,
-				"template-headings": 0.5,
-				"file-paths": 0.4,
-				"long-paragraphs": 0.3,
-				"test-reference": 0.23,
-				"now-verbs": 0.2,
-				"bare-urls": -0.07,
-				"first-person": -0.16
+				"code-span-density": 2.1,
+				"fails-before-fix": 0.88,
+				"long-paragraphs": 0.72,
+				"file-paths": 0.63,
+				"now-verbs": 0.62,
+				"template-headings": 0.55,
+				"test-reference": 0.29,
+				"epistemic-hedge": 0.25,
+				"colon-bullets": 0.19,
+				"first-person": -0.24
 			}
 		},
 		"ai/pnpm-pnpm-16507.md": {
 			"label": "ai",
-			"probability": 0.988,
+			"probability": 1,
 			"signals": {
 				"ai-disclosure": 3,
+				"so-chains": 2.04,
 				"live-verification": 1.2,
-				"so-chains": 1,
-				"semicolons": 0.68,
-				"colon-bullets": 0.52,
-				"file-paths": 0.5,
-				"code-span-density": 0.38,
-				"now-verbs": 0.2,
+				"colon-bullets": 1.16,
+				"semicolons": 0.97,
+				"file-paths": 0.79,
+				"now-verbs": 0.62,
+				"code-span-density": 0.57,
+				"tables": 0.24,
 				"agent-vocabulary": 0.13,
-				"tables": 0.08,
-				"arrows": 0.06,
-				"screenshots": -0.22,
-				"bare-urls": -0.3,
-				"questions": -0.3,
-				"unpunctuated-lines": -0.5,
-				"this-pr": -0.53,
-				"template-checkboxes": -0.6
+				"this-pr": -0.03,
+				"questions": -0.06,
+				"unpunctuated-lines": -0.12
 			}
 		},
 		"ai/pnpm-pnpm-16510.md": {
 			"label": "ai",
-			"probability": 0.137,
+			"probability": 0.85,
 			"signals": {
-				"now-verbs": 0.4,
-				"so-chains": 0.33,
-				"long-paragraphs": 0.3,
-				"code-span-density": 0.28,
-				"semicolons": 0.12,
-				"questions": -0.07,
-				"screenshots": -0.22,
-				"bare-urls": -0.3,
-				"unpunctuated-lines": -0.5,
-				"this-pr": -0.53,
-				"template-checkboxes": -0.75
+				"so-chains": 1.36,
+				"now-verbs": 1.24,
+				"long-paragraphs": 0.72,
+				"code-span-density": 0.43,
+				"semicolons": 0.18,
+				"this-pr": -0.03,
+				"questions": -0.06,
+				"unpunctuated-lines": -0.12
 			}
 		},
 		"ai/pnpm-pnpm-16512.md": {
 			"label": "ai",
-			"probability": 0.978,
+			"probability": 0.998,
 			"signals": {
 				"ai-disclosure": 3,
-				"code-span-density": 1,
-				"long-paragraphs": 0.6,
-				"verification-label": 0.5,
-				"test-tally": 0.4,
-				"existing-precedent": 0.4,
-				"so-chains": 0.33,
-				"first-person": -0.16,
-				"this-pr": -0.27,
-				"unpunctuated-lines": -0.5,
-				"template-checkboxes": -0.6
+				"code-span-density": 1.5,
+				"long-paragraphs": 1.44,
+				"so-chains": 1.36,
+				"existing-precedent": 0.6,
+				"test-tally": 0.5,
+				"verification-label": 0.36,
+				"this-pr": -0.01,
+				"unpunctuated-lines": -0.12,
+				"first-person": -0.2
 			}
 		},
 		"ai/pnpm-pnpm-16524.md": {
 			"label": "ai",
-			"probability": 0.417,
+			"probability": 0.504,
 			"signals": {
-				"code-span-density": 0.66,
-				"template-headings": 0.5,
-				"test-reference": 0.47,
-				"questions": -0.07,
-				"unpunctuated-lines": -0.2,
-				"screenshots": -0.22,
-				"this-pr": -0.27,
-				"bare-urls": -0.3
+				"code-span-density": 1,
+				"test-reference": 0.58,
+				"template-headings": 0.55,
+				"this-pr": -0.01,
+				"unpunctuated-lines": -0.05,
+				"questions": -0.06
 			}
 		},
 		"ai/pr1.md": {
 			"label": "ai",
-			"probability": 0.878,
+			"probability": 0.72,
 			"signals": {
-				"fails-before-fix": 1.1,
-				"scope-disclaimer": 0.8,
-				"code-span-density": 0.68,
-				"existing-precedent": 0.4,
+				"scope-disclaimer": 1.24,
+				"code-span-density": 1.02,
+				"existing-precedent": 0.6,
+				"fails-before-fix": 0.44,
 				"agent-vocabulary": 0.13,
-				"arrows": 0.06,
-				"contractions": -0.29
+				"arrows": 0.1,
+				"contractions": -0.59
 			}
 		},
 		"ai/pr2.md": {
 			"label": "ai",
-			"probability": 0.774,
+			"probability": 0.569,
 			"signals": {
 				"validation-line": 2,
-				"test-reference": 0.23,
-				"unpunctuated-lines": -0.1
+				"test-reference": 0.29,
+				"unpunctuated-lines": -0.02
 			}
 		},
 		"ai/pr3.md": {
 			"label": "ai",
-			"probability": 0.854,
+			"probability": 0.868,
 			"signals": {
-				"code-span-density": 1.4,
-				"semicolons": 1.2,
-				"arrows": 0.06
+				"code-span-density": 2.1,
+				"semicolons": 1.68,
+				"arrows": 0.1
 			}
 		},
 		"ai/pr4.md": {
 			"label": "ai",
-			"probability": 0.992,
+			"probability": 0.979,
 			"signals": {
-				"git-diff-check": 2.5,
-				"test-tally": 0.8,
-				"code-span-density": 0.64,
-				"file-paths": 0.5,
-				"scope-disclaimer": 0.4,
-				"existing-precedent": 0.4,
-				"em-dash": 0.25,
-				"semicolons": 0.22
+				"git-diff-check": 1.04,
+				"test-tally": 1.01,
+				"code-span-density": 0.95,
+				"file-paths": 0.79,
+				"scope-disclaimer": 0.62,
+				"existing-precedent": 0.6,
+				"em-dash": 0.45,
+				"semicolons": 0.39
 			}
 		},
 		"ai/prisma-orm-30575.md": {
 			"label": "ai",
-			"probability": 0.939,
+			"probability": 0.936,
 			"signals": {
-				"fails-before-fix": 1.1,
-				"code-span-density": 0.94,
-				"template-headings": 0.5,
-				"scope-disclaimer": 0.4,
-				"long-paragraphs": 0.3,
-				"file-paths": 0.2,
-				"now-verbs": 0.2
+				"code-span-density": 1.41,
+				"long-paragraphs": 0.72,
+				"scope-disclaimer": 0.62,
+				"now-verbs": 0.62,
+				"template-headings": 0.55,
+				"fails-before-fix": 0.44,
+				"file-paths": 0.32
 			}
 		},
 		"ai/prisma-orm-30577.md": {
@@ -2109,161 +1961,154 @@
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
-				"scope-disclaimer": 1.2,
-				"bold-lead-bullets": 1.1,
-				"so-chains": 1,
-				"code-span-density": 0.87,
-				"file-paths": 0.5,
-				"colon-bullets": 0.35,
-				"semicolons": 0.32,
-				"long-paragraphs": 0.3,
-				"agent-vocabulary": 0.25,
-				"now-verbs": 0.2,
-				"em-dash": 0.04,
-				"template-checkboxes": -0.75,
-				"this-pr": -0.8
+				"so-chains": 2.04,
+				"scope-disclaimer": 1.86,
+				"code-span-density": 1.3,
+				"bold-lead-bullets": 0.95,
+				"file-paths": 0.79,
+				"long-paragraphs": 0.72,
+				"now-verbs": 0.62,
+				"colon-bullets": 0.58,
+				"semicolons": 0.55,
+				"agent-vocabulary": 0.26,
+				"em-dash": 0.03,
+				"this-pr": -0.04
 			}
 		},
 		"ai/pulumi-pulumi-24995.md": {
 			"label": "ai",
-			"probability": 0.888,
+			"probability": 0.993,
 			"signals": {
-				"scope-disclaimer": 1.2,
-				"fails-before-fix": 1.1,
-				"long-paragraphs": 0.6,
-				"code-span-density": 0.58,
-				"so-chains": 0.33,
-				"test-reference": 0.23,
-				"em-dash": 0.22,
-				"now-verbs": 0.2,
-				"first-person": -0.03,
-				"this-pr": -0.27,
-				"template-checkboxes": -1.2
+				"scope-disclaimer": 1.86,
+				"long-paragraphs": 1.44,
+				"code-span-density": 0.87,
+				"em-dash": 0.82,
+				"so-chains": 0.68,
+				"now-verbs": 0.62,
+				"fails-before-fix": 0.44,
+				"test-reference": 0.29,
+				"this-pr": -0.01,
+				"first-person": -0.08
 			}
 		},
 		"ai/pulumi-pulumi-25007.md": {
 			"label": "ai",
-			"probability": 0.901,
+			"probability": 0.861,
 			"signals": {
-				"fails-before-fix": 1.1,
-				"code-span-density": 0.97,
-				"template-headings": 0.5,
-				"long-paragraphs": 0.3,
-				"agent-vocabulary": 0.25,
-				"test-reference": 0.23,
-				"semicolons": 0.13,
-				"first-person": -0.11,
-				"this-pr": -0.27
+				"code-span-density": 1.45,
+				"long-paragraphs": 0.72,
+				"template-headings": 0.55,
+				"fails-before-fix": 0.44,
+				"test-reference": 0.29,
+				"semicolons": 0.29,
+				"agent-vocabulary": 0.26,
+				"this-pr": -0.01,
+				"first-person": -0.17
 			}
 		},
 		"ai/pytest-dev-pytest-15120.md": {
 			"label": "ai",
-			"probability": 0.883,
+			"probability": 0.97,
 			"signals": {
-				"code-span-density": 1.1,
-				"test-tally": 0.8,
-				"template-headings": 0.5,
-				"scope-disclaimer": 0.4,
-				"file-paths": 0.3,
-				"test-reference": 0.23,
-				"em-dash": 0.22,
-				"semicolons": 0.13,
-				"this-pr": -0.27,
-				"unpunctuated-lines": -0.5
+				"code-span-density": 1.65,
+				"test-tally": 1.01,
+				"em-dash": 0.63,
+				"scope-disclaimer": 0.62,
+				"template-headings": 0.55,
+				"file-paths": 0.47,
+				"semicolons": 0.36,
+				"test-reference": 0.29,
+				"unpunctuated-lines": -0.12
 			}
 		},
 		"ai/pytorch-pytorch-199273.md": {
 			"label": "ai",
-			"probability": 0.976,
+			"probability": 0.995,
 			"signals": {
-				"code-span-density": 1.38,
-				"template-headings": 1,
-				"so-chains": 1,
-				"test-reference": 0.47,
-				"scope-disclaimer": 0.4,
-				"long-paragraphs": 0.3,
-				"file-paths": 0.2,
-				"colon-bullets": 0.09,
-				"contractions": -0.06,
-				"first-person": -0.19
+				"code-span-density": 2.07,
+				"so-chains": 2.04,
+				"template-headings": 1.1,
+				"long-paragraphs": 0.72,
+				"scope-disclaimer": 0.62,
+				"test-reference": 0.58,
+				"file-paths": 0.32,
+				"colon-bullets": 0.19,
+				"contractions": -0.13,
+				"first-person": -0.23
 			}
 		},
 		"ai/pytorch-pytorch-199284.md": {
 			"label": "ai",
-			"probability": 0.992,
+			"probability": 0.999,
 			"signals": {
 				"ai-disclosure": 3,
-				"so-chains": 1,
-				"test-tally": 0.8,
-				"now-verbs": 0.6,
-				"file-paths": 0.5,
-				"semicolons": 0.41,
-				"first-person": -0.05,
-				"unpunctuated-lines": -0.5
+				"so-chains": 2.04,
+				"now-verbs": 1.86,
+				"test-tally": 1.01,
+				"file-paths": 0.79,
+				"semicolons": 0.65,
+				"first-person": -0.06,
+				"unpunctuated-lines": -0.12
 			}
 		},
 		"ai/pytorch-pytorch-199415.md": {
 			"label": "ai",
-			"probability": 0.907,
+			"probability": 0.973,
 			"signals": {
 				"ai-disclosure": 3,
-				"commit-shas": 0.5,
-				"scope-disclaimer": 0.4,
-				"existing-precedent": 0.4,
-				"so-chains": 0.33,
-				"semicolons": 0.18,
-				"code-span-density": 0.17,
-				"file-paths": 0.1,
-				"questions": -0.07,
-				"unpunctuated-lines": -0.1,
-				"bare-urls": -0.3,
-				"this-pr": -0.53,
-				"screenshots": -0.9
+				"so-chains": 0.68,
+				"scope-disclaimer": 0.62,
+				"existing-precedent": 0.6,
+				"semicolons": 0.39,
+				"code-span-density": 0.25,
+				"file-paths": 0.16,
+				"unpunctuated-lines": -0.02,
+				"this-pr": -0.03,
+				"questions": -0.06
 			}
 		},
 		"ai/pytorch-pytorch-199416.md": {
 			"label": "ai",
-			"probability": 0.949,
+			"probability": 0.938,
 			"signals": {
 				"ai-disclosure": 3,
-				"semicolons": 0.48,
-				"code-span-density": 0.37,
-				"test-reference": 0.23,
-				"file-paths": 0.1,
-				"unpunctuated-lines": -0.1,
-				"this-pr": -0.27
+				"semicolons": 0.74,
+				"code-span-density": 0.56,
+				"test-reference": 0.29,
+				"file-paths": 0.16,
+				"this-pr": -0.01,
+				"unpunctuated-lines": -0.02
 			}
 		},
 		"ai/qdrant-qdrant-10909.md": {
 			"label": "ai",
-			"probability": 0.993,
+			"probability": 1,
 			"signals": {
-				"code-span-density": 1.33,
-				"template-headings": 1,
-				"so-chains": 1,
-				"long-paragraphs": 0.6,
-				"semicolons": 0.45,
-				"scope-disclaimer": 0.4,
-				"colon-bullets": 0.35,
-				"file-paths": 0.3,
-				"bold-lead-bullets": 0.28,
-				"now-verbs": 0.2,
+				"so-chains": 2.04,
+				"code-span-density": 1.99,
+				"long-paragraphs": 1.44,
+				"template-headings": 1.1,
+				"semicolons": 0.88,
+				"scope-disclaimer": 0.62,
+				"now-verbs": 0.62,
+				"file-paths": 0.47,
+				"bold-lead-bullets": 0.24,
+				"em-dash": 0.21,
+				"colon-bullets": 0.19,
 				"agent-vocabulary": 0.13,
-				"em-dash": 0.1,
-				"this-pr": -0.27
+				"this-pr": -0.01
 			}
 		},
 		"ai/react-react-native-58806.md": {
 			"label": "ai",
-			"probability": 0.923,
+			"probability": 0.738,
 			"signals": {
-				"git-diff-check": 2.5,
-				"semicolons": 0.69,
-				"code-span-density": 0.18,
-				"commit-shas": 0.13,
-				"file-paths": 0.1,
-				"arrows": 0.06,
-				"this-pr": -0.27
+				"semicolons": 1.48,
+				"git-diff-check": 1.04,
+				"code-span-density": 0.27,
+				"file-paths": 0.16,
+				"arrows": 0.1,
+				"this-pr": -0.01
 			}
 		},
 		"ai/redis-redis-15894.md": {
@@ -2271,156 +2116,147 @@
 			"probability": 1,
 			"signals": {
 				"ai-disclosure": 3,
-				"fails-before-fix": 2.2,
-				"scope-disclaimer": 1.2,
-				"so-chains": 1,
-				"code-span-density": 0.85,
-				"template-headings": 0.5,
-				"test-reference": 0.23,
-				"now-verbs": 0.2,
-				"em-dash": 0.17,
-				"semicolons": 0.15,
-				"commit-shas": 0.13,
-				"arrows": 0.06,
-				"first-person": -0.03,
-				"questions": -0.07,
-				"this-pr": -0.27,
-				"unpunctuated-lines": -0.5
+				"so-chains": 2.04,
+				"scope-disclaimer": 1.86,
+				"code-span-density": 1.27,
+				"fails-before-fix": 0.88,
+				"now-verbs": 0.62,
+				"template-headings": 0.55,
+				"em-dash": 0.37,
+				"semicolons": 0.32,
+				"test-reference": 0.29,
+				"arrows": 0.1,
+				"this-pr": -0.01,
+				"first-person": -0.05,
+				"questions": -0.06,
+				"unpunctuated-lines": -0.12
 			}
 		},
 		"ai/remotion-dev-remotion-11945.md": {
 			"label": "ai",
-			"probability": 0.529,
+			"probability": 0.296,
 			"signals": {
-				"template-headings": 1,
+				"template-headings": 1.1,
 				"code-span-density": 0.02
 			}
 		},
 		"ai/rolldown-rolldown-11080.md": {
 			"label": "ai",
-			"probability": 0.481,
+			"probability": 0.393,
 			"signals": {
-				"code-span-density": 0.62,
-				"now-verbs": 0.2
+				"code-span-density": 0.93,
+				"now-verbs": 0.62
 			}
 		},
 		"ai/rolldown-rolldown-11089.md": {
 			"label": "ai",
-			"probability": 0.963,
+			"probability": 0.997,
 			"signals": {
-				"code-span-density": 1.4,
-				"so-chains": 1,
-				"file-paths": 0.5,
-				"scope-disclaimer": 0.4,
-				"existing-precedent": 0.4,
-				"long-paragraphs": 0.3,
-				"now-verbs": 0.2,
-				"bold-lead-bullets": 0.18,
-				"colon-bullets": 0.09,
-				"first-person": -0.06,
-				"this-pr": -0.27
+				"code-span-density": 2.1,
+				"so-chains": 2.04,
+				"file-paths": 0.79,
+				"long-paragraphs": 0.72,
+				"scope-disclaimer": 0.62,
+				"now-verbs": 0.62,
+				"existing-precedent": 0.6,
+				"colon-bullets": 0.19,
+				"bold-lead-bullets": 0.16,
+				"this-pr": -0.01,
+				"first-person": -0.11
 			}
 		},
 		"ai/seaweedfs-seaweedfs-11567.md": {
 			"label": "ai",
-			"probability": 0.999,
+			"probability": 1,
 			"signals": {
 				"agent-attribution": 4,
-				"fails-before-fix": 2.2,
-				"so-chains": 1,
-				"long-paragraphs": 0.6,
-				"code-span-density": 0.5,
-				"scope-disclaimer": 0.4,
-				"bold-lead-bullets": 0.37,
-				"em-dash": 0.18,
+				"so-chains": 2.04,
+				"long-paragraphs": 1.44,
+				"fails-before-fix": 0.88,
+				"code-span-density": 0.75,
+				"scope-disclaimer": 0.62,
+				"em-dash": 0.38,
+				"bold-lead-bullets": 0.32,
+				"semicolons": 0.16,
 				"agent-vocabulary": 0.13,
-				"semicolons": 0.08,
-				"unpunctuated-lines": -0.1,
-				"screenshots": -0.11,
-				"bare-urls": -0.22,
-				"this-pr": -0.27,
-				"template-checkboxes": -0.75
+				"this-pr": -0.01,
+				"unpunctuated-lines": -0.02
 			}
 		},
 		"ai/seaweedfs-seaweedfs-11574.md": {
 			"label": "ai",
-			"probability": 0.981,
+			"probability": 0.983,
 			"signals": {
 				"agent-attribution": 4,
-				"template-headings": 0.5,
-				"file-paths": 0.5,
-				"long-paragraphs": 0.3,
-				"unpunctuated-lines": -0.1,
-				"screenshots": -0.11,
-				"bare-urls": -0.22
+				"file-paths": 0.79,
+				"long-paragraphs": 0.72,
+				"template-headings": 0.55,
+				"unpunctuated-lines": -0.02
 			}
 		},
 		"ai/sgl-project-sglang-42047.md": {
 			"label": "ai",
-			"probability": 0.953,
+			"probability": 0.973,
 			"signals": {
 				"ai-disclosure": 3,
-				"semicolons": 0.53,
-				"scope-disclaimer": 0.4,
-				"test-reference": 0.23,
-				"tables": 0.12,
-				"file-paths": 0.1,
-				"code-span-density": 0.08,
-				"unpunctuated-lines": -0.1,
-				"template-checkboxes": -0.45
+				"semicolons": 1.05,
+				"scope-disclaimer": 0.62,
+				"tables": 0.38,
+				"test-reference": 0.29,
+				"file-paths": 0.16,
+				"code-span-density": 0.12,
+				"unpunctuated-lines": -0.02
 			}
 		},
 		"ai/sgl-project-sglang-42093.md": {
 			"label": "ai",
-			"probability": 0.999,
+			"probability": 0.991,
 			"signals": {
 				"ai-disclosure": 3,
-				"git-diff-check": 2.5,
-				"epistemic-hedge": 0.75,
-				"semicolons": 0.54,
-				"template-headings": 0.5,
-				"code-span-density": 0.42,
-				"test-reference": 0.23,
-				"file-paths": 0.1,
-				"questions": -0.07
+				"git-diff-check": 1.04,
+				"semicolons": 0.85,
+				"code-span-density": 0.63,
+				"template-headings": 0.55,
+				"test-reference": 0.29,
+				"epistemic-hedge": 0.25,
+				"file-paths": 0.16,
+				"questions": -0.06
 			}
 		},
 		"ai/sgl-project-sglang-42151.md": {
 			"label": "ai",
-			"probability": 0.7,
+			"probability": 0.565,
 			"signals": {
-				"fails-before-fix": 1.1,
-				"scope-disclaimer": 0.4,
-				"file-paths": 0.3,
-				"code-span-density": 0.22,
-				"colon-bullets": 0.18,
-				"template-checkboxes": -0.45
+				"scope-disclaimer": 0.62,
+				"file-paths": 0.47,
+				"fails-before-fix": 0.44,
+				"colon-bullets": 0.39,
+				"code-span-density": 0.33
 			}
 		},
 		"ai/sharkdp-bat-4035.md": {
 			"label": "ai",
-			"probability": 0.991,
+			"probability": 0.998,
 			"signals": {
-				"code-span-density": 1.4,
-				"template-headings": 1,
-				"em-dash": 0.76,
-				"test-reference": 0.47,
-				"existing-precedent": 0.4,
-				"arrows": 0.38,
+				"code-span-density": 2.1,
+				"em-dash": 1.17,
+				"template-headings": 1.1,
+				"now-verbs": 0.62,
+				"existing-precedent": 0.6,
+				"test-reference": 0.58,
+				"arrows": 0.58,
+				"semicolons": 0.42,
 				"agent-vocabulary": 0.38,
-				"colon-bullets": 0.26,
-				"file-paths": 0.2,
-				"now-verbs": 0.2,
-				"semicolons": 0.17
+				"file-paths": 0.32,
+				"colon-bullets": 0.19
 			}
 		},
 		"ai/solidjs-solid-3745.md": {
 			"label": "ai",
-			"probability": 0.725,
+			"probability": 0.688,
 			"signals": {
-				"code-span-density": 1.07,
-				"em-dash": 0.42,
-				"semicolons": 0.38
+				"code-span-density": 1.61,
+				"em-dash": 1.17
 			}
 		},
 		"ai/strapi-strapi-27895.md": {
@@ -2429,47 +2265,43 @@
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
-				"fails-before-fix": 1.1,
-				"code-span-density": 0.94,
-				"scope-disclaimer": 0.8,
-				"so-chains": 0.67,
-				"long-paragraphs": 0.3,
-				"file-paths": 0.2,
-				"semicolons": 0.16,
-				"first-person": -0.06,
-				"contractions": -0.06
+				"code-span-density": 1.41,
+				"so-chains": 1.36,
+				"scope-disclaimer": 1.24,
+				"long-paragraphs": 0.72,
+				"fails-before-fix": 0.44,
+				"file-paths": 0.32,
+				"contractions": -0.14
 			}
 		},
 		"ai/sveltejs-svelte-18903.md": {
 			"label": "ai",
-			"probability": 0.957,
+			"probability": 0.978,
 			"signals": {
-				"fails-before-fix": 2.2,
-				"code-span-density": 0.96,
-				"long-paragraphs": 0.6,
-				"lint-clean": 0.5,
-				"semicolons": 0.41,
-				"test-tally": 0.4,
-				"so-chains": 0.33,
-				"colon-bullets": 0.26,
-				"bare-urls": -0.07,
-				"first-person": -0.08,
-				"contractions": -0.08,
-				"this-pr": -0.53,
-				"template-checkboxes": -0.9
+				"code-span-density": 1.44,
+				"long-paragraphs": 1.44,
+				"fails-before-fix": 0.88,
+				"so-chains": 0.68,
+				"colon-bullets": 0.58,
+				"test-tally": 0.5,
+				"semicolons": 0.35,
+				"lint-clean": 0.2,
+				"this-pr": -0.03,
+				"first-person": -0.1,
+				"contractions": -0.17
 			}
 		},
 		"ai/swc-project-swc-12472.md": {
 			"label": "ai",
-			"probability": 0.904,
+			"probability": 0.977,
 			"signals": {
-				"test-tally": 0.8,
-				"long-paragraphs": 0.6,
-				"code-span-density": 0.56,
-				"existing-precedent": 0.4,
-				"now-verbs": 0.4,
-				"em-dash": 0.2,
-				"semicolons": 0.18
+				"long-paragraphs": 1.44,
+				"now-verbs": 1.24,
+				"test-tally": 1.01,
+				"code-span-density": 0.84,
+				"existing-precedent": 0.6,
+				"em-dash": 0.34,
+				"semicolons": 0.29
 			}
 		},
 		"ai/symfony-symfony-66536.md": {
@@ -2478,163 +2310,154 @@
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
-				"code-span-density": 1.07,
-				"long-paragraphs": 0.6,
-				"template-headings": 0.5,
-				"scope-disclaimer": 0.4,
-				"existing-precedent": 0.4,
-				"so-chains": 0.33,
-				"test-reference": 0.23,
-				"bare-urls": -0.07,
-				"questions": -0.3
+				"code-span-density": 1.61,
+				"long-paragraphs": 1.44,
+				"so-chains": 0.68,
+				"scope-disclaimer": 0.62,
+				"existing-precedent": 0.6,
+				"template-headings": 0.55,
+				"test-reference": 0.29,
+				"questions": -0.23
 			}
 		},
 		"ai/tensorflow-tensorflow-128388.md": {
 			"label": "ai",
-			"probability": 0.604,
+			"probability": 0.501,
 			"signals": {
-				"code-span-density": 1.22,
-				"file-paths": 0.1
+				"code-span-density": 1.83,
+				"file-paths": 0.16
 			}
 		},
 		"ai/tensorflow-tensorflow-128416.md": {
 			"label": "ai",
-			"probability": 0.633,
+			"probability": 0.604,
 			"signals": {
-				"em-dash": 0.75,
-				"existing-precedent": 0.4,
-				"long-paragraphs": 0.3
+				"em-dash": 1.09,
+				"long-paragraphs": 0.72,
+				"existing-precedent": 0.6
 			}
 		},
 		"ai/trpc-trpc-7623.md": {
 			"label": "ai",
-			"probability": 0.889,
+			"probability": 0.962,
 			"signals": {
-				"code-span-density": 1.4,
-				"existing-precedent": 0.8,
-				"verification-label": 0.5,
-				"so-chains": 0.33,
-				"long-paragraphs": 0.3,
-				"file-paths": 0.1,
-				"template-checkboxes": -0.45
+				"code-span-density": 2.1,
+				"existing-precedent": 1.2,
+				"long-paragraphs": 0.72,
+				"so-chains": 0.68,
+				"verification-label": 0.36,
+				"file-paths": 0.16
 			}
 		},
 		"ai/tusen-ai-naive-ui-8230.md": {
 			"label": "ai",
-			"probability": 0.869,
+			"probability": 0.923,
 			"signals": {
-				"test-tally": 1.2,
-				"long-paragraphs": 0.6,
-				"semicolons": 0.42,
-				"test-reference": 0.23,
-				"colon-bullets": 0.18,
-				"code-span-density": 0.16
+				"test-tally": 1.51,
+				"long-paragraphs": 1.44,
+				"semicolons": 0.61,
+				"colon-bullets": 0.39,
+				"test-reference": 0.29,
+				"code-span-density": 0.25
 			}
 		},
 		"ai/umami-software-umami-4592.md": {
 			"label": "ai",
-			"probability": 0.998,
+			"probability": 1,
 			"signals": {
 				"ai-disclosure": 3,
-				"test-tally": 1.2,
-				"so-chains": 1,
-				"code-span-density": 0.61,
-				"long-paragraphs": 0.6,
-				"verification-label": 0.5,
-				"file-paths": 0.5,
-				"arrows": 0.31,
-				"semicolons": 0.23,
-				"agent-vocabulary": 0.13,
-				"questions": -0.07,
-				"unpunctuated-lines": -0.2,
-				"screenshots": -0.22,
-				"this-pr": -0.27,
-				"bare-urls": -0.3
+				"so-chains": 2.04,
+				"test-tally": 1.51,
+				"long-paragraphs": 1.44,
+				"code-span-density": 0.92,
+				"file-paths": 0.79,
+				"semicolons": 0.48,
+				"verification-label": 0.36,
+				"this-pr": -0.01,
+				"unpunctuated-lines": -0.05,
+				"questions": -0.06
 			}
 		},
 		"ai/unjs-unhead-998.md": {
 			"label": "ai",
-			"probability": 0.819,
+			"probability": 0.902,
 			"signals": {
-				"code-span-density": 1.3,
-				"scope-disclaimer": 0.4,
-				"bold-lead-bullets": 0.37,
-				"colon-bullets": 0.35,
-				"em-dash": 0.23,
-				"file-paths": 0.1,
-				"bare-urls": -0.07,
-				"this-pr": -0.27
+				"code-span-density": 1.96,
+				"colon-bullets": 0.77,
+				"scope-disclaimer": 0.62,
+				"em-dash": 0.4,
+				"bold-lead-bullets": 0.32,
+				"file-paths": 0.16,
+				"this-pr": -0.01
 			}
 		},
 		"ai/vendurehq-vendure-5477.md": {
 			"label": "ai",
-			"probability": 0.892,
+			"probability": 0.94,
 			"signals": {
-				"fails-before-fix": 1.1,
-				"code-span-density": 0.76,
-				"em-dash": 0.5,
-				"template-headings": 0.5,
-				"existing-precedent": 0.4,
-				"semicolons": 0.22,
-				"colon-bullets": 0.18,
-				"file-paths": 0.1,
-				"template-checkboxes": -0.75
+				"code-span-density": 1.14,
+				"em-dash": 1.03,
+				"existing-precedent": 0.6,
+				"template-headings": 0.55,
+				"fails-before-fix": 0.44,
+				"semicolons": 0.44,
+				"colon-bullets": 0.39,
+				"file-paths": 0.16
 			}
 		},
 		"ai/vercel-ai-21950.md": {
 			"label": "ai",
-			"probability": 0.446,
+			"probability": 0.639,
 			"signals": {
-				"code-span-density": 1.4,
-				"file-paths": 0.3,
-				"this-pr": -0.27,
-				"template-checkboxes": -0.75
+				"code-span-density": 2.1,
+				"file-paths": 0.47,
+				"this-pr": -0.01
 			}
 		},
 		"ai/vercel-ai-21962.md": {
 			"label": "ai",
-			"probability": 0.428,
+			"probability": 0.348,
 			"signals": {
-				"code-span-density": 0.91,
-				"template-checkboxes": -0.3
+				"code-span-density": 1.36
 			}
 		},
 		"ai/vercel-next.js-99534.md": {
 			"label": "ai",
-			"probability": 0.854,
+			"probability": 0.767,
 			"signals": {
-				"template-headings": 1,
-				"lint-clean": 0.5,
-				"test-tally": 0.4,
-				"code-span-density": 0.34,
-				"semicolons": 0.33,
-				"file-paths": 0.1
+				"template-headings": 1.1,
+				"semicolons": 0.52,
+				"code-span-density": 0.51,
+				"test-tally": 0.5,
+				"lint-clean": 0.2,
+				"colon-bullets": 0.19,
+				"file-paths": 0.16
 			}
 		},
 		"ai/vercel-next.js-99544.md": {
 			"label": "ai",
-			"probability": 0.58,
+			"probability": 0.535,
 			"signals": {
-				"code-span-density": 1.21,
-				"scope-disclaimer": 0.4,
-				"test-reference": 0.23,
-				"contractions": -0.17,
-				"first-person": -0.19,
-				"this-pr": -0.27
+				"code-span-density": 1.82,
+				"scope-disclaimer": 0.62,
+				"test-reference": 0.29,
+				"this-pr": -0.01,
+				"first-person": -0.22,
+				"contractions": -0.37
 			}
 		},
 		"ai/vercel-next.js-99548.md": {
 			"label": "ai",
-			"probability": 0.892,
+			"probability": 0.907,
 			"signals": {
-				"template-headings": 1,
-				"semicolons": 0.46,
-				"scope-disclaimer": 0.4,
-				"existing-precedent": 0.4,
-				"code-span-density": 0.36,
-				"colon-bullets": 0.18,
-				"arrows": 0.13,
-				"file-paths": 0.1
+				"template-headings": 1.1,
+				"semicolons": 0.67,
+				"scope-disclaimer": 0.62,
+				"existing-precedent": 0.6,
+				"code-span-density": 0.54,
+				"colon-bullets": 0.39,
+				"arrows": 0.19,
+				"file-paths": 0.16
 			}
 		},
 		"ai/vercel-next.js-99590.md": {
@@ -2643,81 +2466,78 @@
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
-				"code-span-density": 1.4,
-				"template-headings": 1,
-				"now-verbs": 0.4,
-				"bold-lead-bullets": 0.28
+				"code-span-density": 2.1,
+				"now-verbs": 1.24,
+				"template-headings": 1.1,
+				"colon-bullets": 0.39,
+				"bold-lead-bullets": 0.24
 			}
 		},
 		"ai/vitest-dev-vitest-11438.md": {
 			"label": "ai",
-			"probability": 0.993,
+			"probability": 0.99,
 			"signals": {
 				"ai-disclosure": 3,
-				"fails-before-fix": 1.1,
-				"code-span-density": 0.78,
-				"epistemic-hedge": 0.75,
-				"verification-label": 0.5,
-				"scope-disclaimer": 0.4,
-				"test-tally": 0.4,
-				"semicolons": 0.37,
-				"contractions": -0.14,
-				"this-pr": -0.27,
-				"template-checkboxes": -1.05
+				"code-span-density": 1.16,
+				"scope-disclaimer": 0.62,
+				"semicolons": 0.58,
+				"test-tally": 0.5,
+				"fails-before-fix": 0.44,
+				"verification-label": 0.36,
+				"epistemic-hedge": 0.25,
+				"this-pr": -0.01,
+				"contractions": -0.28
 			}
 		},
 		"ai/vitest-dev-vitest-11441.md": {
 			"label": "ai",
-			"probability": 0.983,
+			"probability": 0.995,
 			"signals": {
-				"code-span-density": 1.16,
-				"fails-before-fix": 1.1,
-				"scope-disclaimer": 0.8,
-				"test-tally": 0.8,
-				"so-chains": 0.67,
-				"file-paths": 0.4,
-				"now-verbs": 0.2,
-				"semicolons": 0.14,
-				"colon-bullets": 0.09,
-				"em-dash": 0.08,
-				"unpunctuated-lines": -0.5
+				"code-span-density": 1.74,
+				"so-chains": 1.36,
+				"scope-disclaimer": 1.24,
+				"test-tally": 1.01,
+				"file-paths": 0.63,
+				"now-verbs": 0.62,
+				"fails-before-fix": 0.44,
+				"semicolons": 0.27,
+				"em-dash": 0.16,
+				"unpunctuated-lines": -0.12
 			}
 		},
 		"ai/vllm-project-vllm-59629.md": {
 			"label": "ai",
-			"probability": 0.997,
+			"probability": 1,
 			"signals": {
 				"ai-disclosure": 3,
-				"test-tally": 1.2,
-				"so-chains": 1,
-				"code-span-density": 0.7,
-				"long-paragraphs": 0.6,
-				"verification-label": 0.5,
-				"file-paths": 0.5,
-				"now-verbs": 0.2,
-				"colon-bullets": 0.18,
-				"semicolons": 0.14,
-				"first-person": -0.08,
-				"this-pr": -0.27,
-				"template-checkboxes": -0.9
+				"so-chains": 2.04,
+				"test-tally": 1.51,
+				"long-paragraphs": 1.44,
+				"code-span-density": 1.06,
+				"file-paths": 0.79,
+				"now-verbs": 0.62,
+				"verification-label": 0.36,
+				"semicolons": 0.26,
+				"colon-bullets": 0.19,
+				"this-pr": -0.01,
+				"first-person": -0.11
 			}
 		},
 		"ai/vllm-project-vllm-59754.md": {
 			"label": "ai",
-			"probability": 0.746,
+			"probability": 0.885,
 			"signals": {
-				"test-tally": 0.8,
-				"code-span-density": 0.6,
-				"template-headings": 0.5,
-				"file-paths": 0.3,
-				"test-reference": 0.23,
-				"now-verbs": 0.2,
-				"semicolons": 0.18,
-				"colon-bullets": 0.18,
+				"test-tally": 1.01,
+				"code-span-density": 0.9,
+				"now-verbs": 0.62,
+				"template-headings": 0.55,
+				"file-paths": 0.47,
+				"semicolons": 0.37,
+				"test-reference": 0.29,
 				"agent-vocabulary": 0.13,
-				"first-person": -0.11,
-				"unpunctuated-lines": -0.5,
-				"this-pr": -0.53
+				"this-pr": -0.03,
+				"unpunctuated-lines": -0.12,
+				"first-person": -0.16
 			}
 		},
 		"ai/vllm-project-vllm-59788.md": {
@@ -2726,242 +2546,227 @@
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
-				"semicolons": 0.93,
-				"code-span-density": 0.85,
-				"scope-disclaimer": 0.8,
-				"colon-bullets": 0.52,
-				"template-headings": 0.5,
-				"test-tally": 0.4,
-				"file-paths": 0.2,
-				"bold-lead-bullets": 0.18,
+				"semicolons": 1.64,
+				"code-span-density": 1.27,
+				"scope-disclaimer": 1.24,
+				"colon-bullets": 1.16,
+				"template-headings": 0.55,
+				"test-tally": 0.5,
+				"file-paths": 0.32,
+				"bold-lead-bullets": 0.16,
 				"agent-vocabulary": 0.13,
-				"arrows": 0.06,
-				"this-pr": -0.27
+				"arrows": 0.1,
+				"this-pr": -0.01
 			}
 		},
 		"ai/vllm-project-vllm-59795.md": {
 			"label": "ai",
-			"probability": 0.993,
+			"probability": 0.997,
 			"signals": {
 				"ai-disclosure": 3,
-				"code-span-density": 0.78,
-				"template-headings": 0.5,
-				"scope-disclaimer": 0.4,
-				"test-tally": 0.4,
-				"file-paths": 0.3,
-				"test-reference": 0.23,
-				"em-dash": 0.16,
-				"semicolons": 0.14,
-				"colon-bullets": 0.09,
-				"first-person": -0.11
+				"code-span-density": 1.17,
+				"scope-disclaimer": 0.62,
+				"colon-bullets": 0.58,
+				"template-headings": 0.55,
+				"test-tally": 0.5,
+				"file-paths": 0.47,
+				"em-dash": 0.35,
+				"semicolons": 0.3,
+				"test-reference": 0.29,
+				"first-person": -0.17
 			}
 		},
 		"ai/vuejs-core-15746.md": {
 			"label": "ai",
-			"probability": 0.983,
+			"probability": 0.908,
 			"signals": {
-				"git-diff-check": 2.5,
-				"code-span-density": 1.24,
-				"template-headings": 1,
-				"test-reference": 0.23
+				"code-span-density": 1.85,
+				"template-headings": 1.1,
+				"git-diff-check": 1.04,
+				"test-reference": 0.29
 			}
 		},
 		"ai/wazuh-wazuh-39845.md": {
 			"label": "ai",
-			"probability": 0.746,
+			"probability": 0.737,
 			"signals": {
-				"code-span-density": 0.73,
-				"existing-precedent": 0.4,
-				"em-dash": 0.39,
-				"so-chains": 0.33,
-				"commit-shas": 0.13
+				"code-span-density": 1.09,
+				"so-chains": 0.68,
+				"em-dash": 0.65,
+				"existing-precedent": 0.6
 			}
 		},
 		"ai/zellij-org-zellij-5673.md": {
 			"label": "ai",
-			"probability": 0.855,
+			"probability": 0.92,
 			"signals": {
-				"so-chains": 0.67,
-				"long-paragraphs": 0.6,
-				"template-headings": 0.5,
-				"test-reference": 0.47,
-				"em-dash": 0.45,
-				"code-span-density": 0.38,
-				"file-paths": 0.1,
-				"bare-urls": -0.07,
-				"contractions": -0.15,
-				"this-pr": -0.27
+				"long-paragraphs": 1.44,
+				"em-dash": 0.79,
+				"so-chains": 0.68,
+				"test-reference": 0.58,
+				"code-span-density": 0.57,
+				"template-headings": 0.55,
+				"file-paths": 0.16,
+				"this-pr": -0.01,
+				"contractions": -0.33
 			}
 		},
 		"human/django-django-14534.md": {
 			"label": "human",
-			"probability": 0.622,
+			"probability": 0.527,
 			"signals": {
-				"code-span-density": 1.4
+				"code-span-density": 2.1
 			}
 		},
 		"human/django-django-14538.md": {
 			"label": "human",
-			"probability": 0.169,
+			"probability": 0.032,
 			"signals": {
-				"code-span-density": 0.48,
-				"tentative": -0.1,
-				"contractions": -0.26,
-				"this-pr": -0.27,
-				"first-person": -0.55
+				"code-span-density": 0.72,
+				"this-pr": -0.01,
+				"tentative": -0.33,
+				"contractions": -0.82,
+				"first-person": -0.98
 			}
 		},
 		"human/expressjs-express-4174.md": {
 			"label": "human",
-			"probability": 0.34,
+			"probability": 0.179,
 			"signals": {
-				"code-span-density": 0.31,
-				"bare-urls": -0.07
+				"code-span-density": 0.47
 			}
 		},
 		"human/expressjs-express-4321.md": {
 			"label": "human",
-			"probability": 0.062,
+			"probability": 0.013,
 			"signals": {
-				"code-span-density": 0.25,
-				"tentative": -0.1,
-				"this-pr": -0.27,
-				"contractions": -0.7,
-				"first-person": -1
+				"code-span-density": 0.37,
+				"this-pr": -0.01,
+				"tentative": -0.33,
+				"first-person": -1.01,
+				"contractions": -1.32
 			}
 		},
 		"human/nodejs-node-39128.md": {
 			"label": "human",
-			"probability": 0.181,
+			"probability": 0.057,
 			"signals": {
-				"code-span-density": 0.31,
-				"contractions": -0.44,
-				"first-person": -0.48
+				"code-span-density": 0.47,
+				"first-person": -0.48,
+				"contractions": -0.81
 			}
 		},
 		"human/nodejs-node-39187.md": {
 			"label": "human",
-			"probability": 0.115,
+			"probability": 0.019,
 			"signals": {
-				"semicolons": 0.27,
-				"bare-urls": -0.07,
-				"unpunctuated-lines": -0.1,
-				"tentative": -0.1,
-				"contractions": -0.39,
-				"first-person": -0.74
+				"semicolons": 0.63,
+				"unpunctuated-lines": -0.02,
+				"tentative": -0.33,
+				"first-person": -1.01,
+				"contractions": -1.2
 			}
 		},
 		"human/rails-rails-42633.md": {
 			"label": "human",
-			"probability": 0.139,
+			"probability": 0.036,
 			"signals": {
-				"contractions": -0.44,
-				"first-person": -0.48
+				"first-person": -0.48,
+				"contractions": -0.81
 			}
 		},
 		"human/rails-rails-42640.md": {
 			"label": "human",
-			"probability": 0.083,
+			"probability": 0.031,
 			"signals": {
-				"short-body": -1.5
+				"short-body": -1.44
 			}
 		},
 		"human/rust-lang-cargo-9577.md": {
 			"label": "human",
-			"probability": 0.333,
+			"probability": 0.175,
 			"signals": {
-				"code-span-density": 0.53,
-				"first-person": -0.32
+				"code-span-density": 0.8,
+				"first-person": -0.36
 			}
 		},
 		"human/rust-lang-cargo-9586.md": {
 			"label": "human",
-			"probability": 0.25,
+			"probability": 0.115,
 			"signals": {
-				"unpunctuated-lines": -0.2
+				"unpunctuated-lines": -0.05
 			}
 		},
 		"human/sveltejs-svelte-6425.md": {
 			"label": "human",
-			"probability": 0.121,
+			"probability": 0.074,
 			"signals": {
-				"bare-urls": -0.07,
-				"this-pr": -0.27,
-				"contractions": -0.29,
-				"template-checkboxes": -0.45
+				"this-pr": -0.01,
+				"contractions": -0.53
 			}
 		},
 		"human/sveltejs-svelte-6429.md": {
 			"label": "human",
-			"probability": 0.244,
+			"probability": 0.221,
 			"signals": {
-				"code-span-density": 0.78,
-				"bare-urls": -0.07,
-				"contractions": -0.22,
-				"this-pr": -0.27,
-				"template-checkboxes": -0.45
+				"code-span-density": 1.18,
+				"this-pr": -0.01,
+				"contractions": -0.44
 			}
 		},
 		"human/tailwindlabs-tailwindcss-4571.md": {
 			"label": "human",
-			"probability": 0.087,
+			"probability": 0.048,
 			"signals": {
-				"code-span-density": 0.31,
-				"this-pr": -0.27,
-				"short-body": -1.5
+				"code-span-density": 0.47,
+				"this-pr": -0.01,
+				"short-body": -1.44
 			}
 		},
 		"human/tailwindlabs-tailwindcss-4666.md": {
 			"label": "human",
-			"probability": 0.367,
+			"probability": 0.255,
 			"signals": {
-				"code-span-density": 0.62,
-				"this-pr": -0.27
+				"code-span-density": 0.93,
+				"this-pr": -0.01
 			}
 		},
 		"human/vercel-next.js-26629.md": {
 			"label": "human",
-			"probability": 0.148,
+			"probability": 0.05,
 			"signals": {
-				"code-span-density": 0.23,
-				"file-paths": 0.1,
-				"bare-urls": -0.07,
-				"template-checkboxes": -0.3,
-				"contractions": -0.8
+				"code-span-density": 0.34,
+				"file-paths": 0.16,
+				"contractions": -1.45
 			}
 		},
 		"human/vercel-next.js-26705.md": {
 			"label": "human",
-			"probability": 0.077,
+			"probability": 0.048,
 			"signals": {
-				"code-span-density": 0.31,
-				"unpunctuated-lines": -0.1,
-				"template-checkboxes": -0.3,
-				"short-body": -1.5
+				"code-span-density": 0.47,
+				"unpunctuated-lines": -0.02,
+				"short-body": -1.44
 			}
 		},
 		"human/vuejs-vue-11706.md": {
 			"label": "human",
-			"probability": 0.094,
+			"probability": 0.092,
 			"signals": {
-				"code-span-density": 0.31,
-				"file-paths": 0.1,
-				"colon-bullets": 0.09,
-				"bare-urls": -0.07,
-				"contractions": -0.6,
-				"template-checkboxes": -1.2
+				"code-span-density": 0.47,
+				"colon-bullets": 0.19,
+				"file-paths": 0.16,
+				"contractions": -1.12
 			}
 		},
 		"human/vuejs-vue-12104.md": {
 			"label": "human",
-			"probability": 0.105,
+			"probability": 0.111,
 			"signals": {
-				"code-span-density": 0.37,
-				"file-paths": 0.1,
-				"colon-bullets": 0.09,
-				"bare-urls": -0.07,
-				"contractions": -0.53,
-				"template-checkboxes": -1.2
+				"code-span-density": 0.56,
+				"colon-bullets": 0.19,
+				"file-paths": 0.16,
+				"contractions": -1
 			}
 		}
 	}
