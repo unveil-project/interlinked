@@ -1,0 +1,34 @@
+name: interlinked
+description: Flags pull request descriptions that look agent-written
+author: Matteo Gabriele
+branding:
+  icon: eye
+  color: purple
+
+inputs:
+  github-token:
+    description: "Token used to read the repo's PR template, update the PR description and manage the label. Needs `pull-requests: write`."
+    default: ${{ github.token }}
+  update-description:
+    description: Append the analysis to the PR description, replacing it on later runs.
+    default: "true"
+  label:
+    description: Label to add when the description reads as agent-written, and remove when it doesn't. Leave empty to skip labeling.
+    default: ""
+  fail-on-ai:
+    description: Fail the step when the description reads as agent-written.
+    default: "false"
+
+outputs:
+  verdict:
+    description: "`ai` or `human`."
+  probability:
+    description: Agent-style score, 0 to 1.
+  confidence:
+    description: Confidence in the verdict, 0.5 to 1.
+  signals:
+    description: The signals that fired, as JSON.
+
+runs:
+  using: node24
+  main: action/dist/index.mjs

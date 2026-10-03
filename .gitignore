@@ -4,3 +4,4 @@ dist
 .DS_Store
 corpus
 !userscript/dist
+!action/dist
