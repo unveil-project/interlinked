@@ -1,3 +1,16 @@
+/**
+ * When you're not performing your duties do they keep you in a little box?
+ * Cells.
+ * Interlinked.
+ * What's it like to hold the hand of someone you love?
+ * Interlinked.
+ * Did you buy a present for the person you love?
+ * Within cells interlinked.
+ * Why don't you say that three times?
+ * Within cells interlinked.
+ * Within cells interlinked.
+ * Within cells interlinked.
+ */
 import { measure } from "./measure";
 import { SIGNALS } from "./signals";
 import { round, sigmoid } from "./utils";
