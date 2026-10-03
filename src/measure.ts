@@ -4,14 +4,11 @@ import { authoredText, prose, withoutTemplate } from "./text";
 export interface Measurement {
 	signal: Signal;
 	hits: number;
-	/** Hits as a share of the signal's cap, 0–1; the weight scales this. */
+	/** Hits divided by the signal's cap, 0 to 1. */
 	strength: number;
 }
 
-/**
- * Every signal that fires on a description, before weighting. Shared by
- * `analyzeText` and the weight fit, so both read a description the same way.
- */
+/** Runs every signal on a description, before weighting. Used by `analyzeText` and the weight fit. */
 export function measure(
 	markdown: string,
 	template?: string,

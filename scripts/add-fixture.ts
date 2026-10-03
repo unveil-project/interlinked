@@ -147,23 +147,19 @@ async function addFixture(
 	label: "ai" | "human",
 	reason?: string,
 ): Promise<void> {
-	// Resolve the path and get the filename
 	const absolutePath = resolve(filePath);
 	const filename = basename(absolutePath);
 	const targetPath = join(FIXTURES_DIR, filename);
 
-	// Check if file exists
 	if (!existsSync(absolutePath)) {
 		console.error(`Error: Source file not found: ${absolutePath}`);
 		process.exit(1);
 	}
 
-	// Copy file to fixtures directory
 	const fs = await import("node:fs/promises");
 	await fs.cp(absolutePath, targetPath, { force: true });
 	console.log(`Copied ${filename} to fixtures directory`);
 
-	// Update manifest
 	const manifest = loadManifest();
 
 	if (manifest.fixtures[filename]) {

@@ -30,7 +30,7 @@ async function graphql<T>(query: string, variables: object = {}): Promise<T> {
 			body: JSON.stringify({ query, variables }),
 		});
 		const json = (await res.json()) as { data?: T; errors?: unknown };
-		// A deleted PR fails its own field; the rest of the data still comes.
+		// A deleted PR errors, but the rest of the data still comes back.
 		if (json.data) {
 			return json.data;
 		}
@@ -163,7 +163,7 @@ async function main() {
 		),
 	];
 
-	// Disclosed agent PRs, spread across repos rather than first-come.
+	// Disclosed agent PRs, capped per repo.
 	const disclosed = new Map<string, number[]>();
 	for (const r of JSON.parse(readFileSync(aiFrom, "utf-8"))) {
 		if (r.signals.some((s: { id: string }) => TELLS.has(s.id))) {

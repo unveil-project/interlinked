@@ -14,37 +14,34 @@ export interface SignalHit {
 
 export interface AnalyzeTextResult {
 	verdict: "ai" | "human";
-	/** Probability the text is agent-written, 0–1. */
+	/** Probability the text is agent-written, 0 to 1. */
 	probability: number;
-	/** Confidence in `verdict`, 0.5–1. */
+	/** Confidence in `verdict`, 0.5 to 1. */
 	confidence: number;
 	signals: SignalHit[];
 }
 
 export interface AnalyzeTextOptions {
-	/** The repository's PR template, raw markdown. */
+	/** The repo's PR template, raw markdown. */
 	template?: string;
 }
 
 /**
- * Starting log-odds before any evidence, from the fit, set so about 3% of
- * pre-agent PR descriptions read as agent-written: a false accusation costs
- * more than a miss.
+ * Starting log-odds. Set so about 3% of pre-agent PRs score as AI, because a
+ * false accusation is worse than a miss.
  */
 const BIAS = -1.99;
 
-/** At or above this probability the verdict is "ai". */
 export const AI_THRESHOLD = 0.5;
 
 /**
- * Guesses whether a PR description (raw markdown) was written by an AI agent.
+ * Guesses whether a PR description was written by an AI agent.
  *
- * Pass the repository's PR template (`.github/pull_request_template.md`) when
- * you have it, so its headings and checklists aren't read as agent structure.
+ * Pass the repo's PR template if you have it, so its headings and checklists
+ * don't count against the author.
  *
  * @example
  * const { verdict, confidence } = analyzeText(pr.body ?? "", { template });
- * // verdict: "ai" | "human", confidence: 0.5–1
  */
 export function analyzeText(
 	markdown: string,

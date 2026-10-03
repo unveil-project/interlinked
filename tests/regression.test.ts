@@ -4,16 +4,15 @@ import { describe, expect, it } from "vitest";
 import { analyzeText } from "../src/index";
 
 /**
- * Numeric regression tests for the classifier.
+ * Regression tests for the classifier.
  *
- * Fixtures live in `fixtures/ai/` and `fixtures/human/`; the folder is the
- * label. A `<name>.template.md` next to a fixture is the repository's PR
- * template and is passed to the classifier. `baseline.json` records the probability each fixture scored when the
- * baseline was last accepted. A change regresses a fixture when it moves that
- * probability the wrong way: down for `ai`, up for `human`. Moves the right
- * way pass and are reported so the baseline can be tightened.
+ * Fixtures live in `fixtures/ai/` and `fixtures/human/`. The folder is the label.
+ * A `<name>.template.md` next to a fixture is used as its PR template.
  *
- * Accept the current numbers with `pnpm test:regression:update`.
+ * `baseline.json` stores each fixture's last accepted probability. A test fails
+ * if it moves away from the label: down for ai, up for human.
+ *
+ * Update the baseline with `pnpm test:regression:update`.
  */
 
 type Label = "ai" | "human";
@@ -21,7 +20,7 @@ type Label = "ai" | "human";
 interface BaselineEntry {
 	label: Label;
 	probability: number;
-	/** Contribution per signal id, kept to explain a regression. */
+	/** Contribution per signal, to explain regressions. */
 	signals: Record<string, number>;
 }
 
@@ -36,7 +35,7 @@ interface Baseline {
 	fixtures: Record<string, BaselineEntry>;
 }
 
-/** Probabilities are rounded to 3 decimals, so allow for rounding noise. */
+/** Allows for rounding noise (probabilities have 3 decimals). */
 const TOLERANCE = 0.001;
 const LABELS: Label[] = ["ai", "human"];
 const FIXTURES_DIR = join(import.meta.dirname, "fixtures");

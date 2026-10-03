@@ -1,9 +1,6 @@
 import { prose } from "./text";
 
-/**
- * Densities are taken over at least this many characters, so one code span in
- * a one-line description doesn't read as a dense one.
- */
+/** Minimum length for densities, so one code span in a short text isn't dense. */
 const MIN_DENSITY_LENGTH = 300;
 
 export function matches(pattern: RegExp) {
@@ -14,20 +11,13 @@ export function matches(pattern: RegExp) {
 	return (text: string) => text.match(globalPattern)?.length ?? 0;
 }
 
-/**
- * Like `matches`, but ignores checklist items: a ticked template box such as
- * "I reviewed AI-generated code" is the maintainers' wording, not the author's.
- */
+/** Like `matches`, but skips checklist items (template wording, not the author's). */
 export function matchesOutsideChecklists(pattern: RegExp) {
 	const count = matches(pattern);
 	return (text: string) => count(text.replace(/^\s*[-*] \[[ xX]\].*$/gm, ""));
 }
 
-/**
- * Like `matchesOutsideChecklists`, but also skips questions ("Was this patch
- * authored using AI tooling?") and lines answering one with a no, which are a
- * template's prompt rather than the author's statement.
- */
+/** Like `matchesOutsideChecklists`, but also skips questions and "no" answers. */
 export function matchesInStatements(pattern: RegExp) {
 	const count = matches(pattern);
 	return (text: string) =>
@@ -42,7 +32,7 @@ export function matchesInStatements(pattern: RegExp) {
 			.reduce((sum, line) => sum + count(line), 0);
 }
 
-/** Occurrences per 1,000 characters. */
+/** Matches per 1,000 characters. */
 export function density(pattern: RegExp, count = matches(pattern)) {
 	return (text: string) => {
 		if (text.length === 0) {
@@ -52,12 +42,12 @@ export function density(pattern: RegExp, count = matches(pattern)) {
 	};
 }
 
-/** Like `density`, but occurrences inside checklist items don't count. */
+/** Like `density`, but skips checklist items. */
 export function densityOutsideChecklists(pattern: RegExp) {
 	return density(pattern, matchesOutsideChecklists(pattern));
 }
 
-/** Prose lines of five or more words that don't end in punctuation. */
+/** Prose lines of 5 or more words with no final punctuation. */
 export function unpunctuatedLines(text: string) {
 	const isSentence = (line: string) =>
 		line.split(/\s+/).length >= 5 && !/^[-*#|>\d]/.test(line);
@@ -69,7 +59,7 @@ export function unpunctuatedLines(text: string) {
 		.filter((line) => isSentence(line) && !isPunctuated(line)).length;
 }
 
-/** Prose paragraphs of fifty or more words, not wrapped or broken into bullets. */
+/** Prose paragraphs of 50 or more words. */
 export function longParagraphs(text: string) {
 	return prose(text)
 		.split("\n")

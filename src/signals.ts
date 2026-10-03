@@ -10,26 +10,16 @@ import {
 export interface Signal {
 	id: string;
 	description: string;
-	/**
-	 * Positive leans agent-written, negative leans human-written; 0 turns the
-	 * signal off. Fitted by `scripts/fit-weights.ts`, which keeps the sign.
-	 */
+	/** Positive means agent, negative means human, 0 turns it off. Set by `scripts/fit-weights.ts`. */
 	weight: number;
 	/** Hits at which the signal reaches full strength. */
 	cap: number;
-	/**
-	 * Counted over the prose only, with code blanked out: a `;` or `->` in a
-	 * snippet is the language's syntax, not the author's style.
-	 */
+	/** Count prose only. Code syntax isn't the author's style. */
 	prose?: boolean;
 	count: (text: string) => number;
 }
 
 export const SIGNALS: Signal[] = [
-	// Tells: specific habits of agents. `agent-attribution` and `ai-disclosure`
-	// label the fit's corpus, so they stay hand-weighted, as do tells too rare
-	// in it to fit; the rest are fitted (`scripts/fit-weights.ts`). A weight of
-	// 0 means the corpus showed no evidence either way; a refit can revive it.
 	{
 		id: "agent-attribution",
 		description: "names an AI agent or carries its attribution line",
@@ -154,7 +144,7 @@ export const SIGNALS: Signal[] = [
 	},
 	{
 		id: "test-reference",
-		description: "mentions test or regression test",
+		description: "mentions tests or regression tests",
 		weight: 0.87,
 		cap: 3,
 		count: matches(
@@ -162,7 +152,7 @@ export const SIGNALS: Signal[] = [
 		),
 	},
 
-	// Style leaning agent-written: fitted weights.
+	// Style that leans agent-written.
 	{
 		id: "semicolons",
 		description: "joins clauses with semicolons",
@@ -173,7 +163,7 @@ export const SIGNALS: Signal[] = [
 	},
 	{
 		id: "code-span-density",
-		description: "dense inline `code` spans",
+		description: "wraps many names in inline `code` spans",
 		weight: 2.1,
 		cap: 15,
 		count: density(/`[^`\n]+`/),
@@ -189,7 +179,7 @@ export const SIGNALS: Signal[] = [
 	},
 	{
 		id: "em-dash",
-		description: "dense em-dash use",
+		description: "uses em-dashes heavily",
 		weight: 1.17,
 		cap: 4,
 		prose: true,
@@ -206,7 +196,7 @@ export const SIGNALS: Signal[] = [
 	},
 	{
 		id: "colon-bullets",
-		description: "bullets shaped as `- label: explanation`",
+		description: "shapes bullets as `- label: explanation`",
 		weight: 1.54,
 		cap: 8,
 		prose: true,
@@ -299,7 +289,7 @@ export const SIGNALS: Signal[] = [
 		count: matches(/^\|.*\|\s*$/m),
 	},
 
-	// Style leaning human-written: fitted weights.
+	// Style that leans human-written.
 	{
 		id: "first-person",
 		description: "writes in the first person (I, my, me)",

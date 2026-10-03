@@ -23,10 +23,12 @@
 	"scripts": {
 		"build": "tsdown",
 		"dev": "tsdown --watch",
+		"build:userscript": "tsdown -c userscript/tsdown.config.ts",
+		"dev:userscript": "tsdown -c userscript/tsdown.config.ts --watch",
 		"test": "vitest",
 		"test:regression": "vitest run tests/regression.test.ts --reporter=verbose",
 		"test:regression:update": "UPDATE_BASELINE=1 vitest run tests/regression.test.ts",
-		"typecheck": "tsc --noEmit",
+		"typecheck": "tsc --noEmit && tsc --noEmit -p userscript",
 		"check": "biome check --write",
 		"release": "bumpp",
 		"prepublishOnly": "pnpm run test:regression && pnpm run build"

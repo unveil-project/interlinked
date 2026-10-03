@@ -5,5 +5,4 @@ export default defineConfig({
 		tsgo: true,
 	},
 	exports: true,
-	// ...config options
 });

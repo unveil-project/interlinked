@@ -22,7 +22,7 @@ interface Example {
 	all: number[];
 	/** Strength per fitted signal. */
 	x: number[];
-	/** Logit from the signals that keep their hand weight. */
+	/** Logit from the hand-weighted signals. */
 	offset: number;
 }
 
@@ -41,8 +41,7 @@ function load(): Example[] {
 	const examples: Example[] = [];
 	for (const entry of entries) {
 		const template = templates[entry.repo];
-		// Labels are rechecked with the current tells; a body that no longer
-		// discloses (template prompt, policy link) isn't evidence either way.
+		// Recheck labels with the current tells and skip mismatches.
 		const disclosed = measure(entry.body, template, labelSignals).length > 0;
 		if (disclosed !== (entry.label === "ai")) {
 			continue;
@@ -75,7 +74,7 @@ function score(w: number[], bias: number, e: Example) {
 	return sigmoid(logit(w, bias, e));
 }
 
-/** Class-balanced, sign-constrained, L2-regularised logistic regression. */
+/** Logistic regression with balanced classes, fixed signs and L2 regularization. */
 function fitWeights(examples: Example[], lambda: number) {
 	const positives = examples.filter((e) => e.y === 1).length;
 	const weightOf = (e: Example) =>
@@ -109,7 +108,7 @@ function fitWeights(examples: Example[], lambda: number) {
 				bias -= step;
 			} else {
 				const next = w[j] - step;
-				// Keep the sign the signal was written with, within bounds.
+				// Keep the original sign and stay within MAX_WEIGHT.
 				w[j] =
 					signs[j] > 0
 						? Math.min(Math.max(next, 0), MAX_WEIGHT)
@@ -120,10 +119,10 @@ function fitWeights(examples: Example[], lambda: number) {
 	return { w, bias };
 }
 
-/** Each example's logit, in the same order as the examples. */
+/** One logit per example, same order. */
 type Logits = number[];
 
-/** Repo-grouped folds: every repo's PRs land in exactly one fold. */
+/** Assigns folds by repo, so all of a repo's PRs share a fold. */
 function foldOf(examples: Example[]) {
 	const repos = [...new Set(examples.map((e) => e.repo))].sort();
 	const folds = new Map(repos.map((r, i) => [r, i % FOLDS]));
@@ -148,12 +147,12 @@ function outOfFold(examples: Example[], lambda: number): Logits {
 	return logits;
 }
 
-/** The logits of one class, highest first. */
+/** Logits of one class, highest first. */
 function logitsOf(examples: Example[], logits: Logits, y: 0 | 1) {
 	return logits.filter((_, i) => examples[i].y === y).sort((a, b) => b - a);
 }
 
-/** The logit above which `fpr` of the human examples fall. */
+/** Logit where a share `fpr` of human examples score above. */
 function thresholdAt(examples: Example[], logits: Logits, fpr: number) {
 	const humans = logitsOf(examples, logits, 0);
 	if (humans.length === 0) {
@@ -167,7 +166,7 @@ function report(name: string, examples: Example[], logits: Logits) {
 	const ais = logitsOf(examples, logits, 1);
 	const share = (xs: number[], t: number) =>
 		xs.filter((x) => x >= t).length / xs.length;
-	// Probability a random agent PR outscores a random human one.
+	// AUC: chance a random agent PR scores above a random human one.
 	let wins = 0;
 	for (const a of ais) {
 		for (const h of humans) {
@@ -250,7 +249,7 @@ report(
 	examples.map((e) => logit(currentW, BIAS, e)),
 );
 
-// The λ that catches the most agent PRs at TARGET_FPR, out of fold.
+// Pick the λ with the best out-of-fold recall at TARGET_FPR.
 const best = LAMBDAS.map((lambda) => {
 	const logits = outOfFold(examples, lambda);
 	report(`fit λ=${lambda}`, examples, logits);
@@ -259,8 +258,7 @@ const best = LAMBDAS.map((lambda) => {
 	return { lambda, logits, recall };
 }).reduce((a, b) => (b.recall > a.recall ? b : a));
 
-// Fit on everything, then move the bias so the out-of-fold threshold for
-// TARGET_FPR becomes the 0.5 line.
+// Fit on all data, then shift the bias so TARGET_FPR lands at 0.5.
 const { w, bias: fittedBias } = fitWeights(examples, best.lambda);
 const bias = fittedBias - thresholdAt(examples, best.logits, TARGET_FPR);
 report(

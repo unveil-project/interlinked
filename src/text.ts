@@ -1,10 +1,6 @@
 const CHECKBOX_LINE = /^\s*[-*] \[[ xX]\]/;
 
-/**
- * Drops text neither the author nor their agent wrote: HTML comments (PR
- * template instructions) and bot summaries such as CodeRabbit's, which would
- * otherwise read as agent prose on a human PR.
- */
+/** Removes text the author didn't write: HTML comments and bot summaries. */
 export function authoredText(markdown: string) {
 	return markdown
 		.replace(
@@ -15,7 +11,7 @@ export function authoredText(markdown: string) {
 		.trim();
 }
 
-/** A line as compared against the template: ticks and strike-through ignored. */
+/** Normalizes a line for template matching, ignoring ticks and strike-through. */
 function templateKey(line: string) {
 	return line
 		.replace(/~~/g, "")
@@ -25,11 +21,7 @@ function templateKey(line: string) {
 		.toLowerCase();
 }
 
-/**
- * Drops lines copied from the repository's PR template. Its headings and prose
- * are the maintainers' structure, so they are evidence of nothing. Checklist
- * items stay: keeping and ticking them is what `template-checkboxes` measures.
- */
+/** Removes lines copied from the PR template. Checklist items stay for `template-checkboxes`. */
 export function withoutTemplate(text: string, template: string) {
 	const templateLines = new Set(
 		authoredText(template)
@@ -47,10 +39,7 @@ export function withoutTemplate(text: string, template: string) {
 		.trim();
 }
 
-/**
- * The text with fenced, indented and inline code blanked out. Indented lines
- * that are list items are nested bullets, not code, so they stay.
- */
+/** Blanks out code blocks and inline code. Indented list items stay. */
 export function prose(text: string) {
 	return text
 		.replace(/```[\s\S]*?```/g, "")
