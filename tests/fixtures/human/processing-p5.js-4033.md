@@ -1,0 +1,1 @@
+Added  example of Javascript basic with their explanation.(#3897 ).

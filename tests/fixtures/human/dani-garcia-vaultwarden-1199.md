@@ -1,0 +1,1 @@
+This fixes the inability to bulk-delete ciphers from org vault views.

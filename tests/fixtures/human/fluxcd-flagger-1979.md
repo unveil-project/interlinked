@@ -1,0 +1,1 @@
+The canary_weight gauge was defined with labels ['workload', 'namespace'] but SetWeight() passes cd.Spec.TargetRef.Name which semantically is the canary 'name'. This caused a label mismatch where users could not filter by canary name in Prometheus.

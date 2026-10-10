@@ -1,10 +1,11 @@
-import { readFileSync, writeFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { measure } from "../src/measure";
 import { SIGNALS, type Signal } from "../src/signals";
 import type { CorpusEntry } from "./build-corpus";
 
 const ROOT = join(import.meta.dirname, "..");
+const FIXTURES_DIR = join(ROOT, "tests", "fixtures");
 const LABEL_SIGNALS = new Set(["agent-attribution", "ai-disclosure"]);
 const FOLDS = 5;
 const LAMBDAS = [0.001, 0.003, 0.01, 0.03];
@@ -30,6 +31,56 @@ function discloses(text: string) {
 	return labelSignals.some((s) => s.count(text) > 0);
 }
 
+function toExample(
+	repo: string,
+	label: "ai" | "human",
+	body: string,
+	template?: string,
+): Example {
+	const authored = body
+		.split("\n")
+		.filter((line) => !discloses(line))
+		.join("\n");
+	const strengths = new Map(
+		measure(authored, template, candidates).map((m) => [
+			m.signal.id,
+			m.strength,
+		]),
+	);
+	return {
+		repo,
+		y: label === "ai" ? 1 : 0,
+		all: candidates.map((s) => strengths.get(s.id) ?? 0),
+		x: [],
+		offset: 0,
+	};
+}
+
+/** Hand-reviewed fixtures, labelled by folder. Their repo is the file name minus the PR number. */
+function loadFixtures(): (CorpusEntry & { template?: string })[] {
+	const fixtures: (CorpusEntry & { template?: string })[] = [];
+	for (const label of ["ai", "human"] as const) {
+		const dir = join(FIXTURES_DIR, label);
+		for (const file of readdirSync(dir)) {
+			if (!file.endsWith(".md") || file.endsWith(".template.md")) {
+				continue;
+			}
+			const templatePath = join(dir, file.replace(/\.md$/, ".template.md"));
+			const name = file.replace(/\.md$/, "");
+			fixtures.push({
+				label,
+				repo: name.replace(/-\d+$/, ""),
+				number: Number(name.match(/-(\d+)$/)?.[1] ?? 0),
+				body: readFileSync(join(dir, file), "utf-8"),
+				template: existsSync(templatePath)
+					? readFileSync(templatePath, "utf-8")
+					: undefined,
+			});
+		}
+	}
+	return fixtures;
+}
+
 function load(): Example[] {
 	const entries: CorpusEntry[] = JSON.parse(
 		readFileSync(join(ROOT, "corpus", "entries.json"), "utf-8"),
@@ -37,29 +88,27 @@ function load(): Example[] {
 	const templates: Record<string, string> = JSON.parse(
 		readFileSync(join(ROOT, "corpus", "templates.json"), "utf-8"),
 	);
+	const fixtures = loadFixtures();
+	// A reviewed fixture overrides the corpus label for the same PR.
+	const fixtureNames = new Set(fixtures.map((f) => `${f.repo}-${f.number}`));
 
 	const examples: Example[] = [];
 	for (const entry of entries) {
+		if (fixtureNames.has(`${entry.repo.replace("/", "-")}-${entry.number}`)) {
+			continue;
+		}
 		const template = templates[entry.repo];
 		// Recheck labels with the current tells and skip mismatches.
 		const disclosed = measure(entry.body, template, labelSignals).length > 0;
 		if (disclosed !== (entry.label === "ai")) {
 			continue;
 		}
-		const body = entry.body
-			.split("\n")
-			.filter((line) => !discloses(line))
-			.join("\n");
-		const strengths = new Map(
-			measure(body, template, candidates).map((m) => [m.signal.id, m.strength]),
+		examples.push(toExample(entry.repo, entry.label, entry.body, template));
+	}
+	for (const fixture of fixtures) {
+		examples.push(
+			toExample(fixture.repo, fixture.label, fixture.body, fixture.template),
 		);
-		examples.push({
-			repo: entry.repo,
-			y: entry.label === "ai" ? 1 : 0,
-			all: candidates.map((s) => strengths.get(s.id) ?? 0),
-			x: [],
-			offset: 0,
-		});
 	}
 	return examples;
 }

@@ -1,0 +1,1 @@
+Google (terrible) and OpenDNS (questionable at best) are not ideal for privacy-minded users.  Both Cloudflare DNS and Quad9 at least claim to drop logs, each of them have widely-reported response times, and they're sufficiently established with over a year of service.

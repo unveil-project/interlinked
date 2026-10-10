@@ -1,0 +1,1 @@
+Mutes this failing test, see https://github.com/elastic/elasticsearch/issues/47275

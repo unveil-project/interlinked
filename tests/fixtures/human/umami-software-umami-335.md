@@ -1,0 +1,1 @@
+Change default hostname to 0.0.0.0, removes the need for [the doc update](https://github.com/mikecao/umami.is/pull/13).

@@ -1,5 +1,3 @@
-const CHECKBOX_LINE = /^\s*[-*] \[[ xX]\]/;
-
 /** Removes text the author didn't write: HTML comments and bot summaries. */
 export function authoredText(markdown: string) {
 	return markdown
@@ -11,17 +9,18 @@ export function authoredText(markdown: string) {
 		.trim();
 }
 
-/** Normalizes a line for template matching, ignoring ticks and strike-through. */
+/** Normalizes a line for template matching, ignoring ticks, strike-through and list markers. */
 function templateKey(line: string) {
 	return line
 		.replace(/~~/g, "")
+		.replace(/^\s*[-*+]\s+(?=\[[ xX]\])/, "")
 		.replace(/\[[ xX]\]/g, "[ ]")
 		.replace(/\s+/g, " ")
 		.trim()
 		.toLowerCase();
 }
 
-/** Removes lines copied from the PR template. Checklist items stay for `template-checkboxes`. */
+/** Removes lines copied from the PR template, ticked checklist items included. */
 export function withoutTemplate(text: string, template: string) {
 	const templateLines = new Set(
 		authoredText(template)
@@ -31,10 +30,7 @@ export function withoutTemplate(text: string, template: string) {
 	);
 	return text
 		.split("\n")
-		.filter(
-			(line) =>
-				CHECKBOX_LINE.test(line) || !templateLines.has(templateKey(line)),
-		)
+		.filter((line) => !templateLines.has(templateKey(line)))
 		.join("\n")
 		.trim();
 }

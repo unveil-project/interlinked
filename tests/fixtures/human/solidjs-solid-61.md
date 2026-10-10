@@ -1,0 +1,8 @@
+As mentioned before, there are a few things in Solid's type definitions which don't compile. Currently I always have to re-edit the type definitions locally after an update to get it running again, which obviously doesn't help other users. 
+
+Before continuing work on #52 it would make sense to have a setup that can verify type consistency. I have spend some thoughts on how to make it easy for you to be aware of such issues without interfering with your workflow:
+
+- At first I thought about porting the tests directly to TypeScript. However, if using only a babel transpilation step this actually wouldn't reveal any problems in the type system, because babel completely ignores types. What we would need is a two step transpilation: `tsc` with `jsx: "preserve"` followed by babel transpilation to handle JSX expressions. This might be a bit tricky to integrate into the Jest setup though.
+- To keep the setup simple we might just have two separate test suites: One for runtime behavior (the current JS tests), and one in TypeScript which only verifies type consistency. The TypeScript only run through `tsc` (with `noEmit: true`) and currently aren't executed. Thus, they don't contain any runtime checks (no Jest assertions etc.), but can contain various type assertions. You can simply run `npm run test:types` to verify if the Solid types are consistent from a TS user perspective. Overall I think this setup isn't too bad. What do you think?
+
+I have commented out the tests that currently don't compile.

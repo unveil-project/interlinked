@@ -1,0 +1,1 @@
+Usually when I validate some parameters I always end up returning a message with json, so I wanted to propose to put a new function so that already returns me a json with message without always having to use c.Json and assemble a map.

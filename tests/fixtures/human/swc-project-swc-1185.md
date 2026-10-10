@@ -1,0 +1,1 @@
+Fixes #1180. Easy peasy!

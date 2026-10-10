@@ -1,0 +1,1 @@
+This fd can actually be closed before func return, so i think the defer can remove

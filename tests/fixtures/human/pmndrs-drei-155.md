@@ -1,0 +1,1 @@
+I suggest adding [csstype](https://www.npmjs.com/package/csstype) to have proper types for the styles, thoughts?

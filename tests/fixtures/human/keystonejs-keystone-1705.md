@@ -1,0 +1,1 @@
+Moves the definition closer to where it's used.

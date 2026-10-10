@@ -1,0 +1,2 @@
+Bundle the language-server and svelte-check into one file, removing the "language-server/svelte2tsx out of sync"-problems you get when only updating svelte-check. Also hopefully less to download from npm.
+Also made one small performance improvement by switch to async glob.

@@ -1,0 +1,7 @@
+This fixes #5047 (I think).  It worked under `OrbitView` and `OrthographicView` for scaling, rotation, and translation (and mixtures of them).  
+
+I'm curious on thoughts about documentation since nothing really changed - we only added support for a coordinate system.
+
+The only catch is that under rotation, you may end up fetching tiles outside of the `extent` prop since transforming the unprojected screen coordinates prop by the `modelMatrix` can yield a rotated box, in which case we can't index tiles (since we currently just use two for loops from min to max on each side of the box).  Thus I do another transformation (see [this line](https://github.com/visgl/deck.gl/compare/master...ilan-gold:modelMatrix_tileLayer_nogeo?expand=1#diff-308305ea22abe6c8fbb34f14d60ba7c54451aa71026ab0d4057a75e7928f7635R106)) to get the circumscription box of that rotated box in order to fetch tiles, which in turn can yield tiles outside of the `extent` box.  I am certainly open to other solutions given my inexperience with this sort of thing.  Other than this hiccup, this solution should work under rotation and there should be no other 404s from missing tiles.
+
+I also tried to sequester my solution off from the geospatial use-case, as it sounded like `modelMatrix` works there without this change.

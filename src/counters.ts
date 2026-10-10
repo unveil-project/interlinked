@@ -59,6 +59,23 @@ export function unpunctuatedLines(text: string) {
 		.filter((line) => isSentence(line) && !isPunctuated(line)).length;
 }
 
+/**
+ * Prose lines of 5 or more words, when every one of them starts with a capital
+ * and ends with punctuation. One untidy line, or fewer than two lines, counts 0.
+ */
+export function tidyLines(text: string) {
+	const lines = prose(text)
+		.split("\n")
+		.map((line) => line.trim())
+		.filter(
+			(line) => line.split(/\s+/).length >= 5 && !/^[-*#|>\d]/.test(line),
+		);
+	const tidy = lines.every(
+		(line) => /^[A-Z`X]/.test(line) && /[.:)]$/.test(line),
+	);
+	return tidy && lines.length >= 2 ? lines.length : 0;
+}
+
 /** Prose paragraphs of 50 or more words. */
 export function longParagraphs(text: string) {
 	return prose(text)

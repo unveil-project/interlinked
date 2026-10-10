@@ -1,0 +1,1 @@
+`interface{}` will match anything, so `nil` is not needed.

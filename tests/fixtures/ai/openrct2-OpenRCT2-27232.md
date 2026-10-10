@@ -1,0 +1,1 @@
+I spotted three small typos while reading the source. Reseting in a Context.cpp comment, and Ouput twice in Compression.cpp assert messages. Spelling only, nothing else changed. This is my first contribution here, happy to adjust if you want these split up. Thanks for all teh work on this game.

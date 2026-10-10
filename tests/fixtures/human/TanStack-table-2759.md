@@ -1,0 +1,1 @@
+Just in case anyone is looking for where changelog entries are now.  Releases is pretty standard place already, but this saves a bit looking.

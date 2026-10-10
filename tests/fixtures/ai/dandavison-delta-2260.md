@@ -1,0 +1,2 @@
+git grep output like `foo-bar:content` is misparsed: the `-` is read as a context separator. Add a regex variant that allows dashes in extension-less filenames, preferring ``:`` as separator. Unlike #2156/#2202, keeps the `-h/`--no-filename` guard. Closes #2144.
+Agent-Owner:sera

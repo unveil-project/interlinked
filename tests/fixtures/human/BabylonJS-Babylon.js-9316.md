@@ -1,0 +1,1 @@
+See https://forum.babylonjs.com/t/pbrmetallicroughness-memory-leak/15297

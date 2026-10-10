@@ -1,0 +1,1 @@
+I believe that it fixes https://github.com/atlassian/changesets/issues/461

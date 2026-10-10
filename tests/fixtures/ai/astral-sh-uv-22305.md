@@ -1,0 +1,1 @@
+The extracted crates expose stale type references and a malformed `zipapp` link in their public documentation. Update the type references to `Pep723ItemRef` and `RequirementsSpecification`, and link directly to Python's `zipapp` documentation.

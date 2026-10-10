@@ -1,0 +1,1 @@
+For example, this allows you to do something like `TelnetServer -c /usr/bin/nyancat` to have the TelnetServer run `/usr/bin/nyancat` instead of `/bin/Shell`.

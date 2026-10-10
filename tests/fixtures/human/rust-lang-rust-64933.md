@@ -1,0 +1,1 @@
+Fixes https://github.com/rust-lang/rust/issues/64919

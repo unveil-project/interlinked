@@ -1,0 +1,1 @@
+Also, follow Python porting best practice [__use feature detection instead of version detection__](https://docs.python.org/3/howto/pyporting.html#use-feature-detection-instead-of-version-detection).

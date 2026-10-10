@@ -43,7 +43,7 @@ export interface AnalyzeTextOptions {
  * Starting log-odds. Set so about 3% of pre-agent PRs score as AI, because a
  * false accusation is worse than a miss.
  */
-const BIAS = -1.99;
+const BIAS = -1.91;
 
 export const AI_THRESHOLD = 0.5;
 

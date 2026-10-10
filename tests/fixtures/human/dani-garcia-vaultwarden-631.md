@@ -1,0 +1,2 @@
+- It's not `Access-Control-Allow-Methods` but `Access-Control-Allow-Method` where the value is the HTTP method that caused the preflight request.
+- Changed the name to something shorter since it appears in the logging.
