@@ -26,6 +26,7 @@
 		"build:userscript": "tsdown -c userscript/tsdown.config.ts",
 		"dev:userscript": "tsdown -c userscript/tsdown.config.ts --watch",
 		"playground": "vite playground",
+		"playground:build": "vite build playground",
 		"test": "vitest",
 		"test:regression": "vitest run tests/regression.test.ts --reporter=verbose",
 		"test:regression:update": "UPDATE_BASELINE=1 vitest run tests/regression.test.ts",
