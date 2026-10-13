@@ -25,6 +25,7 @@
 		"dev": "tsdown --watch",
 		"build:userscript": "tsdown -c userscript/tsdown.config.ts",
 		"dev:userscript": "tsdown -c userscript/tsdown.config.ts --watch",
+		"playground": "vite playground",
 		"test": "vitest",
 		"test:regression": "vitest run tests/regression.test.ts --reporter=verbose",
 		"test:regression:update": "UPDATE_BASELINE=1 vitest run tests/regression.test.ts",
@@ -36,10 +37,13 @@
 	"devDependencies": {
 		"@biomejs/biome": "^2.5.15",
 		"@types/node": "^26.1.1",
+		"@vitejs/plugin-vue": "^6.0.10",
 		"bumpp": "^11.1.0",
 		"tsdown": "^0.22.5",
 		"tsx": "^4.19.2",
 		"typescript": "^7.0.2",
-		"vitest": "^4.1.10"
+		"vite": "^8.3.1",
+		"vitest": "^4.1.10",
+		"vue": "^3.5.43"
 	}
 }
