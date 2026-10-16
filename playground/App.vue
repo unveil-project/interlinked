@@ -13,9 +13,19 @@ type Step = "loading" | "done" | "none" | "failed";
 
 /** Score bands, lowest first. Each applies to scores below its `max`. */
 const bands = [
-	{ max: 0.35, label: "likely human-written", text: "text-human", bar: "bg-human" },
+	{
+		max: 0.35,
+		label: "likely human-written",
+		text: "text-human",
+		bar: "bg-human",
+	},
 	{ max: 0.65, label: "inconclusive", text: "text-fg", bar: "bg-muted" },
-	{ max: Infinity, label: "likely agent-written", text: "text-agent", bar: "bg-agent" },
+	{
+		max: Infinity,
+		label: "likely agent-written",
+		text: "text-agent",
+		bar: "bg-agent",
+	},
 ];
 
 const url = ref("");
@@ -111,6 +121,7 @@ async function load() {
 		template.value = found?.text ?? "";
 		source.value = { name: sourceName(ref) };
 		loadedUrl = url.value;
+		history.replaceState(null, "", `?url=${shareParam(url.value)}`);
 	} catch (e) {
 		error.value = (e as Error).message;
 	} finally {
@@ -148,16 +159,36 @@ function barStyle(contribution: number) {
 	const width = `${(Math.abs(contribution) / largest.value) * 50}%`;
 	return contribution >= 0 ? { left: "50%", width } : { right: "50%", width };
 }
+
+/** The link as a readable query value: no scheme, slashes left as they are. */
+function shareParam(link: string) {
+	return encodeURIComponent(link.replace(/^https?:\/\//, "")).replaceAll(
+		"%2F",
+		"/",
+	);
+}
+
+// Analyze the link shared in `?url=`, if there is one.
+const shared = new URLSearchParams(location.search).get("url");
+if (shared) {
+	url.value = /^https?:\/\//.test(shared) ? shared : `https://${shared}`;
+	load();
+}
 </script>
 
 <template>
-	<main class="max-w-180 mx-auto px-4 pt-12 pb-24">
+	<main class="flex flex-col min-h-dvh max-w-180 mx-auto px-4 pt-12 pb-8">
 		<header class="flex items-baseline justify-between mb-10 font-mono text-13px">
-			<span
-				class="font-semibold tracking-[-0.01em] before:(content-empty inline-block size-7px mr-2 rounded-full bg-agent align-[1px])"
-			>
-				interlinked
-			</span>
+			<div class="flex flex-col gap-1">
+				<span
+					class="font-semibold tracking-[-0.01em]"
+				>
+					Interlinked
+				</span>
+				<span class="font-sans text-13px text-muted">
+					Analyze PR descriptions, issues and comments for signs of coding agents.
+				</span>
+			</div>
 
 			<nav>
 				<ul class="flex gap-2 text-xs">
@@ -169,23 +200,23 @@ function barStyle(contribution: number) {
 		</header>
 
 		<form
-			class="flex gap-2 border-b border-line transition-colors duration-150 focus-within:border-fg"
+			class="flex items-center gap-2 pl-4 pr-1.5 border border-line rounded-10px bg-field transition-colors duration-150 focus-within:border-muted"
 			@submit.prevent="load"
 		>
 			<input
 				v-model="url"
 				type="url"
-				placeholder="github.com/owner/repo/pull/123 or …/issues/123"
+				placeholder="Paste a GitHub pull request, issue or comment link"
 				spellcheck="false"
 				aria-label="Issue, pull request or comment link"
-				class="flex-1 min-w-0 py-2.5 font-mono text-14px outline-none"
+				class="flex-1 min-w-0 py-3 bg-transparent font-mono text-13px outline-none"
 			/>
 			<button
 				type="submit"
 				:disabled="loading || !url"
-				class="px-1 font-mono text-13px disabled:text-muted"
+				class="flex-none h-8 px-3 rounded-md bg-line font-mono text-12px transition-colors duration-150 hover:(bg-fg text-page) disabled:(text-muted hover:(bg-line text-muted))"
 			>
-				{{ loading ? "Fetching…" : "Fetch" }}
+				Analyze
 			</button>
 		</form>
 		<ul v-if="progress" class="mt-3 font-mono text-12px text-muted" aria-live="polite">
@@ -337,5 +368,16 @@ function barStyle(contribution: number) {
 			</ol>
 			<p v-else class="text-muted">No signals fired.</p>
 		</section>
+
+		<footer class="mt-auto pt-20">
+			<p class="pt-4 border-t border-line font-mono text-12px text-muted">
+				An ongoing experiment, open source under the MIT license.
+				<a
+					target="_blank"
+					class="text-fg hover:underline"
+					href="https://github.com/unveil-project/interlinked"
+				>Source on GitHub</a>
+			</p>
+		</footer>
 	</main>
 </template>
