@@ -15,7 +15,7 @@ type Step = "loading" | "done" | "none" | "failed";
 const bands = [
 	{ max: 0.35, label: "likely human-written", text: "text-human", bar: "bg-human" },
 	{ max: 0.65, label: "inconclusive", text: "text-fg", bar: "bg-muted" },
-	{ max: Infinity, label: "strong agent traits", text: "text-agent", bar: "bg-agent" },
+	{ max: Infinity, label: "likely agent-written", text: "text-agent", bar: "bg-agent" },
 ];
 
 const url = ref("");
