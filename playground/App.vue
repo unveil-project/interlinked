@@ -13,8 +13,7 @@ type Step = "loading" | "done" | "none" | "failed";
 
 /** Score bands, lowest first. Each applies to scores below its `max`. */
 const bands = [
-	{ max: 0.2, label: "likely human-written", text: "text-human", bar: "bg-human" },
-	{ max: 0.35, label: "few agent traits", text: "text-human", bar: "bg-human" },
+	{ max: 0.35, label: "likely human-written", text: "text-human", bar: "bg-human" },
 	{ max: 0.65, label: "inconclusive", text: "text-fg", bar: "bg-muted" },
 	{ max: Infinity, label: "strong agent traits", text: "text-agent", bar: "bg-agent" },
 ];
