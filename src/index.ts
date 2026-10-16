@@ -35,26 +35,31 @@ export interface AnalyzeTextResult {
 }
 
 export interface AnalyzeTextOptions {
-	/** The repo's PR template, raw markdown. */
-	template?: string;
+	/**
+	 * The repo's PR or issue template, raw markdown. Pass an array for a repo's
+	 * several issue templates. YAML issue forms are understood too.
+	 */
+	template?: string | string[];
 }
 
 /**
- * Starting log-odds. Set so about 3% of pre-agent PRs score as AI, because a
- * false accusation is worse than a miss.
+ * Starting log-odds. Set so at most about 3% of pre-agent PRs, issues or
+ * comments score as AI, because a false accusation is worse than a miss.
  */
-const BIAS = -1.91;
+const BIAS = -1.38;
 
 export const AI_THRESHOLD = 0.5;
 
 /**
- * Guesses whether a PR description was written by an AI agent.
+ * Guesses whether a text, like a PR description, issue or comment, was written
+ * by an AI agent. Every text is read the same way.
  *
- * Pass the repo's PR template if you have it, so its headings and checklists
- * don't count against the author.
+ * Pass the repo's PR or issue template if you have it, so its headings and
+ * checklists don't count against the author.
  *
  * @example
  * const { verdict, confidence } = analyzeText(pr.body ?? "", { template });
+ * const { verdict } = analyzeText(comment.body);
  */
 export function analyzeText(
 	markdown: string,

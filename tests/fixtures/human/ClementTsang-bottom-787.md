@@ -1,0 +1,1 @@
+Hi, I'm in the process of packaging all the dependencies for bottom so we can get an official debian package. On crates.io it states `battery` as dependency. The current github includes `nvml-wrapper` and `starship-battery `instead. Will these be included in the next release (instead of battery)?

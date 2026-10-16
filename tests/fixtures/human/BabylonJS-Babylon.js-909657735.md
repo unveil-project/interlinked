@@ -1,0 +1,1 @@
+Calling save/restore is slow? Even if it is, I'm not sure it's noticeable, as you normally don't have hundreds of containers inside containers in typical applications(?) But I'm not knowledgeable enough with canvas/contexts to know for sure.

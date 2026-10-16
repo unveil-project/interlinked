@@ -1,0 +1,1 @@
+I'm able to reproduce the problem with `Symbol` methods not being covered. I'll try to boil down the example to two-file reproductions and need to verify if it's problem with applying source maps or coverage data is actually not collected by V8.

@@ -1,0 +1,1 @@
+Following the repository's CONTRIBUTING.md, could a maintainer please confirm that a focused PR for this issue is welcome? I have a small implementation ready (two files, including a unit test), but I will wait for explicit confirmation before opening it.

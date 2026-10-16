@@ -1,0 +1,1 @@
+@chriskrycho Yup, to enable TS blueprints by default (based on the `isTypeScriptProject ` value of course) we need to [enable this flag](https://github.com/emberjs/ember.js/blob/master/blueprints/-maybe-polyfill-typescript-blueprints.js#L2).

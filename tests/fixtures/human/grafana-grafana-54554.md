@@ -1,0 +1,1 @@
+Some internal implementation functions in the secrets plugin code had to be made public in order to better organize the package. It might be worth finding a way to protect these, possibly by creating a new provider with these functions that must be explicitly imported.

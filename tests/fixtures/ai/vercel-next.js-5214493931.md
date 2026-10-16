@@ -1,0 +1,1 @@
+Closing as superseded - upstream merged this fix as resolveCacheHandlerPathToFilesystem (commit 469c7ce25fe) across all 6 call sites in packages/next/src. The file:// cacheHandler path handling is now covered in canary.

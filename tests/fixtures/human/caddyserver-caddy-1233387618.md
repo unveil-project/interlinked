@@ -1,0 +1,1 @@
+okay, that might not actually be necessary.  However, is there a way (perhaps through caddy.Context?) for a module to know information about the listener it's connected to?  For example, an authentication provider running inside the http app to know its listener network and address?

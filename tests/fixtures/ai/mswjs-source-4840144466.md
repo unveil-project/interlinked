@@ -1,0 +1,1 @@
+Closing this to keep the queue tidy on my side, since the repo has been quiet for a few months and I don't want it sitting as noise in your backlog. The branch is still up on my fork, so happy to reopen if `source` picks back up and #94 is still worth fixing.

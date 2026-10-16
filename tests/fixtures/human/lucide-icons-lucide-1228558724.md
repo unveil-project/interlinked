@@ -1,0 +1,1 @@
+it is impacting our bundle size as its about 235kib, when it could be down to a few kib, if they "LL",  i'll try this index page with dynamic imports idea, least that keeps them all in 1 file, so we dont have to think about imports for icons on every page

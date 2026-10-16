@@ -1,0 +1,1 @@
+Thinking about it, a useful follow-up would be to introduce a new category, "deprecated", and render some docs for those deprecated built-in functions, too. After all, if a user finds a use of `re_match` somewhere, they have no chance to figure out what it is given our current docs.

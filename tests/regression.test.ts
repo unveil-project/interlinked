@@ -6,8 +6,9 @@ import { analyzeText } from "../src/index";
 /**
  * Regression tests for the classifier.
  *
- * Fixtures live in `fixtures/ai/` and `fixtures/human/`. The folder is the label.
- * A `<name>.template.md` next to a fixture is used as its PR template.
+ * Fixtures live in `fixtures/ai/` and `fixtures/human/`: PR descriptions,
+ * issues and comments alike. The folder is the label.
+ * A `<name>.template.md` next to a fixture is used as its PR or issue template.
  *
  * `baseline.json` stores each fixture's last accepted probability. A test fails
  * if it moves away from the label: down for ai, up for human.

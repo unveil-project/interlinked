@@ -20,11 +20,62 @@ function templateKey(line: string) {
 		.toLowerCase();
 }
 
-/** Removes lines copied from the PR template, ticked checklist items included. */
-export function withoutTemplate(text: string, template: string) {
+function unquote(value: string) {
+	return value.replace(/^(["'])(.*)\1$/, "$2");
+}
+
+/**
+ * The lines a YAML issue form leaves in an issue: `### label` headings,
+ * checkbox and dropdown options, default values and `_No response_`.
+ */
+export function issueFormLines(yaml: string) {
+	const lines = ["_No response_"];
+	const rows = yaml.split("\n");
+	for (let i = 0; i < rows.length; i++) {
+		const row = rows[i];
+		const field = row.match(/^(\s*)(-\s+)?(label|value):\s*(.*)$/);
+		if (field) {
+			const [, indent, option, key, value] = field;
+			if (/^[|>][-+]?$/.test(value.trim())) {
+				// A block scalar: every deeper-indented line that follows.
+				while (
+					i + 1 < rows.length &&
+					(rows[i + 1].trim() === "" ||
+						rows[i + 1].search(/\S/) > indent.length)
+				) {
+					lines.push(rows[++i].trim());
+				}
+			} else if (key === "label") {
+				lines.push(
+					option
+						? `- [ ] ${unquote(value.trim())}`
+						: `### ${unquote(value.trim())}`,
+				);
+			} else {
+				lines.push(unquote(value.trim()));
+			}
+			continue;
+		}
+		const dropdownOption = row.match(/^\s*-\s+(?![\w-]+:(?:\s|$))(.+)$/);
+		if (dropdownOption) {
+			lines.push(unquote(dropdownOption[1].trim()));
+		}
+	}
+	return lines;
+}
+
+function isIssueForm(template: string) {
+	return /^body:\s*$/m.test(template) && /^\s*-\s+type:/m.test(template);
+}
+
+/** Removes lines copied from the PR or issue templates, ticked checklist items included. */
+export function withoutTemplate(text: string, template: string | string[]) {
+	const templates = Array.isArray(template) ? template : [template];
 	const templateLines = new Set(
-		authoredText(template)
-			.split("\n")
+		templates
+			.flatMap((t) =>
+				isIssueForm(t) ? issueFormLines(t) : authoredText(t).split("\n"),
+			)
 			.map(templateKey)
 			.filter((line) => line.length > 2),
 	);

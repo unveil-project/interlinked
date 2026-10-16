@@ -1,0 +1,1 @@
+Duplicate of the open #3365. #3364 was previously closed as a duplicate of the same consolidation, and the zero-limit hint fix still lives there. Shipping this separately would stack a second PR for one change. Closing.

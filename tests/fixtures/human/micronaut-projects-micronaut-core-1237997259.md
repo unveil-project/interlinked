@@ -1,0 +1,1 @@
+Is this documented anywhere or is it some type of convention that I'm not aware of ? It would be really helpful if this was stated in bold letters in documentation because debugging it took a considerable amount of time.

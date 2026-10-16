@@ -1,45 +1,38 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
+import {
+	type Author,
+	graphql,
+	HUMAN_WINDOWS,
+	isHumanAuthor,
+	pool,
+	token,
+} from "./github";
 
 export interface CorpusEntry {
 	label: "ai" | "human";
+	/** What the text is. Missing means "pr", from before issues were collected. */
+	kind?: "pr" | "issue" | "comment";
 	repo: string;
+	/** The PR or issue number. A comment has its issue's. */
 	number: number;
 	body: string;
+	/** The author's login. */
+	author?: string;
+	url?: string;
+	/**
+	 * Where an agent label comes from. Missing means an attribution line or
+	 * disclosure in the text; "agent-account" means a verified agent account
+	 * wrote it, disclosed or not.
+	 */
+	source?: "agent-account";
 }
 
 const CORPUS_DIR = join(import.meta.dirname, "..", "corpus");
-/** Before ChatGPT and agent tooling. */
-const HUMAN_WINDOWS = ["2021-03-01..2021-08-31", "2022-01-01..2022-08-31"];
 const HUMAN_PER_WINDOW = 8;
 const AI_PER_REPO = 20;
 const PRS_PER_QUERY = 50;
-const CONCURRENCY = 6;
 const TELLS = new Set(["agent-attribution", "ai-disclosure"]);
-
-const token = process.env.GITHUB_TOKEN ?? process.env.NUXT_GITHUB_TOKEN;
-if (!token) {
-	throw new Error("GITHUB_TOKEN is not set");
-}
-
-async function graphql<T>(query: string, variables: object = {}): Promise<T> {
-	for (let attempt = 0; ; attempt++) {
-		const res = await fetch("https://api.github.com/graphql", {
-			method: "POST",
-			headers: { authorization: `bearer ${token}` },
-			body: JSON.stringify({ query, variables }),
-		});
-		const json = (await res.json()) as { data?: T; errors?: unknown };
-		// A deleted PR errors, but the rest of the data still comes back.
-		if (json.data) {
-			return json.data;
-		}
-		if (attempt >= 2) {
-			throw new Error(`${res.status} ${JSON.stringify(json.errors)}`);
-		}
-		await new Promise((r) => setTimeout(r, 5000 * (attempt + 1)));
-	}
-}
 
 async function fetchTemplate(repo: string): Promise<string | undefined> {
 	const headers = { authorization: `bearer ${token}` };
@@ -66,12 +59,8 @@ async function fetchTemplate(repo: string): Promise<string | undefined> {
 type PrNode = {
 	number: number;
 	body: string;
-	author: { __typename: string; login: string } | null;
+	author: Author;
 } | null;
-
-function isHumanAuthor(pr: NonNullable<PrNode>) {
-	return pr.author?.__typename === "User" && !/bot\b/i.test(pr.author.login);
-}
 
 async function fetchHuman(repo: string): Promise<CorpusEntry[]> {
 	const entries: CorpusEntry[] = [];
@@ -87,7 +76,8 @@ async function fetchHuman(repo: string): Promise<CorpusEntry[]> {
 		entries.push(
 			...data.search.nodes
 				.filter(
-					(pr): pr is NonNullable<PrNode> => !!pr?.body && isHumanAuthor(pr),
+					(pr): pr is NonNullable<PrNode> =>
+						!!pr?.body && isHumanAuthor(pr.author),
 				)
 				.slice(0, HUMAN_PER_WINDOW)
 				.map((pr) => ({
@@ -126,23 +116,6 @@ async function fetchAi(
 		}
 	}
 	return entries;
-}
-
-async function pool<T>(items: T[], run: (item: T) => Promise<void>) {
-	const queue = [...items];
-	await Promise.all(
-		Array.from({ length: CONCURRENCY }, async () => {
-			for (let item = queue.shift(); item !== undefined; item = queue.shift()) {
-				try {
-					await run(item);
-				} catch (error) {
-					console.warn(
-						`  skipped ${JSON.stringify(item)}: ${(error as Error).message}`,
-					);
-				}
-			}
-		}),
-	);
 }
 
 async function main() {

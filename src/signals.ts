@@ -11,7 +11,10 @@ import {
 export interface Signal {
 	id: string;
 	description: string;
-	/** Positive means agent, negative means human, 0 turns it off. Set by `scripts/fit-weights.ts`. */
+	/**
+	 * Positive means agent, negative means human, 0 turns it off.
+	 * Set by `scripts/fit-weights.ts`.
+	 */
 	weight: number;
 	/** Hits at which the signal reaches full strength. */
 	cap: number;
@@ -47,7 +50,7 @@ export const SIGNALS: Signal[] = [
 	{
 		id: "fails-before-fix",
 		description: "claims tests were shown failing on the unfixed code",
-		weight: 0.87,
+		weight: 1.35,
 		cap: 2,
 		count: matches(
 			/\b(?:fail|fails|failed|failing|red)\s+(?:on|against)\s+(?:the\s+)?(?:unfixed|unpatched|unmodified|old|original|prior|pinned|current)?\s*(?:`?main`?|`?master`?|`?dev`?|code|baseline|base|script|regex|file)\b|\bfail(?:s|ed|ing)?\b[^.\n]{0,40}\b(?:before|without) (?:the|this) (?:fix|change|patch)\b|\b(?:fail|fails|failed|times out)\b[^.\n]{0,60}\bwithout the \w+ (?:fix|change|patch)\b|\bwithout the fix\b|\bfails? before\b|\bpass(?:es)? after\b|\bpass(?:es|ed)? (?:after|with) (?:the|this) (?:fix|change|patch)\b|\bverified by reverting\b|\b(?:identically )?on (?:unmodified|unfixed|unpatched) `?(?:main|dev)`?|\ball red on\b|\bfresh-base-red\b/i,
@@ -56,14 +59,14 @@ export const SIGNALS: Signal[] = [
 	{
 		id: "git-diff-check",
 		description: "reports running `git diff --check`",
-		weight: 0.89,
+		weight: 1.01,
 		cap: 1,
 		count: matches(/git diff --check/),
 	},
 	{
 		id: "lint-clean",
 		description: "reports a linter or type check as clean",
-		weight: 0.4,
+		weight: 0.41,
 		cap: 2,
 		count: matches(
 			/\b(?:ruff check|tsgo|tsc --noEmit|oxlint|oxfmt|biome check|eslint)\b[^\n]{0,80}?\b(?:clean|pass(?:es|ed)?)\b|All checks passed!/i,
@@ -81,7 +84,7 @@ export const SIGNALS: Signal[] = [
 	{
 		id: "epistemic-hedge",
 		description: 'pre-empts over-reading its own evidence ("X, not Y")',
-		weight: 0.39,
+		weight: 0.65,
 		cap: 2,
 		count: matches(
 			/\bnot (?:a |an )?(?:controlled|claimed|unmodified)\b|\b(?:no|not) (?:root cause|fix) (?:or fix )?is claimed\b|\bevidence, not a\b|\bnot a claim\b|\brather than a (?:harness error|fragile workaround)\b|\bfail for the reported reason\b|\b(?:was|were) not run\b|\bnot run locally\b|\bdid not run\b/i,
@@ -90,7 +93,7 @@ export const SIGNALS: Signal[] = [
 	{
 		id: "maintainer-deference",
 		description: "defers decisions to a maintainer",
-		weight: 1.3,
+		weight: 0.87,
 		cap: 2,
 		count: matches(
 			/\bfor a maintainer\b|\bsay the word\b|\bmaintainer[- ]requested\b|\bmaintainer'?s? (?:explicit|work order|decision)\b|\bif you would rather\b|\bjudgement call worth surfacing\b/i,
@@ -99,7 +102,7 @@ export const SIGNALS: Signal[] = [
 	{
 		id: "plan-reference",
 		description: "points to a plan file or the commit message for detail",
-		weight: 2.2,
+		weight: 0.21,
 		cap: 2,
 		count: matches(
 			/\b(?:SPEC|BUILD_PLAN|PLAN|TODO|CHANGES)\.md\b|\bsee (?:the )?commit message\b|\bfull (?:design rationale|details)\b/i,
@@ -117,14 +120,14 @@ export const SIGNALS: Signal[] = [
 	{
 		id: "stacked-pr",
 		description: "says it is stacked on or supersedes another PR",
-		weight: 0.41,
+		weight: 0.63,
 		cap: 1,
 		count: matches(/\bstacked on #\d+|\bsupersedes #\d+/i),
 	},
 	{
 		id: "commit-shas",
 		description: "cites commit SHAs, CI run or job IDs",
-		weight: 0,
+		weight: -0.62,
 		cap: 4,
 		count: matches(
 			/\b(?=[0-9a-f]*\d)(?=[0-9a-f]*[a-f])[0-9a-f]{12,40}\b|\b(?:run|job) `?\d{9,}\b/,
@@ -142,7 +145,7 @@ export const SIGNALS: Signal[] = [
 	{
 		id: "verification-label",
 		description: "opens a line with a Validation:, Root cause: or Fix: label",
-		weight: 0.62,
+		weight: 0.74,
 		cap: 2,
 		count: matches(
 			/^(?:\*\*)?(?:Validation|Verification|Local checks|How I (?:checked|verified|tested)|How verified|Test plan|Testing|Tests?|Tested|Root cause|Fix|Benchmarks?)(?:\*\*)?(?: \([^)\n]*\))?(?:\*\*)?:(?:\s*$|(?:\s+\S+){8})/m,
@@ -151,7 +154,7 @@ export const SIGNALS: Signal[] = [
 	{
 		id: "test-reference",
 		description: "mentions tests or regression tests",
-		weight: 1.17,
+		weight: 1.46,
 		cap: 3,
 		count: matches(
 			/\bregression (?:tests?|coverage)\b|\btest case\b|\brun test\b|\bunit test\b|\btests? cover\b|\bregressions cover\b|\bcoverage for\b|\bcovers? (?:both|the|every)\b/i,
@@ -162,7 +165,7 @@ export const SIGNALS: Signal[] = [
 	{
 		id: "semicolons",
 		description: "joins clauses with semicolons",
-		weight: 2.18,
+		weight: 3.7,
 		cap: 5,
 		prose: true,
 		count: density(/; /),
@@ -170,14 +173,14 @@ export const SIGNALS: Signal[] = [
 	{
 		id: "code-span-density",
 		description: "wraps many names in inline `code` spans",
-		weight: 1.99,
+		weight: 1.28,
 		cap: 15,
 		count: densityOutsideChecklists(/`[^`\n]+`/),
 	},
 	{
 		id: "bold-lead-bullets",
 		description: "starts bullets or paragraphs with a **bold lead**",
-		weight: 0.75,
+		weight: 4,
 		cap: 12,
 		count: matches(
 			/^\s*(?:[-*]|\d+\.) \*\*[^*\n]+\*\*|^\*\*[^*\n]{2,60}\*\*[:.]? \S/m,
@@ -186,7 +189,7 @@ export const SIGNALS: Signal[] = [
 	{
 		id: "em-dash",
 		description: "uses em-dashes heavily",
-		weight: 1.13,
+		weight: 4,
 		cap: 4,
 		prose: true,
 		count: density(/—/),
@@ -194,7 +197,7 @@ export const SIGNALS: Signal[] = [
 	{
 		id: "template-headings",
 		description: "uses the headings agent PR templates favour",
-		weight: 1.23,
+		weight: 2.37,
 		cap: 2,
 		count: matches(
 			/^#{1,4}\s*(?:Summary|Overview|TL;?DR|Verification|Validation|How (?:it was|this was|I) tested|Testing|Test plan|Tests|Evidence|Checks)\s*$/im,
@@ -203,7 +206,7 @@ export const SIGNALS: Signal[] = [
 	{
 		id: "colon-bullets",
 		description: "shapes bullets as `- label: explanation`",
-		weight: 1.38,
+		weight: 1.45,
 		cap: 8,
 		prose: true,
 		count: matches(/^\s*[-*] [^:\n]{2,40}: \S/m),
@@ -211,7 +214,7 @@ export const SIGNALS: Signal[] = [
 	{
 		id: "arrows",
 		description: "uses → or -> in prose",
-		weight: 0.57,
+		weight: 2.05,
 		cap: 8,
 		prose: true,
 		count: matches(/→| -> /),
@@ -219,7 +222,7 @@ export const SIGNALS: Signal[] = [
 	{
 		id: "file-paths",
 		description: "names source files by path",
-		weight: 0.59,
+		weight: 0.14,
 		cap: 5,
 		count: matches(
 			/\b[\w.-]+\/[\w./-]+\.(?:ts|tsx|js|py|rs|go|java|cs|rb|md|json|yml|yaml|toml|swift|kt|cpp|h|c)\b/,
@@ -228,7 +231,7 @@ export const SIGNALS: Signal[] = [
 	{
 		id: "scope-disclaimer",
 		description: "lists what the change deliberately did not touch",
-		weight: 1.52,
+		weight: 2.19,
 		cap: 3,
 		prose: true,
 		count: matches(
@@ -238,7 +241,7 @@ export const SIGNALS: Signal[] = [
 	{
 		id: "test-tally",
 		description: "quotes exact pass/skip/fail counts",
-		weight: 1.34,
+		weight: 1.92,
 		cap: 3,
 		count: matches(
 			/\b\d[\d,]*\s*(?:tests?\s+)?(?:passed|pass(?:ing)?)\b(?:,\s*\d[\d,]*\s+(?:skipped|failed|xfailed))*|\b\d+\/\d+\s+(?:pass|passed|cases|tests)\b|\ball \d+ (?:[\w`.-]+ ){0,3}tests?\b|\b\d+ (?:[\w`.-]+ ){0,3}tests? (?:now )?pass(?:es|ed)?\b/i,
@@ -247,7 +250,7 @@ export const SIGNALS: Signal[] = [
 	{
 		id: "agent-vocabulary",
 		description: "uses words agents overuse (idempotent, surfaces, invariant…)",
-		weight: 0.61,
+		weight: 2.77,
 		cap: 4,
 		prose: true,
 		count: matches(
@@ -257,14 +260,14 @@ export const SIGNALS: Signal[] = [
 	{
 		id: "long-paragraphs",
 		description: "explains in long unbroken paragraphs",
-		weight: 0.97,
+		weight: 0.38,
 		cap: 2,
 		count: longParagraphs,
 	},
 	{
 		id: "so-chains",
 		description: 'chains consequences with ", so" more than once',
-		weight: 1.63,
+		weight: 2.77,
 		cap: 3,
 		prose: true,
 		count: (text) => Math.max(0, matches(/, so (?!that)\w+/i)(text) - 1),
@@ -272,7 +275,7 @@ export const SIGNALS: Signal[] = [
 	{
 		id: "existing-precedent",
 		description: "justifies the change by code that already does the same",
-		weight: 0.95,
+		weight: 1.06,
 		cap: 2,
 		prose: true,
 		count: matches(
@@ -282,7 +285,7 @@ export const SIGNALS: Signal[] = [
 	{
 		id: "now-verbs",
 		description: 'states what the code "now does" after the change',
-		weight: 1.55,
+		weight: 2.54,
 		cap: 3,
 		prose: true,
 		count: matches(/\bnow \w+(?:s|ed)\b/i),
@@ -290,21 +293,21 @@ export const SIGNALS: Signal[] = [
 	{
 		id: "tables",
 		description: "lays information out in markdown tables",
-		weight: 0.62,
+		weight: 0.41,
 		cap: 20,
 		count: matches(/^\|.*\|\s*$/m),
 	},
 	{
 		id: "tidy-prose",
 		description: "writes every sentence capitalized and punctuated",
-		weight: 1.18,
+		weight: 0.32,
 		cap: 4,
 		count: tidyLines,
 	},
 	{
 		id: "existing-reference",
 		description: 'points at "the existing" code it builds on',
-		weight: 1.19,
+		weight: 2.72,
 		cap: 3,
 		prose: true,
 		count: matches(/\bthe existing\b/i),
@@ -312,7 +315,7 @@ export const SIGNALS: Signal[] = [
 	{
 		id: "unchanged-claims",
 		description: "says what stays unchanged or unaffected",
-		weight: 1.45,
+		weight: 1.92,
 		cap: 2,
 		prose: true,
 		count: matches(/\bunchanged\b|\bunaffected\b/i),
@@ -320,7 +323,7 @@ export const SIGNALS: Signal[] = [
 	{
 		id: "which-clauses",
 		description: 'explains through ", which does…" clauses',
-		weight: 0.8,
+		weight: 0.95,
 		cap: 3,
 		prose: true,
 		count: matches(/, which \w+s\b/i),
@@ -328,7 +331,7 @@ export const SIGNALS: Signal[] = [
 	{
 		id: "contrast-phrases",
 		description: 'contrasts with "rather than" or "instead of"',
-		weight: 0.64,
+		weight: 0.99,
 		cap: 3,
 		prose: true,
 		count: matches(/\b(?:rather than|instead of)\b/i),
@@ -336,19 +339,147 @@ export const SIGNALS: Signal[] = [
 	{
 		id: "imperative-sentences",
 		description: "gives the change as imperative sentences mid-paragraph",
-		weight: 0.84,
+		weight: 1.63,
 		cap: 3,
 		prose: true,
 		count: matches(
 			/[.:] (?:Add|Remove|Use|Preserve|Keep|Update|Replace|Return|Reject|Skip|Make|Move|Pass|Clear|Show|Match|Mark|Restore|Retain|Expire|Give|Check|Raise|Wrap|Select|Treat|Record|Validate|Extend|Allow|Prevent|Avoid|Drop|Ignore|Honor|Load|Emit|Render|Set|Document|Regenerate|Guard|Handle|Normalize|Resolve|Reuse|Apply|Cover|Stop|Start|Expose|Accept|Require) (?:the|a|an|each|every|all|both|this|that|its|their|X|[a-z]+s)\b/,
 		),
 	},
+	{
+		id: "plan-headings",
+		description:
+			"plans in headings like Acceptance Criteria, Scope or Next Steps",
+		weight: 4,
+		cap: 3,
+		count: matches(
+			/^#{1,4}\s*(?:\p{Extended_Pictographic}\uFE0F?\s*)?(?:Acceptance Criteria|Definition of Done|Success Criteria|Priority|Scope|Dependencies|Requirements|Impact|Implementation(?: Notes| Plan| Details)?|Tasks|Problem(?: Statement)?|Related(?: Issues| PRs| Work)?|Context|Technical (?:Details|Notes)|Next Steps|Root Cause|(?:Proposed )?Fix|Changes Made|Files (?:Changed|Modified))\s*:?\s*$/imu,
+		),
+	},
+	{
+		id: "emoji-markers",
+		description: "marks headings, bullets or lines with emoji (✅ 🎯 📋)",
+		weight: 1.01,
+		cap: 4,
+		prose: true,
+		count: matches(
+			/^\s*(?:#{1,6}\s*|[-*+]\s+|\d+\.\s+)?(?:\*\*)?\p{Extended_Pictographic}/mu,
+		),
+	},
+
+	// Conversation that leans agent-written, from agent accounts' issues and replies.
+	{
+		id: "status-openers",
+		description:
+			'opens a paragraph with a bare status verb ("Rebased onto…", "Addressed in…")',
+		weight: 3.03,
+		cap: 2,
+		prose: true,
+		count: matches(
+			/^(?:Rebased|Dropped|Verified|Investigated|Pushed|Addressed|Reworked|Restored|Confirmed|Re-?ran|Kept|Tightened|Narrowed|Folded|Landed|Withdrawing|Superseded by|Closing (?:this|as|in favou?r|for now))\b/m,
+		),
+	},
+	{
+		id: "review-pleasantries",
+		description:
+			'answers review with stock courtesies ("You\'re right", "Good catch", "gentle ping")',
+		weight: 2.94,
+		cap: 2,
+		prose: true,
+		count: matches(
+			/\byou['’]re (?:absolutely )?(?:right|correct)\b|\b(?:good|great|nice) catch\b|\bfair (?:point|question)\b|\bthanks? (?:you )?for (?:the |your )?(?:review|feedback|clarification|follow-up|pointer|heads[- ]up|careful|thorough|detailed|quick|precise|thoughtful|taking the time)\b|\bappreciate (?:the|you|your)\b|\b(?:gentle|friendly) (?:ping|nudge|bump|reminder)\b|\bwhen(?:ever)? you (?:have|get) a (?:moment|chance)\b/i,
+		),
+	},
+	{
+		id: "happy-to",
+		description: 'offers to do more ("happy to adjust")',
+		weight: 2.58,
+		cap: 2,
+		prose: true,
+		count: matches(/\bhappy to\b/i),
+	},
+	{
+		id: "maintainer-mention",
+		description: 'writes to or about "the maintainers"',
+		weight: 1.61,
+		cap: 2,
+		prose: true,
+		count: matches(/\bmaintainers?\b/i),
+	},
+	{
+		id: "work-claim",
+		description: 'claims the issue ("I can take this", "/claim #12")',
+		weight: 1.88,
+		cap: 1,
+		prose: true,
+		count: matches(
+			/\bI can take (?:this|a look|it)\b|\bI['’]d like to (?:take|work on|pick up|tackle) (?:this|it)\b|\bI['’]ll take (?:this|it)(?: on)?\b|\bI['’]m picking this up\b|\bclaiming\b|\/(?:claim|attempt) #?\d+/i,
+		),
+	},
+	{
+		id: "workflow-vocabulary",
+		description:
+			'uses contribution jargon ("follow-up", "rebased onto", "focused PR", "regression test")',
+		weight: 3.1,
+		cap: 3,
+		prose: true,
+		count: matches(
+			/\bfollow-up\b|\brebased (?:on|onto)\b|\b(?:small|minimal|narrow|focused|scoped)(?:,? (?:scoped|focused))? (?:PR|fix|change|patch)\b|\bkeep (?:it|this|the (?:fix|change|PR)) (?:scoped|focused|minimal|narrow|small)\b|\bregression (?:test|coverage)\b/i,
+		),
+	},
+	{
+		id: "ci-green",
+		description: "reports CI or checks as green",
+		weight: 1.95,
+		cap: 2,
+		prose: true,
+		count: matches(
+			/\b(?:CI|checks?|tests?|suite|jobs?|builds?|legs?)\b[^.\n]{0,25}?\b(?:green|passing)\b|\ball (?:\d+ )?(?:checks|jobs) (?:pass|are green)\b/i,
+		),
+	},
+	{
+		id: "evidence-claims",
+		description: 'weighs what is "established", "demonstrated" or "claimed"',
+		weight: 1.41,
+		cap: 3,
+		prose: true,
+		count: matches(
+			/\bclaimed\b|\b(?:is|are|was|were|been|isn['’]t|aren['’]t|not) (?:yet )?established\b|\bestablish(?:es|ed)? (?:that|whether|an? (?:real|genuine|concrete|exploitable))\b|\bdemonstrat(?:e|es|ed|ing)\b|\bconcrete\b|\bsubstantiat\w+|\boverstat\w+/i,
+		),
+	},
+	{
+		id: "not-contrast",
+		description: 'corrects itself in passing (", not a race")',
+		weight: 2.25,
+		cap: 3,
+		prose: true,
+		count: matches(
+			/, not (?!sure\b|yet\b|really\b|quite\b|that\b|exactly\b|to\b|so\b|much\b|necessarily\b|even\b|at all\b)(?:a |an |the |just |only )?\w+/,
+		),
+	},
+	{
+		id: "math-symbols",
+		description: "uses typeset symbols (≥ × ≈) in prose",
+		weight: 1.37,
+		cap: 3,
+		prose: true,
+		count: matches(/[≥≤×≈⇒≠]/),
+	},
+	{
+		id: "shell-escapes",
+		description:
+			"has stray shell escapes (`\\!`, literal `\\n`) from posting via a CLI",
+		weight: 1.98,
+		cap: 1,
+		prose: true,
+		count: matches(/\\[!`]|\\n\\n/),
+	},
 
 	// Style that leans human-written.
 	{
 		id: "first-person",
 		description: "writes in the first person (I, my, me)",
-		weight: -1.18,
+		weight: -0.94,
 		cap: 7,
 		prose: true,
 		count: densityOutsideChecklists(/\b(?:I|I'm|I've|I'd|I'll|my|me)\b/),
@@ -356,7 +487,7 @@ export const SIGNALS: Signal[] = [
 	{
 		id: "screenshots",
 		description: "attaches screenshots or images",
-		weight: 0,
+		weight: -1.28,
 		cap: 8,
 		count: matches(
 			/!\[[^\]]*\]\(|<img\s|user-images\.githubusercontent|github\.com\/user-attachments/i,
@@ -365,7 +496,7 @@ export const SIGNALS: Signal[] = [
 	{
 		id: "this-pr",
 		description: 'refers to the change as "this PR"',
-		weight: -0.82,
+		weight: -0.81,
 		cap: 3,
 		prose: true,
 		count: matches(/\bthis (?:PR|pull request)\b/i),
@@ -373,7 +504,7 @@ export const SIGNALS: Signal[] = [
 	{
 		id: "contractions",
 		description: "uses contractions (don't, it's, we'll)",
-		weight: -1.37,
+		weight: -1.15,
 		cap: 6,
 		prose: true,
 		count: density(
@@ -383,21 +514,21 @@ export const SIGNALS: Signal[] = [
 	{
 		id: "template-checkboxes",
 		description: "has a checkbox list",
-		weight: -0.91,
+		weight: -0.87,
 		cap: 8,
 		count: matches(/^\s*[-*] \[[ x]\]/im),
 	},
 	{
 		id: "unpunctuated-lines",
 		description: "leaves sentences without final punctuation",
-		weight: 0,
+		weight: -1.47,
 		cap: 5,
 		count: unpunctuatedLines,
 	},
 	{
 		id: "bare-urls",
 		description: "pastes bare URLs instead of markdown links",
-		weight: 0,
+		weight: -1.23,
 		cap: 4,
 		prose: true,
 		count: matches(/(?<![(<])https?:\/\/\S+/),
@@ -405,7 +536,7 @@ export const SIGNALS: Signal[] = [
 	{
 		id: "questions",
 		description: "asks the reviewer questions",
-		weight: -0.31,
+		weight: -2.27,
 		cap: 4,
 		prose: true,
 		count: matches(/\?(?:\s|$)/m),
@@ -413,7 +544,7 @@ export const SIGNALS: Signal[] = [
 	{
 		id: "tentative",
 		description: 'is tentative or informal ("not sure", "WIP", "let me know")',
-		weight: -0.94,
+		weight: -2.97,
 		cap: 3,
 		prose: true,
 		count: matches(
@@ -421,9 +552,27 @@ export const SIGNALS: Signal[] = [
 		),
 	},
 	{
+		id: "emoticons",
+		description: 'uses emoticons or emoji shortcodes (":)", "lol", ":tada:")',
+		weight: -2.05,
+		cap: 2,
+		prose: true,
+		count: matches(
+			/(?:^|\s)(?::\)|:-\)|:D|;\)|:\(|:P|xD)(?=\s|$|[.,!])|\blol\b|\bhaha\w*\b|\bhehe\b|:[a-z_+-]+:/im,
+		),
+	},
+	{
+		id: "gratitude",
+		description: 'thanks someone ("thanks", "thank you", "cheers")',
+		weight: 0,
+		cap: 2,
+		prose: true,
+		count: matches(/\b(?:thanks|thank you|thx|cheers)\b/i),
+	},
+	{
 		id: "short-body",
 		description: "is too short to carry agent structure",
-		weight: -1.42,
+		weight: -1.44,
 		cap: 1,
 		count: (text) => (text.length < 150 ? 1 : 0),
 	},

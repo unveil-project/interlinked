@@ -1,0 +1,3 @@
+Confirmed — this is the same `es-module-lexer` offset asymmetry that the triage bot pinpointed. For static `from "./x.js"`, `imp.s..imp.e` covers the bare specifier without quotes; for dynamic `import("./x.js")`, the slice includes the quotes. So when the chunk-imports plugin appends `?dpl=...` to a dynamic import, it lands `import("./x.js?dpl=...")` instead of inside the literal.
+
+The fix is to detect dynamic imports via `imp.d > -1` at `plugin-chunk-imports.ts:51` and rewrite the inside of the quoted string instead of appending after the slice end. I can put up a PR shortly with a regression test for both static and dynamic forms.

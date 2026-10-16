@@ -1,0 +1,1 @@
+By the way, I heard that the published docker image will have the healthcheckextension - if so I think the priority isn't as high. While healthchecks are still used outside, they are vastly more common and necessary in container deployments so they would be covered.

@@ -1,0 +1,1 @@
+CAPI can return a 500 sometime (eg, when using the same credentials from multiples IPs), but cscli only displays a generic `500 Internal Server Error` message instead of the body with the actual error.

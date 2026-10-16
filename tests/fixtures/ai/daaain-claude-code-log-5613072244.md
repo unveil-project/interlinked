@@ -1,0 +1,5 @@
+Good catch on the stats — and digging into it turned up something deeper. The no-cache path wasn’t just misreporting: _generate_individual_session_files intersected the trunk session IDs with the cache-derived session data, which is empty without a cache, so zero session files were ever written (I verified end-to-end: report.sessions_regenerated came back 0 and no session HTML files appeared). The plan fix alone left #274’s 404-links symptom in place.
+
+Fixed in 32a03e3: with no cache manager the function now builds session data from the messages via the existing _build_session_data_from_messages fallback (the same one the paginated path uses on a cache miss), so the files actually get generated — and the plan stats now report all source files as processed and the corresponding sessions as regenerated, exactly as you asked. Cache-based stats are untouched.
+
+Added two regression tests covering both the stats and the end-to-end no-cache generation; both fail on the old code and pass on the new.

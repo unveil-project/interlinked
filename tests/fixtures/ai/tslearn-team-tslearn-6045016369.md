@@ -1,0 +1,1 @@
+Fixed the scikit-learn 1.5 failures in 2b11240: with older scikit-learn the zero-weight case is the `check_sample_weights_invariance` check, which fails for the same initialization reason, so it is now in `_xfail_checks` as well. The `sklearn1_8` job failed in `TimeSeriesSVC()-check_decision_proba_consistency`, which this PR doesn't touch.

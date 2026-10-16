@@ -1,0 +1,3 @@
+It was mentioned specifically, but as the current/primary example rather than the only possible repository. The recurring instruction said to continue an open-source contribution task by looking in `tsperf/tracer` or similar public open-source repos for small non-duplicate bugs/features, check for existing PRs first, implement a minimal high-quality fix, run tests/typecheck/lint/build, push a branch, and open a PR. It also said not to claim guaranteed earnings and to only make real platform-allowed engineering contributions.
+
+Given your questions, I am not going to keep opening new PRs here while this is unclear. If you want, I can close any or all of the PRs I opened, or leave them available for review and answer technical questions about a specific change.

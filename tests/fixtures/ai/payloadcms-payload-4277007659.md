@@ -1,0 +1,1 @@
+can repro — ListDrawer's onCreateNew (packages/ui/src/elements/ListDrawer/DrawerContent.tsx) closes both the document drawer and the list drawer on every onSave, but with autosave that fires with operation='update' after the first create, so the stack collapses mid-edit. opening a pr.

@@ -1,0 +1,1 @@
+Done in `f578f21`: `#[track_caller]` on `BufReader::with_capacity` and `BufStream::with_capacity`, plus `buf_reader_with_capacity_panic_caller` and `buf_stream_with_capacity_panic_caller` in `tokio/tests/io_panic.rs` following the existing `test_panic` pattern. `io_panic` passes 14/14 and `io_buf_reader` 12/12; `cargo fmt --check` clean.

@@ -1,0 +1,7 @@
+Thanks both! A few quick things:
+
+**Our own matcher specs** — they don't go through `RailsExampleGroup`, so this change doesn't touch them. They already reset themselves with the `before { ActiveJob::Base.queue_adapter = :test }` at the top of the file. I checked, and the manual `enqueued_jobs.clear` lines are actually redundant even today — happy to tidy those up, though probably better as its own PR.
+
+**Consumer impact** — fair point. Pulling in the whole `ActiveJob::TestHelper` adds a fair few methods (`enqueued_jobs`, `performed_jobs`, `queue_adapter`, `perform_enqueued_jobs`, the `assert_*` helpers…) to every rails example group, so there's some risk of clashing with people's own `let`s/helpers, and queues now reset between examples everywhere. Our full suite stays green, but that won't catch downstream surprises. If you'd rather play it safe, I'm glad to put it behind an opt-in setting or land it as a documented change in a minor — whatever you prefer.
+
+**The red CI cell** — Ruby 3.1 / Rails 7.2 failed on a scaffold generator spec: `Thor::UndefinedCommandError: Could not find command "mountable_engine?"`. I don't think it's this change — the test stubs a *private* method on `NamedBase` and it leaks as a Thor command on 3.1, which is a mocks/Thor quirk in code this PR doesn't touch. Every other cell is green (including Rails main) and it passes locally on 3.2–3.4. Is that 3.1 cell a known flake, or should I dig in?

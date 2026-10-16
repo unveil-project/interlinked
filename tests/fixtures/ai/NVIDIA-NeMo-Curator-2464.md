@@ -1,0 +1,1 @@
+The version selector styling comment in `fern/main.css` says “Product and verion selector styling”. The misspelled “verion” should be corrected to “version” so the canonical Fern documentation source is clear and searchable.

@@ -1,0 +1,1 @@
+Hi, I'd like to take this on. The root cause is in the `Input` component — it uses `onInput` to uppercase the value, but React Hook Form captures the value via `onChange` which fires first, so pasted text stays lowercase. I have a fix ready.

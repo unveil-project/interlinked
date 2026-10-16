@@ -1,0 +1,1 @@
+Confirmed the current head after the maintainer merge of main. CI/CD run #248 completed successfully: lint, the Node 18/20/22 build matrix, node:test, Jest, functional, integration, and the final gate all passed. No additional code changes are needed from my side; the PR is still waiting for the requested code-owner review.

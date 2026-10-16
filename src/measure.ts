@@ -8,10 +8,10 @@ export interface Measurement {
 	strength: number;
 }
 
-/** Runs every signal on a description, before weighting. Used by `analyzeText` and the weight fit. */
+/** Runs every signal on a text, before weighting. Used by `analyzeText` and the weight fit. */
 export function measure(
 	markdown: string,
-	template?: string,
+	template?: string | string[],
 	signals: Signal[] = SIGNALS,
 ): Measurement[] {
 	const authored = authoredText(markdown ?? "");

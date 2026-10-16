@@ -1,0 +1,1 @@
+The only edge case I can see right now would be in multi source project that uses java compiler args, dev mode could work for java source files but not for kotlin source files. I would be great to be able to specify compiler argument depending on the compiler.  

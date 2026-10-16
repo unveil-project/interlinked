@@ -1,0 +1,7 @@
+My assumption is that this means using Angular FormControls as args. Sort of like the POC I did a while ago, https://github.com/storybookjs/storybook/issues/12308#issuecomment-683956199.
+
+I was waiting for custom controls support before trying that again, but it may be possible to partially support them with the addon api. If the arg could be altered before being serialized, then the FormControl instance could be moved to a reference map in the preview and replaced with the value before the args are sent to the manager. Then when it comes back, the arg could be set as the FormControl instance's value when it returns to the preview and the FormControl instance placed in props before get is passed to the story.
+
+That is the basic idea for what my POC did, but I had added a new Storybook Control and was serializing the FormControl into a json object with multiple states of the FormControl instance, such as `value`, `disabled`, `touched`, `dirty` and allowed each one to be tweaked from a Control that contained multiple inputs.
+
+Right now my workaround is to initialize a new FormControl instance each time `props` update, but that causes all the changed FormControl's states to be reset. At the moment, when I need to maintain the state and use controls I create the FormControl instance in the global scope and try to keep it updated by resetting it when the story selected even is fired. It doesn't look good doing that, but maybe it could be done more accurately with the current addon api.

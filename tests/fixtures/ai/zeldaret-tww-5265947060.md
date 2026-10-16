@@ -1,0 +1,3 @@
+Thanks for working on this! Two things to note:
+- The CI checks on this PR currently fail on all four builds: the `d_a_obj_htetu1.rel` checksum fails (`ninja: job failed: dtk shasum ... build/GZLE01/d_a_obj_htetu1/d_a_obj_htetu1.rel: FAILED`), while the diff flips configure.py to `Matching` — so the matching claim isn't verified by CI as-is. Rebase and re-run CI (the tree has moved a lot in the last month) and the flip can be confirmed.
+- Heads-up: #1131 (999sian) is a full 40/40 100% decompile of the same actor with green CI on all four builds and is marked MERGEABLE, and per the description it was rebased on current main after #1121. If you're still working on this, you may want to coordinate to avoid duplicate effort.

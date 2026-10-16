@@ -1,0 +1,1 @@
+#6750 adds the `config.linkerd.io/default-inbound-policy` annotation for setting the default inbound policy for an injected proxy. As this affects how the proxy is configured, we should support this flag in `makeProxyFlags` so that it can be set with the `linkerd inject` command.

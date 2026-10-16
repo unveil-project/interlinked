@@ -1,0 +1,1 @@
+All that `reloadDocument` does is remove the special `onClick` handler from the generated `<a>`, turning it into a normal link. You can do this same thing in your code with `location.href = '/path'`. The big difference with `navigate` is that we don't know if you have a DOM available and this will work. You can determine that on your own and make the alternative call. 
