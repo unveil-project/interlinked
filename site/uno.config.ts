@@ -20,6 +20,6 @@ export default defineConfig({
   },
   shortcuts: {
     field:
-      'block w-full h-280px p-4 border border-line rounded-10px bg-field font-mono text-13px leading-[1.6] resize-none outline-none [field-sizing:content] transition-colors duration-150 focus:border-muted',
+      'block w-full p-4 border border-line rounded-10px bg-field font-mono text-13px leading-[1.6] resize-none outline-none [field-sizing:content] transition-colors duration-150 focus:border-muted',
   },
 })

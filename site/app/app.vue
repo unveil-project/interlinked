@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue'
+import { computed, onMounted, ref, useTemplateRef } from 'vue'
 import { AI_THRESHOLD, analyzeText } from '@unveil/interlinked'
 
 type Label = 'ai' | 'human'
@@ -25,7 +25,7 @@ const bands = [
 const url = ref('')
 const markdown = ref('')
 const template = ref('')
-const showTemplate = ref(false)
+const showPaste = ref(false)
 const loading = ref(false)
 const error = ref('')
 /** Per-request status of the last fetch. `path` is the template path being checked, or the one found. */
@@ -39,6 +39,9 @@ const progress = ref<{
 /** Where the description came from, and the label it should get if it is a fixture. */
 const source = ref<{ name: string; expected?: Label }>()
 let loadedUrl: string | undefined
+/** Bumped by each fetch and by `clear`, so a stale fetch can tell it was superseded. */
+let request = 0
+const linkInput = useTemplateRef('linkInput')
 
 const result = computed(() =>
   markdown.value.trim()
@@ -78,6 +81,7 @@ async function load() {
   if (url.value === loadedUrl) {
     return
   }
+  const id = ++request
   loading.value = true
   progress.value = {
     body: 'loading',
@@ -111,15 +115,22 @@ async function load() {
         },
       ),
     ])
+    if (id !== request) {
+      return
+    }
     markdown.value = body
     template.value = found?.text ?? ''
     source.value = { name: sourceName(ref) }
     loadedUrl = url.value
     history.replaceState(null, '', `?url=${shareParam(url.value)}`)
   } catch (e) {
-    error.value = (e as Error).message
+    if (id === request) {
+      error.value = (e as Error).message
+    }
   } finally {
-    loading.value = false
+    if (id === request) {
+      loading.value = false
+    }
   }
 }
 
@@ -139,6 +150,21 @@ function edited() {
   if (source.value) {
     source.value = { name: `${source.value.name}, edited` }
   }
+}
+
+/** Reset to an empty page, dropping any fetch still in flight. */
+function clear() {
+  request++
+  url.value = ''
+  markdown.value = ''
+  template.value = ''
+  error.value = ''
+  progress.value = undefined
+  source.value = undefined
+  loading.value = false
+  loadedUrl = undefined
+  history.replaceState(null, '', location.pathname)
+  linkInput.value?.focus()
 }
 
 const stepIcon: Record<Step, string> = {
@@ -181,8 +207,7 @@ onMounted(() => {
       <div class="flex flex-col gap-1">
         <a href="/" class="font-semibold tracking-[-0.01em]"> Interlinked </a>
         <span class="font-sans text-13px text-muted">
-          Analyze PR descriptions, issues and comments for signs of coding
-          agents.
+          Analyze PRs, issues and comments for signs of AI writing.
         </span>
       </div>
 
@@ -200,25 +225,47 @@ onMounted(() => {
       </nav>
     </header>
 
-    <form
-      class="flex items-center gap-2 pl-4 pr-1.5 border border-line rounded-10px bg-field transition-colors duration-150 focus-within:border-muted"
-      @submit.prevent="load"
-    >
-      <input
-        v-model="url"
-        type="url"
-        placeholder="Paste a GitHub pull request, issue or comment link"
-        spellcheck="false"
-        aria-label="Issue, pull request or comment link"
-        class="flex-1 min-w-0 py-3 bg-transparent font-mono text-13px outline-none"
-      />
-      <button
-        type="submit"
-        :disabled="loading || !url"
-        class="flex-none h-8 px-3 rounded-md bg-line font-mono text-12px transition-colors duration-150 hover:(bg-fg text-page) disabled:(text-muted hover:(bg-line text-muted))"
+    <form @submit.prevent="load">
+      <label for="link" class="block text-19px leading-snug tracking-[-0.01em]">
+        Paste a link to a GitHub pull request, issue or comment.
+      </label>
+      <div
+        class="flex items-center gap-2 h-14 mt-4 pl-4 pr-2 border border-line rounded-xl bg-field transition-colors duration-150 focus-within:border-muted"
       >
-        Analyze
-      </button>
+        <input
+          id="link"
+          ref="linkInput"
+          v-model="url"
+          type="url"
+          placeholder="https://github.com/owner/repo/pull/123"
+          spellcheck="false"
+          class="flex-1 min-w-0 h-full bg-transparent font-mono text-14px outline-none placeholder:text-muted"
+        />
+        <button
+          v-if="url || markdown || template"
+          type="button"
+          aria-label="Clear"
+          class="flex-none grid place-items-center size-8 rounded-md text-muted transition-colors duration-150 hover:(bg-line text-fg)"
+          @click="clear"
+        >
+          <svg viewBox="0 0 16 16" class="size-4" aria-hidden="true">
+            <path
+              d="M4 4l8 8M12 4l-8 8"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+        <button
+          type="submit"
+          :disabled="loading || !url"
+          class="flex-none h-10 px-4 rounded-lg bg-fg text-page text-14px font-medium transition-opacity duration-150 hover:opacity-85 disabled:(bg-line text-muted hover:opacity-100)"
+        >
+          {{ loading ? 'Fetching…' : 'Analyze' }}
+        </button>
+      </div>
     </form>
     <ul
       v-if="progress"
@@ -275,37 +322,72 @@ onMounted(() => {
     <p v-if="error" class="mt-2 text-agent text-13px">{{ error }}</p>
 
     <section
-      class="mt-6 transition-opacity duration-150"
+      class="mt-8 transition-opacity duration-150"
       :class="{ 'opacity-40 pointer-events-none': loading }"
     >
-      <textarea
-        v-model="markdown"
-        placeholder="Or paste a PR description, issue or comment."
-        spellcheck="false"
-        aria-label="Text to analyze"
-        class="field"
-        @input="edited"
-      />
-      <div class="mt-2 font-mono text-12px text-muted">
-        <button
-          type="button"
-          class="hover:text-fg"
-          :aria-expanded="showTemplate"
-          @click="showTemplate = !showTemplate"
+      <button
+        type="button"
+        class="flex items-center gap-1.5 text-14px text-muted hover:text-fg"
+        :aria-expanded="showPaste"
+        aria-controls="paste"
+        @click="showPaste = !showPaste"
+      >
+        <svg
+          viewBox="0 0 16 16"
+          class="size-3.5 transition-transform duration-150"
+          :class="{ 'rotate-90': showPaste }"
+          aria-hidden="true"
         >
-          {{ showTemplate ? '−' : '+' }} template{{
-            template ? ' (loaded)' : ''
-          }}
-        </button>
+          <path
+            d="M6 4l4 4-4 4"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+        {{
+          source
+            ? 'Fetched text and template'
+            : 'No link? Paste the text instead'
+        }}
+      </button>
+
+      <div v-if="showPaste" id="paste" class="flex flex-col gap-6 mt-4">
+        <div>
+          <label for="text" class="block mb-2 text-14px">Text</label>
+          <textarea
+            id="text"
+            v-model="markdown"
+            placeholder="A PR description, issue or comment"
+            spellcheck="false"
+            class="field min-h-60"
+            @input="edited"
+          />
+        </div>
+        <div>
+          <label for="template" class="flex items-baseline gap-2 text-14px">
+            Template
+            <span class="text-13px text-muted">optional</span>
+          </label>
+          <p
+            id="template-hint"
+            class="mt-1 mb-2 text-13px text-muted leading-normal"
+          >
+            If the repo uses a PR or issue template, paste it here so its
+            headings and checklists don't count toward the score. Links fill
+            this in for you.
+          </p>
+          <textarea
+            id="template"
+            v-model="template"
+            spellcheck="false"
+            aria-describedby="template-hint"
+            class="field min-h-28"
+          />
+        </div>
       </div>
-      <textarea
-        v-if="showTemplate"
-        v-model="template"
-        placeholder="The repo's PR or issue template, so its headings and checklists don't count."
-        spellcheck="false"
-        aria-label="Template"
-        class="field min-h-30 mt-2"
-      />
     </section>
 
     <section v-if="result" class="mt-14">
@@ -320,7 +402,7 @@ onMounted(() => {
           class="flex flex-col items-end gap-0.5 font-mono text-13px text-muted"
         >
           <strong
-            class="text-15px font-semibold tracking-[0.12em] uppercase"
+            class="font-sans text-17px font-medium first-letter:uppercase"
             :class="band?.text"
           >
             {{ band?.label }}
