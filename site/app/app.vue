@@ -690,18 +690,17 @@ onMounted(() => {
                 aria-hidden="true"
               >
                 <span class="truncate">
+                  Uses
                   <mark class="shadow-[inset_0_-1.5px_0_var(--agent)]"
                     >the existing</mark
                   >
-                  helper
+                  cache
                 </span>
                 <span class="truncate">
                   <mark class="shadow-[inset_0_-1.5px_0_var(--human)]"
-                    >maybe</mark
-                  >&#32;<mark class="shadow-[inset_0_-1.5px_0_var(--human)]"
-                    >I</mark
+                    >not sure</mark
                   >
-                  missed it<mark class="shadow-[inset_0_-1.5px_0_var(--human)]"
+                  we need it<mark class="shadow-[inset_0_-1.5px_0_var(--human)]"
                     >?</mark
                   >
                 </span>
