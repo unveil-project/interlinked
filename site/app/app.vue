@@ -580,7 +580,8 @@ onMounted(() => {
             target="_blank"
             class="hover:text-fg"
             href="https://github.com/MatteoGabriele/interlinked"
-            >Install</a
+            title="Check every new PR and issue in your repo automatically"
+            >GitHub Action</a
           >
           <a
             target="_blank"
@@ -762,7 +763,15 @@ onMounted(() => {
         </section>
 
         <p class="mt-8 text-12px text-muted">
-          Runs in your browser. Links are fetched straight from GitHub.
+          An experimental,
+          <a
+            target="_blank"
+            rel="noopener"
+            class="underline underline-offset-2 hover:text-fg"
+            href="https://github.com/unveil-project/interlinked"
+            >open source</a
+          >
+          project, made with love.
         </p>
       </div>
     </main>
