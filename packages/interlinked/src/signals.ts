@@ -1,4 +1,6 @@
 import {
+  type Counter,
+  type Range,
   density,
   densityOutsideChecklists,
   longParagraphs,
@@ -20,7 +22,12 @@ export interface Signal {
   cap: number
   /** Count prose only. Code syntax isn't the author's style. */
   prose?: boolean
-  count: (text: string) => number
+  count: Counter | ((text: string) => number)
+  /**
+   * Where the counted things are, to highlight them. Defaults to the counter's
+   * own ranges. Without either, the signal counts the whole text.
+   */
+  locate?: (text: string) => Range[]
 }
 
 const disclosureStatements = matchesInStatements(
@@ -29,6 +36,8 @@ const disclosureStatements = matchesInStatements(
 
 /** A ticked checklist item saying AI was used. Unticked ones are template text. */
 const disclosureCheckboxes = matches(/^\s*[-*] \[[xX]\] I _?did_? use AI\b/im)
+
+const soClauses = matches(/, so (?!that)\w+/i)
 
 export const SIGNALS: Signal[] = [
   {
@@ -46,6 +55,10 @@ export const SIGNALS: Signal[] = [
     weight: 3,
     cap: 1,
     count: (text) => disclosureStatements(text) + disclosureCheckboxes(text),
+    locate: (text) => [
+      ...disclosureStatements.ranges(text),
+      ...disclosureCheckboxes.ranges(text),
+    ],
   },
   {
     id: 'fails-before-fix',
@@ -270,7 +283,8 @@ export const SIGNALS: Signal[] = [
     weight: 2.77,
     cap: 3,
     prose: true,
-    count: (text) => Math.max(0, matches(/, so (?!that)\w+/i)(text) - 1),
+    count: (text) => Math.max(0, soClauses(text) - 1),
+    locate: soClauses.ranges,
   },
   {
     id: 'existing-precedent',

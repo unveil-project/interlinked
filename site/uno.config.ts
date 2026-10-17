@@ -6,20 +6,25 @@ export default defineConfig({
   theme: {
     colors: {
       page: 'var(--bg)',
+      panel: 'var(--panel)',
+      subtle: 'var(--subtle)',
       fg: 'var(--fg)',
+      soft: 'var(--soft)',
       muted: 'var(--muted)',
       line: 'var(--line)',
-      field: 'var(--field)',
+      hair: 'var(--hair)',
       agent: 'var(--agent)',
       human: 'var(--human)',
+      ok: 'var(--ok)',
     },
     font: {
-      sans: 'system-ui, -apple-system, sans-serif',
-      mono: 'ui-monospace, "SF Mono", "JetBrains Mono", Menlo, monospace',
+      sans: 'Geist, system-ui, -apple-system, sans-serif',
+      mono: '"Geist Mono", ui-monospace, "SF Mono", Menlo, monospace',
     },
   },
   shortcuts: {
-    field:
-      'block w-full p-4 border border-line rounded-10px bg-field font-mono text-13px leading-[1.6] resize-none outline-none [field-sizing:content] transition-colors duration-150 focus:border-muted',
+    card: 'bg-panel border border-line rounded-10px',
+    'card-head':
+      'flex flex-wrap items-center justify-between gap-x-4 gap-y-1 px-4 py-2.5 border-b border-line bg-subtle',
   },
 })

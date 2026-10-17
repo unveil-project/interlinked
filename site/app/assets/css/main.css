@@ -1,31 +1,46 @@
 :root {
-  --bg: #f7f7f5;
-  --fg: #111110;
-  --muted: #8a8884;
-  --line: #e4e3df;
-  --field: #ffffff;
-  --agent: #ff5b1f;
-  --human: #1f9e8f;
+  --bg: #f4f5f7;
+  --panel: #ffffff;
+  --subtle: #fafafb;
+  --line: #e3e5e9;
+  --hair: #f1f2f4;
+  --fg: #0f1115;
+  --soft: #374151;
+  --muted: #6b7280;
+  --agent: #c2410c;
+  --human: #1d4ed8;
+  --ok: #15803d;
+  /* Underlines of highlights set aside while another signal is shown. */
+  --faded: color-mix(in srgb, var(--muted) 45%, transparent);
   color-scheme: light dark;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #0c0c0d;
-    --fg: #ecebe8;
-    --muted: #7d7c79;
-    --line: #232325;
-    --field: #131315;
-    --agent: #ff7a45;
-    --human: #45cbb8;
+    --bg: #0d0f12;
+    --panel: #15181c;
+    --subtle: #111317;
+    --line: #262a30;
+    --hair: #1d2025;
+    --fg: #e6e8eb;
+    --soft: #b4bac3;
+    --muted: #8a919b;
+    --agent: #f0883e;
+    --human: #6ca4f8;
+    --ok: #3fb950;
   }
 }
 
 body {
   background: var(--bg);
   color: var(--fg);
-  font-size: 15px;
+  font-size: 14px;
   -webkit-font-smoothing: antialiased;
+}
+
+mark {
+  background: none;
+  color: inherit;
 }
 
 button:not(:disabled) {

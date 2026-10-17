@@ -11,6 +11,7 @@
  * Within cells interlinked.
  * Within cells interlinked.
  */
+import { locate } from './locate'
 import { measure } from './measure'
 import { SIGNALS } from './signals'
 import { round, sigmoid } from './utils'
@@ -97,4 +98,38 @@ export function analyzeText(
     confidence: round(verdict === 'ai' ? probability : 1 - probability, 3),
     signals,
   }
+}
+
+export interface SignalLocation {
+  /** The signal's `id`, as in `SignalHit`. */
+  id: string
+  /** Offset of the first matched character in the markdown. */
+  start: number
+  /** Offset just past the last matched character. */
+  end: number
+}
+
+/**
+ * Finds where in the text each signal matched, to highlight it. Offsets index
+ * into `markdown` as given. Signals that weigh the whole text, like its length,
+ * have no locations.
+ *
+ * Pass the ids from `analyzeText`'s result to locate only the signals that
+ * counted toward the score.
+ *
+ * @example
+ * const result = analyzeText(body, { template });
+ * const locations = locateSignals(body, { template }, result.signals.map((s) => s.id));
+ */
+export function locateSignals(
+  markdown: string,
+  options: AnalyzeTextOptions = {},
+  ids?: string[],
+): SignalLocation[] {
+  const signals = SIGNALS.filter(
+    (signal) => signal.weight !== 0 && (!ids || ids.includes(signal.id)),
+  )
+  return locate(markdown, options.template, signals).map(
+    ({ signal, range: [start, end] }) => ({ id: signal.id, start, end }),
+  )
 }
