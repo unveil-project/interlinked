@@ -7,6 +7,9 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
 
+  // Nothing links to the analysis page, so the crawler wouldn't find it.
+  routeRules: { '/analyze': { prerender: true } },
+
   app: {
     head: {
       htmlAttrs: { lang: 'en' },
@@ -25,7 +28,7 @@ export default defineNuxtConfig({
         { rel: 'preconnect', href: 'https://api.fontshare.com' },
         {
           rel: 'stylesheet',
-          href: 'https://api.fontshare.com/v2/css?f[]=sentient@500&display=swap',
+          href: 'https://api.fontshare.com/v2/css?f[]=satoshi@500,700&display=swap',
         },
         {
           rel: 'icon',

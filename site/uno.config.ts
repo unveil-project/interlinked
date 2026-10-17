@@ -19,7 +19,7 @@ export default defineConfig({
     },
     font: {
       sans: '"IBM Plex Sans", system-ui, -apple-system, sans-serif',
-      display: 'Sentient, Georgia, serif',
+      display: 'Satoshi, system-ui, -apple-system, sans-serif',
       mono: '"IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace',
     },
   },
