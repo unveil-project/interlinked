@@ -149,3 +149,14 @@ export async function fetchTemplate(
 
   return undefined
 }
+
+export type FetchStep = 'loading' | 'done' | 'none' | 'failed'
+
+/** Per-request status of a fetch. `path` is the template path being checked, or the one found. */
+export interface FetchProgress {
+  body: FetchStep
+  template: FetchStep
+  path?: string
+  /** What the body is: "description", "issue" or "comment". */
+  noun: string
+}

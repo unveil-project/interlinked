@@ -18,8 +18,8 @@ export default defineConfig({
       ok: 'var(--ok)',
     },
     font: {
-      sans: 'Geist, system-ui, -apple-system, sans-serif',
-      mono: '"Geist Mono", ui-monospace, "SF Mono", Menlo, monospace',
+      sans: '"IBM Plex Sans", system-ui, -apple-system, sans-serif',
+      mono: '"IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace',
     },
   },
   shortcuts: {

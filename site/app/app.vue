@@ -8,21 +8,48 @@ import {
   useTemplateRef,
   watch,
 } from 'vue'
-import {
-  AI_THRESHOLD,
-  SIGNALS,
-  analyzeText,
-  locateSignals,
-} from '@unveil/interlinked'
+import { SIGNALS, analyzeText, locateSignals } from '@unveil/interlinked'
+import agentExample from './examples/ajeetdsouza-zoxide-1314.md?raw'
+import humanExample from './examples/godotengine-godot-32448.md?raw'
 
 type Label = 'ai' | 'human'
-type Step = 'loading' | 'done' | 'none' | 'failed'
+
+/** Texts from the test corpus to try without fetching anything. */
+const examples: {
+  title: string
+  name: string
+  expected: Label
+  text: string
+}[] = [
+  {
+    title: 'Written with an agent',
+    name: 'ajeetdsouza/zoxide#1314',
+    expected: 'ai',
+    text: agentExample,
+  },
+  {
+    title: 'Written by a person',
+    name: 'godotengine/godot#32448',
+    expected: 'human',
+    text: humanExample,
+  },
+]
 
 /** Score bands, lowest first. Each applies to scores below its `max`. */
 const bands = [
-  { max: 0.35, label: 'Likely human-written', text: 'text-human' },
-  { max: 0.65, label: 'Inconclusive', text: 'text-fg' },
-  { max: Infinity, label: 'Likely AI-generated', text: 'text-agent' },
+  {
+    max: 0.35,
+    label: 'Likely human-written',
+    text: 'text-human',
+    fill: 'bg-human',
+  },
+  { max: 0.65, label: 'Inconclusive', text: 'text-fg', fill: 'bg-muted' },
+  {
+    max: Infinity,
+    label: 'Likely AI-generated',
+    text: 'text-agent',
+    fill: 'bg-agent',
+  },
 ]
 
 /** How many signals the analysis checks. */
@@ -32,25 +59,47 @@ const url = ref('')
 const markdown = ref('')
 const template = ref('')
 const showTemplate = ref(false)
-/** Whether the text shows in a field to type into, rather than highlighted. */
-const typing = ref(false)
+/** What is typed or pasted on the start page: a link or the text itself. */
+const draft = ref('')
 const loading = ref(false)
 const error = ref('')
-/** Per-request status of the last fetch. `path` is the template path being checked, or the one found. */
-const progress = ref<{
-  body: Step
-  template: Step
-  path?: string
-  /** What the body is: "description", "issue" or "comment". */
-  noun: string
-}>()
+/** Per-request status of the last fetch. */
+const progress = ref<FetchProgress>()
 /** Where the description came from, and the label it should get if it is a fixture. */
 const source = ref<{ name: string; expected?: Label }>()
 let loadedUrl: string | undefined
 /** Bumped by each fetch and by `clear`, so a stale fetch can tell it was superseded. */
 let request = 0
-const linkInput = useTemplateRef('linkInput')
+const draftField = useTemplateRef('draftField')
 const textView = useTemplateRef('textView')
+
+/** Whether there is nothing to analyze yet, so the start page shows. */
+const empty = computed(() => !markdown.value.trim())
+/** Whether the draft is meant as a link rather than text: one word, starting like a URL. */
+const draftIsLink = computed(() =>
+  /^(https?:\/\/|github\.com\/)\S*$/.test(draft.value.trim()),
+)
+/** A line under the start field saying what the draft was read as. */
+const draftHint = computed(() => {
+  const text = draft.value.trim()
+  if (!text) {
+    return 'Works with public repos'
+  }
+  if (draftIsLink.value) {
+    const ref = parseGitHubUrl(text)
+    if (!ref) {
+      return 'Not a GitHub pull request, issue or comment link yet'
+    }
+    const kind = ref.commentId
+      ? 'Comment'
+      : ref.type === 'pull'
+        ? 'Pull request'
+        : 'Issue'
+    return `${kind} · ${ref.owner}/${ref.repo}#${ref.number}`
+  }
+  const words = text.split(/\s+/).length
+  return `Text · ${words} ${words === 1 ? 'word' : 'words'} · ⌘↵ to analyze`
+})
 
 const result = computed(() =>
   markdown.value.trim()
@@ -267,11 +316,52 @@ function showAll() {
   card.value = undefined
 }
 
-/** Leaves the field for the highlighted text, once there is text. */
-function settle() {
-  setTimeout(() => {
-    typing.value = !markdown.value.trim()
-  })
+/** Analyzes the draft: fetches it if it is a link, else takes it as the text. */
+function submit() {
+  if (!draft.value.trim()) {
+    return
+  }
+  if (draftIsLink.value) {
+    url.value = draft.value.trim()
+    load()
+    return
+  }
+  request++
+  error.value = ''
+  progress.value = undefined
+  source.value = undefined
+  template.value = ''
+  markdown.value = draft.value
+}
+
+/** A paste into the empty field is analyzed right away. */
+function submitPaste() {
+  if (draft.value.trim()) {
+    return
+  }
+  // Wait for the pasted text to land in the field.
+  setTimeout(submit)
+}
+
+/** Enter submits a link, and ⌘ or Ctrl+Enter submits anything. */
+function submitKey(event: KeyboardEvent) {
+  if (
+    event.metaKey ||
+    event.ctrlKey ||
+    (draftIsLink.value && !event.shiftKey)
+  ) {
+    event.preventDefault()
+    submit()
+  }
+}
+
+function tryExample(example: (typeof examples)[number]) {
+  request++
+  error.value = ''
+  progress.value = undefined
+  template.value = ''
+  source.value = { name: example.name, expected: example.expected }
+  markdown.value = example.text
 }
 
 async function load() {
@@ -325,7 +415,6 @@ async function load() {
     markdown.value = body
     template.value = found?.text ?? ''
     source.value = { name: sourceName(ref) }
-    typing.value = false
     showAll()
     loadedUrl = url.value
     history.replaceState(null, '', `?url=${shareParam(url.value)}`)
@@ -352,10 +441,11 @@ function sourceName({ owner, repo, number, commentId }: GitHubRef) {
   return commentId ? `${name}, comment ${commentId}` : name
 }
 
-/** Reset to an empty page, dropping any fetch still in flight. */
-function clear() {
+/** Reset to the start page, dropping any fetch still in flight. */
+async function clear() {
   request++
   url.value = ''
+  draft.value = ''
   markdown.value = ''
   template.value = ''
   error.value = ''
@@ -363,19 +453,11 @@ function clear() {
   source.value = undefined
   loading.value = false
   showTemplate.value = false
-  typing.value = false
   showAll()
   loadedUrl = undefined
   history.replaceState(null, '', location.pathname)
-  linkInput.value?.focus()
-}
-
-const stepIcon: Record<Step, string> = {
-  loading:
-    'border-1.5 border-line border-t-fg animate-spin animate-duration-700 motion-reduce:animate-duration-2000',
-  done: 'bg-ok',
-  none: 'border-1.5 border-muted',
-  failed: 'bg-agent',
+  await nextTick()
+  draftField.value?.focus()
 }
 
 /** The link as a readable query value: no scheme, slashes left as they are. */
@@ -392,6 +474,7 @@ const shared = useRoute().query.url
 onMounted(() => {
   if (typeof shared === 'string' && shared) {
     url.value = /^https?:\/\//.test(shared) ? shared : `https://${shared}`
+    draft.value = url.value
     load()
   }
 })
@@ -428,12 +511,12 @@ onMounted(() => {
           <span>interlinked</span>
         </a>
         <div
+          v-if="!empty"
           class="flex flex-[999_1_320px] items-center gap-1 min-w-0 h-9 pl-3 pr-1 rounded-md bg-hair focus-within:(bg-panel shadow-[0_0_0_1px_var(--line)])"
         >
           <label for="link" class="sr-only">GitHub link</label>
           <input
             id="link"
-            ref="linkInput"
             v-model="url"
             type="url"
             placeholder="Paste a GitHub pull request, issue or comment link"
@@ -465,7 +548,7 @@ onMounted(() => {
             {{ loading ? 'Fetching…' : 'Analyze' }}
           </button>
         </div>
-        <nav aria-label="Links" class="flex gap-4 text-13px text-soft">
+        <nav aria-label="Links" class="flex gap-4 ml-auto text-13px text-soft">
           <a
             target="_blank"
             class="hover:text-fg"
@@ -482,55 +565,186 @@ onMounted(() => {
       </form>
     </header>
 
-    <div class="flex flex-1 flex-wrap">
+    <main v-if="empty" class="flex-1 px-4 pt-[min(12vh,112px)] pb-12 sm:px-6">
+      <div class="mx-auto max-w-160">
+        <h2
+          class="text-[clamp(28px,5vw,40px)] font-semibold leading-[1.1] tracking-[-0.025em] text-balance"
+        >
+          Find signs of AI-written text in contributions
+        </h2>
+        <p
+          class="mt-3 max-w-136 text-15px text-soft leading-relaxed text-pretty"
+        >
+          Paste a pull request, issue or comment. Phrases common in text from
+          coding agents get underlined.
+        </p>
+
+        <form
+          class="mt-8 rounded-xl border border-line bg-panel shadow-[0_1px_2px_rgb(0_0_0/0.04),0_12px_32px_-16px_rgb(0_0_0/0.18)] transition-colors focus-within:border-muted/50"
+          @submit.prevent="submit"
+        >
+          <label for="draft" class="sr-only">GitHub link or text</label>
+          <textarea
+            id="draft"
+            ref="draftField"
+            v-model="draft"
+            rows="1"
+            autofocus
+            spellcheck="false"
+            :readonly="loading"
+            placeholder="Paste a GitHub link, or the text itself"
+            class="block w-full min-h-15 max-h-[45vh] px-4 pt-4 pb-1 bg-transparent font-mono text-13px leading-[1.7] resize-none outline-none [field-sizing:content] placeholder:(font-sans text-15px text-muted)"
+            @paste="submitPaste"
+            @keydown.enter="submitKey"
+          />
+          <div
+            class="flex items-center justify-between gap-3 pt-1 pr-2 pb-2 pl-4"
+          >
+            <span class="min-w-0 text-12px text-muted truncate">
+              {{ draftHint }}
+            </span>
+            <button
+              type="submit"
+              :disabled="loading || !draft.trim()"
+              class="flex-none h-8 px-3.5 rounded-md bg-fg text-page text-13px font-medium transition-colors disabled:(bg-hair text-muted)"
+            >
+              {{ loading ? 'Fetching…' : 'Analyze' }}
+            </button>
+          </div>
+        </form>
+
+        <div
+          v-if="progress || error"
+          class="flex flex-wrap items-center gap-x-5 gap-y-1 mt-3 px-1 font-mono text-12px text-muted"
+          aria-live="polite"
+        >
+          <FetchStatus v-if="progress" :progress :name="source?.name" />
+          <span v-if="error" class="text-agent font-sans text-13px">
+            {{ error }}
+          </span>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2 mt-6 text-13px">
+          <span class="mr-1 text-muted max-sm:w-full">Or try one</span>
+          <button
+            v-for="example in examples"
+            :key="example.name"
+            type="button"
+            class="flex items-center gap-2 h-8 pr-3 pl-2.5 rounded-full border border-line bg-panel text-soft transition-colors hover:(border-muted/50 text-fg)"
+            @click="tryExample(example)"
+          >
+            <span
+              class="flex-none size-1.5 rounded-full"
+              :class="example.expected === 'ai' ? 'bg-agent' : 'bg-human'"
+            />
+            {{ example.title }}
+            <span class="font-mono text-11px text-muted max-sm:hidden">
+              {{ example.name.split('/')[1] }}
+            </span>
+          </button>
+        </div>
+
+        <section
+          aria-labelledby="how"
+          class="mt-14 pt-8 border-t border-line sm:mt-16"
+        >
+          <h2
+            id="how"
+            class="text-11px font-medium uppercase tracking-[0.06em] text-muted"
+          >
+            How to read it
+          </h2>
+          <div class="grid gap-x-6 gap-y-8 mt-5 sm:grid-cols-3">
+            <div>
+              <div
+                class="flex flex-col justify-center gap-1 h-22 px-3.5 rounded-lg border border-line bg-subtle font-mono text-12px leading-[1.8] text-soft"
+                aria-hidden="true"
+              >
+                <span class="truncate">
+                  <mark class="shadow-[inset_0_-1.5px_0_var(--agent)]"
+                    >the existing</mark
+                  >
+                  helper
+                </span>
+                <span class="truncate">
+                  <mark class="shadow-[inset_0_-1.5px_0_var(--human)]"
+                    >maybe</mark
+                  >&#32;<mark class="shadow-[inset_0_-1.5px_0_var(--human)]"
+                    >I</mark
+                  >
+                  missed it<mark class="shadow-[inset_0_-1.5px_0_var(--human)]"
+                    >?</mark
+                  >
+                </span>
+              </div>
+              <h3 class="mt-3 text-13px font-medium">Underlined phrases</h3>
+              <p class="mt-1 text-13px text-muted leading-normal text-pretty">
+                <span class="text-agent">Orange</span> leans agent,
+                <span class="text-human">blue</span> leans human. Click one to
+                see why it counts.
+              </p>
+            </div>
+
+            <div>
+              <div
+                class="flex flex-col justify-center h-22 px-3.5 rounded-lg border border-line bg-subtle"
+                aria-hidden="true"
+              >
+                <div class="flex items-baseline justify-between gap-2">
+                  <span class="text-12px font-medium text-agent">
+                    Likely AI-generated
+                  </span>
+                  <span class="font-mono text-11px text-muted">82/100</span>
+                </div>
+                <ScoreBar :score="82" fill="bg-agent" class="mt-2.5" />
+              </div>
+              <h3 class="mt-3 text-13px font-medium">A score out of 100</h3>
+              <p class="mt-1 text-13px text-muted leading-normal text-pretty">
+                {{ signalCount }} patterns, weighted against PRs and issues
+                written before coding agents.
+              </p>
+            </div>
+
+            <div>
+              <div
+                class="flex flex-col justify-center gap-1.5 h-22 px-3.5 rounded-lg border border-line bg-subtle text-13px"
+                aria-hidden="true"
+              >
+                <span class="flex items-center gap-2.5 text-fg">
+                  <span class="flex-none w-3 font-mono text-ok">✓</span>
+                  Look closer
+                </span>
+                <span class="flex items-center gap-2.5 text-muted">
+                  <span class="flex-none w-3 font-mono">✕</span>
+                  <span class="line-through decoration-muted/60">Accuse</span>
+                </span>
+              </div>
+              <h3 class="mt-3 text-13px font-medium">Judge with care</h3>
+              <p class="mt-1 text-13px text-muted leading-normal text-pretty">
+                A high score is a reason to look closer, not to accuse someone.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <p class="mt-12 text-12px text-muted">
+          Runs in your browser. Links are fetched straight from GitHub.
+        </p>
+      </div>
+    </main>
+
+    <div v-else class="flex flex-1 flex-wrap">
       <main
         class="flex flex-col flex-[999_1_560px] min-w-0"
         :class="{ 'opacity-50 pointer-events-none': loading }"
       >
         <div
-          v-if="progress || error || markdown"
           class="flex flex-wrap items-center gap-x-5 gap-y-1 min-h-10 px-4 py-2 font-mono text-12px text-muted sm:px-6"
           aria-live="polite"
         >
-          <template v-if="progress">
-            <span
-              class="flex items-center gap-2"
-              :class="{ 'text-agent': progress.body === 'failed' }"
-            >
-              <span
-                class="flex-none size-1.5 rounded-full"
-                :class="stepIcon[progress.body]"
-              />
-              {{ source?.name ?? progress.noun }}
-            </span>
-            <span
-              class="flex items-center gap-2 min-w-0"
-              :class="{ 'text-agent': progress.template === 'failed' }"
-            >
-              <span
-                class="flex-none size-1.5 rounded-full"
-                :class="stepIcon[progress.template]"
-              />
-              <span class="truncate">
-                <template v-if="progress.template === 'loading'">
-                  checking {{ progress.path }}…
-                </template>
-                <template v-else-if="progress.template === 'done'">
-                  template excluded
-                </template>
-                <template v-else-if="progress.template === 'none'">
-                  {{
-                    progress.noun === 'comment'
-                      ? 'comments have no template'
-                      : 'no template'
-                  }}
-                </template>
-                <template v-else>template failed</template>
-              </span>
-            </span>
-          </template>
-          <template v-else-if="markdown">
-            <span>pasted text</span>
+          <FetchStatus v-if="progress" :progress :name="source?.name" />
+          <template v-else>
+            <span>{{ source?.name ?? 'pasted text' }}</span>
             <button
               type="button"
               class="hover:text-fg"
@@ -562,23 +776,6 @@ onMounted(() => {
         </div>
 
         <div
-          v-if="typing || !markdown"
-          class="flex flex-col flex-1 px-4 pt-6 pb-10 sm:px-6"
-        >
-          <label for="text" class="sr-only">Text</label>
-          <textarea
-            id="text"
-            v-model="markdown"
-            spellcheck="false"
-            placeholder="…or paste the text of a PR description, issue or comment here."
-            class="block flex-1 w-full max-w-200 min-h-80 bg-transparent font-mono text-13px leading-[1.8] resize-none outline-none placeholder:(font-sans text-14px text-muted)"
-            @focus="typing = true"
-            @paste="settle"
-            @blur="settle"
-          />
-        </div>
-        <div
-          v-else
           ref="textView"
           class="relative flex-1"
           aria-label="Analyzed text"
@@ -692,28 +889,8 @@ onMounted(() => {
                   {{ percent }}/100
                 </span>
               </div>
-              <div
-                class="relative mt-3 h-1"
-                role="meter"
-                aria-label="Score"
-                :aria-valuenow="percent"
-                aria-valuemin="0"
-                aria-valuemax="100"
-              >
-                <div class="absolute inset-0 flex gap-0.5">
-                  <span class="w-[35%] rounded-l-full bg-human/40" />
-                  <span class="w-[30%] bg-line" />
-                  <span class="w-[35%] rounded-r-full bg-agent/70" />
-                </div>
-                <span
-                  class="absolute -top-1 w-0.5 h-3 rounded-full bg-fg -translate-x-1/2 transition-[left] duration-300"
-                  :style="{ left: `${percent}%` }"
-                />
-              </div>
-              <p class="mt-3 text-12px text-muted leading-normal">
-                A hint, not proof. About 3% of human-written texts score above
-                {{ AI_THRESHOLD * 100 }}.
-              </p>
+              <ScoreBar :score="percent" :fill="band.fill" class="mt-3" />
+              <ScoreCaution class="mt-4" />
             </section>
 
             <section aria-labelledby="signals">
@@ -797,17 +974,9 @@ onMounted(() => {
               </template>
             </section>
           </template>
-          <p v-else class="text-13px text-soft leading-normal">
-            Paste a link or some text. Writing patterns common in text from
-            coding agents get underlined, so you can see what the score is based
-            on.
-          </p>
-
           <p class="text-12px text-muted leading-normal">
             Checks {{ signalCount }} patterns in wording and markdown structure,
-            weighted against PRs and issues written before coding agents. People
-            draft with agents, and some people just write this way: use it
-            alongside your own judgement.
+            weighted against PRs and issues written before coding agents.
           </p>
         </div>
       </aside>
