@@ -180,11 +180,11 @@ if (shared) {
 	<main class="flex flex-col min-h-dvh max-w-180 mx-auto px-4 pt-12 pb-8">
 		<header class="flex items-baseline justify-between mb-10 font-mono text-13px">
 			<div class="flex flex-col gap-1">
-				<span
-					class="font-semibold tracking-[-0.01em]"
+				<a 
+					href="/" class="font-semibold tracking-[-0.01em]"
 				>
 					Interlinked
-				</span>
+				</a>
 				<span class="font-sans text-13px text-muted">
 					Analyze PR descriptions, issues and comments for signs of coding agents.
 				</span>
