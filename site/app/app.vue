@@ -601,8 +601,7 @@ onMounted(() => {
           Find signs of AI-written text in contributions
         </h2>
         <p class="mt-3 text-15px text-soft leading-relaxed text-pretty">
-          Paste a pull request, issue or comment. Phrases common in text from
-          coding agents get underlined.
+          Paste a GitHub PR, issue or comment link to check it for AI traits.
         </p>
 
         <form
@@ -618,8 +617,8 @@ onMounted(() => {
             autofocus
             spellcheck="false"
             :readonly="loading"
-            placeholder="Paste a GitHub link, or the text itself"
-            class="block w-full min-h-15 max-h-[45vh] px-4 pt-4 pb-1 bg-transparent font-mono text-13px leading-[1.7] resize-none outline-none [field-sizing:content] placeholder:(font-sans text-15px text-muted)"
+            placeholder="https://github.com/owner/repo/pull/123"
+            class="block w-full min-h-15 max-h-[45vh] px-4 pt-4 pb-1 bg-transparent font-mono text-13px leading-[1.7] resize-none outline-none [field-sizing:content] placeholder:text-muted"
             @paste="submitPaste"
             @keydown.enter="submitKey"
           />
