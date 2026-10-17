@@ -1,51 +1,24 @@
 {
-	"name": "@unveil/interlinked",
-	"type": "module",
-	"version": "0.0.5",
-	"description": "Detect AI-agent-written PR descriptions, issues and comments",
-	"author": "Matteo Gabriele <m.gabriele.dev@gmail.com>",
-	"license": "MIT",
-	"homepage": "https://github.com/unveil-project/interlinked#readme",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/unveil-project/interlinked.git"
-	},
-	"bugs": {
-		"url": "https://github.com/unveil-project/interlinked/issues"
-	},
-	"exports": {
-		".": "./dist/index.mjs",
-		"./package.json": "./package.json"
-	},
-	"files": [
-		"dist"
-	],
-	"scripts": {
-		"build": "tsdown",
-		"dev": "tsdown --watch",
-		"build:userscript": "tsdown -c userscript/tsdown.config.ts",
-		"dev:userscript": "tsdown -c userscript/tsdown.config.ts --watch",
-		"dev:site": "vite playground",
-		"build:site": "vite build playground",
-		"test": "vitest",
-		"test:regression": "vitest run tests/regression.test.ts --reporter=verbose",
-		"test:regression:update": "UPDATE_BASELINE=1 vitest run tests/regression.test.ts",
-		"typecheck": "tsc --noEmit && tsc --noEmit -p userscript",
-		"check": "biome check --write",
-		"release": "bumpp",
-		"prepublishOnly": "pnpm run test:regression && pnpm run build"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "^2.5.15",
-		"@types/node": "^26.1.1",
-		"@vitejs/plugin-vue": "^6.0.10",
-		"bumpp": "^11.1.0",
-		"tsdown": "^0.22.5",
-		"tsx": "^4.19.2",
-		"typescript": "^7.0.2",
-		"unocss": "^66.11.0",
-		"vite": "^8.3.1",
-		"vitest": "^4.1.10",
-		"vue": "^3.5.43"
-	}
+  "name": "interlinked-monorepo",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "pnpm --filter @unveil/interlinked build",
+    "dev": "pnpm build && pnpm --parallel --filter @unveil/interlinked --filter site dev",
+    "dev:site": "pnpm --filter site dev",
+    "build:site": "pnpm build && pnpm --filter site generate",
+    "test": "pnpm --filter @unveil/interlinked test",
+    "typecheck": "pnpm --filter @unveil/interlinked typecheck",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "check": "pnpm lint:fix && pnpm format"
+  },
+  "devDependencies": {
+    "@nuxt/eslint-config": "^1.17.0",
+    "eslint": "^10.12.0",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.9.10"
+  }
 }

@@ -1,0 +1,9 @@
+.nuxt
+.output
+.data
+node_modules
+dist
+corpus
+pnpm-lock.yaml
+data
+packages/interlinked/tests/fixtures
