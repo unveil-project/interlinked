@@ -1,7 +1,12 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { describe, expect, it } from 'vitest'
-import { SIGNALS, analyzeText, locateSignals } from '../src/index'
+import {
+  SIGNALS,
+  analyzeText,
+  locateSignals,
+  locateTemplate,
+} from '../src/index'
 
 /** The matched text of each location of one signal. */
 function found(markdown: string, id: string, template?: string) {
@@ -87,5 +92,17 @@ describe('locateSignals on the fixtures', () => {
       .map((s) => s.id)
       .filter((id) => locatable.has(id) && !located.has(id))
     expect(missing).toEqual([])
+  })
+})
+
+describe('locateTemplate', () => {
+  it('finds the lines copied from the template', () => {
+    const template = '## Summary\n\n- [ ] Tests pass'
+    const text = '<!-- hi -->\n## Summary\nFixed it.\n- [x] Tests pass'
+    expect(
+      locateTemplate(text, template).map(({ start, end }) =>
+        text.slice(start, end),
+      ),
+    ).toEqual(['## Summary', '- [x] Tests pass'])
   })
 })

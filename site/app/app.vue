@@ -8,7 +8,12 @@ import {
   useTemplateRef,
   watch,
 } from 'vue'
-import { SIGNALS, analyzeText, locateSignals } from '@unveil/interlinked'
+import {
+  SIGNALS,
+  analyzeText,
+  locateSignals,
+  locateTemplate,
+} from '@unveil/interlinked'
 import agentExample from './examples/ajeetdsouza-zoxide-1314.md?raw'
 import humanExample from './examples/godotengine-godot-32448.md?raw'
 
@@ -18,18 +23,21 @@ type Label = 'ai' | 'human'
 const examples: {
   title: string
   name: string
+  url: string
   expected: Label
   text: string
 }[] = [
   {
     title: 'Written with an agent',
     name: 'ajeetdsouza/zoxide#1314',
+    url: 'https://github.com/ajeetdsouza/zoxide/pull/1314',
     expected: 'ai',
     text: agentExample,
   },
   {
     title: 'Written by a person',
     name: 'godotengine/godot#32448',
+    url: 'https://github.com/godotengine/godot/pull/32448',
     expected: 'human',
     text: humanExample,
   },
@@ -66,7 +74,7 @@ const error = ref('')
 /** Per-request status of the last fetch. */
 const progress = ref<FetchProgress>()
 /** Where the description came from, and the label it should get if it is a fixture. */
-const source = ref<{ name: string; expected?: Label }>()
+const source = ref<{ name: string; url?: string; expected?: Label }>()
 let loadedUrl: string | undefined
 /** Bumped by each fetch and by `clear`, so a stale fetch can tell it was superseded. */
 let request = 0
@@ -137,6 +145,21 @@ const locations = computed(() =>
       )
     : [],
 )
+/** The lines copied from the template, which don't count toward the score. */
+const templateLines = computed(() => {
+  const found = new Set<number>()
+  if (!template.value) {
+    return found
+  }
+  for (const { start, end } of locateTemplate(markdown.value, template.value)) {
+    const first = markdown.value.slice(0, start).split('\n').length - 1
+    const last = first + markdown.value.slice(start, end).split('\n').length - 1
+    for (let i = first; i <= last; i++) {
+      found.add(i)
+    }
+  }
+  return found
+})
 /** How many places each signal was found in. */
 const occurrences = computed(() => {
   const counts = new Map<string, number>()
@@ -360,7 +383,11 @@ function tryExample(example: (typeof examples)[number]) {
   error.value = ''
   progress.value = undefined
   template.value = ''
-  source.value = { name: example.name, expected: example.expected }
+  source.value = {
+    name: example.name,
+    url: example.url,
+    expected: example.expected,
+  }
   markdown.value = example.text
 }
 
@@ -414,7 +441,7 @@ async function load() {
     }
     markdown.value = body
     template.value = found?.text ?? ''
-    source.value = { name: sourceName(ref) }
+    source.value = { name: sourceName(ref), url: url.value }
     showAll()
     loadedUrl = url.value
     history.replaceState(null, '', `?url=${shareParam(url.value)}`)
@@ -565,16 +592,14 @@ onMounted(() => {
       </form>
     </header>
 
-    <main v-if="empty" class="flex-1 px-4 pt-[min(12vh,112px)] pb-12 sm:px-6">
-      <div class="mx-auto max-w-160">
+    <main v-if="empty" class="flex-1 px-4 pt-[min(8vh,80px)] pb-8 sm:px-6">
+      <div class="mx-auto max-w-180">
         <h2
           class="text-[clamp(28px,5vw,40px)] font-semibold leading-[1.1] tracking-[-0.025em] text-balance"
         >
           Find signs of AI-written text in contributions
         </h2>
-        <p
-          class="mt-3 max-w-136 text-15px text-soft leading-relaxed text-pretty"
-        >
+        <p class="mt-3 text-15px text-soft leading-relaxed text-pretty">
           Paste a pull request, issue or comment. Phrases common in text from
           coding agents get underlined.
         </p>
@@ -618,7 +643,13 @@ onMounted(() => {
           class="flex flex-wrap items-center gap-x-5 gap-y-1 mt-3 px-1 font-mono text-12px text-muted"
           aria-live="polite"
         >
-          <FetchStatus v-if="progress" :progress :name="source?.name" />
+          <FetchStatus
+            v-if="progress"
+            :progress
+            :name="source?.name"
+            :href="source?.url"
+            :skipped="templateLines.size"
+          />
           <span v-if="error" class="text-agent font-sans text-13px">
             {{ error }}
           </span>
@@ -644,20 +675,17 @@ onMounted(() => {
           </button>
         </div>
 
-        <section
-          aria-labelledby="how"
-          class="mt-14 pt-8 border-t border-line sm:mt-16"
-        >
+        <section aria-labelledby="how" class="mt-10 pt-6 border-t border-line">
           <h2
             id="how"
             class="text-11px font-medium uppercase tracking-[0.06em] text-muted"
           >
             How to read it
           </h2>
-          <div class="grid gap-x-6 gap-y-8 mt-5 sm:grid-cols-3">
+          <div class="grid gap-x-8 gap-y-10 mt-6 sm:grid-cols-3">
             <div>
               <div
-                class="flex flex-col justify-center gap-1 h-22 px-3.5 rounded-lg border border-line bg-subtle font-mono text-12px leading-[1.8] text-soft"
+                class="flex flex-col justify-center gap-1.5 h-26 px-5 rounded-lg border border-line bg-subtle font-mono text-12px leading-[1.8] text-soft"
                 aria-hidden="true"
               >
                 <span class="truncate">
@@ -677,8 +705,10 @@ onMounted(() => {
                   >
                 </span>
               </div>
-              <h3 class="mt-3 text-13px font-medium">Underlined phrases</h3>
-              <p class="mt-1 text-13px text-muted leading-normal text-pretty">
+              <h3 class="mt-4 text-13px font-medium">Underlined phrases</h3>
+              <p
+                class="mt-1.5 text-13px text-muted leading-relaxed text-pretty"
+              >
                 <span class="text-agent">Orange</span> leans agent,
                 <span class="text-human">blue</span> leans human. Click one to
                 see why it counts.
@@ -687,7 +717,7 @@ onMounted(() => {
 
             <div>
               <div
-                class="flex flex-col justify-center h-22 px-3.5 rounded-lg border border-line bg-subtle"
+                class="flex flex-col justify-center h-26 px-5 rounded-lg border border-line bg-subtle"
                 aria-hidden="true"
               >
                 <div class="flex items-baseline justify-between gap-2">
@@ -696,10 +726,12 @@ onMounted(() => {
                   </span>
                   <span class="font-mono text-11px text-muted">82/100</span>
                 </div>
-                <ScoreBar :score="82" fill="bg-agent" class="mt-2.5" />
+                <ScoreBar :score="82" fill="bg-agent" class="mt-3" />
               </div>
-              <h3 class="mt-3 text-13px font-medium">A score out of 100</h3>
-              <p class="mt-1 text-13px text-muted leading-normal text-pretty">
+              <h3 class="mt-4 text-13px font-medium">A score out of 100</h3>
+              <p
+                class="mt-1.5 text-13px text-muted leading-relaxed text-pretty"
+              >
                 {{ signalCount }} patterns, weighted against PRs and issues
                 written before coding agents.
               </p>
@@ -707,7 +739,7 @@ onMounted(() => {
 
             <div>
               <div
-                class="flex flex-col justify-center gap-1.5 h-22 px-3.5 rounded-lg border border-line bg-subtle text-13px"
+                class="flex flex-col justify-center gap-2.5 h-26 px-5 rounded-lg border border-line bg-subtle text-13px"
                 aria-hidden="true"
               >
                 <span class="flex items-center gap-2.5 text-fg">
@@ -719,15 +751,17 @@ onMounted(() => {
                   <span class="line-through decoration-muted/60">Accuse</span>
                 </span>
               </div>
-              <h3 class="mt-3 text-13px font-medium">Judge with care</h3>
-              <p class="mt-1 text-13px text-muted leading-normal text-pretty">
+              <h3 class="mt-4 text-13px font-medium">Judge with care</h3>
+              <p
+                class="mt-1.5 text-13px text-muted leading-relaxed text-pretty"
+              >
                 A high score is a reason to look closer, not to accuse someone.
               </p>
             </div>
           </div>
         </section>
 
-        <p class="mt-12 text-12px text-muted">
+        <p class="mt-8 text-12px text-muted">
           Runs in your browser. Links are fetched straight from GitHub.
         </p>
       </div>
@@ -742,9 +776,23 @@ onMounted(() => {
           class="flex flex-wrap items-center gap-x-5 gap-y-1 min-h-10 px-4 py-2 font-mono text-12px text-muted sm:px-6"
           aria-live="polite"
         >
-          <FetchStatus v-if="progress" :progress :name="source?.name" />
+          <FetchStatus
+            v-if="progress"
+            :progress
+            :name="source?.name"
+            :href="source?.url"
+            :skipped="templateLines.size"
+          />
           <template v-else>
-            <span>{{ source?.name ?? 'pasted text' }}</span>
+            <a
+              v-if="source?.url"
+              :href="source.url"
+              target="_blank"
+              rel="noopener"
+              class="hover:text-fg underline-offset-2 hover:underline"
+              >{{ source.name }}</a
+            >
+            <span v-else>{{ source?.name ?? 'pasted text' }}</span>
             <button
               type="button"
               class="hover:text-fg"
@@ -752,7 +800,11 @@ onMounted(() => {
               aria-controls="template-field"
               @click="showTemplate = !showTemplate"
             >
-              {{ template ? 'template excluded' : '+ template' }}
+              {{
+                template
+                  ? `${templateLines.size} template ${templateLines.size === 1 ? 'line' : 'lines'} not scored`
+                  : '+ add PR or issue template'
+              }}
             </button>
           </template>
           <span v-if="source?.expected" :class="{ 'text-agent': missed }">
@@ -786,7 +838,16 @@ onMounted(() => {
               class="w-full max-w-210 border-collapse font-mono text-13px leading-[1.8]"
             >
               <tbody>
-                <tr v-for="(segments, i) in rows" :key="i">
+                <tr
+                  v-for="(segments, i) in rows"
+                  :key="i"
+                  :class="{ 'text-muted/60': templateLines.has(i) }"
+                  :title="
+                    templateLines.has(i)
+                      ? 'From the template, not scored'
+                      : undefined
+                  "
+                >
                   <td
                     class="w-12 pl-4 pr-3 align-top text-right text-muted/50 select-none tabular-nums text-11px sm:pl-6"
                   >

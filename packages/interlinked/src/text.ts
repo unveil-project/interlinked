@@ -172,6 +172,23 @@ export function traceWithoutTemplate(
   })
 }
 
+/** Where the lines copied from the PR or issue templates are, in the original text. */
+export function traceTemplateLines(
+  markdown: Traced,
+  template: string | string[],
+): Range[] {
+  const keys = templateKeys(template)
+  const ranges: Range[] = []
+  let start = 0
+  for (const line of markdown.text.split('\n')) {
+    if (keys.has(templateKey(line))) {
+      ranges.push(untrace(markdown, [start, start + line.length]))
+    }
+    start += line.length + 1
+  }
+  return ranges
+}
+
 /** Removes lines copied from the PR or issue templates, ticked checklist items included. */
 export function withoutTemplate(text: string, template: string | string[]) {
   return traceWithoutTemplate(trace(text), template).text

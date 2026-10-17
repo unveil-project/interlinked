@@ -14,6 +14,7 @@
 import { locate } from './locate'
 import { measure } from './measure'
 import { SIGNALS } from './signals'
+import { trace, traceAuthored, traceTemplateLines } from './text'
 import { round, sigmoid } from './utils'
 
 export type { Signal } from './signals'
@@ -131,5 +132,21 @@ export function locateSignals(
   )
   return locate(markdown, options.template, signals).map(
     ({ signal, range: [start, end] }) => ({ id: signal.id, start, end }),
+  )
+}
+
+/**
+ * Finds the lines copied from the PR or issue template, which `analyzeText`
+ * leaves out of the score. Offsets index into `markdown` as given.
+ *
+ * @example
+ * const skipped = locateTemplate(body, template);
+ */
+export function locateTemplate(
+  markdown: string,
+  template: string | string[],
+): { start: number; end: number }[] {
+  return traceTemplateLines(traceAuthored(trace(markdown)), template).map(
+    ([start, end]) => ({ start, end }),
   )
 }
