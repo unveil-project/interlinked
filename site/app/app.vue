@@ -91,7 +91,7 @@ const draftIsLink = computed(() =>
 const draftHint = computed(() => {
   const text = draft.value.trim()
   if (!text) {
-    return 'Works with public repos'
+    return ''
   }
   if (draftIsLink.value) {
     const ref = parseGitHubUrl(text)
@@ -601,7 +601,8 @@ onMounted(() => {
           Find signs of AI-written text in contributions
         </h2>
         <p class="mt-3 text-15px text-soft leading-relaxed text-pretty">
-          Paste a GitHub PR, issue or comment link to check it for AI traits.
+          Paste a GitHub PR, issue or comment link, or any text, to check it for
+          AI traits.
         </p>
 
         <form
@@ -995,20 +996,27 @@ onMounted(() => {
                 </h3>
                 <ul class="-mx-2">
                   <li v-for="signal in group.signals" :key="signal.id">
-                    <button
-                      type="button"
-                      class="flex items-baseline gap-2.5 w-full px-2 py-1.5 rounded-md text-left text-13px transition-colors duration-150 enabled:hover:bg-hair disabled:cursor-default"
+                    <!-- Signals about the text as a whole have nothing to point to, so they aren't buttons. -->
+                    <component
+                      :is="occurrences.get(signal.id) ? 'button' : 'div'"
+                      v-bind="
+                        occurrences.get(signal.id)
+                          ? { type: 'button', 'aria-pressed': focus === signal.id }
+                          : {}
+                      "
+                      class="flex items-baseline gap-2.5 w-full px-2 py-1.5 rounded-md text-left text-13px transition-colors duration-150"
                       :class="{
+                        'hover:bg-hair': occurrences.get(signal.id),
                         'bg-hair': active.includes(signal.id),
                         'opacity-40':
                           (focus || card) && !active.includes(signal.id),
                       }"
                       :title="signal.id"
-                      :aria-pressed="focus === signal.id"
-                      :disabled="!occurrences.get(signal.id)"
-                      @mouseenter="hovered = [signal.id]"
+                      @mouseenter="
+                        occurrences.get(signal.id) && (hovered = [signal.id])
+                      "
                       @mouseleave="hovered = []"
-                      @click="pick(signal.id)"
+                      @click="occurrences.get(signal.id) && pick(signal.id)"
                     >
                       <span
                         class="flex-none size-1.5 rounded-full -translate-y-0.5"
@@ -1025,7 +1033,7 @@ onMounted(() => {
                         {{
                           occurrences.get(signal.id)
                             ? `×${occurrences.get(signal.id)}`
-                            : 'all'
+                            : 'whole text'
                         }}
                       </span>
                       <span
@@ -1037,7 +1045,7 @@ onMounted(() => {
                         {{ signal.contribution > 0 ? '+' : ''
                         }}{{ signal.contribution.toFixed(2) }}
                       </span>
-                    </button>
+                    </component>
                   </li>
                 </ul>
               </template>
