@@ -596,7 +596,7 @@ onMounted(() => {
     <main v-if="empty" class="flex-1 px-4 pt-[min(8vh,80px)] pb-8 sm:px-6">
       <div class="mx-auto max-w-180">
         <h2
-          class="text-[clamp(28px,5vw,40px)] font-semibold leading-[1.1] tracking-[-0.025em] text-balance"
+          class="font-display text-[clamp(30px,5.5vw,44px)] font-medium leading-[1.1] tracking-[-0.015em] text-balance"
         >
           Find signs of AI-written text in contributions
         </h2>
