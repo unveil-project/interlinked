@@ -7,22 +7,11 @@ import {
 } from '@unveil/interlinked'
 
 /** How each classification shows, in AgentScan's words for text. */
-const looks: Record<
-  TextClassification,
-  { label: string; text: string; fill: string }
-> = {
-  automation: {
-    label: 'Automation signals',
-    text: 'text-automation',
-    fill: 'bg-automation',
-  },
-  mixed: { label: 'Mixed signals', text: 'text-fg', fill: 'bg-mixed' },
-  organic: { label: 'Organic writing', text: 'text-organic', fill: 'bg-organic' },
-  'insufficient-data': {
-    label: 'Insufficient data',
-    text: 'text-muted',
-    fill: 'bg-muted/40',
-  },
+const looks: Record<TextClassification, { label: string; text: string }> = {
+  automation: { label: 'Automation signals', text: 'text-automation' },
+  mixed: { label: 'Mixed signals', text: 'text-fg' },
+  organic: { label: 'Organic writing', text: 'text-organic' },
+  'insufficient-data': { label: 'Insufficient data', text: 'text-muted' },
 }
 
 /** How many signals the analysis checks. */
@@ -476,7 +465,9 @@ onMounted(() => {
               >
                 <span
                   class="flex-none size-1.5 rounded-full -translate-y-0.5"
-                  :class="tone([id]) === 'automation' ? 'bg-automation' : 'bg-organic'"
+                  :class="
+                    tone([id]) === 'automation' ? 'bg-automation' : 'bg-organic'
+                  "
                 />
                 <span
                   class="flex-1 min-w-0"
@@ -487,7 +478,9 @@ onMounted(() => {
                     found {{ occurrences.get(id) }}× in this text ·
                     <span
                       :class="
-                        tone([id]) === 'automation' ? 'text-automation' : 'text-organic'
+                        tone([id]) === 'automation'
+                          ? 'text-automation'
+                          : 'text-organic'
                       "
                       >{{
                         (signalsById.get(id)?.contribution ?? 0) > 0 ? '+' : ''
@@ -523,14 +516,17 @@ onMounted(() => {
                 {{ percent ?? '—' }}/100
               </span>
             </div>
-            <ScoreBar :score="percent" :fill="look.fill" class="mt-3" />
             <p
               v-if="result.classification === 'insufficient-data'"
               class="mt-4 text-12px text-soft leading-normal text-pretty"
             >
               Nothing in it leans either way, so there's nothing to score.
             </p>
-            <ScoreCaution class="mt-4" />
+            <p class="mt-4 text-12px text-muted leading-normal text-pretty">
+              Checks {{ signalCount }} patterns in wording and markdown
+              structure, weighted against PRs and issues written before coding
+              agents.
+            </p>
           </section>
 
           <section aria-labelledby="signals">
@@ -593,7 +589,9 @@ onMounted(() => {
                   >
                     <span
                       class="flex-none size-1.5 rounded-full -translate-y-0.5"
-                      :class="signal.contribution > 0 ? 'bg-automation' : 'bg-organic'"
+                      :class="
+                        signal.contribution > 0 ? 'bg-automation' : 'bg-organic'
+                      "
                     />
                     <span class="flex-1 min-w-0 first-letter:uppercase">
                       {{ signal.description }}
@@ -610,7 +608,9 @@ onMounted(() => {
                     <span
                       class="flex-none w-10 font-mono text-11px text-right tabular-nums"
                       :class="
-                        signal.contribution > 0 ? 'text-automation' : 'text-organic'
+                        signal.contribution > 0
+                          ? 'text-automation'
+                          : 'text-organic'
                       "
                     >
                       {{ signal.contribution > 0 ? '+' : ''
@@ -621,11 +621,8 @@ onMounted(() => {
               </ul>
             </template>
           </section>
+          <ScoreCaution />
         </template>
-        <p class="text-12px text-muted leading-normal">
-          Checks {{ signalCount }} patterns in wording and markdown structure,
-          weighted against PRs and issues written before coding agents.
-        </p>
       </div>
     </aside>
   </div>

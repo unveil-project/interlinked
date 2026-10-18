@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { SIGNALS } from '@unveil/interlinked'
 import agentExample from '../examples/ajeetdsouza-zoxide-1314.md?raw'
 import humanExample from '../examples/godotengine-godot-32448.md?raw'
 
@@ -26,9 +25,6 @@ const examples: {
     text: humanExample,
   },
 ]
-
-/** How many signals the analysis checks. */
-const signalCount = SIGNALS.filter((signal) => signal.weight !== 0).length
 
 const { loading, error, progress, source, templateLines, show, load, reset } =
   useAnalysis()
@@ -257,9 +253,16 @@ onMounted(() => {
               Underlined phrases
             </h3>
             <p class="mt-1.5 text-13px text-muted leading-relaxed text-pretty">
-              <span class="text-automation">Solid red</span> leans agent,
-              <span class="text-organic">dotted green</span> leans human. Click
-              one to see why it counts.
+              <span
+                class="underline underline-offset-3 decoration-1.5 decoration-automation"
+                >Solid red</span
+              >
+              leans agent,
+              <span
+                class="underline underline-offset-3 decoration-2 decoration-dotted decoration-organic"
+                >dotted green</span
+              >
+              leans human. Click one to see why it counts.
             </p>
           </div>
 
@@ -274,16 +277,33 @@ onMounted(() => {
                 </span>
                 <span class="font-mono text-11px text-muted">18/100</span>
               </div>
-              <ScoreBar :score="18" fill="bg-automation" class="mt-3" />
+              <ul class="flex flex-col gap-1 mt-2.5 text-12px text-soft">
+                <li class="flex items-baseline gap-2.5">
+                  <span
+                    class="flex-none size-1.5 rounded-full bg-automation -translate-y-0.5"
+                  />
+                  <span class="flex-1 min-w-0 truncate">
+                    Uses em-dashes heavily
+                  </span>
+                  <span class="font-mono text-11px text-automation">+3.50</span>
+                </li>
+                <li class="flex items-baseline gap-2.5">
+                  <span
+                    class="flex-none size-1.5 rounded-full bg-organic -translate-y-0.5"
+                  />
+                  <span class="flex-1 min-w-0 truncate">
+                    Uses contractions (don't, it's, we'll)
+                  </span>
+                  <span class="font-mono text-11px text-organic">-0.60</span>
+                </li>
+              </ul>
             </div>
             <h3 class="mt-4 font-display text-15px font-medium">
               A score out of 100
             </h3>
             <p class="mt-1.5 text-13px text-muted leading-relaxed text-pretty">
-              {{ signalCount }} patterns, measured against a baseline of PRs and
-              issues written before coding agents. The higher the score, the
-              more human the writing looks. A low score is a reason to look
-              closer, not to accuse someone.
+              Red signals pull the score down, green ones push it up. A low
+              score is a reason to look closer, not to accuse.
             </p>
           </div>
         </div>
