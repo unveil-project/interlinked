@@ -72,7 +72,7 @@ async function submit() {
           <a
             target="_blank"
             class="hover:text-fg hover:underline"
-            href="https://github.com/MatteoGabriele/interlinked"
+            href="https://github.com/MatteoGabriele/agentscan-text-action"
             title="Check every new PR and issue in your repo automatically"
             >GitHub Action</a
           >
