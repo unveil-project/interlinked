@@ -222,20 +222,20 @@ onMounted(() => {
               class="flex flex-col justify-center gap-1.5 h-26 px-5 rounded-lg border border-line bg-subtle font-mono text-12px leading-[1.8] text-soft"
               aria-hidden="true"
             >
-              <span class="truncate">
-                Uses
+              <span>
                 <mark class="shadow-[inset_0_-1.5px_0_var(--agent)]"
-                  >the existing</mark
+                  >You're absolutely right</mark
+                >&nbsp;<mark class="shadow-[inset_0_-1.5px_0_var(--agent)]"
+                  >—</mark
                 >
-                cache
+                fixed!
               </span>
               <span class="truncate">
                 <mark class="shadow-[inset_0_-1.5px_0_var(--human)]"
                   >not sure</mark
                 >
-                we need it<mark class="shadow-[inset_0_-1.5px_0_var(--human)]"
-                  >?</mark
-                >
+                it works
+                <mark class="shadow-[inset_0_-1.5px_0_var(--human)]">lol</mark>
               </span>
             </div>
             <h3 class="mt-4 font-display text-15px font-medium">
