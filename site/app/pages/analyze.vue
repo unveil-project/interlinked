@@ -1,22 +1,29 @@
 <script setup lang="ts">
-import { SIGNALS, analyzeText, locateSignals } from '@unveil/interlinked'
+import {
+  SIGNALS,
+  type TextClassification,
+  analyzeText,
+  locateSignals,
+} from '@unveil/interlinked'
 
-/** Score bands, lowest first. Each applies to scores below its `max`. */
-const bands = [
-  {
-    max: 0.35,
-    label: 'Likely human-written',
-    text: 'text-human',
-    fill: 'bg-human',
-  },
-  { max: 0.65, label: 'Inconclusive', text: 'text-fg', fill: 'bg-muted' },
-  {
-    max: Infinity,
-    label: 'Likely AI-generated',
+/** How each classification shows, in agentscan's words for text. */
+const looks: Record<
+  TextClassification,
+  { label: string; text: string; fill: string }
+> = {
+  automation: {
+    label: 'Automation signals',
     text: 'text-agent',
     fill: 'bg-agent',
   },
-]
+  mixed: { label: 'Mixed signals', text: 'text-fg', fill: 'bg-muted' },
+  organic: { label: 'Organic writing', text: 'text-human', fill: 'bg-human' },
+  'insufficient-data': {
+    label: 'Insufficient data',
+    text: 'text-muted',
+    fill: 'bg-muted/40',
+  },
+}
 
 /** How many signals the analysis checks. */
 const signalCount = SIGNALS.filter((signal) => signal.weight !== 0).length
@@ -79,13 +86,13 @@ const result = computed(() =>
       })
     : undefined,
 )
+/** The score to show. None for insufficient data, where it's just the default. */
 const percent = computed(() =>
-  result.value ? Math.round(result.value.probability * 100) : 0,
+  result.value && result.value.classification !== 'insufficient-data'
+    ? Math.round(result.value.score)
+    : undefined,
 )
-const band = computed(() => {
-  const probability = result.value?.probability ?? 0
-  return bands.find((b) => probability < b.max) ?? bands[bands.length - 1]
-})
+const look = computed(() => looks[result.value?.classification ?? 'organic'])
 const lines = computed(() => markdown.value.split('\n'))
 const missed = computed(
   () =>
@@ -504,15 +511,21 @@ onMounted(() => {
               <h2
                 id="result"
                 class="font-display text-18px font-bold"
-                :class="band?.text"
+                :class="look.text"
               >
-                {{ band?.label }}
+                {{ look.label }}
               </h2>
               <span class="font-mono text-12px text-muted tabular-nums">
-                {{ percent }}/100
+                {{ percent ?? '—' }}/100
               </span>
             </div>
-            <ScoreBar :score="percent" :fill="band.fill" class="mt-3" />
+            <ScoreBar :score="percent" :fill="look.fill" class="mt-3" />
+            <p
+              v-if="result.classification === 'insufficient-data'"
+              class="mt-4 text-12px text-soft leading-normal text-pretty"
+            >
+              Nothing in it leans either way, so there's nothing to score.
+            </p>
             <ScoreCaution class="mt-4" />
           </section>
 

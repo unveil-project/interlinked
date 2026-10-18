@@ -8,7 +8,7 @@
 	"fixtures": {
 		"ai/428lab-debug-shrine-6104319832.md": {
 			"label": "ai",
-			"probability": 0.935,
+			"score": 6.5,
 			"signals": {
 				"review-pleasantries": 2.94,
 				"work-claim": 1.88,
@@ -18,7 +18,7 @@
 		},
 		"ai/5TN1rcZRS79VAEFuUCRB-MCPersist-26.md": {
 			"label": "ai",
-			"probability": 0.196,
+			"score": 80.4,
 			"signals": {
 				"em-dash": 2.17,
 				"unpunctuated-lines": -0.29,
@@ -29,7 +29,7 @@
 		},
 		"ai/AOMediaCodec-libavif-5376552834.md": {
 			"label": "ai",
-			"probability": 0.278,
+			"score": 72.2,
 			"signals": {
 				"happy-to": 1.29,
 				"fails-before-fix": 0.68,
@@ -41,7 +41,7 @@
 		},
 		"ai/AlexandrErohin-TP-Link-Archer-C6U-5324466748.md": {
 			"label": "ai",
-			"probability": 0.982,
+			"score": 1.8,
 			"signals": {
 				"ai-disclosure": 3,
 				"happy-to": 1.29,
@@ -54,7 +54,7 @@
 		},
 		"ai/All-Hands-AI-OpenHands-18042.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"so-chains": 2.77,
 				"em-dash": 1.77,
@@ -83,7 +83,7 @@
 		},
 		"ai/AndrewGMorgan-libcap_mirror-15.md": {
 			"label": "ai",
-			"probability": 0.993,
+			"score": 0.7,
 			"signals": {
 				"so-chains": 2.77,
 				"code-span-density": 1.14,
@@ -99,7 +99,7 @@
 		},
 		"ai/Arize-ai-phoenix-6009815344.md": {
 			"label": "ai",
-			"probability": 0.95,
+			"score": 5,
 			"signals": {
 				"review-pleasantries": 2.94,
 				"happy-to": 1.29,
@@ -110,7 +110,7 @@
 		},
 		"ai/Arize-ai-phoenix-6137688775.md": {
 			"label": "ai",
-			"probability": 0.373,
+			"score": 62.7,
 			"signals": {
 				"workflow-vocabulary": 1.03,
 				"maintainer-mention": 0.81,
@@ -121,7 +121,7 @@
 		},
 		"ai/Azure-ARO-RP-4708.md": {
 			"label": "ai",
-			"probability": 0.394,
+			"score": 60.6,
 			"signals": {
 				"code-span-density": 1.02,
 				"tidy-prose": 0.24,
@@ -131,7 +131,7 @@
 		},
 		"ai/BabylonJS-Babylon.js-18968.md": {
 			"label": "ai",
-			"probability": 0.954,
+			"score": 4.6,
 			"signals": {
 				"code-span-density": 1.28,
 				"now-verbs": 0.85,
@@ -145,7 +145,7 @@
 		},
 		"ai/BerriAI-litellm-44023.md": {
 			"label": "ai",
-			"probability": 0.957,
+			"score": 4.3,
 			"signals": {
 				"review-pleasantries": 1.47,
 				"code-span-density": 1.09,
@@ -156,7 +156,7 @@
 		},
 		"ai/BerriAI-litellm-44034.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"fails-before-fix": 1.35,
 				"test-tally": 1.28,
@@ -180,7 +180,7 @@
 		},
 		"ai/BerriAI-litellm-44053.md": {
 			"label": "ai",
-			"probability": 0.999,
+			"score": 0.1,
 			"signals": {
 				"now-verbs": 2.54,
 				"maintainer-mention": 1.61,
@@ -206,7 +206,7 @@
 		},
 		"ai/BerriAI-litellm-44070.md": {
 			"label": "ai",
-			"probability": 0.982,
+			"score": 1.8,
 			"signals": {
 				"scope-disclaimer": 1.46,
 				"test-tally": 1.28,
@@ -227,7 +227,7 @@
 		},
 		"ai/BerriAI-litellm-44077.md": {
 			"label": "ai",
-			"probability": 0.985,
+			"score": 1.5,
 			"signals": {
 				"existing-reference": 2.72,
 				"fails-before-fix": 1.35,
@@ -245,7 +245,7 @@
 		},
 		"ai/BerriAI-litellm-44103.md": {
 			"label": "ai",
-			"probability": 0.608,
+			"score": 39.2,
 			"signals": {
 				"agent-attribution": 4,
 				"code-span-density": 0.08,
@@ -258,7 +258,7 @@
 		},
 		"ai/BerriAI-litellm-44187.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"so-chains": 2.77,
 				"unchanged-claims": 1.92,
@@ -278,7 +278,7 @@
 		},
 		"ai/BerriAI-litellm-44191.md": {
 			"label": "ai",
-			"probability": 0.139,
+			"score": 86.1,
 			"signals": {
 				"code-span-density": 0.3,
 				"contractions": -0.16,
@@ -287,7 +287,7 @@
 		},
 		"ai/BerriAI-litellm-45418.md": {
 			"label": "ai",
-			"probability": 0.999,
+			"score": 0.1,
 			"signals": {
 				"template-headings": 2.37,
 				"fails-before-fix": 1.35,
@@ -302,7 +302,7 @@
 		},
 		"ai/Borewit-music-metadata-2755.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"so-chains": 2.77,
 				"ci-green": 1.95,
@@ -328,14 +328,14 @@
 		},
 		"ai/CherryHQ-cherry-studio-5490231416.md": {
 			"label": "ai",
-			"probability": 0.4,
+			"score": 60,
 			"signals": {
 				"ci-green": 0.98
 			}
 		},
 		"ai/ClickHouse-ClickHouse-123410.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
@@ -353,7 +353,7 @@
 		},
 		"ai/Cvolton-GMDprivateServer-6209538487.md": {
 			"label": "ai",
-			"probability": 0.373,
+			"score": 62.7,
 			"signals": {
 				"semicolons": 1.78,
 				"evidence-claims": 0.47,
@@ -364,7 +364,7 @@
 		},
 		"ai/DobermanCore-Doberman-Core-5457237731.md": {
 			"label": "ai",
-			"probability": 0.872,
+			"score": 12.8,
 			"signals": {
 				"workflow-vocabulary": 1.03,
 				"ci-green": 0.98,
@@ -376,7 +376,7 @@
 		},
 		"ai/Eshajha19-Incredible-India-Explorer-1256.md": {
 			"label": "ai",
-			"probability": 0.952,
+			"score": 4.8,
 			"signals": {
 				"plan-headings": 2.67,
 				"em-dash": 1.26,
@@ -391,7 +391,7 @@
 		},
 		"ai/Infisical-infisical-4106176332.md": {
 			"label": "ai",
-			"probability": 0.959,
+			"score": 4.1,
 			"signals": {
 				"em-dash": 3.33,
 				"work-claim": 1.88,
@@ -402,7 +402,7 @@
 		},
 		"ai/Intrect-io-OpenSwarm-5.md": {
 			"label": "ai",
-			"probability": 0.777,
+			"score": 22.3,
 			"signals": {
 				"em-dash": 2.27,
 				"happy-to": 1.29,
@@ -414,7 +414,7 @@
 		},
 		"ai/Kilo-Org-kilocode-12172.md": {
 			"label": "ai",
-			"probability": 0.578,
+			"score": 42.2,
 			"signals": {
 				"existing-reference": 0.91,
 				"code-span-density": 0.46,
@@ -427,7 +427,7 @@
 		},
 		"ai/LukeZGD-Legacy-iOS-Kit-1019.md": {
 			"label": "ai",
-			"probability": 0.88,
+			"score": 12,
 			"signals": {
 				"em-dash": 2.15,
 				"colon-bullets": 0.36,
@@ -440,7 +440,7 @@
 		},
 		"ai/MSKazemi-yazses-5971138445.md": {
 			"label": "ai",
-			"probability": 0.995,
+			"score": 0.5,
 			"signals": {
 				"em-dash": 4,
 				"review-pleasantries": 1.47,
@@ -451,7 +451,7 @@
 		},
 		"ai/MariaDB-server-5846.md": {
 			"label": "ai",
-			"probability": 0.999,
+			"score": 0.1,
 			"signals": {
 				"ai-disclosure": 3,
 				"template-headings": 2.37,
@@ -465,7 +465,7 @@
 		},
 		"ai/MichaelGrupp-evo-5891680563.md": {
 			"label": "ai",
-			"probability": 0.994,
+			"score": 0.6,
 			"signals": {
 				"em-dash": 2.35,
 				"not-contrast": 2.25,
@@ -479,7 +479,7 @@
 		},
 		"ai/MiniMax-AI-cli-277.md": {
 			"label": "ai",
-			"probability": 0.997,
+			"score": 0.3,
 			"signals": {
 				"ai-disclosure": 3,
 				"workflow-vocabulary": 2.07,
@@ -496,14 +496,14 @@
 		},
 		"ai/NVIDIA-NeMo-Curator-2464.md": {
 			"label": "ai",
-			"probability": 0.251,
+			"score": 74.9,
 			"signals": {
 				"code-span-density": 0.28
 			}
 		},
 		"ai/NVlabs-SoL-Pi-5692878606.md": {
 			"label": "ai",
-			"probability": 0.998,
+			"score": 0.2,
 			"signals": {
 				"workflow-vocabulary": 2.07,
 				"status-openers": 1.52,
@@ -517,7 +517,7 @@
 		},
 		"ai/NousResearch-hermes-agent-5899144009.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"em-dash": 3.2,
 				"review-pleasantries": 1.47,
@@ -536,7 +536,7 @@
 		},
 		"ai/Peergos-web-ui-6050395365.md": {
 			"label": "ai",
-			"probability": 0.312,
+			"score": 68.8,
 			"signals": {
 				"review-pleasantries": 1.47,
 				"evidence-claims": 0.47,
@@ -547,7 +547,7 @@
 		},
 		"ai/Polymarket-ts-sdk-119.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"so-chains": 1.85,
 				"fails-before-fix": 1.35,
@@ -566,7 +566,7 @@
 		},
 		"ai/PostHog-posthog-109590.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
@@ -580,7 +580,7 @@
 		},
 		"ai/PostHog-posthog-109878.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
@@ -602,7 +602,7 @@
 		},
 		"ai/PostHog-posthog-109936.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
@@ -620,7 +620,7 @@
 		},
 		"ai/PostHog-posthog-110034.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
@@ -639,7 +639,7 @@
 		},
 		"ai/PostHog-posthog-110197.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"ai-disclosure": 3,
 				"so-chains": 2.77,
@@ -661,7 +661,7 @@
 		},
 		"ai/PostHog-posthog-110207.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"ai-disclosure": 3,
 				"workflow-vocabulary": 1.03,
@@ -679,7 +679,7 @@
 		},
 		"ai/PostHog-posthog-110267.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"ai-disclosure": 3,
 				"existing-reference": 2.72,
@@ -697,7 +697,7 @@
 		},
 		"ai/PostHog-posthog-110396.md": {
 			"label": "ai",
-			"probability": 0.611,
+			"score": 38.9,
 			"signals": {
 				"ai-disclosure": 3,
 				"bold-lead-bullets": 1,
@@ -713,7 +713,7 @@
 		},
 		"ai/PostHog-posthog-110397.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"ai-disclosure": 3,
 				"so-chains": 2.77,
@@ -734,7 +734,7 @@
 		},
 		"ai/PostHog-posthog-110561.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
@@ -748,7 +748,7 @@
 		},
 		"ai/QuantConnect-Lean-6117876475.md": {
 			"label": "ai",
-			"probability": 0.941,
+			"score": 5.9,
 			"signals": {
 				"review-pleasantries": 1.47,
 				"happy-to": 1.29,
@@ -763,7 +763,7 @@
 		},
 		"ai/Sanjays2402-ferry-17.md": {
 			"label": "ai",
-			"probability": 0.954,
+			"score": 4.6,
 			"signals": {
 				"semicolons": 2.28,
 				"code-span-density": 1.28,
@@ -775,7 +775,7 @@
 		},
 		"ai/Sanjays2402-slab-23.md": {
 			"label": "ai",
-			"probability": 0.941,
+			"score": 5.9,
 			"signals": {
 				"test-reference": 0.97,
 				"now-verbs": 0.85,
@@ -792,7 +792,7 @@
 		},
 		"ai/Stirling-Tools-Stirling-PDF-8312.md": {
 			"label": "ai",
-			"probability": 0.996,
+			"score": 0.4,
 			"signals": {
 				"so-chains": 2.77,
 				"existing-reference": 1.81,
@@ -818,7 +818,7 @@
 		},
 		"ai/Stirling-Tools-Stirling-PDF-8338.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"so-chains": 2.77,
 				"unchanged-claims": 1.92,
@@ -836,7 +836,7 @@
 		},
 		"ai/TanStack-form-2416.md": {
 			"label": "ai",
-			"probability": 0.813,
+			"score": 18.7,
 			"signals": {
 				"unchanged-claims": 1.92,
 				"scope-disclaimer": 0.73,
@@ -850,7 +850,7 @@
 		},
 		"ai/TanStack-query-11848.md": {
 			"label": "ai",
-			"probability": 0.677,
+			"score": 32.3,
 			"signals": {
 				"code-span-density": 1.28,
 				"existing-reference": 0.91,
@@ -861,7 +861,7 @@
 		},
 		"ai/TanStack-query-5653868276.md": {
 			"label": "ai",
-			"probability": 0.962,
+			"score": 3.8,
 			"signals": {
 				"em-dash": 3.33,
 				"status-openers": 1.52,
@@ -872,7 +872,7 @@
 		},
 		"ai/TanStack-table-6613.md": {
 			"label": "ai",
-			"probability": 0.999,
+			"score": 0.1,
 			"signals": {
 				"semicolons": 1.61,
 				"code-span-density": 1,
@@ -890,7 +890,7 @@
 		},
 		"ai/TechEmpower-FrameworkBenchmarks-4105182726.md": {
 			"label": "ai",
-			"probability": 0.671,
+			"score": 32.9,
 			"signals": {
 				"review-pleasantries": 2.94,
 				"long-paragraphs": 0.19,
@@ -899,7 +899,7 @@
 		},
 		"ai/Tencent-teamai-cli-5818029082.md": {
 			"label": "ai",
-			"probability": 0.982,
+			"score": 1.8,
 			"signals": {
 				"test-tally": 1.28,
 				"workflow-vocabulary": 1.03,
@@ -913,7 +913,7 @@
 		},
 		"ai/ToolJet-ToolJet-18202.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"so-chains": 2.77,
 				"colon-bullets": 1.45,
@@ -933,7 +933,7 @@
 		},
 		"ai/TutteInstitute-evoc-44.md": {
 			"label": "ai",
-			"probability": 0.925,
+			"score": 7.5,
 			"signals": {
 				"so-chains": 1.85,
 				"happy-to": 1.29,
@@ -947,7 +947,7 @@
 		},
 		"ai/User0332-rewards-farmer-5465237284.md": {
 			"label": "ai",
-			"probability": 0.935,
+			"score": 6.5,
 			"signals": {
 				"em-dash": 1.55,
 				"now-verbs": 0.85,
@@ -960,7 +960,7 @@
 		},
 		"ai/activepieces-activepieces-16283.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-attribution": 4,
 				"bold-lead-bullets": 4,
@@ -979,7 +979,7 @@
 		},
 		"ai/adoslabsproject-gif-nothumanallowed-6072837922.md": {
 			"label": "ai",
-			"probability": 0.962,
+			"score": 3.8,
 			"signals": {
 				"review-pleasantries": 2.94,
 				"semicolons": 1.7,
@@ -991,7 +991,7 @@
 		},
 		"ai/ajeetdsouza-zoxide-1314.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"semicolons": 3.38,
 				"em-dash": 1.52,
@@ -1011,7 +1011,7 @@
 		},
 		"ai/alphacrack-cdk-nag-extension-5231436985.md": {
 			"label": "ai",
-			"probability": 0.976,
+			"score": 2.4,
 			"signals": {
 				"semicolons": 2.28,
 				"status-openers": 1.52,
@@ -1023,7 +1023,7 @@
 		},
 		"ai/analogjs-analog-2606.md": {
 			"label": "ai",
-			"probability": 0.998,
+			"score": 0.2,
 			"signals": {
 				"scope-disclaimer": 1.46,
 				"code-span-density": 1.28,
@@ -1040,7 +1040,7 @@
 		},
 		"ai/angular-angular-71134.md": {
 			"label": "ai",
-			"probability": 0.977,
+			"score": 2.3,
 			"signals": {
 				"status-openers": 1.52,
 				"code-span-density": 1.28,
@@ -1052,7 +1052,7 @@
 		},
 		"ai/angular-angular-71271.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"so-chains": 2.77,
 				"scope-disclaimer": 2.19,
@@ -1075,7 +1075,7 @@
 		},
 		"ai/ansible-ansible-87643.md": {
 			"label": "ai",
-			"probability": 0.633,
+			"score": 36.7,
 			"signals": {
 				"test-tally": 1.92,
 				"semicolons": 0.67,
@@ -1087,7 +1087,7 @@
 		},
 		"ai/ant-design-ant-design-59502.md": {
 			"label": "ai",
-			"probability": 0.999,
+			"score": 0.1,
 			"signals": {
 				"agent-vocabulary": 2.08,
 				"em-dash": 2.05,
@@ -1113,7 +1113,7 @@
 		},
 		"ai/anthropics-claude-plugins-official-1192.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
@@ -1126,7 +1126,7 @@
 		},
 		"ai/anthropics-skills-1947.md": {
 			"label": "ai",
-			"probability": 0.75,
+			"score": 25,
 			"signals": {
 				"template-headings": 1.19,
 				"test-reference": 0.49,
@@ -1138,7 +1138,7 @@
 		},
 		"ai/anthropics-skills-1964.md": {
 			"label": "ai",
-			"probability": 0.935,
+			"score": 6.5,
 			"signals": {
 				"template-headings": 1.19,
 				"code-span-density": 1.15,
@@ -1150,7 +1150,7 @@
 		},
 		"ai/apache-airflow-74067.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"ai-disclosure": 3,
 				"bold-lead-bullets": 2,
@@ -1170,7 +1170,7 @@
 		},
 		"ai/apache-airflow-74141.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"ai-disclosure": 3,
 				"so-chains": 2.77,
@@ -1191,7 +1191,7 @@
 		},
 		"ai/apache-druid-5741338243.md": {
 			"label": "ai",
-			"probability": 0.992,
+			"score": 0.8,
 			"signals": {
 				"em-dash": 2.26,
 				"review-pleasantries": 1.47,
@@ -1206,7 +1206,7 @@
 		},
 		"ai/apache-dubbo-5442254523.md": {
 			"label": "ai",
-			"probability": 0.786,
+			"score": 21.4,
 			"signals": {
 				"semicolons": 2.47,
 				"code-span-density": 0.81,
@@ -1217,7 +1217,7 @@
 		},
 		"ai/apache-echarts-21775.md": {
 			"label": "ai",
-			"probability": 0.996,
+			"score": 0.4,
 			"signals": {
 				"so-chains": 1.85,
 				"fails-before-fix": 1.35,
@@ -1236,7 +1236,7 @@
 		},
 		"ai/apache-pulsar-26791.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"ai-disclosure": 3,
 				"bold-lead-bullets": 1.67,
@@ -1255,7 +1255,7 @@
 		},
 		"ai/apache-spark-57785.md": {
 			"label": "ai",
-			"probability": 0.272,
+			"score": 72.8,
 			"signals": {
 				"agent-vocabulary": 1.39,
 				"semicolons": 0.56,
@@ -1267,7 +1267,7 @@
 		},
 		"ai/apache-spark-59191.md": {
 			"label": "ai",
-			"probability": 0.998,
+			"score": 0.2,
 			"signals": {
 				"ai-disclosure": 3,
 				"semicolons": 1.47,
@@ -1286,7 +1286,7 @@
 		},
 		"ai/apache-spark-59207.md": {
 			"label": "ai",
-			"probability": 0.786,
+			"score": 21.4,
 			"signals": {
 				"so-chains": 2.77,
 				"unchanged-claims": 0.96,
@@ -1305,7 +1305,7 @@
 		},
 		"ai/apache-spark-59314.md": {
 			"label": "ai",
-			"probability": 0.999,
+			"score": 0.1,
 			"signals": {
 				"ai-disclosure": 3,
 				"workflow-vocabulary": 1.03,
@@ -1323,7 +1323,7 @@
 		},
 		"ai/apache-superset-44895.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"existing-reference": 2.72,
 				"scope-disclaimer": 2.19,
@@ -1350,7 +1350,7 @@
 		},
 		"ai/apollographql-router-10377.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"so-chains": 2.77,
 				"fails-before-fix": 1.35,
@@ -1372,7 +1372,7 @@
 		},
 		"ai/apollographql-router-10384.md": {
 			"label": "ai",
-			"probability": 0.999,
+			"score": 0.1,
 			"signals": {
 				"fails-before-fix": 1.35,
 				"template-headings": 1.19,
@@ -1392,7 +1392,7 @@
 		},
 		"ai/appwrite-appwrite-14189.md": {
 			"label": "ai",
-			"probability": 0.399,
+			"score": 60.1,
 			"signals": {
 				"unchanged-claims": 0.96,
 				"scope-disclaimer": 0.73,
@@ -1409,7 +1409,7 @@
 		},
 		"ai/aquasecurity-trivy-11341.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"so-chains": 2.77,
 				"scope-disclaimer": 2.19,
@@ -1427,7 +1427,7 @@
 		},
 		"ai/archestra-ai-archestra-4254795565.md": {
 			"label": "ai",
-			"probability": 0.541,
+			"score": 45.9,
 			"signals": {
 				"em-dash": 2.82,
 				"existing-reference": 0.91,
@@ -1440,7 +1440,7 @@
 		},
 		"ai/argoproj-argo-cd-29978.md": {
 			"label": "ai",
-			"probability": 0.531,
+			"score": 46.9,
 			"signals": {
 				"ci-green": 0.98,
 				"code-span-density": 0.8,
@@ -1451,7 +1451,7 @@
 		},
 		"ai/arronKler-pairfob-12.md": {
 			"label": "ai",
-			"probability": 0.986,
+			"score": 1.4,
 			"signals": {
 				"existing-reference": 1.81,
 				"unchanged-claims": 0.96,
@@ -1467,7 +1467,7 @@
 		},
 		"ai/astral-sh-ruff-29040.md": {
 			"label": "ai",
-			"probability": 0.597,
+			"score": 40.3,
 			"signals": {
 				"code-span-density": 1.07,
 				"imperative-sentences": 0.54,
@@ -1476,7 +1476,7 @@
 		},
 		"ai/astral-sh-ruff-29072.md": {
 			"label": "ai",
-			"probability": 0.946,
+			"score": 5.4,
 			"signals": {
 				"ai-disclosure": 3,
 				"semicolons": 1.7,
@@ -1487,7 +1487,7 @@
 		},
 		"ai/astral-sh-ruff-29133.md": {
 			"label": "ai",
-			"probability": 0.38,
+			"score": 62,
 			"signals": {
 				"existing-precedent": 0.53,
 				"tidy-prose": 0.24,
@@ -1496,7 +1496,7 @@
 		},
 		"ai/astral-sh-uv-22135.md": {
 			"label": "ai",
-			"probability": 0.703,
+			"score": 29.7,
 			"signals": {
 				"code-span-density": 0.77,
 				"bold-lead-bullets": 0.67,
@@ -1506,7 +1506,7 @@
 		},
 		"ai/astral-sh-uv-22305.md": {
 			"label": "ai",
-			"probability": 0.575,
+			"score": 42.5,
 			"signals": {
 				"code-span-density": 1.14,
 				"imperative-sentences": 0.54
@@ -1514,7 +1514,7 @@
 		},
 		"ai/atuinsh-atuin-4310.md": {
 			"label": "ai",
-			"probability": 0.768,
+			"score": 23.2,
 			"signals": {
 				"scope-disclaimer": 0.73,
 				"code-span-density": 0.7,
@@ -1528,7 +1528,7 @@
 		},
 		"ai/aws-aws-durable-execution-sdk-java-4758497105.md": {
 			"label": "ai",
-			"probability": 0.99,
+			"score": 1,
 			"signals": {
 				"review-pleasantries": 1.47,
 				"workflow-vocabulary": 1.03,
@@ -1542,7 +1542,7 @@
 		},
 		"ai/axios-axios-11264.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"scope-disclaimer": 2.19,
 				"now-verbs": 1.69,
@@ -1566,7 +1566,7 @@
 		},
 		"ai/axios-axios-11265.md": {
 			"label": "ai",
-			"probability": 0.999,
+			"score": 0.1,
 			"signals": {
 				"existing-reference": 1.81,
 				"scope-disclaimer": 1.46,
@@ -1594,7 +1594,7 @@
 		},
 		"ai/axios-axios-11279.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"ai-disclosure": 3,
 				"existing-reference": 2.72,
@@ -1627,7 +1627,7 @@
 		},
 		"ai/babel-babel-18299.md": {
 			"label": "ai",
-			"probability": 0.976,
+			"score": 2.4,
 			"signals": {
 				"ai-disclosure": 3,
 				"unchanged-claims": 0.96,
@@ -1645,7 +1645,7 @@
 		},
 		"ai/base-skills-5180619410.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"status-openers": 3.03,
 				"semicolons": 2.17,
@@ -1659,7 +1659,7 @@
 		},
 		"ai/bazelbuild-bazel-31630.md": {
 			"label": "ai",
-			"probability": 0.18,
+			"score": 82,
 			"signals": {
 				"now-verbs": 0.85,
 				"tidy-prose": 0.16,
@@ -1670,7 +1670,7 @@
 		},
 		"ai/bevyengine-bevy-26025.md": {
 			"label": "ai",
-			"probability": 0.963,
+			"score": 3.7,
 			"signals": {
 				"ai-disclosure": 3,
 				"now-verbs": 0.85,
@@ -1682,7 +1682,7 @@
 		},
 		"ai/bigskysoftware-htmx-4119.md": {
 			"label": "ai",
-			"probability": 0.738,
+			"score": 26.2,
 			"signals": {
 				"code-span-density": 0.85,
 				"fails-before-fix": 0.68,
@@ -1695,7 +1695,7 @@
 		},
 		"ai/binwiederhier-ntfy-1978.md": {
 			"label": "ai",
-			"probability": 0.994,
+			"score": 0.6,
 			"signals": {
 				"semicolons": 1.68,
 				"unchanged-claims": 0.96,
@@ -1712,7 +1712,7 @@
 		},
 		"ai/binwiederhier-ntfy-1995.md": {
 			"label": "ai",
-			"probability": 0.999,
+			"score": 0.1,
 			"signals": {
 				"ai-disclosure": 3,
 				"scope-disclaimer": 1.46,
@@ -1728,7 +1728,7 @@
 		},
 		"ai/block-goose-12784.md": {
 			"label": "ai",
-			"probability": 0.929,
+			"score": 7.1,
 			"signals": {
 				"semicolons": 1.51,
 				"existing-precedent": 1.06,
@@ -1743,7 +1743,7 @@
 		},
 		"ai/browser-use-browser-use-5966.md": {
 			"label": "ai",
-			"probability": 0.913,
+			"score": 8.7,
 			"signals": {
 				"semicolons": 1.13,
 				"agent-vocabulary": 0.69,
@@ -1757,7 +1757,7 @@
 		},
 		"ai/caberdo-terraform-provider-rustfs-3.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"plan-headings": 4,
 				"semicolons": 2.4,
@@ -1770,7 +1770,7 @@
 		},
 		"ai/caddyserver-caddy-8160.md": {
 			"label": "ai",
-			"probability": 0.787,
+			"score": 21.3,
 			"signals": {
 				"now-verbs": 0.85,
 				"semicolons": 0.82,
@@ -1783,7 +1783,7 @@
 		},
 		"ai/calcom-cal.diy-30315.md": {
 			"label": "ai",
-			"probability": 0.957,
+			"score": 4.3,
 			"signals": {
 				"bold-lead-bullets": 4,
 				"so-chains": 1.85,
@@ -1805,7 +1805,7 @@
 		},
 		"ai/capricorn86-happy-dom-6115412620.md": {
 			"label": "ai",
-			"probability": 0.999,
+			"score": 0.1,
 			"signals": {
 				"em-dash": 4,
 				"happy-to": 1.29,
@@ -1822,7 +1822,7 @@
 		},
 		"ai/changesets-changesets-2326.md": {
 			"label": "ai",
-			"probability": 0.995,
+			"score": 0.5,
 			"signals": {
 				"existing-reference": 1.81,
 				"semicolons": 1.38,
@@ -1837,7 +1837,7 @@
 		},
 		"ai/charmbracelet-bubbletea-1829.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"em-dash": 4,
 				"semicolons": 1.35,
@@ -1859,7 +1859,7 @@
 		},
 		"ai/charmbracelet-bubbletea-1834.md": {
 			"label": "ai",
-			"probability": 0.996,
+			"score": 0.4,
 			"signals": {
 				"plan-headings": 2.67,
 				"code-span-density": 1.28,
@@ -1872,7 +1872,7 @@
 		},
 		"ai/charmbracelet-glow-1047.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"plan-headings": 2.67,
 				"semicolons": 1.85,
@@ -1885,7 +1885,7 @@
 		},
 		"ai/charmbracelet-lipgloss-748.md": {
 			"label": "ai",
-			"probability": 0.999,
+			"score": 0.1,
 			"signals": {
 				"plan-headings": 2.67,
 				"template-headings": 2.37,
@@ -1898,7 +1898,7 @@
 		},
 		"ai/chatman-media-timeline-studio-375.md": {
 			"label": "ai",
-			"probability": 0.998,
+			"score": 0.2,
 			"signals": {
 				"plan-headings": 2.67,
 				"semicolons": 1.18,
@@ -1914,7 +1914,7 @@
 		},
 		"ai/chroma-core-chroma-7831.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-attribution": 4,
 				"semicolons": 3.66,
@@ -1931,7 +1931,7 @@
 		},
 		"ai/chroma-core-chroma-7841.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"so-chains": 2.77,
 				"math-symbols": 1.37,
@@ -1955,7 +1955,7 @@
 		},
 		"ai/chroma-core-chroma-7847.md": {
 			"label": "ai",
-			"probability": 0.994,
+			"score": 0.6,
 			"signals": {
 				"semicolons": 1.82,
 				"workflow-vocabulary": 1.03,
@@ -1971,7 +1971,7 @@
 		},
 		"ai/cilium-cilium-49201.md": {
 			"label": "ai",
-			"probability": 0.809,
+			"score": 19.1,
 			"signals": {
 				"semicolons": 1.36,
 				"fails-before-fix": 0.68,
@@ -1981,7 +1981,7 @@
 		},
 		"ai/cline-cline-14741.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"so-chains": 2.77,
 				"bold-lead-bullets": 2.33,
@@ -2007,7 +2007,7 @@
 		},
 		"ai/cline-cline-14762.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"existing-reference": 2.72,
 				"bold-lead-bullets": 2.67,
@@ -2033,7 +2033,7 @@
 		},
 		"ai/cline-cline-14926.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
@@ -2056,7 +2056,7 @@
 		},
 		"ai/colinhacks-zod-5306596838.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"em-dash": 4,
 				"agent-vocabulary": 2.77,
@@ -2077,7 +2077,7 @@
 		},
 		"ai/colinhacks-zod-6652.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"unchanged-claims": 1.92,
 				"so-chains": 1.85,
@@ -2095,7 +2095,7 @@
 		},
 		"ai/continuedev-continue-13348.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"test-tally": 1.28,
 				"semicolons": 1.09,
@@ -2121,7 +2121,7 @@
 		},
 		"ai/crabby-rathbun-mjrathbun-website-37.md": {
 			"label": "ai",
-			"probability": 0.14,
+			"score": 86,
 			"signals": {
 				"which-clauses": 0.32,
 				"long-paragraphs": 0.19,
@@ -2130,7 +2130,7 @@
 		},
 		"ai/crewAIInc-crewAI-7849.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"ai-disclosure": 3,
 				"now-verbs": 2.54,
@@ -2149,7 +2149,7 @@
 		},
 		"ai/crewAIInc-crewAI-7854.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
@@ -2169,7 +2169,7 @@
 		},
 		"ai/crewAIInc-crewAI-7981.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"ai-disclosure": 3,
 				"agent-vocabulary": 2.77,
@@ -2190,7 +2190,7 @@
 		},
 		"ai/cruz209-ATLAS-RTC-1.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"bold-lead-bullets": 2.67,
 				"agent-vocabulary": 2.08,
@@ -2210,7 +2210,7 @@
 		},
 		"ai/daaain-claude-code-log-5613072244.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"em-dash": 1.99,
 				"review-pleasantries": 1.47,
@@ -2229,7 +2229,7 @@
 		},
 		"ai/dandavison-delta-2260.md": {
 			"label": "ai",
-			"probability": 0.969,
+			"score": 3.1,
 			"signals": {
 				"ai-disclosure": 3,
 				"code-span-density": 1.28,
@@ -2238,7 +2238,7 @@
 		},
 		"ai/date-fns-date-fns-4342.md": {
 			"label": "ai",
-			"probability": 0.968,
+			"score": 3.2,
 			"signals": {
 				"test-reference": 1.46,
 				"semicolons": 1.18,
@@ -2251,7 +2251,7 @@
 		},
 		"ai/datnguye-dbterd-161.md": {
 			"label": "ai",
-			"probability": 0.936,
+			"score": 6.4,
 			"signals": {
 				"semicolons": 1.6,
 				"unchanged-claims": 0.96,
@@ -2265,7 +2265,7 @@
 		},
 		"ai/deepspeedai-DeepSpeed-8712.md": {
 			"label": "ai",
-			"probability": 0.985,
+			"score": 1.5,
 			"signals": {
 				"semicolons": 1.61,
 				"fails-before-fix": 1.35,
@@ -2280,7 +2280,7 @@
 		},
 		"ai/deepspeedai-DeepSpeed-8722.md": {
 			"label": "ai",
-			"probability": 0.998,
+			"score": 0.2,
 			"signals": {
 				"so-chains": 2.77,
 				"test-tally": 1.28,
@@ -2296,7 +2296,7 @@
 		},
 		"ai/deepspeedai-DeepSpeed-8724.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"ai-disclosure": 3,
 				"test-tally": 1.92,
@@ -2319,7 +2319,7 @@
 		},
 		"ai/denoland-deno-36938.md": {
 			"label": "ai",
-			"probability": 0.165,
+			"score": 83.5,
 			"signals": {
 				"code-span-density": 1.28,
 				"contractions": -0.64,
@@ -2328,7 +2328,7 @@
 		},
 		"ai/denoland-deno-36964.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"ai-disclosure": 3,
 				"so-chains": 2.77,
@@ -2352,7 +2352,7 @@
 		},
 		"ai/diesel-rs-diesel-5259.md": {
 			"label": "ai",
-			"probability": 0.79,
+			"score": 21,
 			"signals": {
 				"existing-reference": 0.91,
 				"code-span-density": 0.86,
@@ -2362,7 +2362,7 @@
 		},
 		"ai/django-ses-django-ses-383.md": {
 			"label": "ai",
-			"probability": 0.968,
+			"score": 3.2,
 			"signals": {
 				"semicolons": 1.62,
 				"code-span-density": 0.99,
@@ -2377,7 +2377,7 @@
 		},
 		"ai/dotnet-aspnetcore-69634.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-attribution": 4,
 				"bold-lead-bullets": 4,
@@ -2407,7 +2407,7 @@
 		},
 		"ai/dotnet-runtime-135355.md": {
 			"label": "ai",
-			"probability": 0.84,
+			"score": 16,
 			"signals": {
 				"template-headings": 1.19,
 				"git-diff-check": 1.01,
@@ -2419,7 +2419,7 @@
 		},
 		"ai/drizzle-team-drizzle-orm-4643152239.md": {
 			"label": "ai",
-			"probability": 0.99,
+			"score": 1,
 			"signals": {
 				"em-dash": 2.24,
 				"happy-to": 1.29,
@@ -2433,7 +2433,7 @@
 		},
 		"ai/drizzle-team-drizzle-orm-6414.md": {
 			"label": "ai",
-			"probability": 0.937,
+			"score": 6.3,
 			"signals": {
 				"work-claim": 1.88,
 				"template-headings": 1.19,
@@ -2444,7 +2444,7 @@
 		},
 		"ai/duckdb-duckdb-26497.md": {
 			"label": "ai",
-			"probability": 0.989,
+			"score": 1.1,
 			"signals": {
 				"unchanged-claims": 0.96,
 				"code-span-density": 0.93,
@@ -2459,7 +2459,7 @@
 		},
 		"ai/earendil-works-pi-7229.md": {
 			"label": "ai",
-			"probability": 0.989,
+			"score": 1.1,
 			"signals": {
 				"arrows": 1.79,
 				"status-openers": 1.52,
@@ -2475,7 +2475,7 @@
 		},
 		"ai/elastic-elasticsearch-160737.md": {
 			"label": "ai",
-			"probability": 0.888,
+			"score": 11.2,
 			"signals": {
 				"semicolons": 2.43,
 				"code-span-density": 0.87,
@@ -2484,7 +2484,7 @@
 		},
 		"ai/elastic-elasticsearch-160776.md": {
 			"label": "ai",
-			"probability": 0.562,
+			"score": 43.8,
 			"signals": {
 				"code-span-density": 1.28,
 				"long-paragraphs": 0.19,
@@ -2493,7 +2493,7 @@
 		},
 		"ai/elastic-elasticsearch-160793.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-attribution": 4,
 				"bold-lead-bullets": 3.33,
@@ -2515,14 +2515,14 @@
 		},
 		"ai/electron-electron-54647.md": {
 			"label": "ai",
-			"probability": 0.056,
+			"score": 94.4,
 			"signals": {
 				"short-body": -1.44
 			}
 		},
 		"ai/emberjs-ember.js-21650.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
@@ -2545,7 +2545,7 @@
 		},
 		"ai/emberjs-ember.js-21662.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
@@ -2568,7 +2568,7 @@
 		},
 		"ai/envoyproxy-envoy-47941.md": {
 			"label": "ai",
-			"probability": 0.998,
+			"score": 0.2,
 			"signals": {
 				"ai-disclosure": 3,
 				"semicolons": 1.3,
@@ -2586,7 +2586,7 @@
 		},
 		"ai/envoyproxy-envoy-48177.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"ai-disclosure": 3,
 				"template-headings": 2.37,
@@ -2602,7 +2602,7 @@
 		},
 		"ai/eslint-eslint-21386.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"ai-disclosure": 3,
 				"so-chains": 2.77,
@@ -2629,7 +2629,7 @@
 		},
 		"ai/evanw-esbuild-4546.md": {
 			"label": "ai",
-			"probability": 0.999,
+			"score": 0.1,
 			"signals": {
 				"plan-headings": 4,
 				"code-span-density": 1.28,
@@ -2642,7 +2642,7 @@
 		},
 		"ai/evanw-esbuild-4547.md": {
 			"label": "ai",
-			"probability": 0.895,
+			"score": 10.5,
 			"signals": {
 				"workflow-vocabulary": 1.03,
 				"existing-reference": 0.91,
@@ -2654,7 +2654,7 @@
 		},
 		"ai/excalidraw-excalidraw-5836235563.md": {
 			"label": "ai",
-			"probability": 0.996,
+			"score": 0.4,
 			"signals": {
 				"status-openers": 1.52,
 				"em-dash": 1.13,
@@ -2671,7 +2671,7 @@
 		},
 		"ai/expo-expo-51330.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
@@ -2688,7 +2688,7 @@
 		},
 		"ai/expo-expo-5393428853.md": {
 			"label": "ai",
-			"probability": 0.959,
+			"score": 4.1,
 			"signals": {
 				"happy-to": 1.29,
 				"code-span-density": 1.01,
@@ -2701,7 +2701,7 @@
 		},
 		"ai/expressjs-express-7501.md": {
 			"label": "ai",
-			"probability": 0.65,
+			"score": 35,
 			"signals": {
 				"em-dash": 1.63,
 				"code-span-density": 1.19,
@@ -2712,7 +2712,7 @@
 		},
 		"ai/facebook-docusaurus-12563.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
@@ -2729,7 +2729,7 @@
 		},
 		"ai/facebook-docusaurus-12571.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
@@ -2756,7 +2756,7 @@
 		},
 		"ai/fastapi-fastapi-16455.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"ai-disclosure": 3,
 				"template-headings": 2.37,
@@ -2772,7 +2772,7 @@
 		},
 		"ai/fastify-fastify-7081.md": {
 			"label": "ai",
-			"probability": 0.522,
+			"score": 47.8,
 			"signals": {
 				"code-span-density": 1.28,
 				"tidy-prose": 0.16,
@@ -2781,7 +2781,7 @@
 		},
 		"ai/fells-code-seamless-auth-admin-dashboard-5113891184.md": {
 			"label": "ai",
-			"probability": 0.69,
+			"score": 31,
 			"signals": {
 				"work-claim": 1.88,
 				"workflow-vocabulary": 1.03,
@@ -2791,7 +2791,7 @@
 		},
 		"ai/flutter-flutter-193675.md": {
 			"label": "ai",
-			"probability": 0.957,
+			"score": 4.3,
 			"signals": {
 				"code-span-density": 0.97,
 				"unchanged-claims": 0.96,
@@ -2807,7 +2807,7 @@
 		},
 		"ai/flutter-flutter-193710.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"ai-disclosure": 3,
 				"em-dash": 2.9,
@@ -2831,12 +2831,12 @@
 		},
 		"ai/forgepair-forgepair-5592860337.md": {
 			"label": "ai",
-			"probability": 0.201,
+			"score": 79.9,
 			"signals": {}
 		},
 		"ai/freeCodeCamp-freeCodeCamp-70545.md": {
 			"label": "ai",
-			"probability": 0.38,
+			"score": 62,
 			"signals": {
 				"scope-disclaimer": 0.73,
 				"tidy-prose": 0.16
@@ -2844,7 +2844,7 @@
 		},
 		"ai/freeCodeCamp-freeCodeCamp-70546.md": {
 			"label": "ai",
-			"probability": 0.509,
+			"score": 49.1,
 			"signals": {
 				"now-verbs": 0.85,
 				"code-span-density": 0.57
@@ -2852,7 +2852,7 @@
 		},
 		"ai/freeCodeCamp-freeCodeCamp-70556.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"ai-disclosure": 3,
 				"plan-headings": 2.67,
@@ -2871,7 +2871,7 @@
 		},
 		"ai/freeCodeCamp-freeCodeCamp-70558.md": {
 			"label": "ai",
-			"probability": 0.927,
+			"score": 7.3,
 			"signals": {
 				"template-headings": 2.37,
 				"git-diff-check": 1.01,
@@ -2881,7 +2881,7 @@
 		},
 		"ai/freeCodeCamp-freeCodeCamp-70563.md": {
 			"label": "ai",
-			"probability": 0.996,
+			"score": 0.4,
 			"signals": {
 				"em-dash": 3.01,
 				"template-headings": 2.37,
@@ -2892,7 +2892,7 @@
 		},
 		"ai/freeCodeCamp-freeCodeCamp-70606.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"ai-disclosure": 3,
 				"template-headings": 2.37,
@@ -2914,7 +2914,7 @@
 		},
 		"ai/genspark-ai-genoffice-5946322621.md": {
 			"label": "ai",
-			"probability": 0.637,
+			"score": 36.3,
 			"signals": {
 				"ci-green": 0.98,
 				"not-contrast": 0.75,
@@ -2926,7 +2926,7 @@
 		},
 		"ai/getsentry-sentry-126286.md": {
 			"label": "ai",
-			"probability": 0.004,
+			"score": 99.6,
 			"signals": {
 				"contrast-phrases": 0.33,
 				"long-paragraphs": 0.19,
@@ -2939,7 +2939,7 @@
 		},
 		"ai/getsentry-sentry-126329.md": {
 			"label": "ai",
-			"probability": 0.359,
+			"score": 64.1,
 			"signals": {
 				"code-span-density": 1.28,
 				"tidy-prose": 0.16,
@@ -2948,7 +2948,7 @@
 		},
 		"ai/getzep-graphiti-1980.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
@@ -2969,7 +2969,7 @@
 		},
 		"ai/ggml-org-llama.cpp-30243.md": {
 			"label": "ai",
-			"probability": 0.974,
+			"score": 2.6,
 			"signals": {
 				"semicolons": 1.56,
 				"workflow-vocabulary": 1.03,
@@ -2985,7 +2985,7 @@
 		},
 		"ai/gin-gonic-gin-4865.md": {
 			"label": "ai",
-			"probability": 0.863,
+			"score": 13.7,
 			"signals": {
 				"plan-headings": 1.33,
 				"template-headings": 1.19,
@@ -2995,7 +2995,7 @@
 		},
 		"ai/go-chi-chi-1199.md": {
 			"label": "ai",
-			"probability": 0.999,
+			"score": 0.1,
 			"signals": {
 				"ai-disclosure": 3,
 				"status-openers": 1.52,
@@ -3010,7 +3010,7 @@
 		},
 		"ai/godotengine-godot-124292.md": {
 			"label": "ai",
-			"probability": 0.989,
+			"score": 1.1,
 			"signals": {
 				"unchanged-claims": 0.96,
 				"so-chains": 0.92,
@@ -3026,7 +3026,7 @@
 		},
 		"ai/gofiber-fiber-4730.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
@@ -3044,7 +3044,7 @@
 		},
 		"ai/golang-go-81992.md": {
 			"label": "ai",
-			"probability": 0.098,
+			"score": 90.2,
 			"signals": {
 				"which-clauses": 0.63,
 				"unpunctuated-lines": -1.47
@@ -3052,7 +3052,7 @@
 		},
 		"ai/google-magika-1472.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"plan-headings": 4,
 				"em-dash": 1.42,
@@ -3071,7 +3071,7 @@
 		},
 		"ai/grafana-alloy-7277.md": {
 			"label": "ai",
-			"probability": 0.98,
+			"score": 2,
 			"signals": {
 				"plan-headings": 2.67,
 				"template-headings": 1.19,
@@ -3083,7 +3083,7 @@
 		},
 		"ai/grafana-alloy-7287.md": {
 			"label": "ai",
-			"probability": 0.96,
+			"score": 4,
 			"signals": {
 				"ai-disclosure": 3,
 				"now-verbs": 0.85,
@@ -3093,7 +3093,7 @@
 		},
 		"ai/grafana-grafana-134010.md": {
 			"label": "ai",
-			"probability": 0.908,
+			"score": 9.2,
 			"signals": {
 				"existing-reference": 0.91,
 				"fails-before-fix": 0.68,
@@ -3109,7 +3109,7 @@
 		},
 		"ai/grafana-grafana-134227.md": {
 			"label": "ai",
-			"probability": 0.244,
+			"score": 75.6,
 			"signals": {
 				"imperative-sentences": 0.54,
 				"unpunctuated-lines": -0.29
@@ -3117,7 +3117,7 @@
 		},
 		"ai/grafana-k6-6516.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"ai-disclosure": 3,
 				"semicolons": 1.18,
@@ -3138,7 +3138,7 @@
 		},
 		"ai/grafana-loki-24872.md": {
 			"label": "ai",
-			"probability": 0.988,
+			"score": 1.2,
 			"signals": {
 				"so-chains": 1.85,
 				"unchanged-claims": 0.96,
@@ -3154,7 +3154,7 @@
 		},
 		"ai/grafana-loki-24884.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"ai-disclosure": 3,
 				"scope-disclaimer": 2.19,
@@ -3180,7 +3180,7 @@
 		},
 		"ai/grafana-loki-24896.md": {
 			"label": "ai",
-			"probability": 0.956,
+			"score": 4.4,
 			"signals": {
 				"scope-disclaimer": 1.46,
 				"unchanged-claims": 0.96,
@@ -3194,7 +3194,7 @@
 		},
 		"ai/grafana-mimir-16770.md": {
 			"label": "ai",
-			"probability": 0.821,
+			"score": 17.9,
 			"signals": {
 				"template-headings": 2.37,
 				"code-span-density": 0.75,
@@ -3206,7 +3206,7 @@
 		},
 		"ai/grpc-grpc-43593.md": {
 			"label": "ai",
-			"probability": 0.188,
+			"score": 81.2,
 			"signals": {
 				"emoji-markers": 0.25,
 				"tidy-prose": 0.24,
@@ -3216,7 +3216,7 @@
 		},
 		"ai/gsd-build-get-shit-done-3561.md": {
 			"label": "ai",
-			"probability": 0.99,
+			"score": 1,
 			"signals": {
 				"plan-headings": 2.67,
 				"happy-to": 1.29,
@@ -3228,7 +3228,7 @@
 		},
 		"ai/h3js-h3-1572.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"ai-disclosure": 3,
 				"scope-disclaimer": 1.46,
@@ -3244,7 +3244,7 @@
 		},
 		"ai/hashicorp-consul-23986.md": {
 			"label": "ai",
-			"probability": 0.691,
+			"score": 30.9,
 			"signals": {
 				"template-headings": 1.19,
 				"code-span-density": 0.67,
@@ -3260,7 +3260,7 @@
 		},
 		"ai/hashicorp-terraform-38302.md": {
 			"label": "ai",
-			"probability": 0.535,
+			"score": 46.5,
 			"signals": {
 				"code-span-density": 0.79,
 				"agent-vocabulary": 0.69,
@@ -3273,7 +3273,7 @@
 		},
 		"ai/hashicorp-vault-32136.md": {
 			"label": "ai",
-			"probability": 0.983,
+			"score": 1.7,
 			"signals": {
 				"plan-headings": 1.33,
 				"template-headings": 1.19,
@@ -3286,7 +3286,7 @@
 		},
 		"ai/helix-editor-helix-16336.md": {
 			"label": "ai",
-			"probability": 0.989,
+			"score": 1.1,
 			"signals": {
 				"ai-disclosure": 3,
 				"now-verbs": 0.85,
@@ -3304,7 +3304,7 @@
 		},
 		"ai/helix-editor-helix-16337.md": {
 			"label": "ai",
-			"probability": 0.415,
+			"score": 58.5,
 			"signals": {
 				"existing-reference": 0.91,
 				"code-span-density": 0.28,
@@ -3313,7 +3313,7 @@
 		},
 		"ai/helix-editor-helix-16338.md": {
 			"label": "ai",
-			"probability": 0.911,
+			"score": 8.9,
 			"signals": {
 				"unchanged-claims": 0.96,
 				"existing-reference": 0.91,
@@ -3326,7 +3326,7 @@
 		},
 		"ai/helix-editor-helix-16358.md": {
 			"label": "ai",
-			"probability": 0.56,
+			"score": 44,
 			"signals": {
 				"template-headings": 1.19,
 				"code-span-density": 0.19,
@@ -3338,7 +3338,7 @@
 		},
 		"ai/helm-helm-32716.md": {
 			"label": "ai",
-			"probability": 0.6,
+			"score": 40,
 			"signals": {
 				"code-span-density": 1.28,
 				"which-clauses": 0.32,
@@ -3347,7 +3347,7 @@
 		},
 		"ai/heroui-inc-heroui-6930.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
@@ -3374,7 +3374,7 @@
 		},
 		"ai/highcharts-highcharts-25271.md": {
 			"label": "ai",
-			"probability": 0.602,
+			"score": 39.8,
 			"signals": {
 				"semicolons": 0.96,
 				"code-span-density": 0.59,
@@ -3383,7 +3383,7 @@
 		},
 		"ai/highcharts-highcharts-5946662548.md": {
 			"label": "ai",
-			"probability": 0.534,
+			"score": 46.6,
 			"signals": {
 				"em-dash": 1.14,
 				"semicolons": 0.84,
@@ -3393,7 +3393,7 @@
 		},
 		"ai/home-assistant-core-183934.md": {
 			"label": "ai",
-			"probability": 0.976,
+			"score": 2.4,
 			"signals": {
 				"unchanged-claims": 0.96,
 				"existing-reference": 0.91,
@@ -3411,7 +3411,7 @@
 		},
 		"ai/home-assistant-core-184000.md": {
 			"label": "ai",
-			"probability": 0.984,
+			"score": 1.6,
 			"signals": {
 				"code-span-density": 1.28,
 				"semicolons": 1.07,
@@ -3426,7 +3426,7 @@
 		},
 		"ai/home-assistant-core-184059.md": {
 			"label": "ai",
-			"probability": 0.562,
+			"score": 43.8,
 			"signals": {
 				"scope-disclaimer": 0.73,
 				"colon-bullets": 0.54,
@@ -3438,7 +3438,7 @@
 		},
 		"ai/home-assistant-core-185118.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
@@ -3449,7 +3449,7 @@
 		},
 		"ai/honojs-hono-5503.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
@@ -3463,7 +3463,7 @@
 		},
 		"ai/honojs-hono-5522.md": {
 			"label": "ai",
-			"probability": 0.992,
+			"score": 0.8,
 			"signals": {
 				"template-headings": 2.37,
 				"semicolons": 1.31,
@@ -3477,7 +3477,7 @@
 		},
 		"ai/howwohmm-capsule-9.md": {
 			"label": "ai",
-			"probability": 0.999,
+			"score": 0.1,
 			"signals": {
 				"em-dash": 3.67,
 				"plan-headings": 2.67,
@@ -3489,7 +3489,7 @@
 		},
 		"ai/huggingface-accelerate-4358.md": {
 			"label": "ai",
-			"probability": 0.917,
+			"score": 8.3,
 			"signals": {
 				"semicolons": 2.47,
 				"code-span-density": 0.85,
@@ -3500,7 +3500,7 @@
 		},
 		"ai/huggingface-datasets-8758.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"ai-disclosure": 3,
 				"semicolons": 2.75,
@@ -3521,7 +3521,7 @@
 		},
 		"ai/huggingface-peft-3860.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"existing-reference": 1.81,
 				"arrows": 1.79,
@@ -3549,7 +3549,7 @@
 		},
 		"ai/huggingface-peft-3881.md": {
 			"label": "ai",
-			"probability": 0.425,
+			"score": 57.5,
 			"signals": {
 				"code-span-density": 0.62,
 				"test-reference": 0.49,
@@ -3559,7 +3559,7 @@
 		},
 		"ai/huggingface-transformers-49257.md": {
 			"label": "ai",
-			"probability": 0.977,
+			"score": 2.3,
 			"signals": {
 				"workflow-vocabulary": 2.07,
 				"template-headings": 1.19,
@@ -3574,7 +3574,7 @@
 		},
 		"ai/huginn-huginn-3779.md": {
 			"label": "ai",
-			"probability": 0.342,
+			"score": 65.8,
 			"signals": {
 				"code-span-density": 0.57,
 				"tidy-prose": 0.16
@@ -3582,7 +3582,7 @@
 		},
 		"ai/hynek-structlog-4062081974.md": {
 			"label": "ai",
-			"probability": 0.979,
+			"score": 2.1,
 			"signals": {
 				"em-dash": 3.82,
 				"shell-escapes": 1.98,
@@ -3596,7 +3596,7 @@
 		},
 		"ai/infiniflow-ragflow-5866457615.md": {
 			"label": "ai",
-			"probability": 0.398,
+			"score": 60.2,
 			"signals": {
 				"now-verbs": 0.85,
 				"scope-disclaimer": 0.73,
@@ -3610,7 +3610,7 @@
 		},
 		"ai/invoke-ai-InvokeAI-9638.md": {
 			"label": "ai",
-			"probability": 0.768,
+			"score": 23.2,
 			"signals": {
 				"code-span-density": 1.28,
 				"so-chains": 0.92,
@@ -3625,7 +3625,7 @@
 		},
 		"ai/istio-istio-62021.md": {
 			"label": "ai",
-			"probability": 0.87,
+			"score": 13,
 			"signals": {
 				"workflow-vocabulary": 1.03,
 				"semicolons": 0.94,
@@ -3637,7 +3637,7 @@
 		},
 		"ai/jackfrued-Python-100-Days-1217.md": {
 			"label": "ai",
-			"probability": 0.604,
+			"score": 39.6,
 			"signals": {
 				"bold-lead-bullets": 1,
 				"code-span-density": 0.88,
@@ -3650,7 +3650,7 @@
 		},
 		"ai/jaegertracing-jaeger-9722.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"ai-disclosure": 3,
 				"template-headings": 2.37,
@@ -3667,7 +3667,7 @@
 		},
 		"ai/jaegertracing-jaeger-9776.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
@@ -3691,7 +3691,7 @@
 		},
 		"ai/jdx-mise-13957.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
@@ -3713,7 +3713,7 @@
 		},
 		"ai/jestjs-jest-16478.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"unchanged-claims": 1.92,
 				"existing-reference": 1.81,
@@ -3734,7 +3734,7 @@
 		},
 		"ai/jestjs-jest-16483.md": {
 			"label": "ai",
-			"probability": 0.581,
+			"score": 41.9,
 			"signals": {
 				"agent-vocabulary": 1.39,
 				"test-tally": 0.64,
@@ -3746,7 +3746,7 @@
 		},
 		"ai/juanfont-headscale-3521.md": {
 			"label": "ai",
-			"probability": 0.859,
+			"score": 14.1,
 			"signals": {
 				"ai-disclosure": 3,
 				"long-paragraphs": 0.19
@@ -3754,7 +3754,7 @@
 		},
 		"ai/juanfont-headscale-3544.md": {
 			"label": "ai",
-			"probability": 0.971,
+			"score": 2.9,
 			"signals": {
 				"ai-disclosure": 3,
 				"semicolons": 0.91,
@@ -3767,7 +3767,7 @@
 		},
 		"ai/jupyterlab-jupyterlab-19974.md": {
 			"label": "ai",
-			"probability": 0.989,
+			"score": 1.1,
 			"signals": {
 				"ai-disclosure": 3,
 				"workflow-vocabulary": 1.03,
@@ -3780,7 +3780,7 @@
 		},
 		"ai/k2-fsa-sherpa-onnx-4008.md": {
 			"label": "ai",
-			"probability": 0.999,
+			"score": 0.1,
 			"signals": {
 				"so-chains": 2.77,
 				"fails-before-fix": 1.35,
@@ -3795,7 +3795,7 @@
 		},
 		"ai/k3s-io-k3s-14732.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"ai-disclosure": 3,
 				"so-chains": 2.77,
@@ -3817,7 +3817,7 @@
 		},
 		"ai/karakeep-app-karakeep-3142.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"ai-disclosure": 3,
 				"existing-reference": 2.72,
@@ -3841,7 +3841,7 @@
 		},
 		"ai/keeltrace-hermes-nerve-5840425825.md": {
 			"label": "ai",
-			"probability": 0.588,
+			"score": 41.2,
 			"signals": {
 				"em-dash": 2.88,
 				"questions": -0.57,
@@ -3850,7 +3850,7 @@
 		},
 		"ai/keycloak-keycloak-53380.md": {
 			"label": "ai",
-			"probability": 0.988,
+			"score": 1.2,
 			"signals": {
 				"ai-disclosure": 3,
 				"semicolons": 1.33,
@@ -3863,7 +3863,7 @@
 		},
 		"ai/kubernetes-kubernetes-142600.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"semicolons": 3.7,
 				"ai-disclosure": 3,
@@ -3880,7 +3880,7 @@
 		},
 		"ai/kubernetes-kubernetes-142729.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
@@ -3893,14 +3893,14 @@
 		},
 		"ai/kubernetes-sigs-kustomize-6314.md": {
 			"label": "ai",
-			"probability": 0.343,
+			"score": 65.7,
 			"signals": {
 				"scope-disclaimer": 0.73
 			}
 		},
 		"ai/kubernetes-website-57853.md": {
 			"label": "ai",
-			"probability": 0.902,
+			"score": 9.8,
 			"signals": {
 				"ai-disclosure": 3,
 				"code-span-density": 0.77,
@@ -3911,7 +3911,7 @@
 		},
 		"ai/kubernetes-website-57859.md": {
 			"label": "ai",
-			"probability": 0.984,
+			"score": 1.6,
 			"signals": {
 				"ai-disclosure": 3,
 				"existing-reference": 0.91,
@@ -3924,7 +3924,7 @@
 		},
 		"ai/kubernetes-website-57870.md": {
 			"label": "ai",
-			"probability": 0.763,
+			"score": 23.7,
 			"signals": {
 				"ai-disclosure": 3,
 				"code-span-density": 0.28,
@@ -3934,7 +3934,7 @@
 		},
 		"ai/lancedb-lancedb-4449.md": {
 			"label": "ai",
-			"probability": 0.998,
+			"score": 0.2,
 			"signals": {
 				"semicolons": 3.26,
 				"ai-disclosure": 3,
@@ -3945,7 +3945,7 @@
 		},
 		"ai/langchain-ai-langchain-41001.md": {
 			"label": "ai",
-			"probability": 0.972,
+			"score": 2.8,
 			"signals": {
 				"workflow-vocabulary": 1.03,
 				"semicolons": 0.96,
@@ -3962,7 +3962,7 @@
 		},
 		"ai/langchain-ai-langchain-41144.md": {
 			"label": "ai",
-			"probability": 0.761,
+			"score": 23.9,
 			"signals": {
 				"workflow-vocabulary": 1.03,
 				"test-tally": 0.64,
@@ -3973,7 +3973,7 @@
 		},
 		"ai/langchain-ai-langgraph-9244.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"template-headings": 2.37,
 				"plan-headings": 1.33,
@@ -3992,7 +3992,7 @@
 		},
 		"ai/langgenius-dify-4188730086.md": {
 			"label": "ai",
-			"probability": 0.987,
+			"score": 1.3,
 			"signals": {
 				"em-dash": 3.06,
 				"status-openers": 1.52,
@@ -4003,7 +4003,7 @@
 		},
 		"ai/langgenius-dify-43327.md": {
 			"label": "ai",
-			"probability": 0.999,
+			"score": 0.1,
 			"signals": {
 				"semicolons": 1.73,
 				"template-headings": 1.19,
@@ -4021,7 +4021,7 @@
 		},
 		"ai/langgenius-dify-43329.md": {
 			"label": "ai",
-			"probability": 0.6,
+			"score": 40,
 			"signals": {
 				"workflow-vocabulary": 1.03,
 				"test-reference": 0.49,
@@ -4033,7 +4033,7 @@
 		},
 		"ai/langgenius-dify-43337.md": {
 			"label": "ai",
-			"probability": 0.992,
+			"score": 0.8,
 			"signals": {
 				"so-chains": 1.85,
 				"template-headings": 1.19,
@@ -4050,7 +4050,7 @@
 		},
 		"ai/langgenius-dify-43354.md": {
 			"label": "ai",
-			"probability": 0.992,
+			"score": 0.8,
 			"signals": {
 				"semicolons": 1.19,
 				"template-headings": 1.19,
@@ -4066,7 +4066,7 @@
 		},
 		"ai/laravel-framework-61941.md": {
 			"label": "ai",
-			"probability": 0.965,
+			"score": 3.5,
 			"signals": {
 				"agent-vocabulary": 2.08,
 				"code-span-density": 1.28,
@@ -4076,7 +4076,7 @@
 		},
 		"ai/linkwarden-linkwarden-1857.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"em-dash": 2.55,
 				"unchanged-claims": 1.92,
@@ -4096,7 +4096,7 @@
 		},
 		"ai/lobehub-lobehub-20275.md": {
 			"label": "ai",
-			"probability": 0.998,
+			"score": 0.2,
 			"signals": {
 				"ai-disclosure": 3,
 				"em-dash": 1.39,
@@ -4111,7 +4111,7 @@
 		},
 		"ai/lobehub-lobehub-20296.md": {
 			"label": "ai",
-			"probability": 0.997,
+			"score": 0.3,
 			"signals": {
 				"ai-disclosure": 3,
 				"colon-bullets": 1.27,
@@ -4127,7 +4127,7 @@
 		},
 		"ai/mantinedev-mantine-9269.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"ai-disclosure": 3,
 				"template-headings": 2.37,
@@ -4141,7 +4141,7 @@
 		},
 		"ai/markdown-it-markdown-it-1201.md": {
 			"label": "ai",
-			"probability": 0.987,
+			"score": 1.3,
 			"signals": {
 				"happy-to": 1.29,
 				"so-chains": 0.92,
@@ -4156,7 +4156,7 @@
 		},
 		"ai/mastra-ai-mastra-5571766864.md": {
 			"label": "ai",
-			"probability": 0.975,
+			"score": 2.5,
 			"signals": {
 				"em-dash": 3.33,
 				"status-openers": 1.52,
@@ -4167,7 +4167,7 @@
 		},
 		"ai/matplotlib-matplotlib-3892608817.md": {
 			"label": "ai",
-			"probability": 0.348,
+			"score": 65.2,
 			"signals": {
 				"em-dash": 1.59,
 				"tidy-prose": 0.32,
@@ -4177,7 +4177,7 @@
 		},
 		"ai/mayank-dev-15-sieve-2.md": {
 			"label": "ai",
-			"probability": 0.821,
+			"score": 17.9,
 			"signals": {
 				"em-dash": 2.94,
 				"arrows": 0.26,
@@ -4186,7 +4186,7 @@
 		},
 		"ai/meltano-meltano-5535937863.md": {
 			"label": "ai",
-			"probability": 0.867,
+			"score": 13.3,
 			"signals": {
 				"em-dash": 2.32,
 				"workflow-vocabulary": 1.03,
@@ -4200,7 +4200,7 @@
 		},
 		"ai/mem0ai-mem0-7530.md": {
 			"label": "ai",
-			"probability": 0.997,
+			"score": 0.3,
 			"signals": {
 				"shell-escapes": 1.98,
 				"not-contrast": 1.5,
@@ -4216,7 +4216,7 @@
 		},
 		"ai/mem0ai-mem0-7593.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"existing-reference": 2.72,
 				"scope-disclaimer": 2.19,
@@ -4240,7 +4240,7 @@
 		},
 		"ai/micronaut-projects-micronaut-core-13628.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"not-contrast": 2.25,
 				"scope-disclaimer": 2.19,
@@ -4266,7 +4266,7 @@
 		},
 		"ai/microsoft-markitdown-2470.md": {
 			"label": "ai",
-			"probability": 0.991,
+			"score": 0.9,
 			"signals": {
 				"so-chains": 1.85,
 				"happy-to": 1.29,
@@ -4283,7 +4283,7 @@
 		},
 		"ai/microsoft-playwright-43240.md": {
 			"label": "ai",
-			"probability": 0.709,
+			"score": 29.1,
 			"signals": {
 				"code-span-density": 1.28,
 				"now-verbs": 0.85,
@@ -4296,7 +4296,7 @@
 		},
 		"ai/microsoft-semantic-kernel-14532.md": {
 			"label": "ai",
-			"probability": 0.379,
+			"score": 62.1,
 			"signals": {
 				"code-span-density": 0.67,
 				"tidy-prose": 0.16,
@@ -4305,7 +4305,7 @@
 		},
 		"ai/microsoft-vscode-325664.md": {
 			"label": "ai",
-			"probability": 0.944,
+			"score": 5.6,
 			"signals": {
 				"so-chains": 1.85,
 				"agent-vocabulary": 0.69,
@@ -4318,7 +4318,7 @@
 		},
 		"ai/microsoft-vscode-339107.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-vocabulary": 2.08,
 				"so-chains": 1.85,
@@ -4339,7 +4339,7 @@
 		},
 		"ai/microsoft-vscode-339129.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"semicolons": 3.7,
 				"template-headings": 2.37,
@@ -4358,7 +4358,7 @@
 		},
 		"ai/microsoft-vscode-339512.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
@@ -4380,7 +4380,7 @@
 		},
 		"ai/milvus-io-milvus-54053.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"template-headings": 2.37,
 				"workflow-vocabulary": 2.07,
@@ -4397,7 +4397,7 @@
 		},
 		"ai/mixelburg-useMuiForm-2.md": {
 			"label": "ai",
-			"probability": 0.922,
+			"score": 7.8,
 			"signals": {
 				"em-dash": 2.45,
 				"code-span-density": 0.83,
@@ -4407,7 +4407,7 @@
 		},
 		"ai/modelscope-FunASR-3767.md": {
 			"label": "ai",
-			"probability": 0.989,
+			"score": 1.1,
 			"signals": {
 				"test-tally": 1.28,
 				"workflow-vocabulary": 1.03,
@@ -4425,7 +4425,7 @@
 		},
 		"ai/moonrepo-moon-2745.md": {
 			"label": "ai",
-			"probability": 0.987,
+			"score": 1.3,
 			"signals": {
 				"semicolons": 1.12,
 				"unchanged-claims": 0.96,
@@ -4440,7 +4440,7 @@
 		},
 		"ai/mrdoob-three.js-34729.md": {
 			"label": "ai",
-			"probability": 0.764,
+			"score": 23.6,
 			"signals": {
 				"workflow-vocabulary": 1.03,
 				"code-span-density": 0.84,
@@ -4450,7 +4450,7 @@
 		},
 		"ai/mswjs-interceptors-835.md": {
 			"label": "ai",
-			"probability": 0.999,
+			"score": 0.1,
 			"signals": {
 				"so-chains": 2.77,
 				"happy-to": 1.29,
@@ -4465,7 +4465,7 @@
 		},
 		"ai/mswjs-source-4840144466.md": {
 			"label": "ai",
-			"probability": 0.579,
+			"score": 42.1,
 			"signals": {
 				"status-openers": 1.52,
 				"happy-to": 1.29,
@@ -4477,7 +4477,7 @@
 		},
 		"ai/mui-material-ui-49306.md": {
 			"label": "ai",
-			"probability": 0.903,
+			"score": 9.7,
 			"signals": {
 				"status-openers": 1.52,
 				"test-tally": 0.64,
@@ -4492,7 +4492,7 @@
 		},
 		"ai/n8n-io-n8n-40082.md": {
 			"label": "ai",
-			"probability": 0.003,
+			"score": 99.7,
 			"signals": {
 				"contrast-phrases": 0.33,
 				"code-span-density": 0.04,
@@ -4506,7 +4506,7 @@
 		},
 		"ai/n8n-io-n8n-40469.md": {
 			"label": "ai",
-			"probability": 0.958,
+			"score": 4.2,
 			"signals": {
 				"now-verbs": 1.69,
 				"semicolons": 1.24,
@@ -4523,7 +4523,7 @@
 		},
 		"ai/neovim-neovim-42215.md": {
 			"label": "ai",
-			"probability": 0.923,
+			"score": 7.7,
 			"signals": {
 				"code-span-density": 1.28,
 				"semicolons": 1.11,
@@ -4534,7 +4534,7 @@
 		},
 		"ai/nestjs-nest-17978.md": {
 			"label": "ai",
-			"probability": 0.992,
+			"score": 0.8,
 			"signals": {
 				"unchanged-claims": 1.92,
 				"code-span-density": 1.28,
@@ -4546,7 +4546,7 @@
 		},
 		"ai/nextcloud-server-65234.md": {
 			"label": "ai",
-			"probability": 0.999,
+			"score": 0.1,
 			"signals": {
 				"ai-disclosure": 3,
 				"happy-to": 1.29,
@@ -4565,7 +4565,7 @@
 		},
 		"ai/nginx-nginx-1822.md": {
 			"label": "ai",
-			"probability": 0.837,
+			"score": 16.3,
 			"signals": {
 				"template-headings": 2.37,
 				"test-reference": 0.49,
@@ -4576,7 +4576,7 @@
 		},
 		"ai/nitrojs-nitro-4727.md": {
 			"label": "ai",
-			"probability": 0.99,
+			"score": 1,
 			"signals": {
 				"fails-before-fix": 1.35,
 				"code-span-density": 1.28,
@@ -4595,7 +4595,7 @@
 		},
 		"ai/nodejs-node-66453.md": {
 			"label": "ai",
-			"probability": 0.988,
+			"score": 1.2,
 			"signals": {
 				"ai-disclosure": 3,
 				"semicolons": 1.93,
@@ -4607,7 +4607,7 @@
 		},
 		"ai/npmx-dev-npmx.dev-3854264061.md": {
 			"label": "ai",
-			"probability": 0.731,
+			"score": 26.9,
 			"signals": {
 				"review-pleasantries": 2.94,
 				"code-span-density": 0.27,
@@ -4618,7 +4618,7 @@
 		},
 		"ai/npmx-dev-npmx.dev-3857156537.md": {
 			"label": "ai",
-			"probability": 0.107,
+			"score": 89.3,
 			"signals": {
 				"review-pleasantries": 1.47,
 				"contractions": -0.46,
@@ -4629,7 +4629,7 @@
 		},
 		"ai/nrwl-nx-37249.md": {
 			"label": "ai",
-			"probability": 0.979,
+			"score": 2.1,
 			"signals": {
 				"so-chains": 1.85,
 				"fails-before-fix": 1.35,
@@ -4645,7 +4645,7 @@
 		},
 		"ai/numpy-numpy-32923.md": {
 			"label": "ai",
-			"probability": 0.614,
+			"score": 38.6,
 			"signals": {
 				"ai-disclosure": 3,
 				"code-span-density": 0.28,
@@ -4654,7 +4654,7 @@
 		},
 		"ai/nushell-nushell-19189.md": {
 			"label": "ai",
-			"probability": 0.992,
+			"score": 0.8,
 			"signals": {
 				"fails-before-fix": 1.35,
 				"unchanged-claims": 0.96,
@@ -4671,7 +4671,7 @@
 		},
 		"ai/nuxt-nuxt-36510.md": {
 			"label": "ai",
-			"probability": 0.991,
+			"score": 0.9,
 			"signals": {
 				"semicolons": 1.66,
 				"code-span-density": 1.01,
@@ -4686,7 +4686,7 @@
 		},
 		"ai/nuxt-ui-5393137714.md": {
 			"label": "ai",
-			"probability": 0.39,
+			"score": 61,
 			"signals": {
 				"ci-green": 0.98,
 				"code-span-density": 0.85,
@@ -4695,7 +4695,7 @@
 		},
 		"ai/nuxt-ui-7140.md": {
 			"label": "ai",
-			"probability": 0.177,
+			"score": 82.3,
 			"signals": {
 				"code-span-density": 1.28,
 				"short-body": -1.44
@@ -4703,7 +4703,7 @@
 		},
 		"ai/ollama-ollama-18745.md": {
 			"label": "ai",
-			"probability": 0.929,
+			"score": 7.1,
 			"signals": {
 				"unchanged-claims": 0.96,
 				"so-chains": 0.92,
@@ -4716,7 +4716,7 @@
 		},
 		"ai/onyx-dot-app-onyx-15398.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
@@ -4745,7 +4745,7 @@
 		},
 		"ai/onyx-dot-app-onyx-15406.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-attribution": 4,
 				"bold-lead-bullets": 4,
@@ -4774,7 +4774,7 @@
 		},
 		"ai/open-circle-valibot-1594.md": {
 			"label": "ai",
-			"probability": 0.797,
+			"score": 20.3,
 			"signals": {
 				"code-span-density": 1.28,
 				"existing-reference": 0.91,
@@ -4788,7 +4788,7 @@
 		},
 		"ai/open-telemetry-opentelemetry-collector-16078.md": {
 			"label": "ai",
-			"probability": 0.999,
+			"score": 0.1,
 			"signals": {
 				"so-chains": 2.77,
 				"now-verbs": 2.54,
@@ -4805,7 +4805,7 @@
 		},
 		"ai/open-telemetry-opentelemetry-collector-16094.md": {
 			"label": "ai",
-			"probability": 0.997,
+			"score": 0.3,
 			"signals": {
 				"fails-before-fix": 1.35,
 				"workflow-vocabulary": 1.03,
@@ -4824,7 +4824,7 @@
 		},
 		"ai/open-telemetry-opentelemetry-js-7163.md": {
 			"label": "ai",
-			"probability": 0.996,
+			"score": 0.4,
 			"signals": {
 				"ai-disclosure": 3,
 				"template-headings": 1.19,
@@ -4839,7 +4839,7 @@
 		},
 		"ai/open-webui-open-webui-31865.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"em-dash": 1.87,
 				"so-chains": 1.85,
@@ -4862,7 +4862,7 @@
 		},
 		"ai/open-webui-open-webui-32105.md": {
 			"label": "ai",
-			"probability": 0.989,
+			"score": 1.1,
 			"signals": {
 				"so-chains": 1.85,
 				"existing-precedent": 1.06,
@@ -4880,7 +4880,7 @@
 		},
 		"ai/openclaw-openclaw-10147.md": {
 			"label": "ai",
-			"probability": 0.476,
+			"score": 52.4,
 			"signals": {
 				"colon-bullets": 0.54,
 				"code-span-density": 0.39,
@@ -4890,7 +4890,7 @@
 		},
 		"ai/openclaw-openclaw-162624.md": {
 			"label": "ai",
-			"probability": 0.636,
+			"score": 36.4,
 			"signals": {
 				"code-span-density": 0.74,
 				"fails-before-fix": 0.68,
@@ -4900,7 +4900,7 @@
 		},
 		"ai/openclaw-openclaw-162665.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-attribution": 4,
 				"semicolons": 1.75,
@@ -4915,7 +4915,7 @@
 		},
 		"ai/openclaw-openclaw-162684.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"workflow-vocabulary": 3.1,
 				"ai-disclosure": 3,
@@ -4943,7 +4943,7 @@
 		},
 		"ai/openclaw-openclaw-162887.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"existing-reference": 2.72,
 				"not-contrast": 2.25,
@@ -4968,7 +4968,7 @@
 		},
 		"ai/openclaw-openclaw-162985.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"semicolons": 2.79,
 				"template-headings": 2.37,
@@ -4986,7 +4986,7 @@
 		},
 		"ai/openclaw-openclaw-163016.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-attribution": 4,
 				"workflow-vocabulary": 3.1,
@@ -5021,7 +5021,7 @@
 		},
 		"ai/openclaw-openclaw-163154.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-attribution": 4,
 				"agent-vocabulary": 2.77,
@@ -5044,7 +5044,7 @@
 		},
 		"ai/openclaw-openclaw-163545.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-attribution": 4,
 				"test-tally": 1.92,
@@ -5063,7 +5063,7 @@
 		},
 		"ai/openclaw-openclaw-163555.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"unchanged-claims": 1.92,
 				"scope-disclaimer": 1.46,
@@ -5082,7 +5082,7 @@
 		},
 		"ai/openclaw-openclaw-163589.md": {
 			"label": "ai",
-			"probability": 0.999,
+			"score": 0.1,
 			"signals": {
 				"bold-lead-bullets": 2,
 				"now-verbs": 1.69,
@@ -5099,7 +5099,7 @@
 		},
 		"ai/openclaw-openclaw-166444.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-vocabulary": 2.77,
 				"existing-reference": 2.72,
@@ -5125,7 +5125,7 @@
 		},
 		"ai/openclaw-openclaw-167147.md": {
 			"label": "ai",
-			"probability": 0.991,
+			"score": 0.9,
 			"signals": {
 				"plan-headings": 2.67,
 				"bold-lead-bullets": 1,
@@ -5140,7 +5140,7 @@
 		},
 		"ai/openclaw-openclaw-171650.md": {
 			"label": "ai",
-			"probability": 0.601,
+			"score": 39.9,
 			"signals": {
 				"not-contrast": 0.75,
 				"evidence-claims": 0.47,
@@ -5150,7 +5150,7 @@
 		},
 		"ai/openclaw-openclaw-18526.md": {
 			"label": "ai",
-			"probability": 0.999,
+			"score": 0.1,
 			"signals": {
 				"plan-headings": 2.67,
 				"code-span-density": 1.28,
@@ -5166,7 +5166,7 @@
 		},
 		"ai/openclaw-openclaw-3939796496.md": {
 			"label": "ai",
-			"probability": 0.983,
+			"score": 1.7,
 			"signals": {
 				"em-dash": 4,
 				"maintainer-mention": 0.81,
@@ -5177,14 +5177,14 @@
 		},
 		"ai/openclaw-openclaw-4175445522.md": {
 			"label": "ai",
-			"probability": 0.534,
+			"score": 46.6,
 			"signals": {
 				"status-openers": 1.52
 			}
 		},
 		"ai/openclaw-openclaw-5571588281.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"em-dash": 3.39,
 				"not-contrast": 2.25,
@@ -5201,7 +5201,7 @@
 		},
 		"ai/openrct2-OpenRCT2-27224.md": {
 			"label": "ai",
-			"probability": 0.882,
+			"score": 11.8,
 			"signals": {
 				"ai-disclosure": 3,
 				"scope-disclaimer": 0.73,
@@ -5212,7 +5212,7 @@
 		},
 		"ai/openrct2-OpenRCT2-27232.md": {
 			"label": "ai",
-			"probability": 0.437,
+			"score": 56.3,
 			"signals": {
 				"happy-to": 1.29,
 				"scope-disclaimer": 0.73,
@@ -5221,7 +5221,7 @@
 		},
 		"ai/oven-sh-bun-44368.md": {
 			"label": "ai",
-			"probability": 0.891,
+			"score": 10.9,
 			"signals": {
 				"existing-reference": 0.91,
 				"test-tally": 0.64,
@@ -5236,7 +5236,7 @@
 		},
 		"ai/oven-sh-bun-45083.md": {
 			"label": "ai",
-			"probability": 0.383,
+			"score": 61.7,
 			"signals": {
 				"semicolons": 1.07,
 				"not-contrast": 0.75,
@@ -5250,7 +5250,7 @@
 		},
 		"ai/pandas-dev-pandas-5519781934.md": {
 			"label": "ai",
-			"probability": 0.955,
+			"score": 4.5,
 			"signals": {
 				"work-claim": 1.88,
 				"em-dash": 1.47,
@@ -5265,7 +5265,7 @@
 		},
 		"ai/pandas-dev-pandas-70108.md": {
 			"label": "ai",
-			"probability": 0.995,
+			"score": 0.5,
 			"signals": {
 				"so-chains": 1.85,
 				"existing-reference": 1.81,
@@ -5284,7 +5284,7 @@
 		},
 		"ai/pandas-dev-pandas-70150.md": {
 			"label": "ai",
-			"probability": 0.999,
+			"score": 0.1,
 			"signals": {
 				"ai-disclosure": 3,
 				"colon-bullets": 1.45,
@@ -5297,7 +5297,7 @@
 		},
 		"ai/pandas-dev-pandas-70232.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"workflow-vocabulary": 3.1,
 				"ai-disclosure": 3,
@@ -5309,7 +5309,7 @@
 		},
 		"ai/payloadcms-payload-18429.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"fails-before-fix": 1.35,
 				"plan-headings": 1.33,
@@ -5330,7 +5330,7 @@
 		},
 		"ai/payloadcms-payload-18450.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"em-dash": 2.8,
 				"scope-disclaimer": 2.19,
@@ -5347,7 +5347,7 @@
 		},
 		"ai/payloadcms-payload-18534.md": {
 			"label": "ai",
-			"probability": 0.965,
+			"score": 3.5,
 			"signals": {
 				"em-dash": 0.95,
 				"so-chains": 0.92,
@@ -5363,7 +5363,7 @@
 		},
 		"ai/payloadcms-payload-4277007659.md": {
 			"label": "ai",
-			"probability": 0.879,
+			"score": 12.1,
 			"signals": {
 				"em-dash": 3.33,
 				"file-paths": 0.03
@@ -5371,7 +5371,7 @@
 		},
 		"ai/pixijs-pixijs-12284.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"ai-disclosure": 3,
 				"test-tally": 1.92,
@@ -5393,7 +5393,7 @@
 		},
 		"ai/playcanvas-engine-9635.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
@@ -5411,7 +5411,7 @@
 		},
 		"ai/plotly-plotly.js-8096.md": {
 			"label": "ai",
-			"probability": 0.994,
+			"score": 0.6,
 			"signals": {
 				"fails-before-fix": 1.35,
 				"code-span-density": 1.28,
@@ -5430,7 +5430,7 @@
 		},
 		"ai/plotly-plotly.js-8106.md": {
 			"label": "ai",
-			"probability": 0.985,
+			"score": 1.5,
 			"signals": {
 				"ai-disclosure": 3,
 				"semicolons": 1.09,
@@ -5442,7 +5442,7 @@
 		},
 		"ai/pnpm-pnpm-16507.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"ai-disclosure": 3,
 				"so-chains": 2.77,
@@ -5466,7 +5466,7 @@
 		},
 		"ai/pnpm-pnpm-16510.md": {
 			"label": "ai",
-			"probability": 0.397,
+			"score": 60.3,
 			"signals": {
 				"so-chains": 1.85,
 				"now-verbs": 1.69,
@@ -5484,7 +5484,7 @@
 		},
 		"ai/pnpm-pnpm-16512.md": {
 			"label": "ai",
-			"probability": 0.995,
+			"score": 0.5,
 			"signals": {
 				"ai-disclosure": 3,
 				"so-chains": 1.85,
@@ -5500,7 +5500,7 @@
 		},
 		"ai/pnpm-pnpm-16524.md": {
 			"label": "ai",
-			"probability": 0.169,
+			"score": 83.1,
 			"signals": {
 				"template-headings": 1.19,
 				"test-reference": 0.97,
@@ -5514,7 +5514,7 @@
 		},
 		"ai/pnpm-pnpm-16658.md": {
 			"label": "ai",
-			"probability": 0.925,
+			"score": 7.5,
 			"signals": {
 				"ai-disclosure": 3,
 				"now-verbs": 1.69,
@@ -5532,7 +5532,7 @@
 		},
 		"ai/pola-rs-polars-29733.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"fails-before-fix": 1.35,
 				"em-dash": 1.24,
@@ -5554,7 +5554,7 @@
 		},
 		"ai/postcss-postcss-2167.md": {
 			"label": "ai",
-			"probability": 0.971,
+			"score": 2.9,
 			"signals": {
 				"semicolons": 1.91,
 				"fails-before-fix": 0.68,
@@ -5569,7 +5569,7 @@
 		},
 		"ai/pr1.md": {
 			"label": "ai",
-			"probability": 0.989,
+			"score": 1.1,
 			"signals": {
 				"scope-disclaimer": 1.46,
 				"workflow-vocabulary": 1.03,
@@ -5585,7 +5585,7 @@
 		},
 		"ai/pr2.md": {
 			"label": "ai",
-			"probability": 0.987,
+			"score": 1.3,
 			"signals": {
 				"validation-line": 2,
 				"shell-escapes": 1.98,
@@ -5597,7 +5597,7 @@
 		},
 		"ai/pr3.md": {
 			"label": "ai",
-			"probability": 0.932,
+			"score": 6.8,
 			"signals": {
 				"semicolons": 2.47,
 				"code-span-density": 1.28,
@@ -5606,7 +5606,7 @@
 		},
 		"ai/pr4.md": {
 			"label": "ai",
-			"probability": 0.997,
+			"score": 0.3,
 			"signals": {
 				"em-dash": 1.54,
 				"test-tally": 1.28,
@@ -5622,7 +5622,7 @@
 		},
 		"ai/preactjs-preact-5296.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"so-chains": 2.77,
 				"now-verbs": 1.69,
@@ -5639,7 +5639,7 @@
 		},
 		"ai/prettier-prettier-20205.md": {
 			"label": "ai",
-			"probability": 0.999,
+			"score": 0.1,
 			"signals": {
 				"plan-headings": 4,
 				"template-headings": 1.19,
@@ -5653,7 +5653,7 @@
 		},
 		"ai/prisma-orm-30575.md": {
 			"label": "ai",
-			"probability": 0.986,
+			"score": 1.4,
 			"signals": {
 				"template-headings": 1.19,
 				"unchanged-claims": 0.96,
@@ -5668,7 +5668,7 @@
 		},
 		"ai/prisma-orm-30577.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-attribution": 4,
 				"bold-lead-bullets": 4,
@@ -5692,7 +5692,7 @@
 		},
 		"ai/prisma-orm-30608.md": {
 			"label": "ai",
-			"probability": 0.997,
+			"score": 0.3,
 			"signals": {
 				"work-claim": 1.88,
 				"workflow-vocabulary": 1.03,
@@ -5710,7 +5710,7 @@
 		},
 		"ai/processing-p5.js-9250.md": {
 			"label": "ai",
-			"probability": 0.987,
+			"score": 1.3,
 			"signals": {
 				"template-headings": 2.37,
 				"code-span-density": 1.28,
@@ -5721,7 +5721,7 @@
 		},
 		"ai/projectdiscovery-nuclei-7812.md": {
 			"label": "ai",
-			"probability": 0.999,
+			"score": 0.1,
 			"signals": {
 				"so-chains": 2.77,
 				"plan-headings": 1.33,
@@ -5736,7 +5736,7 @@
 		},
 		"ai/prometheus-prometheus-19900.md": {
 			"label": "ai",
-			"probability": 0.805,
+			"score": 19.5,
 			"signals": {
 				"code-span-density": 1.28,
 				"workflow-vocabulary": 1.03,
@@ -5745,7 +5745,7 @@
 		},
 		"ai/public-apis-public-apis-7668.md": {
 			"label": "ai",
-			"probability": 0.793,
+			"score": 20.7,
 			"signals": {
 				"status-openers": 1.52,
 				"semicolons": 1.17,
@@ -5756,7 +5756,7 @@
 		},
 		"ai/pulumi-pulumi-24995.md": {
 			"label": "ai",
-			"probability": 0.999,
+			"score": 0.1,
 			"signals": {
 				"scope-disclaimer": 2.19,
 				"unchanged-claims": 1.92,
@@ -5772,7 +5772,7 @@
 		},
 		"ai/pulumi-pulumi-25007.md": {
 			"label": "ai",
-			"probability": 0.999,
+			"score": 0.1,
 			"signals": {
 				"agent-vocabulary": 2.08,
 				"template-headings": 1.19,
@@ -5792,7 +5792,7 @@
 		},
 		"ai/puppeteer-puppeteer-15532.md": {
 			"label": "ai",
-			"probability": 0.845,
+			"score": 15.5,
 			"signals": {
 				"code-span-density": 1.28,
 				"unchanged-claims": 0.96,
@@ -5803,7 +5803,7 @@
 		},
 		"ai/pydantic-pydantic-13959.md": {
 			"label": "ai",
-			"probability": 0.987,
+			"score": 1.3,
 			"signals": {
 				"semicolons": 1.74,
 				"code-span-density": 1.28,
@@ -5815,7 +5815,7 @@
 		},
 		"ai/pydantic-pydantic-ai-5572404575.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-vocabulary": 2.77,
 				"em-dash": 2.5,
@@ -5834,7 +5834,7 @@
 		},
 		"ai/pytest-dev-pytest-15120.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"em-dash": 2.16,
 				"unchanged-claims": 1.92,
@@ -5853,7 +5853,7 @@
 		},
 		"ai/pytorch-pytorch-199273.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"so-chains": 2.77,
 				"template-headings": 2.37,
@@ -5871,7 +5871,7 @@
 		},
 		"ai/pytorch-pytorch-199284.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"ai-disclosure": 3,
 				"so-chains": 2.77,
@@ -5886,7 +5886,7 @@
 		},
 		"ai/pytorch-pytorch-199415.md": {
 			"label": "ai",
-			"probability": 0.587,
+			"score": 41.3,
 			"signals": {
 				"ai-disclosure": 3,
 				"so-chains": 0.92,
@@ -5906,7 +5906,7 @@
 		},
 		"ai/pytorch-pytorch-199416.md": {
 			"label": "ai",
-			"probability": 0.982,
+			"score": 1.8,
 			"signals": {
 				"ai-disclosure": 3,
 				"semicolons": 1.08,
@@ -5921,7 +5921,7 @@
 		},
 		"ai/pytorch-pytorch-200146.md": {
 			"label": "ai",
-			"probability": 0.97,
+			"score": 3,
 			"signals": {
 				"ai-disclosure": 3,
 				"semicolons": 2.45,
@@ -5930,7 +5930,7 @@
 		},
 		"ai/qdrant-qdrant-10909.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"so-chains": 2.77,
 				"template-headings": 2.37,
@@ -5952,7 +5952,7 @@
 		},
 		"ai/quarkusio-quarkus-57151.md": {
 			"label": "ai",
-			"probability": 0.769,
+			"score": 23.1,
 			"signals": {
 				"code-span-density": 0.74,
 				"bold-lead-bullets": 0.67,
@@ -5963,7 +5963,7 @@
 		},
 		"ai/rails-rails-4409195009.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"em-dash": 4,
 				"review-pleasantries": 2.94,
@@ -5982,7 +5982,7 @@
 		},
 		"ai/rancher-rancher-57796.md": {
 			"label": "ai",
-			"probability": 0.869,
+			"score": 13.1,
 			"signals": {
 				"ai-disclosure": 3,
 				"code-span-density": 1.02,
@@ -5995,7 +5995,7 @@
 		},
 		"ai/react-react-native-5384350008.md": {
 			"label": "ai",
-			"probability": 0.975,
+			"score": 2.5,
 			"signals": {
 				"em-dash": 1.58,
 				"happy-to": 1.29,
@@ -6008,7 +6008,7 @@
 		},
 		"ai/react-react-native-58806.md": {
 			"label": "ai",
-			"probability": 0.992,
+			"score": 0.8,
 			"signals": {
 				"semicolons": 2.17,
 				"status-openers": 1.52,
@@ -6023,7 +6023,7 @@
 		},
 		"ai/react-react-native-58956.md": {
 			"label": "ai",
-			"probability": 0.56,
+			"score": 44,
 			"signals": {
 				"code-span-density": 0.99,
 				"contrast-phrases": 0.33,
@@ -6033,7 +6033,7 @@
 		},
 		"ai/redis-go-redis-4212483262.md": {
 			"label": "ai",
-			"probability": 0.856,
+			"score": 14.4,
 			"signals": {
 				"bold-lead-bullets": 1.67,
 				"em-dash": 1.52,
@@ -6046,7 +6046,7 @@
 		},
 		"ai/redis-redis-15894.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"ai-disclosure": 3,
 				"so-chains": 2.77,
@@ -6069,7 +6069,7 @@
 		},
 		"ai/redis-redis-15898.md": {
 			"label": "ai",
-			"probability": 0.997,
+			"score": 0.3,
 			"signals": {
 				"so-chains": 1.85,
 				"code-span-density": 1.08,
@@ -6085,7 +6085,7 @@
 		},
 		"ai/reduxjs-redux-toolkit-5282.md": {
 			"label": "ai",
-			"probability": 0.983,
+			"score": 1.7,
 			"signals": {
 				"em-dash": 4,
 				"not-contrast": 0.75,
@@ -6096,7 +6096,7 @@
 		},
 		"ai/reduxjs-redux-toolkit-5468.md": {
 			"label": "ai",
-			"probability": 0.998,
+			"score": 0.2,
 			"signals": {
 				"semicolons": 2.27,
 				"template-headings": 1.19,
@@ -6112,7 +6112,7 @@
 		},
 		"ai/refinedev-refine-3890809424.md": {
 			"label": "ai",
-			"probability": 0.862,
+			"score": 13.8,
 			"signals": {
 				"review-pleasantries": 2.94,
 				"now-verbs": 0.85,
@@ -6124,7 +6124,7 @@
 		},
 		"ai/remotion-dev-remotion-11945.md": {
 			"label": "ai",
-			"probability": 0.732,
+			"score": 26.8,
 			"signals": {
 				"template-headings": 2.37,
 				"code-span-density": 0.01
@@ -6132,7 +6132,7 @@
 		},
 		"ai/remotion-dev-remotion-12066.md": {
 			"label": "ai",
-			"probability": 0.682,
+			"score": 31.8,
 			"signals": {
 				"test-tally": 0.64,
 				"code-span-density": 0.59,
@@ -6143,7 +6143,7 @@
 		},
 		"ai/rolldown-rolldown-11080.md": {
 			"label": "ai",
-			"probability": 0.625,
+			"score": 37.5,
 			"signals": {
 				"now-verbs": 0.85,
 				"code-span-density": 0.57,
@@ -6153,7 +6153,7 @@
 		},
 		"ai/rolldown-rolldown-11081.md": {
 			"label": "ai",
-			"probability": 0.408,
+			"score": 59.2,
 			"signals": {
 				"now-verbs": 0.85,
 				"tidy-prose": 0.16
@@ -6161,7 +6161,7 @@
 		},
 		"ai/rolldown-rolldown-11089.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"ai-disclosure": 3,
 				"so-chains": 2.77,
@@ -6181,7 +6181,7 @@
 		},
 		"ai/rspec-rspec-rails-4528027171.md": {
 			"label": "ai",
-			"probability": 0.997,
+			"score": 0.3,
 			"signals": {
 				"em-dash": 4,
 				"review-pleasantries": 1.47,
@@ -6200,7 +6200,7 @@
 		},
 		"ai/run-llama-llama_index-23435.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"existing-reference": 2.72,
 				"now-verbs": 2.54,
@@ -6222,7 +6222,7 @@
 		},
 		"ai/saleor-saleor-19855.md": {
 			"label": "ai",
-			"probability": 0.791,
+			"score": 20.9,
 			"signals": {
 				"semicolons": 1.6,
 				"long-paragraphs": 0.38,
@@ -6236,7 +6236,7 @@
 		},
 		"ai/scipy-scipy-26342.md": {
 			"label": "ai",
-			"probability": 0.971,
+			"score": 2.9,
 			"signals": {
 				"test-tally": 1.92,
 				"workflow-vocabulary": 1.03,
@@ -6248,7 +6248,7 @@
 		},
 		"ai/seaweedfs-seaweedfs-11567.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-attribution": 4,
 				"so-chains": 2.77,
@@ -6270,7 +6270,7 @@
 		},
 		"ai/seaweedfs-seaweedfs-11574.md": {
 			"label": "ai",
-			"probability": 0.997,
+			"score": 0.3,
 			"signals": {
 				"agent-attribution": 4,
 				"plan-headings": 2.67,
@@ -6285,7 +6285,7 @@
 		},
 		"ai/seaweedfs-seaweedfs-11619.md": {
 			"label": "ai",
-			"probability": 0.971,
+			"score": 2.9,
 			"signals": {
 				"code-span-density": 1.28,
 				"existing-reference": 0.91,
@@ -6299,7 +6299,7 @@
 		},
 		"ai/sequelize-sequelize-18540.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
@@ -6328,7 +6328,7 @@
 		},
 		"ai/sgl-project-sglang-42047.md": {
 			"label": "ai",
-			"probability": 0.989,
+			"score": 1.1,
 			"signals": {
 				"ai-disclosure": 3,
 				"existing-reference": 1.81,
@@ -6346,7 +6346,7 @@
 		},
 		"ai/sgl-project-sglang-42093.md": {
 			"label": "ai",
-			"probability": 0.999,
+			"score": 0.1,
 			"signals": {
 				"ai-disclosure": 3,
 				"existing-reference": 1.81,
@@ -6365,7 +6365,7 @@
 		},
 		"ai/sgl-project-sglang-42151.md": {
 			"label": "ai",
-			"probability": 0.383,
+			"score": 61.7,
 			"signals": {
 				"existing-reference": 0.91,
 				"scope-disclaimer": 0.73,
@@ -6380,7 +6380,7 @@
 		},
 		"ai/sgl-project-sglang-43187.md": {
 			"label": "ai",
-			"probability": 0.998,
+			"score": 0.2,
 			"signals": {
 				"so-chains": 1.85,
 				"semicolons": 1.37,
@@ -6401,7 +6401,7 @@
 		},
 		"ai/shadcn-ui-ui-12206.md": {
 			"label": "ai",
-			"probability": 0.945,
+			"score": 5.5,
 			"signals": {
 				"em-dash": 2.31,
 				"code-span-density": 1.28,
@@ -6411,7 +6411,7 @@
 		},
 		"ai/sharkdp-bat-4035.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"em-dash": 4,
 				"template-headings": 2.37,
@@ -6431,7 +6431,7 @@
 		},
 		"ai/sharkdp-bat-4046.md": {
 			"label": "ai",
-			"probability": 0.998,
+			"score": 0.2,
 			"signals": {
 				"em-dash": 2.07,
 				"semicolons": 1.53,
@@ -6445,7 +6445,7 @@
 		},
 		"ai/sharkdp-fd-2149.md": {
 			"label": "ai",
-			"probability": 0.993,
+			"score": 0.7,
 			"signals": {
 				"fails-before-fix": 1.35,
 				"bold-lead-bullets": 1.33,
@@ -6459,7 +6459,7 @@
 		},
 		"ai/shopware-shopware-5839308344.md": {
 			"label": "ai",
-			"probability": 0.871,
+			"score": 12.9,
 			"signals": {
 				"review-pleasantries": 1.47,
 				"workflow-vocabulary": 1.03,
@@ -6475,7 +6475,7 @@
 		},
 		"ai/shopware-shopware-5839308535.md": {
 			"label": "ai",
-			"probability": 0.311,
+			"score": 68.9,
 			"signals": {
 				"workflow-vocabulary": 1.03,
 				"first-person": -0.45
@@ -6483,7 +6483,7 @@
 		},
 		"ai/sindresorhus-eslint-plugin-unicorn-3868527618.md": {
 			"label": "ai",
-			"probability": 0.741,
+			"score": 25.9,
 			"signals": {
 				"review-pleasantries": 2.94,
 				"contrast-phrases": 0.33,
@@ -6494,19 +6494,19 @@
 		},
 		"ai/slegarraga-json-from-llm-10.md": {
 			"label": "ai",
-			"probability": 0.388,
+			"score": 61.2,
 			"signals": {
 				"code-span-density": 0.92
 			}
 		},
 		"ai/slegarraga-llm-sse-1.md": {
 			"label": "ai",
-			"probability": 0.201,
+			"score": 79.9,
 			"signals": {}
 		},
 		"ai/smithyhq-sqladmin-5597156273.md": {
 			"label": "ai",
-			"probability": 0.997,
+			"score": 0.3,
 			"signals": {
 				"em-dash": 4,
 				"code-span-density": 1.15,
@@ -6517,7 +6517,7 @@
 		},
 		"ai/socketio-socket.io-5566.md": {
 			"label": "ai",
-			"probability": 0.817,
+			"score": 18.3,
 			"signals": {
 				"code-span-density": 0.92,
 				"so-chains": 0.92,
@@ -6530,7 +6530,7 @@
 		},
 		"ai/solidjs-solid-3745.md": {
 			"label": "ai",
-			"probability": 0.991,
+			"score": 0.9,
 			"signals": {
 				"em-dash": 4,
 				"code-span-density": 0.98,
@@ -6540,7 +6540,7 @@
 		},
 		"ai/source-academy-modules-5099702517.md": {
 			"label": "ai",
-			"probability": 0.994,
+			"score": 0.6,
 			"signals": {
 				"status-openers": 1.52,
 				"code-span-density": 1.28,
@@ -6554,7 +6554,7 @@
 		},
 		"ai/spring-projects-spring-boot-52123.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"so-chains": 2.77,
 				"bold-lead-bullets": 1.67,
@@ -6576,7 +6576,7 @@
 		},
 		"ai/spring-projects-spring-framework-37371.md": {
 			"label": "ai",
-			"probability": 0.9,
+			"score": 10,
 			"signals": {
 				"code-span-density": 1.26,
 				"unchanged-claims": 0.96,
@@ -6587,7 +6587,7 @@
 		},
 		"ai/sqlalchemy-sqlalchemy-13652.md": {
 			"label": "ai",
-			"probability": 0.999,
+			"score": 0.1,
 			"signals": {
 				"agent-attribution": 4,
 				"code-span-density": 0.96,
@@ -6602,7 +6602,7 @@
 		},
 		"ai/stanfordmlgroup-ngboost-421.md": {
 			"label": "ai",
-			"probability": 0.833,
+			"score": 16.7,
 			"signals": {
 				"unchanged-claims": 0.96,
 				"so-chains": 0.92,
@@ -6618,7 +6618,7 @@
 		},
 		"ai/starship-starship-7770.md": {
 			"label": "ai",
-			"probability": 0.997,
+			"score": 0.3,
 			"signals": {
 				"ai-disclosure": 3,
 				"fails-before-fix": 1.35,
@@ -6634,7 +6634,7 @@
 		},
 		"ai/storybookjs-storybook-36699.md": {
 			"label": "ai",
-			"probability": 0.962,
+			"score": 3.8,
 			"signals": {
 				"ai-disclosure": 3,
 				"so-chains": 1.85,
@@ -6648,7 +6648,7 @@
 		},
 		"ai/storybookjs-storybook-5371821468.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"em-dash": 1.92,
 				"unchanged-claims": 1.92,
@@ -6668,7 +6668,7 @@
 		},
 		"ai/strapi-strapi-27895.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
@@ -6687,7 +6687,7 @@
 		},
 		"ai/strapi-strapi-27910.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
@@ -6709,7 +6709,7 @@
 		},
 		"ai/streamlit-streamlit-17379.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
@@ -6725,7 +6725,7 @@
 		},
 		"ai/stripe-react-stripe-js-703.md": {
 			"label": "ai",
-			"probability": 0.678,
+			"score": 32.2,
 			"signals": {
 				"so-chains": 0.92,
 				"existing-reference": 0.91,
@@ -6736,7 +6736,7 @@
 		},
 		"ai/supabase-supabase-51435.md": {
 			"label": "ai",
-			"probability": 0.918,
+			"score": 8.2,
 			"signals": {
 				"fails-before-fix": 1.35,
 				"test-tally": 0.64,
@@ -6749,7 +6749,7 @@
 		},
 		"ai/sveltejs-kit-17315.md": {
 			"label": "ai",
-			"probability": 0.983,
+			"score": 1.7,
 			"signals": {
 				"em-dash": 2.35,
 				"code-span-density": 1.28,
@@ -6760,7 +6760,7 @@
 		},
 		"ai/sveltejs-svelte-18903.md": {
 			"label": "ai",
-			"probability": 0.986,
+			"score": 1.4,
 			"signals": {
 				"fails-before-fix": 1.35,
 				"so-chains": 0.92,
@@ -6776,7 +6776,7 @@
 		},
 		"ai/swc-project-swc-12472.md": {
 			"label": "ai",
-			"probability": 0.993,
+			"score": 0.7,
 			"signals": {
 				"now-verbs": 1.69,
 				"test-tally": 1.28,
@@ -6790,7 +6790,7 @@
 		},
 		"ai/swc-project-swc-12476.md": {
 			"label": "ai",
-			"probability": 0.889,
+			"score": 11.1,
 			"signals": {
 				"workflow-vocabulary": 1.03,
 				"existing-reference": 0.91,
@@ -6804,7 +6804,7 @@
 		},
 		"ai/symfony-symfony-66536.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
@@ -6825,7 +6825,7 @@
 		},
 		"ai/symfony-symfony-66625.md": {
 			"label": "ai",
-			"probability": 0.058,
+			"score": 94.2,
 			"signals": {
 				"code-span-density": 0.85,
 				"questions": -2.27
@@ -6833,7 +6833,7 @@
 		},
 		"ai/taoqf-node-html-parser-5493460055.md": {
 			"label": "ai",
-			"probability": 0.993,
+			"score": 0.7,
 			"signals": {
 				"em-dash": 3.19,
 				"code-span-density": 1.28,
@@ -6847,7 +6847,7 @@
 		},
 		"ai/tensorflow-tensorflow-128388.md": {
 			"label": "ai",
-			"probability": 0.792,
+			"score": 20.8,
 			"signals": {
 				"plan-headings": 1.33,
 				"code-span-density": 1.12,
@@ -6857,7 +6857,7 @@
 		},
 		"ai/tensorflow-tensorflow-128416.md": {
 			"label": "ai",
-			"probability": 0.98,
+			"score": 2,
 			"signals": {
 				"em-dash": 3.74,
 				"existing-precedent": 0.53,
@@ -6869,7 +6869,7 @@
 		},
 		"ai/toeverything-AFFiNE-15691.md": {
 			"label": "ai",
-			"probability": 0.886,
+			"score": 11.4,
 			"signals": {
 				"template-headings": 1.19,
 				"git-diff-check": 1.01,
@@ -6882,7 +6882,7 @@
 		},
 		"ai/tokio-rs-tokio-5760181807.md": {
 			"label": "ai",
-			"probability": 0.964,
+			"score": 3.6,
 			"signals": {
 				"semicolons": 2.47,
 				"code-span-density": 1.28,
@@ -6892,7 +6892,7 @@
 		},
 		"ai/tokio-rs-tokio-8592.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"ai-disclosure": 3,
 				"test-tally": 1.92,
@@ -6913,7 +6913,7 @@
 		},
 		"ai/toml-rs-toml-5768268464.md": {
 			"label": "ai",
-			"probability": 0.992,
+			"score": 0.8,
 			"signals": {
 				"review-pleasantries": 2.94,
 				"semicolons": 1.52,
@@ -6926,7 +6926,7 @@
 		},
 		"ai/traefik-traefik-14006.md": {
 			"label": "ai",
-			"probability": 0.562,
+			"score": 43.8,
 			"signals": {
 				"code-span-density": 1.28,
 				"long-paragraphs": 0.19,
@@ -6935,7 +6935,7 @@
 		},
 		"ai/triggerdotdev-trigger.dev-3994.md": {
 			"label": "ai",
-			"probability": 0.392,
+			"score": 60.8,
 			"signals": {
 				"bold-lead-bullets": 1.33,
 				"colon-bullets": 0.73,
@@ -6946,7 +6946,7 @@
 		},
 		"ai/trpc-trpc-7623.md": {
 			"label": "ai",
-			"probability": 0.968,
+			"score": 3.2,
 			"signals": {
 				"code-span-density": 1.28,
 				"existing-precedent": 1.06,
@@ -6960,7 +6960,7 @@
 		},
 		"ai/truffle-dev-truffle-rb-4850578660.md": {
 			"label": "ai",
-			"probability": 0.994,
+			"score": 0.6,
 			"signals": {
 				"status-openers": 1.52,
 				"semicolons": 1.27,
@@ -6974,7 +6974,7 @@
 		},
 		"ai/tslearn-team-tslearn-6045016369.md": {
 			"label": "ai",
-			"probability": 0.342,
+			"score": 65.8,
 			"signals": {
 				"code-span-density": 1,
 				"which-clauses": 0.63,
@@ -6984,7 +6984,7 @@
 		},
 		"ai/tsperf-tracer-5106707816.md": {
 			"label": "ai",
-			"probability": 0.245,
+			"score": 75.5,
 			"signals": {
 				"contrast-phrases": 0.33,
 				"long-paragraphs": 0.19,
@@ -6995,7 +6995,7 @@
 		},
 		"ai/tusen-ai-naive-ui-8230.md": {
 			"label": "ai",
-			"probability": 0.998,
+			"score": 0.2,
 			"signals": {
 				"test-tally": 1.92,
 				"workflow-vocabulary": 1.03,
@@ -7012,7 +7012,7 @@
 		},
 		"ai/umami-software-umami-4592.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"ai-disclosure": 3,
 				"so-chains": 2.77,
@@ -7034,7 +7034,7 @@
 		},
 		"ai/unjs-unhead-1004.md": {
 			"label": "ai",
-			"probability": 0.935,
+			"score": 6.5,
 			"signals": {
 				"so-chains": 1.85,
 				"contrast-phrases": 0.99,
@@ -7048,7 +7048,7 @@
 		},
 		"ai/unjs-unhead-998.md": {
 			"label": "ai",
-			"probability": 0.976,
+			"score": 2.4,
 			"signals": {
 				"em-dash": 1.36,
 				"bold-lead-bullets": 1.33,
@@ -7061,7 +7061,7 @@
 		},
 		"ai/unocss-unocss-5375.md": {
 			"label": "ai",
-			"probability": 0.999,
+			"score": 0.1,
 			"signals": {
 				"test-tally": 1.92,
 				"so-chains": 1.85,
@@ -7079,7 +7079,7 @@
 		},
 		"ai/valkey-io-valkey-4846.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"so-chains": 2.77,
 				"plan-headings": 2.67,
@@ -7094,7 +7094,7 @@
 		},
 		"ai/vendurehq-vendure-5477.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"em-dash": 4,
 				"unchanged-claims": 1.92,
@@ -7110,7 +7110,7 @@
 		},
 		"ai/vendurehq-vendure-5506.md": {
 			"label": "ai",
-			"probability": 0.098,
+			"score": 90.2,
 			"signals": {
 				"fails-before-fix": 0.68,
 				"code-span-density": 0.59,
@@ -7126,7 +7126,7 @@
 		},
 		"ai/vercel-ai-21950.md": {
 			"label": "ai",
-			"probability": 0.862,
+			"score": 13.8,
 			"signals": {
 				"status-openers": 1.52,
 				"code-span-density": 1.28,
@@ -7136,7 +7136,7 @@
 		},
 		"ai/vercel-ai-21962.md": {
 			"label": "ai",
-			"probability": 0.317,
+			"score": 68.3,
 			"signals": {
 				"code-span-density": 0.83,
 				"template-checkboxes": -0.22
@@ -7144,7 +7144,7 @@
 		},
 		"ai/vercel-ai-22066.md": {
 			"label": "ai",
-			"probability": 0.628,
+			"score": 37.2,
 			"signals": {
 				"template-headings": 1.19,
 				"code-span-density": 0.72
@@ -7152,7 +7152,7 @@
 		},
 		"ai/vercel-labs-skills-263.md": {
 			"label": "ai",
-			"probability": 0.147,
+			"score": 85.3,
 			"signals": {
 				"tidy-prose": 0.24,
 				"bare-urls": -0.61
@@ -7160,7 +7160,7 @@
 		},
 		"ai/vercel-next.js-5214493931.md": {
 			"label": "ai",
-			"probability": 0.727,
+			"score": 27.3,
 			"signals": {
 				"status-openers": 1.52,
 				"now-verbs": 0.85
@@ -7168,7 +7168,7 @@
 		},
 		"ai/vercel-next.js-99534.md": {
 			"label": "ai",
-			"probability": 0.985,
+			"score": 1.5,
 			"signals": {
 				"template-headings": 2.37,
 				"existing-reference": 0.91,
@@ -7183,7 +7183,7 @@
 		},
 		"ai/vercel-next.js-99544.md": {
 			"label": "ai",
-			"probability": 0.849,
+			"score": 15.1,
 			"signals": {
 				"code-span-density": 1.11,
 				"ci-green": 0.98,
@@ -7198,7 +7198,7 @@
 		},
 		"ai/vercel-next.js-99548.md": {
 			"label": "ai",
-			"probability": 0.998,
+			"score": 0.2,
 			"signals": {
 				"template-headings": 2.37,
 				"semicolons": 0.99,
@@ -7216,7 +7216,7 @@
 		},
 		"ai/vercel-next.js-99590.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
@@ -7231,7 +7231,7 @@
 		},
 		"ai/vercel-next.js-99931.md": {
 			"label": "ai",
-			"probability": 0.901,
+			"score": 9.9,
 			"signals": {
 				"maintainer-mention": 1.61,
 				"template-headings": 1.19,
@@ -7246,7 +7246,7 @@
 		},
 		"ai/vercel-swr-4344.md": {
 			"label": "ai",
-			"probability": 0.997,
+			"score": 0.3,
 			"signals": {
 				"plan-headings": 2.67,
 				"so-chains": 1.85,
@@ -7261,7 +7261,7 @@
 		},
 		"ai/vercel-turborepo-14419.md": {
 			"label": "ai",
-			"probability": 0.957,
+			"score": 4.3,
 			"signals": {
 				"existing-reference": 0.91,
 				"maintainer-mention": 0.81,
@@ -7278,7 +7278,7 @@
 		},
 		"ai/visgl-deck.gl-10805.md": {
 			"label": "ai",
-			"probability": 0.953,
+			"score": 4.7,
 			"signals": {
 				"git-diff-check": 1.01,
 				"unchanged-claims": 0.96,
@@ -7293,7 +7293,7 @@
 		},
 		"ai/vitejs-vite-23693.md": {
 			"label": "ai",
-			"probability": 0.999,
+			"score": 0.1,
 			"signals": {
 				"ai-disclosure": 3,
 				"so-chains": 1.85,
@@ -7308,7 +7308,7 @@
 		},
 		"ai/vitejs-vite-5058655087.md": {
 			"label": "ai",
-			"probability": 0.982,
+			"score": 1.8,
 			"signals": {
 				"em-dash": 3.05,
 				"review-pleasantries": 1.47,
@@ -7318,7 +7318,7 @@
 		},
 		"ai/vitest-dev-vitest-11438.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"ai-disclosure": 3,
 				"semicolons": 2.04,
@@ -7334,7 +7334,7 @@
 		},
 		"ai/vitest-dev-vitest-11441.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"unchanged-claims": 1.92,
 				"so-chains": 1.85,
@@ -7354,7 +7354,7 @@
 		},
 		"ai/vitest-dev-vitest-11475.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"ai-disclosure": 3,
 				"scope-disclaimer": 1.46,
@@ -7376,7 +7376,7 @@
 		},
 		"ai/vladmandic-sdnext-5128.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"template-headings": 2.37,
 				"semicolons": 1.31,
@@ -7394,7 +7394,7 @@
 		},
 		"ai/vllm-project-vllm-59629.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"ai-disclosure": 3,
 				"so-chains": 2.77,
@@ -7417,7 +7417,7 @@
 		},
 		"ai/vllm-project-vllm-59754.md": {
 			"label": "ai",
-			"probability": 0.994,
+			"score": 0.6,
 			"signals": {
 				"happy-to": 1.29,
 				"test-tally": 1.28,
@@ -7437,7 +7437,7 @@
 		},
 		"ai/vllm-project-vllm-59788.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
@@ -7460,7 +7460,7 @@
 		},
 		"ai/vllm-project-vllm-59795.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"ai-disclosure": 3,
 				"plan-headings": 2.67,
@@ -7480,7 +7480,7 @@
 		},
 		"ai/vuejs-core-15746.md": {
 			"label": "ai",
-			"probability": 0.994,
+			"score": 0.6,
 			"signals": {
 				"template-headings": 2.37,
 				"code-span-density": 1.13,
@@ -7492,7 +7492,7 @@
 		},
 		"ai/vuejs-core-15756.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"ai-disclosure": 3,
 				"fails-before-fix": 1.35,
@@ -7513,7 +7513,7 @@
 		},
 		"ai/vuejs-router-2826.md": {
 			"label": "ai",
-			"probability": 0.99,
+			"score": 1,
 			"signals": {
 				"code-span-density": 1.22,
 				"unchanged-claims": 0.96,
@@ -7531,7 +7531,7 @@
 		},
 		"ai/wazuh-wazuh-39845.md": {
 			"label": "ai",
-			"probability": 0.958,
+			"score": 4.2,
 			"signals": {
 				"em-dash": 2.23,
 				"so-chains": 0.92,
@@ -7543,7 +7543,7 @@
 		},
 		"ai/wazuh-wazuh-40149.md": {
 			"label": "ai",
-			"probability": 0.952,
+			"score": 4.8,
 			"signals": {
 				"test-reference": 1.46,
 				"git-diff-check": 1.01,
@@ -7556,7 +7556,7 @@
 		},
 		"ai/weaviate-weaviate-13438.md": {
 			"label": "ai",
-			"probability": 0.659,
+			"score": 34.1,
 			"signals": {
 				"now-verbs": 0.85,
 				"fails-before-fix": 0.68,
@@ -7567,7 +7567,7 @@
 		},
 		"ai/webpack-webpack-22514.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
@@ -7590,7 +7590,7 @@
 		},
 		"ai/webpro-nl-knip-2119.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"agent-attribution": 4,
 				"ai-disclosure": 3,
@@ -7614,7 +7614,7 @@
 		},
 		"ai/wezterm-wezterm-8234.md": {
 			"label": "ai",
-			"probability": 0.07,
+			"score": 93,
 			"signals": {
 				"scope-disclaimer": 0.73,
 				"tidy-prose": 0.16,
@@ -7624,7 +7624,7 @@
 		},
 		"ai/withastro-astro-17907.md": {
 			"label": "ai",
-			"probability": 0.992,
+			"score": 0.8,
 			"signals": {
 				"ai-disclosure": 3,
 				"happy-to": 1.29,
@@ -7636,7 +7636,7 @@
 		},
 		"ai/withastro-astro-4222787681.md": {
 			"label": "ai",
-			"probability": 0.999,
+			"score": 0.1,
 			"signals": {
 				"em-dash": 1.97,
 				"status-openers": 1.52,
@@ -7652,7 +7652,7 @@
 		},
 		"ai/yairm210-Unciv-15693.md": {
 			"label": "ai",
-			"probability": 0.473,
+			"score": 52.7,
 			"signals": {
 				"code-span-density": 1.03,
 				"tidy-prose": 0.16,
@@ -7661,7 +7661,7 @@
 		},
 		"ai/zanni098-triagekit-5447687982.md": {
 			"label": "ai",
-			"probability": 1,
+			"score": 0,
 			"signals": {
 				"semicolons": 2.61,
 				"em-dash": 1.76,
@@ -7677,7 +7677,7 @@
 		},
 		"ai/zeldaret-tww-5264582968.md": {
 			"label": "ai",
-			"probability": 0.991,
+			"score": 0.9,
 			"signals": {
 				"em-dash": 3.84,
 				"so-chains": 1.85,
@@ -7689,7 +7689,7 @@
 		},
 		"ai/zeldaret-tww-5265947060.md": {
 			"label": "ai",
-			"probability": 0.715,
+			"score": 28.5,
 			"signals": {
 				"em-dash": 1.63,
 				"workflow-vocabulary": 1.03,
@@ -7701,7 +7701,7 @@
 		},
 		"ai/zellij-org-zellij-5673.md": {
 			"label": "ai",
-			"probability": 0.999,
+			"score": 0.1,
 			"signals": {
 				"em-dash": 2.71,
 				"template-headings": 1.19,
@@ -7720,7 +7720,7 @@
 		},
 		"ai/zeroclaw-labs-zeroclaw-5619.md": {
 			"label": "ai",
-			"probability": 0.997,
+			"score": 0.3,
 			"signals": {
 				"plan-headings": 2.67,
 				"bold-lead-bullets": 2,
@@ -7736,19 +7736,19 @@
 		},
 		"ai/zhayujie-CowAgent-5955769949.md": {
 			"label": "ai",
-			"probability": 0.201,
+			"score": 79.9,
 			"signals": {}
 		},
 		"human/Automattic-mongoose-1232856422.md": {
 			"label": "human",
-			"probability": 0.371,
+			"score": 62.9,
 			"signals": {
 				"code-span-density": 0.85
 			}
 		},
 		"human/BabylonJS-Babylon.js-6906.md": {
 			"label": "human",
-			"probability": 0.032,
+			"score": 96.8,
 			"signals": {
 				"file-paths": 0.03,
 				"unpunctuated-lines": -0.29,
@@ -7758,7 +7758,7 @@
 		},
 		"human/BabylonJS-Babylon.js-909657735.md": {
 			"label": "human",
-			"probability": 0.007,
+			"score": 99.3,
 			"signals": {
 				"questions": -0.57,
 				"first-person": -0.9,
@@ -7768,7 +7768,7 @@
 		},
 		"human/BabylonJS-Babylon.js-9316.md": {
 			"label": "human",
-			"probability": 0.042,
+			"score": 95.8,
 			"signals": {
 				"bare-urls": -0.31,
 				"short-body": -1.44
@@ -7776,7 +7776,7 @@
 		},
 		"human/Budibase-budibase-12.md": {
 			"label": "human",
-			"probability": 0.089,
+			"score": 91.1,
 			"signals": {
 				"commit-shas": -0.31,
 				"screenshots": -0.64
@@ -7784,7 +7784,7 @@
 		},
 		"human/Budibase-budibase-809.md": {
 			"label": "human",
-			"probability": 0.035,
+			"score": 96.5,
 			"signals": {
 				"evidence-claims": 0.47,
 				"code-span-density": 0.06,
@@ -7796,7 +7796,7 @@
 		},
 		"human/CesiumGS-cesium-1231841099.md": {
 			"label": "human",
-			"probability": 0.249,
+			"score": 75.1,
 			"signals": {
 				"code-span-density": 0.57,
 				"unpunctuated-lines": -0.29
@@ -7804,7 +7804,7 @@
 		},
 		"human/ClementTsang-bottom-787.md": {
 			"label": "human",
-			"probability": 0.229,
+			"score": 77.1,
 			"signals": {
 				"code-span-density": 0.85,
 				"contrast-phrases": 0.33,
@@ -7814,7 +7814,7 @@
 		},
 		"human/ClickHouse-ClickHouse-123262.md": {
 			"label": "human",
-			"probability": 0.156,
+			"score": 84.4,
 			"signals": {
 				"contrast-phrases": 0.33,
 				"long-paragraphs": 0.19,
@@ -7827,7 +7827,7 @@
 		},
 		"human/EbookFoundation-free-programming-books-1229870129.md": {
 			"label": "human",
-			"probability": 0.259,
+			"score": 74.1,
 			"signals": {
 				"happy-to": 1.29,
 				"long-paragraphs": 0.19,
@@ -7836,7 +7836,7 @@
 		},
 		"human/EbookFoundation-free-programming-books-3376.md": {
 			"label": "human",
-			"probability": 0.042,
+			"score": 95.8,
 			"signals": {
 				"bare-urls": -0.31,
 				"short-body": -1.44
@@ -7844,7 +7844,7 @@
 		},
 		"human/EbookFoundation-free-programming-books-4996.md": {
 			"label": "human",
-			"probability": 0.068,
+			"score": 93.2,
 			"signals": {
 				"long-paragraphs": 0.19,
 				"first-person": -0.1,
@@ -7856,7 +7856,7 @@
 		},
 		"human/GoogleChrome-lighthouse-11554.md": {
 			"label": "human",
-			"probability": 0.246,
+			"score": 75.4,
 			"signals": {
 				"code-span-density": 0.57,
 				"bare-urls": -0.31
@@ -7864,7 +7864,7 @@
 		},
 		"human/GoogleChrome-lighthouse-12988.md": {
 			"label": "human",
-			"probability": 0.064,
+			"score": 93.6,
 			"signals": {
 				"code-span-density": 0.1,
 				"commit-shas": -0.15,
@@ -7876,7 +7876,7 @@
 		},
 		"human/GoogleChrome-lighthouse-9743.md": {
 			"label": "human",
-			"probability": 0.044,
+			"score": 95.6,
 			"signals": {
 				"this-pr": -0.27,
 				"short-body": -1.44
@@ -7884,7 +7884,7 @@
 		},
 		"human/MariaDB-server-1394.md": {
 			"label": "human",
-			"probability": 0.098,
+			"score": 90.2,
 			"signals": {
 				"which-clauses": 0.63,
 				"unpunctuated-lines": -1.47
@@ -7892,14 +7892,14 @@
 		},
 		"human/MariaDB-server-1695.md": {
 			"label": "human",
-			"probability": 0.094,
+			"score": 90.6,
 			"signals": {
 				"unpunctuated-lines": -0.88
 			}
 		},
 		"human/NativeScript-NativeScript-1230260656.md": {
 			"label": "human",
-			"probability": 0.057,
+			"score": 94.3,
 			"signals": {
 				"code-span-density": 0.28,
 				"questions": -1.7
@@ -7907,7 +7907,7 @@
 		},
 		"human/OpenRCT2-OpenRCT2-10014.md": {
 			"label": "human",
-			"probability": 0.104,
+			"score": 89.6,
 			"signals": {
 				"commit-shas": -0.15,
 				"bare-urls": -0.61
@@ -7915,21 +7915,21 @@
 		},
 		"human/OpenRCT2-OpenRCT2-13311.md": {
 			"label": "human",
-			"probability": 0.056,
+			"score": 94.4,
 			"signals": {
 				"short-body": -1.44
 			}
 		},
 		"human/PostHog-posthog-2153.md": {
 			"label": "human",
-			"probability": 0.056,
+			"score": 94.4,
 			"signals": {
 				"short-body": -1.44
 			}
 		},
 		"human/SerenityOS-serenity-1231559093.md": {
 			"label": "human",
-			"probability": 0.119,
+			"score": 88.1,
 			"signals": {
 				"code-span-density": 0.26,
 				"long-paragraphs": 0.19,
@@ -7940,7 +7940,7 @@
 		},
 		"human/SerenityOS-serenity-3880.md": {
 			"label": "human",
-			"probability": 0.123,
+			"score": 87.7,
 			"signals": {
 				"now-verbs": 0.85,
 				"code-span-density": 0.29,
@@ -7952,7 +7952,7 @@
 		},
 		"human/SerenityOS-serenity-613.md": {
 			"label": "human",
-			"probability": 0.451,
+			"score": 54.9,
 			"signals": {
 				"code-span-density": 0.85,
 				"contrast-phrases": 0.33
@@ -7960,7 +7960,7 @@
 		},
 		"human/SerenityOS-serenity-9686.md": {
 			"label": "human",
-			"probability": 0.216,
+			"score": 78.4,
 			"signals": {
 				"code-span-density": 0.37,
 				"file-paths": 0.03,
@@ -7969,7 +7969,7 @@
 		},
 		"human/TanStack-router-1310887572.md": {
 			"label": "human",
-			"probability": 0.043,
+			"score": 95.7,
 			"signals": {
 				"questions": -0.57,
 				"contractions": -1.15
@@ -7977,7 +7977,7 @@
 		},
 		"human/TanStack-router-266.md": {
 			"label": "human",
-			"probability": 0.262,
+			"score": 73.8,
 			"signals": {
 				"code-span-density": 0.8,
 				"tidy-prose": 0.16,
@@ -7986,7 +7986,7 @@
 		},
 		"human/TanStack-table-1545.md": {
 			"label": "human",
-			"probability": 0.025,
+			"score": 97.5,
 			"signals": {
 				"template-checkboxes": -0.22,
 				"emoticons": -2.05
@@ -7994,14 +7994,14 @@
 		},
 		"human/TanStack-table-2759.md": {
 			"label": "human",
-			"probability": 0.056,
+			"score": 94.4,
 			"signals": {
 				"short-body": -1.44
 			}
 		},
 		"human/ajeetdsouza-zoxide-112.md": {
 			"label": "human",
-			"probability": 0.121,
+			"score": 87.9,
 			"signals": {
 				"unpunctuated-lines": -0.29,
 				"bare-urls": -0.31
@@ -8009,7 +8009,7 @@
 		},
 		"human/ansible-ansible-908136962.md": {
 			"label": "human",
-			"probability": 0.31,
+			"score": 69,
 			"signals": {
 				"code-span-density": 0.54,
 				"colon-bullets": 0.36,
@@ -8020,7 +8020,7 @@
 		},
 		"human/apache-airflow-12007.md": {
 			"label": "human",
-			"probability": 0.148,
+			"score": 85.2,
 			"signals": {
 				"code-span-density": 0.22,
 				"tidy-prose": 0.16,
@@ -8031,19 +8031,19 @@
 		},
 		"human/apache-airflow-6215.md": {
 			"label": "human",
-			"probability": 0.056,
+			"score": 94.4,
 			"signals": {
 				"short-body": -1.44
 			}
 		},
 		"human/apache-iceberg-1687.md": {
 			"label": "human",
-			"probability": 0.201,
+			"score": 79.9,
 			"signals": {}
 		},
 		"human/apache-iceberg-497.md": {
 			"label": "human",
-			"probability": 0.24,
+			"score": 76,
 			"signals": {
 				"code-span-density": 1.14,
 				"this-pr": -0.27,
@@ -8052,7 +8052,7 @@
 		},
 		"human/apache-iceberg-934330695.md": {
 			"label": "human",
-			"probability": 0.007,
+			"score": 99.3,
 			"signals": {
 				"so-chains": 0.92,
 				"semicolons": 0.57,
@@ -8065,19 +8065,19 @@
 		},
 		"human/apache-rocketmq-1478.md": {
 			"label": "human",
-			"probability": 0.201,
+			"score": 79.9,
 			"signals": {}
 		},
 		"human/apache-rocketmq-2380.md": {
 			"label": "human",
-			"probability": 0.056,
+			"score": 94.4,
 			"signals": {
 				"short-body": -1.44
 			}
 		},
 		"human/apache-superset-11512.md": {
 			"label": "human",
-			"probability": 0.1,
+			"score": 90,
 			"signals": {
 				"code-span-density": 0.56,
 				"commit-shas": -0.15,
@@ -8088,7 +8088,7 @@
 		},
 		"human/apache-superset-8304.md": {
 			"label": "human",
-			"probability": 0.095,
+			"score": 90.5,
 			"signals": {
 				"code-span-density": 0.21,
 				"unpunctuated-lines": -0.29,
@@ -8098,7 +8098,7 @@
 		},
 		"human/appwrite-appwrite-1508.md": {
 			"label": "human",
-			"probability": 0.024,
+			"score": 97.6,
 			"signals": {
 				"code-span-density": 0.43,
 				"tidy-prose": 0.32,
@@ -8112,7 +8112,7 @@
 		},
 		"human/aquasecurity-trivy-163.md": {
 			"label": "human",
-			"probability": 0.302,
+			"score": 69.8,
 			"signals": {
 				"colon-bullets": 0.54,
 				"tables": 0.41,
@@ -8123,7 +8123,7 @@
 		},
 		"human/aquasecurity-trivy-729.md": {
 			"label": "human",
-			"probability": 0.042,
+			"score": 95.8,
 			"signals": {
 				"bare-urls": -0.31,
 				"short-body": -1.44
@@ -8131,7 +8131,7 @@
 		},
 		"human/bigskysoftware-htmx-1282556430.md": {
 			"label": "human",
-			"probability": 0.132,
+			"score": 86.8,
 			"signals": {
 				"code-span-density": 0.48,
 				"tidy-prose": 0.16,
@@ -8143,28 +8143,28 @@
 		},
 		"human/bigskysoftware-htmx-198.md": {
 			"label": "human",
-			"probability": 0.056,
+			"score": 94.4,
 			"signals": {
 				"short-body": -1.44
 			}
 		},
 		"human/bitwarden-server-543.md": {
 			"label": "human",
-			"probability": 0.117,
+			"score": 88.3,
 			"signals": {
 				"contractions": -0.64
 			}
 		},
 		"human/bitwarden-server-961.md": {
 			"label": "human",
-			"probability": 0.056,
+			"score": 94.4,
 			"signals": {
 				"short-body": -1.44
 			}
 		},
 		"human/caddyserver-caddy-1233387618.md": {
 			"label": "human",
-			"probability": 0.041,
+			"score": 95.9,
 			"signals": {
 				"contractions": -0.64,
 				"questions": -1.13
@@ -8172,7 +8172,7 @@
 		},
 		"human/calcom-cal.diy-909404686.md": {
 			"label": "human",
-			"probability": 0.081,
+			"score": 91.9,
 			"signals": {
 				"contrast-phrases": 0.33,
 				"tidy-prose": 0.16,
@@ -8182,7 +8182,7 @@
 		},
 		"human/changesets-changesets-155.md": {
 			"label": "human",
-			"probability": 0.043,
+			"score": 95.7,
 			"signals": {
 				"unpunctuated-lines": -0.29,
 				"short-body": -1.44
@@ -8190,7 +8190,7 @@
 		},
 		"human/changesets-changesets-462.md": {
 			"label": "human",
-			"probability": 0.02,
+			"score": 98,
 			"signals": {
 				"unpunctuated-lines": -0.29,
 				"bare-urls": -0.31,
@@ -8200,7 +8200,7 @@
 		},
 		"human/charmbracelet-bubbletea-8.md": {
 			"label": "human",
-			"probability": 0.043,
+			"score": 95.7,
 			"signals": {
 				"unpunctuated-lines": -0.29,
 				"short-body": -1.44
@@ -8208,7 +8208,7 @@
 		},
 		"human/cilium-cilium-13817.md": {
 			"label": "human",
-			"probability": 0.138,
+			"score": 86.2,
 			"signals": {
 				"commit-shas": -0.15,
 				"unpunctuated-lines": -0.29
@@ -8216,7 +8216,7 @@
 		},
 		"human/cilium-cilium-9294.md": {
 			"label": "human",
-			"probability": 0.136,
+			"score": 86.4,
 			"signals": {
 				"screenshots": -0.16,
 				"bare-urls": -0.31
@@ -8224,7 +8224,7 @@
 		},
 		"human/cli-cli-2312.md": {
 			"label": "human",
-			"probability": 0.042,
+			"score": 95.8,
 			"signals": {
 				"bare-urls": -0.31,
 				"short-body": -1.44
@@ -8232,7 +8232,7 @@
 		},
 		"human/containerd-containerd-7321.md": {
 			"label": "human",
-			"probability": 0.006,
+			"score": 99.4,
 			"signals": {
 				"file-paths": 0.03,
 				"first-person": -0.17,
@@ -8245,7 +8245,7 @@
 		},
 		"human/crowdsecurity-crowdsec-919.md": {
 			"label": "human",
-			"probability": 0.317,
+			"score": 68.3,
 			"signals": {
 				"contrast-phrases": 0.33,
 				"code-span-density": 0.28
@@ -8253,7 +8253,7 @@
 		},
 		"human/dandavison-delta-683.md": {
 			"label": "human",
-			"probability": 0.273,
+			"score": 72.7,
 			"signals": {
 				"tidy-prose": 0.24,
 				"code-span-density": 0.16
@@ -8261,14 +8261,14 @@
 		},
 		"human/dani-garcia-vaultwarden-1199.md": {
 			"label": "human",
-			"probability": 0.056,
+			"score": 94.4,
 			"signals": {
 				"short-body": -1.44
 			}
 		},
 		"human/dani-garcia-vaultwarden-631.md": {
 			"label": "human",
-			"probability": 0.19,
+			"score": 81,
 			"signals": {
 				"code-span-density": 0.57,
 				"contractions": -0.64
@@ -8276,7 +8276,7 @@
 		},
 		"human/date-fns-date-fns-907798073.md": {
 			"label": "human",
-			"probability": 0.01,
+			"score": 99,
 			"signals": {
 				"not-contrast": 0.75,
 				"code-span-density": 0.31,
@@ -8293,14 +8293,14 @@
 		},
 		"human/deepspeedai-DeepSpeed-468.md": {
 			"label": "human",
-			"probability": 0.056,
+			"score": 94.4,
 			"signals": {
 				"short-body": -1.44
 			}
 		},
 		"human/denoland-deno-1009586748.md": {
 			"label": "human",
-			"probability": 0.041,
+			"score": 95.9,
 			"signals": {
 				"code-span-density": 0.28,
 				"first-person": -0.9,
@@ -8309,7 +8309,7 @@
 		},
 		"human/denoland-deno-3025.md": {
 			"label": "human",
-			"probability": 0.051,
+			"score": 94.9,
 			"signals": {
 				"unpunctuated-lines": -0.29,
 				"bare-urls": -0.61,
@@ -8318,7 +8318,7 @@
 		},
 		"human/denoland-deno-8199.md": {
 			"label": "human",
-			"probability": 0.042,
+			"score": 95.8,
 			"signals": {
 				"code-span-density": 0.56,
 				"commit-shas": -0.15,
@@ -8332,7 +8332,7 @@
 		},
 		"human/diesel-rs-diesel-2144.md": {
 			"label": "human",
-			"probability": 0.009,
+			"score": 99.1,
 			"signals": {
 				"code-span-density": 0.32,
 				"contractions": -0.38,
@@ -8344,7 +8344,7 @@
 		},
 		"human/diesel-rs-diesel-2538.md": {
 			"label": "human",
-			"probability": 0.009,
+			"score": 99.1,
 			"signals": {
 				"code-span-density": 0.24,
 				"unpunctuated-lines": -0.29,
@@ -8356,7 +8356,7 @@
 		},
 		"human/django-django-1234599952.md": {
 			"label": "human",
-			"probability": 0.611,
+			"score": 38.9,
 			"signals": {
 				"review-pleasantries": 1.47,
 				"semicolons": 1.02,
@@ -8370,7 +8370,7 @@
 		},
 		"human/django-django-14534.md": {
 			"label": "human",
-			"probability": 0.515,
+			"score": 48.5,
 			"signals": {
 				"code-span-density": 1.28,
 				"tidy-prose": 0.16
@@ -8378,7 +8378,7 @@
 		},
 		"human/django-django-14538.md": {
 			"label": "human",
-			"probability": 0.031,
+			"score": 96.9,
 			"signals": {
 				"code-span-density": 0.44,
 				"tidy-prose": 0.32,
@@ -8390,7 +8390,7 @@
 		},
 		"human/dotnet-aspnetcore-14584.md": {
 			"label": "human",
-			"probability": 0.019,
+			"score": 98.1,
 			"signals": {
 				"contractions": -1.15,
 				"short-body": -1.44
@@ -8398,7 +8398,7 @@
 		},
 		"human/dotnet-aspnetcore-27409.md": {
 			"label": "human",
-			"probability": 0.04,
+			"score": 96,
 			"signals": {
 				"code-span-density": 0.28,
 				"contractions": -0.64,
@@ -8407,7 +8407,7 @@
 		},
 		"human/dotnet-roslyn-1239629216.md": {
 			"label": "human",
-			"probability": 0.421,
+			"score": 57.9,
 			"signals": {
 				"code-span-density": 0.9,
 				"tidy-prose": 0.16
@@ -8415,7 +8415,7 @@
 		},
 		"human/dotnet-roslyn-38955.md": {
 			"label": "human",
-			"probability": 0.319,
+			"score": 68.1,
 			"signals": {
 				"now-verbs": 0.85,
 				"tidy-prose": 0.16,
@@ -8424,7 +8424,7 @@
 		},
 		"human/dotnet-roslyn-49089.md": {
 			"label": "human",
-			"probability": 0.017,
+			"score": 98.3,
 			"signals": {
 				"unpunctuated-lines": -0.29,
 				"bare-urls": -0.31,
@@ -8434,7 +8434,7 @@
 		},
 		"human/elastic-elasticsearch-47317.md": {
 			"label": "human",
-			"probability": 0.032,
+			"score": 96.8,
 			"signals": {
 				"unpunctuated-lines": -0.29,
 				"bare-urls": -0.31,
@@ -8443,14 +8443,14 @@
 		},
 		"human/elastic-elasticsearch-64447.md": {
 			"label": "human",
-			"probability": 0.056,
+			"score": 94.4,
 			"signals": {
 				"short-body": -1.44
 			}
 		},
 		"human/elastic-elasticsearch-89723.md": {
 			"label": "human",
-			"probability": 0.384,
+			"score": 61.6,
 			"signals": {
 				"existing-reference": 0.91,
 				"tidy-prose": 0.16,
@@ -8460,7 +8460,7 @@
 		},
 		"human/element-plus-element-plus-508.md": {
 			"label": "human",
-			"probability": 0.051,
+			"score": 94.9,
 			"signals": {
 				"template-checkboxes": -0.11,
 				"short-body": -1.44
@@ -8468,7 +8468,7 @@
 		},
 		"human/emberjs-ember.js-1320825417.md": {
 			"label": "human",
-			"probability": 0.113,
+			"score": 88.7,
 			"signals": {
 				"code-span-density": 0.28,
 				"file-paths": 0.03,
@@ -8477,7 +8477,7 @@
 		},
 		"human/eslint-eslint-12332.md": {
 			"label": "human",
-			"probability": 0.004,
+			"score": 99.6,
 			"signals": {
 				"code-span-density": 0.33,
 				"long-paragraphs": 0.19,
@@ -8490,7 +8490,7 @@
 		},
 		"human/eslint-eslint-13788.md": {
 			"label": "human",
-			"probability": 0.828,
+			"score": 17.2,
 			"signals": {
 				"bold-lead-bullets": 1,
 				"test-reference": 0.97,
@@ -8501,7 +8501,7 @@
 		},
 		"human/espnet-espnet-3529.md": {
 			"label": "human",
-			"probability": 0.087,
+			"score": 91.3,
 			"signals": {
 				"first-person": -0.4,
 				"questions": -0.57
@@ -8509,7 +8509,7 @@
 		},
 		"human/etcd-io-etcd-11179.md": {
 			"label": "human",
-			"probability": 0.61,
+			"score": 39,
 			"signals": {
 				"semicolons": 2.2,
 				"tidy-prose": 0.32,
@@ -8521,7 +8521,7 @@
 		},
 		"human/etcd-io-etcd-12418.md": {
 			"label": "human",
-			"probability": 0.055,
+			"score": 94.5,
 			"signals": {
 				"file-paths": 0.06,
 				"unpunctuated-lines": -0.29,
@@ -8530,21 +8530,21 @@
 		},
 		"human/etcd-io-etcd-22514.md": {
 			"label": "human",
-			"probability": 0.156,
+			"score": 84.4,
 			"signals": {
 				"bare-urls": -0.31
 			}
 		},
 		"human/evanw-esbuild-2506.md": {
 			"label": "human",
-			"probability": 0.156,
+			"score": 84.4,
 			"signals": {
 				"bare-urls": -0.31
 			}
 		},
 		"human/expo-expo-1242730604.md": {
 			"label": "human",
-			"probability": 0.28,
+			"score": 72,
 			"signals": {
 				"now-verbs": 0.85,
 				"long-paragraphs": 0.19,
@@ -8554,7 +8554,7 @@
 		},
 		"human/expressjs-express-1179796863.md": {
 			"label": "human",
-			"probability": 0.007,
+			"score": 99.3,
 			"signals": {
 				"emoticons": -1.02,
 				"questions": -1.13,
@@ -8563,7 +8563,7 @@
 		},
 		"human/expressjs-express-4174.md": {
 			"label": "human",
-			"probability": 0.483,
+			"score": 51.7,
 			"signals": {
 				"plan-headings": 1.33,
 				"code-span-density": 0.28,
@@ -8572,7 +8572,7 @@
 		},
 		"human/expressjs-express-4321.md": {
 			"label": "human",
-			"probability": 0.015,
+			"score": 98.5,
 			"signals": {
 				"tidy-prose": 0.24,
 				"code-span-density": 0.22,
@@ -8584,7 +8584,7 @@
 		},
 		"human/falcosecurity-falco-1233895384.md": {
 			"label": "human",
-			"probability": 0.196,
+			"score": 80.4,
 			"signals": {
 				"maintainer-mention": 0.81,
 				"tidy-prose": 0.16,
@@ -8594,7 +8594,7 @@
 		},
 		"human/fastapi-fastapi-1236400827.md": {
 			"label": "human",
-			"probability": 0.004,
+			"score": 99.6,
 			"signals": {
 				"this-pr": -0.27,
 				"bare-urls": -0.31,
@@ -8606,14 +8606,14 @@
 		},
 		"human/fastify-fastify-1868.md": {
 			"label": "human",
-			"probability": 0.056,
+			"score": 94.4,
 			"signals": {
 				"short-body": -1.44
 			}
 		},
 		"human/fastify-fastify-2657.md": {
 			"label": "human",
-			"probability": 0.156,
+			"score": 84.4,
 			"signals": {
 				"test-reference": 0.49,
 				"code-span-density": 0.39,
@@ -8624,19 +8624,19 @@
 		},
 		"human/fluxcd-flagger-1979.md": {
 			"label": "human",
-			"probability": 0.201,
+			"score": 79.9,
 			"signals": {}
 		},
 		"human/freeCodeCamp-freeCodeCamp-36885.md": {
 			"label": "human",
-			"probability": 0.056,
+			"score": 94.4,
 			"signals": {
 				"short-body": -1.44
 			}
 		},
 		"human/freeCodeCamp-freeCodeCamp-40118.md": {
 			"label": "human",
-			"probability": 0.036,
+			"score": 96.4,
 			"signals": {
 				"commit-shas": -0.15,
 				"unpunctuated-lines": -0.29,
@@ -8647,7 +8647,7 @@
 		},
 		"human/gatsbyjs-gatsby-17978.md": {
 			"label": "human",
-			"probability": 0.081,
+			"score": 91.9,
 			"signals": {
 				"unpunctuated-lines": -0.29,
 				"bare-urls": -0.31,
@@ -8656,7 +8656,7 @@
 		},
 		"human/gatsbyjs-gatsby-27750.md": {
 			"label": "human",
-			"probability": 0.071,
+			"score": 92.9,
 			"signals": {
 				"emoji-markers": 0.25,
 				"short-body": -1.44
@@ -8664,14 +8664,14 @@
 		},
 		"human/getsentry-sentry-1233263813.md": {
 			"label": "human",
-			"probability": 0.139,
+			"score": 86.1,
 			"signals": {
 				"first-person": -0.45
 			}
 		},
 		"human/goauthentik-authentik-3503.md": {
 			"label": "human",
-			"probability": 0.053,
+			"score": 94.7,
 			"signals": {
 				"questions": -0.57,
 				"first-person": -0.94
@@ -8679,7 +8679,7 @@
 		},
 		"human/godotengine-godot-32448.md": {
 			"label": "human",
-			"probability": 0.027,
+			"score": 97.3,
 			"signals": {
 				"code-span-density": 0.67,
 				"bare-urls": -0.31,
@@ -8691,7 +8691,7 @@
 		},
 		"human/godotengine-godot-43242.md": {
 			"label": "human",
-			"probability": 0.247,
+			"score": 75.3,
 			"signals": {
 				"code-span-density": 0.57,
 				"bold-lead-bullets": 0.33,
@@ -8700,14 +8700,14 @@
 		},
 		"human/golang-go-54802.md": {
 			"label": "human",
-			"probability": 0.056,
+			"score": 94.4,
 			"signals": {
 				"short-body": -1.44
 			}
 		},
 		"human/grafana-grafana-1233150875.md": {
 			"label": "human",
-			"probability": 0.063,
+			"score": 93.7,
 			"signals": {
 				"code-span-density": 0.57,
 				"unpunctuated-lines": -0.29,
@@ -8717,26 +8717,26 @@
 		},
 		"human/grafana-grafana-54554.md": {
 			"label": "human",
-			"probability": 0.201,
+			"score": 79.9,
 			"signals": {}
 		},
 		"human/grafana-tempo-298.md": {
 			"label": "human",
-			"probability": 0.056,
+			"score": 94.4,
 			"signals": {
 				"short-body": -1.44
 			}
 		},
 		"human/grpc-grpc-20398.md": {
 			"label": "human",
-			"probability": 0.177,
+			"score": 82.3,
 			"signals": {
 				"commit-shas": -0.15
 			}
 		},
 		"human/grpc-grpc-24613.md": {
 			"label": "human",
-			"probability": 0.136,
+			"score": 86.4,
 			"signals": {
 				"screenshots": -0.16,
 				"bare-urls": -0.31
@@ -8744,7 +8744,7 @@
 		},
 		"human/grpc-grpc-908101518.md": {
 			"label": "human",
-			"probability": 0.011,
+			"score": 98.9,
 			"signals": {
 				"commit-shas": -0.15,
 				"first-person": -0.26,
@@ -8755,12 +8755,12 @@
 		},
 		"human/grpc-grpc-go-9477.md": {
 			"label": "human",
-			"probability": 0.201,
+			"score": 79.9,
 			"signals": {}
 		},
 		"human/hashicorp-nomad-28637.md": {
 			"label": "human",
-			"probability": 0.07,
+			"score": 93,
 			"signals": {
 				"long-paragraphs": 0.19,
 				"file-paths": 0.03,
@@ -8773,7 +8773,7 @@
 		},
 		"human/helm-helm-6542.md": {
 			"label": "human",
-			"probability": 0.023,
+			"score": 97.7,
 			"signals": {
 				"contractions": -0.37,
 				"this-pr": -0.54,
@@ -8782,21 +8782,21 @@
 		},
 		"human/helm-helm-8960.md": {
 			"label": "human",
-			"probability": 0.056,
+			"score": 94.4,
 			"signals": {
 				"short-body": -1.44
 			}
 		},
 		"human/helm-helm-909595139.md": {
 			"label": "human",
-			"probability": 0.228,
+			"score": 77.2,
 			"signals": {
 				"tidy-prose": 0.16
 			}
 		},
 		"human/heroui-inc-heroui-713.md": {
 			"label": "human",
-			"probability": 0.13,
+			"score": 87,
 			"signals": {
 				"tidy-prose": 0.32,
 				"colon-bullets": 0.18,
@@ -8809,7 +8809,7 @@
 		},
 		"human/home-assistant-core-27080.md": {
 			"label": "human",
-			"probability": 0.15,
+			"score": 85,
 			"signals": {
 				"code-span-density": 0.28,
 				"contractions": -0.64
@@ -8817,7 +8817,7 @@
 		},
 		"human/home-assistant-core-42678.md": {
 			"label": "human",
-			"probability": 0.094,
+			"score": 90.6,
 			"signals": {
 				"colon-bullets": 0.36,
 				"which-clauses": 0.32,
@@ -8830,7 +8830,7 @@
 		},
 		"human/huggingface-accelerate-148.md": {
 			"label": "human",
-			"probability": 0.078,
+			"score": 92.2,
 			"signals": {
 				"first-person": -0.45,
 				"contractions": -0.64
@@ -8838,7 +8838,7 @@
 		},
 		"human/huggingface-datasets-776.md": {
 			"label": "human",
-			"probability": 0.272,
+			"score": 72.8,
 			"signals": {
 				"code-span-density": 1.14,
 				"unpunctuated-lines": -0.29,
@@ -8847,7 +8847,7 @@
 		},
 		"human/huggingface-diffusers-293.md": {
 			"label": "human",
-			"probability": 0.114,
+			"score": 88.6,
 			"signals": {
 				"colon-bullets": 0.18,
 				"bare-urls": -0.31,
@@ -8856,14 +8856,14 @@
 		},
 		"human/huggingface-tokenizers-470.md": {
 			"label": "human",
-			"probability": 0.056,
+			"score": 94.4,
 			"signals": {
 				"short-body": -1.44
 			}
 		},
 		"human/huggingface-transformers-1373.md": {
 			"label": "human",
-			"probability": 0.043,
+			"score": 95.7,
 			"signals": {
 				"unpunctuated-lines": -0.29,
 				"short-body": -1.44
@@ -8871,7 +8871,7 @@
 		},
 		"human/huggingface-transformers-8205.md": {
 			"label": "human",
-			"probability": 0.203,
+			"score": 79.7,
 			"signals": {
 				"now-verbs": 0.85,
 				"code-span-density": 0.72,
@@ -8882,7 +8882,7 @@
 		},
 		"human/immich-app-immich-1233185396.md": {
 			"label": "human",
-			"probability": 0.053,
+			"score": 94.7,
 			"signals": {
 				"file-paths": 0.03,
 				"first-person": -0.39,
@@ -8891,7 +8891,7 @@
 		},
 		"human/intlify-vue-i18n-659.md": {
 			"label": "human",
-			"probability": 0.09,
+			"score": 91,
 			"signals": {
 				"evidence-claims": 0.47,
 				"file-paths": 0.03,
@@ -8903,14 +8903,14 @@
 		},
 		"human/istio-istio-17493.md": {
 			"label": "human",
-			"probability": 0.056,
+			"score": 94.4,
 			"signals": {
 				"short-body": -1.44
 			}
 		},
 		"human/istio-istio-28457.md": {
 			"label": "human",
-			"probability": 0.069,
+			"score": 93.1,
 			"signals": {
 				"unpunctuated-lines": -0.29,
 				"bare-urls": -0.92
@@ -8918,7 +8918,7 @@
 		},
 		"human/jestjs-jest-10757.md": {
 			"label": "human",
-			"probability": 0.043,
+			"score": 95.7,
 			"signals": {
 				"unpunctuated-lines": -0.29,
 				"short-body": -1.44
@@ -8926,14 +8926,14 @@
 		},
 		"human/jestjs-jest-8971.md": {
 			"label": "human",
-			"probability": 0.158,
+			"score": 84.2,
 			"signals": {
 				"unpunctuated-lines": -0.29
 			}
 		},
 		"human/junegunn-fzf-1664.md": {
 			"label": "human",
-			"probability": 0.042,
+			"score": 95.8,
 			"signals": {
 				"bare-urls": -0.31,
 				"short-body": -1.44
@@ -8941,7 +8941,7 @@
 		},
 		"human/junegunn-fzf-2223.md": {
 			"label": "human",
-			"probability": 0.145,
+			"score": 85.5,
 			"signals": {
 				"code-span-density": 1.07,
 				"contrast-phrases": 0.33,
@@ -8951,21 +8951,21 @@
 		},
 		"human/keycloak-keycloak-6339.md": {
 			"label": "human",
-			"probability": 0.056,
+			"score": 94.4,
 			"signals": {
 				"short-body": -1.44
 			}
 		},
 		"human/keycloak-keycloak-7556.md": {
 			"label": "human",
-			"probability": 0.056,
+			"score": 94.4,
 			"signals": {
 				"short-body": -1.44
 			}
 		},
 		"human/keycloak-keycloak-974824444.md": {
 			"label": "human",
-			"probability": 0.038,
+			"score": 96.2,
 			"signals": {
 				"contrast-phrases": 0.33,
 				"first-person": -0.43,
@@ -8975,7 +8975,7 @@
 		},
 		"human/keystonejs-keystone-1705.md": {
 			"label": "human",
-			"probability": 0.031,
+			"score": 96.9,
 			"signals": {
 				"contractions": -0.64,
 				"short-body": -1.44
@@ -8983,7 +8983,7 @@
 		},
 		"human/keystonejs-keystone-4088.md": {
 			"label": "human",
-			"probability": 0.09,
+			"score": 91,
 			"signals": {
 				"unpunctuated-lines": -0.29,
 				"contractions": -0.64
@@ -8991,7 +8991,7 @@
 		},
 		"human/keystonejs-keystone-7849.md": {
 			"label": "human",
-			"probability": 0.48,
+			"score": 52,
 			"signals": {
 				"code-span-density": 0.81,
 				"agent-vocabulary": 0.69,
@@ -9002,7 +9002,7 @@
 		},
 		"human/kubernetes-sigs-kustomize-1561.md": {
 			"label": "human",
-			"probability": 0.095,
+			"score": 90.5,
 			"signals": {
 				"code-span-density": 0.57,
 				"short-body": -1.44
@@ -9010,14 +9010,14 @@
 		},
 		"human/kubernetes-sigs-kustomize-3143.md": {
 			"label": "human",
-			"probability": 0.056,
+			"score": 94.4,
 			"signals": {
 				"short-body": -1.44
 			}
 		},
 		"human/kubernetes-website-16626.md": {
 			"label": "human",
-			"probability": 0.056,
+			"score": 94.4,
 			"signals": {
 				"code-span-density": 0.28,
 				"unpunctuated-lines": -0.29,
@@ -9026,7 +9026,7 @@
 		},
 		"human/kubernetes-website-24820.md": {
 			"label": "human",
-			"probability": 0.043,
+			"score": 95.7,
 			"signals": {
 				"unpunctuated-lines": -0.29,
 				"short-body": -1.44
@@ -9034,14 +9034,14 @@
 		},
 		"human/labstack-echo-1401.md": {
 			"label": "human",
-			"probability": 0.089,
+			"score": 91.1,
 			"signals": {
 				"first-person": -0.94
 			}
 		},
 		"human/labstack-echo-1656.md": {
 			"label": "human",
-			"probability": 0.016,
+			"score": 98.4,
 			"signals": {
 				"unpunctuated-lines": -0.29,
 				"tentative": -0.99,
@@ -9050,7 +9050,7 @@
 		},
 		"human/laravel-framework-30133.md": {
 			"label": "human",
-			"probability": 0.23,
+			"score": 77,
 			"signals": {
 				"code-span-density": 0.28,
 				"tidy-prose": 0.16,
@@ -9059,7 +9059,7 @@
 		},
 		"human/laravel-framework-35038.md": {
 			"label": "human",
-			"probability": 0.267,
+			"score": 73.3,
 			"signals": {
 				"contrast-phrases": 0.33,
 				"tidy-prose": 0.24,
@@ -9069,7 +9069,7 @@
 		},
 		"human/libgdx-libgdx-6641.md": {
 			"label": "human",
-			"probability": 0.007,
+			"score": 99.3,
 			"signals": {
 				"file-paths": 0.03,
 				"first-person": -0.64,
@@ -9079,26 +9079,26 @@
 		},
 		"human/linkerd-linkerd2-6754.md": {
 			"label": "human",
-			"probability": 0.371,
+			"score": 62.9,
 			"signals": {
 				"code-span-density": 0.85
 			}
 		},
 		"human/longhorn-longhorn-14206.md": {
 			"label": "human",
-			"probability": 0.201,
+			"score": 79.9,
 			"signals": {}
 		},
 		"human/longhorn-longhorn-1896.md": {
 			"label": "human",
-			"probability": 0.056,
+			"score": 94.4,
 			"signals": {
 				"short-body": -1.44
 			}
 		},
 		"human/longhorn-longhorn-744.md": {
 			"label": "human",
-			"probability": 0.042,
+			"score": 95.8,
 			"signals": {
 				"bare-urls": -0.31,
 				"short-body": -1.44
@@ -9106,7 +9106,7 @@
 		},
 		"human/loopbackio-loopback-next-3832.md": {
 			"label": "human",
-			"probability": 0.042,
+			"score": 95.8,
 			"signals": {
 				"bare-urls": -0.31,
 				"short-body": -1.44
@@ -9114,14 +9114,14 @@
 		},
 		"human/loopbackio-loopback-next-6695.md": {
 			"label": "human",
-			"probability": 0.056,
+			"score": 94.4,
 			"signals": {
 				"short-body": -1.44
 			}
 		},
 		"human/lucide-icons-lucide-1228558724.md": {
 			"label": "human",
-			"probability": 0.107,
+			"score": 89.3,
 			"signals": {
 				"long-paragraphs": 0.19,
 				"unpunctuated-lines": -0.29,
@@ -9130,7 +9130,7 @@
 		},
 		"human/matomo-org-matomo-14907.md": {
 			"label": "human",
-			"probability": 0.122,
+			"score": 87.8,
 			"signals": {
 				"tidy-prose": 0.32,
 				"this-pr": -0.27,
@@ -9140,7 +9140,7 @@
 		},
 		"human/matomo-org-matomo-16641.md": {
 			"label": "human",
-			"probability": 0.032,
+			"score": 96.8,
 			"signals": {
 				"unpunctuated-lines": -0.29,
 				"bare-urls": -0.31,
@@ -9149,7 +9149,7 @@
 		},
 		"human/matplotlib-matplotlib-23778.md": {
 			"label": "human",
-			"probability": 0.783,
+			"score": 21.7,
 			"signals": {
 				"plan-headings": 1.33,
 				"semicolons": 0.52,
@@ -9161,7 +9161,7 @@
 		},
 		"human/micronaut-projects-micronaut-core-1237997259.md": {
 			"label": "human",
-			"probability": 0.084,
+			"score": 91.6,
 			"signals": {
 				"first-person": -0.45,
 				"questions": -0.57
@@ -9169,7 +9169,7 @@
 		},
 		"human/microsoft-TypeScript-64695.md": {
 			"label": "human",
-			"probability": 0.017,
+			"score": 98.3,
 			"signals": {
 				"unpunctuated-lines": -0.29,
 				"bare-urls": -0.31,
@@ -9179,21 +9179,21 @@
 		},
 		"human/microsoft-TypeScript-909652355.md": {
 			"label": "human",
-			"probability": 0.378,
+			"score": 62.2,
 			"signals": {
 				"code-span-density": 0.88
 			}
 		},
 		"human/microsoft-vscode-1233917472.md": {
 			"label": "human",
-			"probability": 0.308,
+			"score": 69.2,
 			"signals": {
 				"code-span-density": 0.57
 			}
 		},
 		"human/mrdoob-three.js-17605.md": {
 			"label": "human",
-			"probability": 0.154,
+			"score": 84.6,
 			"signals": {
 				"code-span-density": 0.67,
 				"tidy-prose": 0.32,
@@ -9206,7 +9206,7 @@
 		},
 		"human/mrdoob-three.js-20597.md": {
 			"label": "human",
-			"probability": 0.079,
+			"score": 92.1,
 			"signals": {
 				"commit-shas": -0.15,
 				"unpunctuated-lines": -0.29,
@@ -9216,7 +9216,7 @@
 		},
 		"human/neovim-neovim-11117.md": {
 			"label": "human",
-			"probability": 0.043,
+			"score": 95.7,
 			"signals": {
 				"unpunctuated-lines": -0.29,
 				"short-body": -1.44
@@ -9224,7 +9224,7 @@
 		},
 		"human/neovim-neovim-13180.md": {
 			"label": "human",
-			"probability": 0.163,
+			"score": 83.7,
 			"signals": {
 				"code-span-density": 0.33,
 				"long-paragraphs": 0.19,
@@ -9235,21 +9235,21 @@
 		},
 		"human/nginx-nginx-42.md": {
 			"label": "human",
-			"probability": 0.056,
+			"score": 94.4,
 			"signals": {
 				"short-body": -1.44
 			}
 		},
 		"human/nginx-nginx-51.md": {
 			"label": "human",
-			"probability": 0.056,
+			"score": 94.4,
 			"signals": {
 				"short-body": -1.44
 			}
 		},
 		"human/nodejs-node-29774.md": {
 			"label": "human",
-			"probability": 0.093,
+			"score": 90.7,
 			"signals": {
 				"bare-urls": -0.31,
 				"unpunctuated-lines": -0.59
@@ -9257,7 +9257,7 @@
 		},
 		"human/nodejs-node-35897.md": {
 			"label": "human",
-			"probability": 0.043,
+			"score": 95.7,
 			"signals": {
 				"unpunctuated-lines": -0.29,
 				"short-body": -1.44
@@ -9265,7 +9265,7 @@
 		},
 		"human/nodejs-node-39128.md": {
 			"label": "human",
-			"probability": 0.117,
+			"score": 88.3,
 			"signals": {
 				"code-span-density": 0.28,
 				"tidy-prose": 0.16,
@@ -9275,7 +9275,7 @@
 		},
 		"human/nodejs-node-39187.md": {
 			"label": "human",
-			"probability": 0.026,
+			"score": 97.4,
 			"signals": {
 				"semicolons": 0.92,
 				"unpunctuated-lines": -0.29,
@@ -9286,14 +9286,14 @@
 		},
 		"human/nrwl-nx-1900.md": {
 			"label": "human",
-			"probability": 0.056,
+			"score": 94.4,
 			"signals": {
 				"short-body": -1.44
 			}
 		},
 		"human/nrwl-nx-3996.md": {
 			"label": "human",
-			"probability": 0.073,
+			"score": 92.7,
 			"signals": {
 				"code-span-density": 0.28,
 				"short-body": -1.44
@@ -9301,7 +9301,7 @@
 		},
 		"human/numpy-numpy-14598.md": {
 			"label": "human",
-			"probability": 0.095,
+			"score": 90.5,
 			"signals": {
 				"code-span-density": 0.57,
 				"short-body": -1.44
@@ -9309,7 +9309,7 @@
 		},
 		"human/numpy-numpy-17678.md": {
 			"label": "human",
-			"probability": 0.021,
+			"score": 97.9,
 			"signals": {
 				"which-clauses": 0.63,
 				"code-span-density": 0.4,
@@ -9323,7 +9323,7 @@
 		},
 		"human/nuxt-nuxt-6477.md": {
 			"label": "human",
-			"probability": 0.043,
+			"score": 95.7,
 			"signals": {
 				"unpunctuated-lines": -0.29,
 				"short-body": -1.44
@@ -9331,7 +9331,7 @@
 		},
 		"human/nuxt-nuxt-8263.md": {
 			"label": "human",
-			"probability": 0.214,
+			"score": 78.6,
 			"signals": {
 				"code-span-density": 1.28,
 				"file-paths": 0.03,
@@ -9341,14 +9341,14 @@
 		},
 		"human/nuxt-test-utils-884073813.md": {
 			"label": "human",
-			"probability": 0.308,
+			"score": 69.2,
 			"signals": {
 				"code-span-density": 0.57
 			}
 		},
 		"human/open-policy-agent-opa-1232806654.md": {
 			"label": "human",
-			"probability": 0.484,
+			"score": 51.6,
 			"signals": {
 				"workflow-vocabulary": 1.03,
 				"code-span-density": 0.28
@@ -9356,12 +9356,12 @@
 		},
 		"human/open-policy-agent-opa-1797.md": {
 			"label": "human",
-			"probability": 0.201,
+			"score": 79.9,
 			"signals": {}
 		},
 		"human/open-policy-agent-opa-2846.md": {
 			"label": "human",
-			"probability": 0.295,
+			"score": 70.5,
 			"signals": {
 				"code-span-density": 0.57,
 				"existing-precedent": 0.53,
@@ -9370,7 +9370,7 @@
 		},
 		"human/open-telemetry-opentelemetry-collector-908848525.md": {
 			"label": "human",
-			"probability": 0.02,
+			"score": 98,
 			"signals": {
 				"contractions": -0.64,
 				"first-person": -0.9,
@@ -9379,7 +9379,7 @@
 		},
 		"human/outline-outline-907869230.md": {
 			"label": "human",
-			"probability": 0.088,
+			"score": 91.2,
 			"signals": {
 				"code-span-density": 1.08,
 				"unpunctuated-lines": -0.29,
@@ -9390,7 +9390,7 @@
 		},
 		"human/pandas-dev-pandas-28677.md": {
 			"label": "human",
-			"probability": 0.171,
+			"score": 82.9,
 			"signals": {
 				"code-span-density": 0.48,
 				"template-checkboxes": -0.11,
@@ -9400,14 +9400,14 @@
 		},
 		"human/pandas-dev-pandas-37545.md": {
 			"label": "human",
-			"probability": 0.056,
+			"score": 94.4,
 			"signals": {
 				"short-body": -1.44
 			}
 		},
 		"human/pingcap-tidb-12503.md": {
 			"label": "human",
-			"probability": 0.292,
+			"score": 70.8,
 			"signals": {
 				"test-reference": 0.49,
 				"tidy-prose": 0.32,
@@ -9417,7 +9417,7 @@
 		},
 		"human/pingcap-tidb-20740.md": {
 			"label": "human",
-			"probability": 0.333,
+			"score": 66.7,
 			"signals": {
 				"not-contrast": 0.75,
 				"tables": 0.25,
@@ -9428,7 +9428,7 @@
 		},
 		"human/pingcap-tidb-909130009.md": {
 			"label": "human",
-			"probability": 0.048,
+			"score": 95.2,
 			"signals": {
 				"first-person": -0.45,
 				"contractions": -1.15
@@ -9436,7 +9436,7 @@
 		},
 		"human/pixijs-pixijs-6105.md": {
 			"label": "human",
-			"probability": 0.532,
+			"score": 46.8,
 			"signals": {
 				"now-verbs": 0.85,
 				"contrast-phrases": 0.66
@@ -9444,7 +9444,7 @@
 		},
 		"human/pixijs-pixijs-6946.md": {
 			"label": "human",
-			"probability": 0.16,
+			"score": 84,
 			"signals": {
 				"file-paths": 0.03,
 				"bare-urls": -0.31
@@ -9452,7 +9452,7 @@
 		},
 		"human/pixijs-pixijs-904923267.md": {
 			"label": "human",
-			"probability": 0.199,
+			"score": 80.1,
 			"signals": {
 				"code-span-density": 0.28,
 				"unpunctuated-lines": -0.29
@@ -9460,7 +9460,7 @@
 		},
 		"human/plausible-analytics-1234422503.md": {
 			"label": "human",
-			"probability": 0.236,
+			"score": 76.4,
 			"signals": {
 				"existing-reference": 0.91,
 				"contrast-phrases": 0.33,
@@ -9475,14 +9475,14 @@
 		},
 		"human/playcanvas-engine-1227395979.md": {
 			"label": "human",
-			"probability": 0.259,
+			"score": 74.1,
 			"signals": {
 				"contrast-phrases": 0.33
 			}
 		},
 		"human/plotly-plotly.js-908351020.md": {
 			"label": "human",
-			"probability": 0.499,
+			"score": 50.1,
 			"signals": {
 				"code-span-density": 1.14,
 				"tidy-prose": 0.24
@@ -9490,7 +9490,7 @@
 		},
 		"human/pmndrs-drei-1231521490.md": {
 			"label": "human",
-			"probability": 0.011,
+			"score": 98.9,
 			"signals": {
 				"contractions": -0.64,
 				"emoticons": -1.02,
@@ -9499,7 +9499,7 @@
 		},
 		"human/pmndrs-drei-155.md": {
 			"label": "human",
-			"probability": 0.021,
+			"score": 97.9,
 			"signals": {
 				"first-person": -0.45,
 				"questions": -0.57,
@@ -9508,7 +9508,7 @@
 		},
 		"human/pmndrs-react-three-fiber-925233811.md": {
 			"label": "human",
-			"probability": 0.091,
+			"score": 90.9,
 			"signals": {
 				"tidy-prose": 0.16,
 				"first-person": -0.45,
@@ -9517,7 +9517,7 @@
 		},
 		"human/postcss-postcss-1294.md": {
 			"label": "human",
-			"probability": 0.042,
+			"score": 95.8,
 			"signals": {
 				"bare-urls": -0.31,
 				"short-body": -1.44
@@ -9525,21 +9525,21 @@
 		},
 		"human/postcss-postcss-1429.md": {
 			"label": "human",
-			"probability": 0.056,
+			"score": 94.4,
 			"signals": {
 				"short-body": -1.44
 			}
 		},
 		"human/processing-p5.js-4033.md": {
 			"label": "human",
-			"probability": 0.056,
+			"score": 94.4,
 			"signals": {
 				"short-body": -1.44
 			}
 		},
 		"human/processing-p5.js-4859.md": {
 			"label": "human",
-			"probability": 0.118,
+			"score": 88.2,
 			"signals": {
 				"code-span-density": 0.41,
 				"tidy-prose": 0.32,
@@ -9553,7 +9553,7 @@
 		},
 		"human/prometheus-prometheus-1232982419.md": {
 			"label": "human",
-			"probability": 0.004,
+			"score": 99.6,
 			"signals": {
 				"code-span-density": 0.35,
 				"long-paragraphs": 0.19,
@@ -9568,26 +9568,26 @@
 		},
 		"human/prometheus-prometheus-6077.md": {
 			"label": "human",
-			"probability": 0.056,
+			"score": 94.4,
 			"signals": {
 				"short-body": -1.44
 			}
 		},
 		"human/prometheus-prometheus-8116.md": {
 			"label": "human",
-			"probability": 0.056,
+			"score": 94.4,
 			"signals": {
 				"short-body": -1.44
 			}
 		},
 		"human/prometheus-prometheus-9266.md": {
 			"label": "human",
-			"probability": 0.201,
+			"score": 79.9,
 			"signals": {}
 		},
 		"human/pulumi-pulumi-3261.md": {
 			"label": "human",
-			"probability": 0.067,
+			"score": 93.3,
 			"signals": {
 				"commit-shas": -0.31,
 				"bare-urls": -0.31,
@@ -9596,7 +9596,7 @@
 		},
 		"human/pulumi-pulumi-5612.md": {
 			"label": "human",
-			"probability": 0.056,
+			"score": 94.4,
 			"signals": {
 				"code-span-density": 0.28,
 				"unpunctuated-lines": -0.29,
@@ -9605,7 +9605,7 @@
 		},
 		"human/puppeteer-puppeteer-4980.md": {
 			"label": "human",
-			"probability": 0.015,
+			"score": 98.5,
 			"signals": {
 				"unpunctuated-lines": -0.29,
 				"first-person": -0.45,
@@ -9615,7 +9615,7 @@
 		},
 		"human/puppeteer-puppeteer-6555.md": {
 			"label": "human",
-			"probability": 0.022,
+			"score": 97.8,
 			"signals": {
 				"code-span-density": 0.24,
 				"file-paths": 0.14,
@@ -9627,7 +9627,7 @@
 		},
 		"human/pytest-dev-pytest-5882.md": {
 			"label": "human",
-			"probability": 0.096,
+			"score": 90.4,
 			"signals": {
 				"this-pr": -0.27,
 				"unpunctuated-lines": -0.59
@@ -9635,7 +9635,7 @@
 		},
 		"human/pytest-dev-pytest-7976.md": {
 			"label": "human",
-			"probability": 0.048,
+			"score": 95.2,
 			"signals": {
 				"code-span-density": 0.28,
 				"first-person": -0.45,
@@ -9644,7 +9644,7 @@
 		},
 		"human/python-mypy-1246924339.md": {
 			"label": "human",
-			"probability": 0.159,
+			"score": 84.1,
 			"signals": {
 				"tidy-prose": 0.16,
 				"first-person": -0.45
@@ -9652,7 +9652,7 @@
 		},
 		"human/pytorch-pytorch-910905633.md": {
 			"label": "human",
-			"probability": 0.031,
+			"score": 96.9,
 			"signals": {
 				"first-person": -0.94,
 				"questions": -1.13
@@ -9660,14 +9660,14 @@
 		},
 		"human/quarkusio-quarkus-909619600.md": {
 			"label": "human",
-			"probability": 0.093,
+			"score": 90.7,
 			"signals": {
 				"first-person": -0.9
 			}
 		},
 		"human/radix-ui-primitives-1254992002.md": {
 			"label": "human",
-			"probability": 0.095,
+			"score": 90.5,
 			"signals": {
 				"bare-urls": -0.31,
 				"questions": -0.57
@@ -9675,7 +9675,7 @@
 		},
 		"human/rails-rails-42633.md": {
 			"label": "human",
-			"probability": 0.078,
+			"score": 92.2,
 			"signals": {
 				"first-person": -0.45,
 				"contractions": -0.64
@@ -9683,14 +9683,14 @@
 		},
 		"human/rails-rails-42640.md": {
 			"label": "human",
-			"probability": 0.056,
+			"score": 94.4,
 			"signals": {
 				"short-body": -1.44
 			}
 		},
 		"human/react-react-909302344.md": {
 			"label": "human",
-			"probability": 0.151,
+			"score": 84.9,
 			"signals": {
 				"code-span-density": 0.08,
 				"commit-shas": -0.15,
@@ -9699,7 +9699,7 @@
 		},
 		"human/redis-redis-6405.md": {
 			"label": "human",
-			"probability": 0.26,
+			"score": 74,
 			"signals": {
 				"so-chains": 0.92,
 				"contrast-phrases": 0.33,
@@ -9710,7 +9710,7 @@
 		},
 		"human/redis-redis-7982.md": {
 			"label": "human",
-			"probability": 0.203,
+			"score": 79.7,
 			"signals": {
 				"code-span-density": 0.6,
 				"unpunctuated-lines": -0.59
@@ -9718,7 +9718,7 @@
 		},
 		"human/reduxjs-redux-toolkit-1233653716.md": {
 			"label": "human",
-			"probability": 0.095,
+			"score": 90.5,
 			"signals": {
 				"not-contrast": 0.75,
 				"contrast-phrases": 0.33,
@@ -9731,7 +9731,7 @@
 		},
 		"human/remix-run-react-router-1250149233.md": {
 			"label": "human",
-			"probability": 0.342,
+			"score": 65.8,
 			"signals": {
 				"code-span-density": 1.15,
 				"long-paragraphs": 0.19,
@@ -9740,21 +9740,21 @@
 		},
 		"human/remix-run-remix-902975630.md": {
 			"label": "human",
-			"probability": 0.056,
+			"score": 94.4,
 			"signals": {
 				"short-body": -1.44
 			}
 		},
 		"human/robotframework-robotframework-3276.md": {
 			"label": "human",
-			"probability": 0.259,
+			"score": 74.1,
 			"signals": {
 				"contrast-phrases": 0.33
 			}
 		},
 		"human/robotframework-robotframework-3745.md": {
 			"label": "human",
-			"probability": 0.396,
+			"score": 60.4,
 			"signals": {
 				"code-span-density": 1.28,
 				"first-person": -0.32
@@ -9762,7 +9762,7 @@
 		},
 		"human/rust-lang-cargo-9577.md": {
 			"label": "human",
-			"probability": 0.288,
+			"score": 71.2,
 			"signals": {
 				"code-span-density": 0.48,
 				"tidy-prose": 0.32,
@@ -9771,14 +9771,14 @@
 		},
 		"human/rust-lang-cargo-9586.md": {
 			"label": "human",
-			"probability": 0.123,
+			"score": 87.7,
 			"signals": {
 				"unpunctuated-lines": -0.59
 			}
 		},
 		"human/rust-lang-rust-64933.md": {
 			"label": "human",
-			"probability": 0.042,
+			"score": 95.8,
 			"signals": {
 				"bare-urls": -0.31,
 				"short-body": -1.44
@@ -9786,7 +9786,7 @@
 		},
 		"human/rust-lang-rust-78611.md": {
 			"label": "human",
-			"probability": 0.001,
+			"score": 99.9,
 			"signals": {
 				"now-verbs": 0.85,
 				"code-span-density": 0.24,
@@ -9800,7 +9800,7 @@
 		},
 		"human/rustdesk-rustdesk-1414.md": {
 			"label": "human",
-			"probability": 0.03,
+			"score": 97,
 			"signals": {
 				"questions": -0.57,
 				"contractions": -0.64,
@@ -9809,7 +9809,7 @@
 		},
 		"human/sequelize-sequelize-11456.md": {
 			"label": "human",
-			"probability": 0.042,
+			"score": 95.8,
 			"signals": {
 				"bare-urls": -0.31,
 				"short-body": -1.44
@@ -9817,7 +9817,7 @@
 		},
 		"human/sequelize-sequelize-12752.md": {
 			"label": "human",
-			"probability": 0.059,
+			"score": 94.1,
 			"signals": {
 				"code-span-density": 0.76,
 				"file-paths": 0.03,
@@ -9829,7 +9829,7 @@
 		},
 		"human/solidjs-solid-224.md": {
 			"label": "human",
-			"probability": 0.16,
+			"score": 84,
 			"signals": {
 				"file-paths": 0.03,
 				"bare-urls": -0.31
@@ -9837,7 +9837,7 @@
 		},
 		"human/solidjs-solid-61.md": {
 			"label": "human",
-			"probability": 0.035,
+			"score": 96.5,
 			"signals": {
 				"test-reference": 0.49,
 				"code-span-density": 0.28,
@@ -9850,7 +9850,7 @@
 		},
 		"human/storybookjs-storybook-909873017.md": {
 			"label": "human",
-			"probability": 0.078,
+			"score": 92.2,
 			"signals": {
 				"long-paragraphs": 0.38,
 				"tidy-prose": 0.32,
@@ -9863,7 +9863,7 @@
 		},
 		"human/strapi-strapi-4144.md": {
 			"label": "human",
-			"probability": 0.022,
+			"score": 97.8,
 			"signals": {
 				"this-pr": -0.27,
 				"commit-shas": -0.31,
@@ -9874,7 +9874,7 @@
 		},
 		"human/strapi-strapi-8521.md": {
 			"label": "human",
-			"probability": 0.409,
+			"score": 59.1,
 			"signals": {
 				"code-span-density": 0.85,
 				"tidy-prose": 0.16
@@ -9882,7 +9882,7 @@
 		},
 		"human/strapi-strapi-913215356.md": {
 			"label": "human",
-			"probability": 0.085,
+			"score": 91.5,
 			"signals": {
 				"long-paragraphs": 0.19,
 				"tidy-prose": 0.16,
@@ -9892,7 +9892,7 @@
 		},
 		"human/streamlit-streamlit-5265.md": {
 			"label": "human",
-			"probability": 0.711,
+			"score": 28.9,
 			"signals": {
 				"plan-headings": 1.33,
 				"bold-lead-bullets": 0.67,
@@ -9905,7 +9905,7 @@
 		},
 		"human/supabase-supabase-262.md": {
 			"label": "human",
-			"probability": 0.016,
+			"score": 98.4,
 			"signals": {
 				"commit-shas": -0.15,
 				"this-pr": -0.27,
@@ -9916,14 +9916,14 @@
 		},
 		"human/supertokens-supertokens-core-890750667.md": {
 			"label": "human",
-			"probability": 0.251,
+			"score": 74.9,
 			"signals": {
 				"code-span-density": 0.28
 			}
 		},
 		"human/supertokens-supertokens-core-95.md": {
 			"label": "human",
-			"probability": 0.578,
+			"score": 42.2,
 			"signals": {
 				"plan-headings": 1.33,
 				"code-span-density": 0.65,
@@ -9933,7 +9933,7 @@
 		},
 		"human/sveltejs-kit-1234264392.md": {
 			"label": "human",
-			"probability": 0.612,
+			"score": 38.8,
 			"signals": {
 				"code-span-density": 1.28,
 				"which-clauses": 0.32,
@@ -9942,28 +9942,28 @@
 		},
 		"human/sveltejs-language-tools-632.md": {
 			"label": "human",
-			"probability": 0.228,
+			"score": 77.2,
 			"signals": {
 				"tidy-prose": 0.16
 			}
 		},
 		"human/sveltejs-svelte-6425.md": {
 			"label": "human",
-			"probability": 0.056,
+			"score": 94.4,
 			"signals": {
 				"short-body": -1.44
 			}
 		},
 		"human/sveltejs-svelte-6429.md": {
 			"label": "human",
-			"probability": 0.475,
+			"score": 52.5,
 			"signals": {
 				"code-span-density": 1.28
 			}
 		},
 		"human/sveltejs-svelte-912311071.md": {
 			"label": "human",
-			"probability": 0.27,
+			"score": 73,
 			"signals": {
 				"code-span-density": 0.23,
 				"tidy-prose": 0.16
@@ -9971,21 +9971,21 @@
 		},
 		"human/swc-project-swc-1185.md": {
 			"label": "human",
-			"probability": 0.056,
+			"score": 94.4,
 			"signals": {
 				"short-body": -1.44
 			}
 		},
 		"human/swc-project-swc-398.md": {
 			"label": "human",
-			"probability": 0.056,
+			"score": 94.4,
 			"signals": {
 				"short-body": -1.44
 			}
 		},
 		"human/tailwindlabs-tailwindcss-1121.md": {
 			"label": "human",
-			"probability": 0.09,
+			"score": 91,
 			"signals": {
 				"unpunctuated-lines": -0.29,
 				"contractions": -0.64
@@ -9993,7 +9993,7 @@
 		},
 		"human/tailwindlabs-tailwindcss-2710.md": {
 			"label": "human",
-			"probability": 0.321,
+			"score": 67.9,
 			"signals": {
 				"code-span-density": 0.57,
 				"contrast-phrases": 0.33,
@@ -10002,7 +10002,7 @@
 		},
 		"human/tailwindlabs-tailwindcss-4571.md": {
 			"label": "human",
-			"probability": 0.057,
+			"score": 94.3,
 			"signals": {
 				"code-span-density": 0.28,
 				"this-pr": -0.27,
@@ -10011,7 +10011,7 @@
 		},
 		"human/tailwindlabs-tailwindcss-4666.md": {
 			"label": "human",
-			"probability": 0.285,
+			"score": 71.5,
 			"signals": {
 				"code-span-density": 0.57,
 				"tidy-prose": 0.16,
@@ -10020,7 +10020,7 @@
 		},
 		"human/tauri-apps-tauri-2549.md": {
 			"label": "human",
-			"probability": 0.152,
+			"score": 84.8,
 			"signals": {
 				"tidy-prose": 0.24,
 				"code-span-density": 0.19,
@@ -10032,7 +10032,7 @@
 		},
 		"human/tensorflow-tensorflow-51769.md": {
 			"label": "human",
-			"probability": 0.072,
+			"score": 92.8,
 			"signals": {
 				"code-span-density": 0.47,
 				"tidy-prose": 0.16,
@@ -10042,21 +10042,21 @@
 		},
 		"human/tldraw-tldraw-45.md": {
 			"label": "human",
-			"probability": 0.056,
+			"score": 94.4,
 			"signals": {
 				"short-body": -1.44
 			}
 		},
 		"human/tokio-rs-axum-290.md": {
 			"label": "human",
-			"probability": 0.083,
+			"score": 91.7,
 			"signals": {
 				"emoticons": -1.02
 			}
 		},
 		"human/typescript-eslint-typescript-eslint-1002.md": {
 			"label": "human",
-			"probability": 0.03,
+			"score": 97,
 			"signals": {
 				"unpunctuated-lines": -0.29,
 				"first-person": -0.64,
@@ -10065,7 +10065,7 @@
 		},
 		"human/typescript-eslint-typescript-eslint-2704.md": {
 			"label": "human",
-			"probability": 0.147,
+			"score": 85.3,
 			"signals": {
 				"code-span-density": 0.81,
 				"maintainer-mention": 0.81,
@@ -10077,7 +10077,7 @@
 		},
 		"human/typescript-eslint-typescript-eslint-3816.md": {
 			"label": "human",
-			"probability": 0.062,
+			"score": 93.8,
 			"signals": {
 				"long-paragraphs": 0.38,
 				"code-span-density": 0.08,
@@ -10088,7 +10088,7 @@
 		},
 		"human/umami-software-umami-1229978900.md": {
 			"label": "human",
-			"probability": 0.031,
+			"score": 96.9,
 			"signals": {
 				"code-span-density": 0.28,
 				"first-person": -0.9,
@@ -10097,14 +10097,14 @@
 		},
 		"human/umami-software-umami-335.md": {
 			"label": "human",
-			"probability": 0.056,
+			"score": 94.4,
 			"signals": {
 				"short-body": -1.44
 			}
 		},
 		"human/urfave-cli-1233696937.md": {
 			"label": "human",
-			"probability": 0.178,
+			"score": 82.2,
 			"signals": {
 				"code-span-density": 0.28,
 				"file-paths": 0.03,
@@ -10114,7 +10114,7 @@
 		},
 		"human/vapor-vapor-2057.md": {
 			"label": "human",
-			"probability": 0.401,
+			"score": 59.9,
 			"signals": {
 				"ci-green": 0.98,
 				"scope-disclaimer": 0.73,
@@ -10124,7 +10124,7 @@
 		},
 		"human/vapor-vapor-2514.md": {
 			"label": "human",
-			"probability": 0.562,
+			"score": 43.8,
 			"signals": {
 				"code-span-density": 1.14,
 				"contrast-phrases": 0.33,
@@ -10133,7 +10133,7 @@
 		},
 		"human/vapor-vapor-905387690.md": {
 			"label": "human",
-			"probability": 0.168,
+			"score": 83.2,
 			"signals": {
 				"code-span-density": 0.72,
 				"unpunctuated-lines": -0.29,
@@ -10142,7 +10142,7 @@
 		},
 		"human/vercel-next.js-26629.md": {
 			"label": "human",
-			"probability": 0.077,
+			"score": 92.3,
 			"signals": {
 				"contrast-phrases": 0.33,
 				"file-paths": 0.03,
@@ -10152,7 +10152,7 @@
 		},
 		"human/vercel-next.js-26705.md": {
 			"label": "human",
-			"probability": 0.043,
+			"score": 95.7,
 			"signals": {
 				"unpunctuated-lines": -0.29,
 				"short-body": -1.44
@@ -10160,7 +10160,7 @@
 		},
 		"human/vercel-swr-725.md": {
 			"label": "human",
-			"probability": 0.01,
+			"score": 99,
 			"signals": {
 				"bare-urls": -0.31,
 				"first-person": -0.45,
@@ -10170,7 +10170,7 @@
 		},
 		"human/vercel-turborepo-1233413176.md": {
 			"label": "human",
-			"probability": 0.078,
+			"score": 92.2,
 			"signals": {
 				"first-person": -0.45,
 				"contractions": -0.64
@@ -10178,14 +10178,14 @@
 		},
 		"human/visgl-deck.gl-3710.md": {
 			"label": "human",
-			"probability": 0.056,
+			"score": 94.4,
 			"signals": {
 				"short-body": -1.44
 			}
 		},
 		"human/visgl-deck.gl-5080.md": {
 			"label": "human",
-			"probability": 0.084,
+			"score": 91.6,
 			"signals": {
 				"code-span-density": 0.4,
 				"tidy-prose": 0.32,
@@ -10197,7 +10197,7 @@
 		},
 		"human/vitejs-vite-4802.md": {
 			"label": "human",
-			"probability": 0.122,
+			"score": 87.8,
 			"signals": {
 				"evidence-claims": 0.47,
 				"tidy-prose": 0.16,
@@ -10210,7 +10210,7 @@
 		},
 		"human/vitessio-vitess-8754.md": {
 			"label": "human",
-			"probability": 0.668,
+			"score": 33.2,
 			"signals": {
 				"not-contrast": 0.75,
 				"semicolons": 0.62,
@@ -10221,7 +10221,7 @@
 		},
 		"human/vitest-dev-vitest-1940.md": {
 			"label": "human",
-			"probability": 0.056,
+			"score": 94.4,
 			"signals": {
 				"evidence-claims": 0.47,
 				"tidy-prose": 0.16,
@@ -10235,7 +10235,7 @@
 		},
 		"human/vuejs-language-tools-1793.md": {
 			"label": "human",
-			"probability": 0.014,
+			"score": 98.6,
 			"signals": {
 				"bare-urls": -0.31,
 				"commit-shas": -0.62,
@@ -10245,7 +10245,7 @@
 		},
 		"human/vuejs-router-1539.md": {
 			"label": "human",
-			"probability": 0.299,
+			"score": 70.1,
 			"signals": {
 				"semicolons": 1.16,
 				"code-span-density": 0.26,
@@ -10255,7 +10255,7 @@
 		},
 		"human/vuejs-router-547.md": {
 			"label": "human",
-			"probability": 0.028,
+			"score": 97.2,
 			"signals": {
 				"unpunctuated-lines": -0.29,
 				"first-person": -0.45,
@@ -10264,40 +10264,40 @@
 		},
 		"human/vuejs-vue-11706.md": {
 			"label": "human",
-			"probability": 0.117,
+			"score": 88.3,
 			"signals": {
 				"contractions": -0.64
 			}
 		},
 		"human/vuejs-vue-12104.md": {
 			"label": "human",
-			"probability": 0.056,
+			"score": 94.4,
 			"signals": {
 				"short-body": -1.44
 			}
 		},
 		"human/weaviate-weaviate-1242.md": {
 			"label": "human",
-			"probability": 0.056,
+			"score": 94.4,
 			"signals": {
 				"short-body": -1.44
 			}
 		},
 		"human/weaviate-weaviate-957.md": {
 			"label": "human",
-			"probability": 0.056,
+			"score": 94.4,
 			"signals": {
 				"short-body": -1.44
 			}
 		},
 		"human/webpack-webpack-11872.md": {
 			"label": "human",
-			"probability": 0.201,
+			"score": 79.9,
 			"signals": {}
 		},
 		"human/webpack-webpack-9736.md": {
 			"label": "human",
-			"probability": 0.032,
+			"score": 96.8,
 			"signals": {
 				"first-person": -0.45,
 				"unpunctuated-lines": -0.59,
@@ -10306,7 +10306,7 @@
 		},
 		"human/zitadel-zitadel-907.md": {
 			"label": "human",
-			"probability": 0.056,
+			"score": 94.4,
 			"signals": {
 				"short-body": -1.44
 			}

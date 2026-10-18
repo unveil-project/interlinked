@@ -187,20 +187,26 @@ function describe(result: AnalyzeTextResult) {
       color: 'var(--fgColor-danger, #d1242f)',
     }
   }
-  if (result.probability >= 0.8) {
+  if (result.classification === 'automation') {
     return {
-      label: '🤖 Reads like an agent wrote it',
+      label: '🤖 Automation signals',
       color: 'var(--fgColor-danger, #d1242f)',
     }
   }
-  if (result.probability >= 0.5) {
+  if (result.classification === 'mixed') {
     return {
-      label: '🤔 Some agent-style writing',
+      label: '🤔 Mixed signals',
       color: 'var(--fgColor-attention, #9a6700)',
     }
   }
+  if (result.classification === 'insufficient-data') {
+    return {
+      label: '❔ Insufficient data',
+      color: 'var(--fgColor-muted, #59636e)',
+    }
+  }
   return {
-    label: '👤 Reads like a person wrote it',
+    label: '👤 Organic writing',
     color: 'var(--fgColor-success, #1a7f37)',
   }
 }
@@ -261,7 +267,6 @@ function renderResult(result: AnalyzeTextResult) {
   redraw = () => renderResult(result)
   const element = badge()
   const { label, color } = describe(result)
-  const score = Math.round(result.probability * 100)
 
   const summary = document.createElement('div')
   summary.style.fontWeight = '600'
@@ -270,10 +275,15 @@ function renderResult(result: AnalyzeTextResult) {
 
   const note = document.createElement('div')
   note.style.color = 'var(--fgColor-muted, #59636e)'
-  note.textContent = `agent-style score ${score}/100 · click for signals`
+  // With insufficient data the score is just the default, so it isn't shown.
+  const score =
+    result.classification === 'insufficient-data'
+      ? '—'
+      : Math.round(result.score)
+  note.textContent = `score ${score}/100 · click for signals`
   element.title =
-    "How much the description's writing looks like an agent's, not a probability. " +
-    'About 3% of PRs from before coding agents score 50 or more.'
+    "How human the description's writing looks, not a probability: the higher the score, the more human it reads. " +
+    'About 3% of PRs from before coding agents score below 50.'
 
   const details = document.createElement('div')
   details.style.display = 'none'
@@ -323,9 +333,7 @@ async function update() {
   renderMessage('interlinked: analyzing…')
   try {
     const result = await analyze(pull)
-    console.info(
-      `[interlinked] ${key}: ${result.verdict} (${result.probability})`,
-    )
+    console.info(`[interlinked] ${key}: ${result.verdict} (${result.score})`)
     if (current === key) {
       renderResult(result)
     }

@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { AI_THRESHOLD } from '@unveil/interlinked'
+import { AUTOMATION_THRESHOLD } from '@unveil/interlinked'
 
 defineProps<{
-  /** The score, 0 to 100. */
-  score: number
+  /** The score, 0 to 100. 100 is human. Left out, the bar stays empty. */
+  score?: number
   /** The fill's background class. */
   fill: string
 }>()
 
-const threshold = AI_THRESHOLD * 100
+const threshold = AUTOMATION_THRESHOLD
 </script>
 
 <template>
@@ -24,7 +24,7 @@ const threshold = AI_THRESHOLD * 100
       <div
         class="h-full rounded-full transition-[width] duration-300"
         :class="fill"
-        :style="{ width: `${score}%` }"
+        :style="{ width: `${score ?? 0}%` }"
       />
       <span
         class="absolute -top-1 w-0.5 h-3.5 rounded-full bg-fg/60 -translate-x-1/2"
@@ -40,7 +40,7 @@ const threshold = AI_THRESHOLD * 100
         class="absolute whitespace-nowrap -translate-x-1/2"
         :style="{ left: `${threshold}%` }"
       >
-        {{ threshold }} flags as AI
+        below {{ threshold }} is automation
       </span>
       <span class="absolute right-0">100</span>
     </div>

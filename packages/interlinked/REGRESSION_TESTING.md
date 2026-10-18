@@ -49,7 +49,7 @@ Vitest-based test suite that runs the following checks:
 1. **Manifest Coverage**: All fixtures in the directory are listed in the manifest
 2. **File Existence**: All manifest entries have corresponding fixture files
 3. **Classification**: Each fixture is classified according to its label
-4. **Probability Validation**: Probability is on the correct side of `AI_THRESHOLD`
+4. **Score Validation**: Score is on the correct side of `AUTOMATION_THRESHOLD`
 5. **Confidence Thresholds**: Confidence scores meet minimum quality standards
 6. **Result Structure**: Analysis results have valid structure
 
@@ -159,11 +159,12 @@ const MIN_CONFIDENCE = 0.55 // Adjust as needed
 The classifier uses a logistic regression approach with signals that have positive (AI-leaning) or negative (human-leaning) weights. Key metrics:
 
 - **Verdict**: `"ai"` or `"human"` - the final classification
-- **Probability**: 0-1, probability the text is AI-generated
-- **Confidence**: 0.5-1, confidence in the verdict (1 - probability for human)
-- **Threshold**: Currently 0.5 - probability >= threshold means "ai"
+- **Score**: 0-100, how human the text reads (100 is human, 0 is agent), the same scale as agentscan
+- **Confidence**: 0.5-1, confidence in the verdict (score / 100 for human, 1 - score / 100 for ai)
+- **Threshold**: Currently 50 - a score below `AUTOMATION_THRESHOLD` means "ai"
+- **Classification**: like agentscan's - `automation` below 50, `mixed` below 70 (`ORGANIC_THRESHOLD`), `organic` above, or `insufficient-data` when no signal but the text's length counted. Then the score is `INSUFFICIENT_DATA_SCORE` (-1); the regression tests use the model's own score from `scoreText` instead, so every fixture has a number to compare
 
-Each signal contributes to a logit score, which is then converted to probability via the sigmoid function.
+Each signal contributes to a logit, where positive leans AI. The sigmoid of the logit is the chance the text is agent-written, and the score is 100 minus that, as a percentage.
 
 ## Example: Adding a Human Fixture
 

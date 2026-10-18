@@ -12,14 +12,14 @@ const examples: {
   text: string
 }[] = [
   {
-    title: 'Written with an agent',
+    title: 'Automation',
     name: 'ajeetdsouza/zoxide#1314',
     url: 'https://github.com/ajeetdsouza/zoxide/pull/1314',
     expected: 'ai',
     text: agentExample,
   },
   {
-    title: 'Written by a person',
+    title: 'Organic',
     name: 'godotengine/godot#32448',
     url: 'https://github.com/godotengine/godot/pull/32448',
     expected: 'human',
@@ -263,19 +263,20 @@ onMounted(() => {
             >
               <div class="flex items-baseline justify-between gap-2">
                 <span class="text-12px font-medium text-agent">
-                  Likely AI-generated
+                  Automation signals
                 </span>
-                <span class="font-mono text-11px text-muted">82/100</span>
+                <span class="font-mono text-11px text-muted">18/100</span>
               </div>
-              <ScoreBar :score="82" fill="bg-agent" class="mt-3" />
+              <ScoreBar :score="18" fill="bg-agent" class="mt-3" />
             </div>
             <h3 class="mt-4 font-display text-15px font-medium">
               A score out of 100
             </h3>
             <p class="mt-1.5 text-13px text-muted leading-relaxed text-pretty">
               {{ signalCount }} patterns, measured against a baseline of PRs and
-              issues written before coding agents. A high score is a reason to
-              look closer, not to accuse someone.
+              issues written before coding agents. The higher the score, the
+              more human the writing looks. A low score is a reason to look
+              closer, not to accuse someone.
             </p>
           </div>
         </div>

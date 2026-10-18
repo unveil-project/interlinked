@@ -12,27 +12,32 @@
  * Within cells interlinked.
  */
 import { locate } from './locate'
-import { measure } from './measure'
+import { type SignalHit, scoreText } from './score'
 import { SIGNALS } from './signals'
 import { trace, traceAuthored, traceTemplateLines } from './text'
-import { round, sigmoid } from './utils'
+import { round } from './utils'
 
 export type { Signal } from './signals'
+export type { SignalHit } from './score'
 export { SIGNALS }
 
 export { issueFormLines } from './text'
 
-export interface SignalHit {
-  id: string
-  description: string
-  hits: number
-  contribution: number
-}
+/** The same classifications as agentscan's accounts. */
+export type TextClassification =
+  'organic' | 'mixed' | 'automation' | 'insufficient-data'
 
 export interface AnalyzeTextResult {
+  /** `human` when there's insufficient data, since there's nothing to flag. */
   verdict: 'ai' | 'human'
-  /** Probability the text is agent-written, 0 to 1. */
-  probability: number
+  /** Where the score falls, like agentscan's account classification. */
+  classification: TextClassification
+  /**
+   * How human the text reads, 0 to 100: 100 is human, 0 is agent. The same
+   * scale as agentscan's account score. `INSUFFICIENT_DATA_SCORE` when there's
+   * nothing to score.
+   */
+  score: number
   /** Confidence in `verdict`, 0.5 to 1. */
   confidence: number
   signals: SignalHit[]
@@ -46,13 +51,14 @@ export interface AnalyzeTextOptions {
   template?: string | string[]
 }
 
-/**
- * Starting log-odds. Set so at most about 3% of pre-agent PRs, issues or
- * comments score as AI, because a false accusation is worse than a miss.
- */
-const BIAS = -1.38
+/** Scores below this read as automation, and give the verdict `ai`. */
+export const AUTOMATION_THRESHOLD = 50
 
-export const AI_THRESHOLD = 0.5
+/** Scores at or above this read as organic. Between the two is mixed. */
+export const ORGANIC_THRESHOLD = 70
+
+/** The score when there's nothing to score, as in agentscan. */
+export const INSUFFICIENT_DATA_SCORE = -1
 
 /**
  * Guesses whether a text, like a PR description, issue or comment, was written
@@ -69,36 +75,38 @@ export function analyzeText(
   markdown: string,
   options: AnalyzeTextOptions = {},
 ): AnalyzeTextResult {
-  let logit = BIAS
-  const signals: SignalHit[] = []
+  const { score, signals } = scoreText(markdown, options.template)
 
-  const active = SIGNALS.filter((signal) => signal.weight !== 0)
-  for (const { signal, hits, strength } of measure(
-    markdown,
-    options.template,
-    active,
-  )) {
-    const contribution = signal.weight * strength
-    logit += contribution
-    signals.push({
-      id: signal.id,
-      description: signal.description,
-      hits: round(hits),
-      contribution: round(contribution),
-    })
+  // Nothing leaned either way but the text's length, so there's nothing to score.
+  if (signals.every((signal) => signal.id === 'short-body')) {
+    return {
+      verdict: 'human',
+      classification: 'insufficient-data',
+      score: INSUFFICIENT_DATA_SCORE,
+      confidence: 0.5,
+      signals,
+    }
   }
 
-  signals.sort((a, b) => b.contribution - a.contribution)
-
-  const probability = sigmoid(logit)
-  const verdict = probability >= AI_THRESHOLD ? 'ai' : 'human'
+  const verdict = score < AUTOMATION_THRESHOLD ? 'ai' : 'human'
 
   return {
     verdict,
-    probability: round(probability, 3),
-    confidence: round(verdict === 'ai' ? probability : 1 - probability, 3),
+    classification: classify(score),
+    score,
+    confidence: round((verdict === 'ai' ? 100 - score : score) / 100, 3),
     signals,
   }
+}
+
+function classify(score: number): TextClassification {
+  if (score < AUTOMATION_THRESHOLD) {
+    return 'automation'
+  }
+  if (score < ORGANIC_THRESHOLD) {
+    return 'mixed'
+  }
+  return 'organic'
 }
 
 export interface SignalLocation {

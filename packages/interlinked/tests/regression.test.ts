@@ -1,7 +1,8 @@
 import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { describe, expect, it } from 'vitest'
-import { analyzeText } from '../src/index'
+import { AUTOMATION_THRESHOLD } from '../src/index'
+import { scoreText } from '../src/score'
 
 /**
  * Regression tests for the classifier.
@@ -10,8 +11,8 @@ import { analyzeText } from '../src/index'
  * issues and comments alike. The folder is the label.
  * A `<name>.template.md` next to a fixture is used as its PR or issue template.
  *
- * `baseline.json` stores each fixture's last accepted probability. A test fails
- * if it moves away from the label: down for ai, up for human.
+ * `baseline.json` stores each fixture's last accepted score. A test fails if it
+ * moves away from the label: up for ai, down for human.
  *
  * Update the baseline with `pnpm test:regression:update`.
  */
@@ -20,7 +21,8 @@ type Label = 'ai' | 'human'
 
 interface BaselineEntry {
   label: Label
-  probability: number
+  /** 0 to 100, 100 is human. */
+  score: number
   /** Contribution per signal, to explain regressions. */
   signals: Record<string, number>
 }
@@ -36,8 +38,8 @@ interface Baseline {
   fixtures: Record<string, BaselineEntry>
 }
 
-/** Allows for rounding noise (probabilities have 3 decimals). */
-const TOLERANCE = 0.001
+/** Allows for rounding noise (scores have 1 decimal). */
+const TOLERANCE = 0.1
 const LABELS: Label[] = ['ai', 'human']
 const FIXTURES_DIR = join(import.meta.dirname, 'fixtures')
 const BASELINE_PATH = join(FIXTURES_DIR, 'baseline.json')
@@ -55,14 +57,15 @@ function measure(): Record<string, BaselineEntry> {
     )
     for (const file of files.sort()) {
       const templatePath = join(dir, file.replace(/\.md$/, '.template.md'))
-      const result = analyzeText(readFileSync(join(dir, file), 'utf-8'), {
-        template: existsSync(templatePath)
+      const result = scoreText(
+        readFileSync(join(dir, file), 'utf-8'),
+        existsSync(templatePath)
           ? readFileSync(templatePath, 'utf-8')
           : undefined,
-      })
+      )
       entries[`${label}/${file}`] = {
         label,
-        probability: result.probability,
+        score: result.score,
         signals: Object.fromEntries(
           result.signals.map((s) => [s.id, s.contribution]),
         ),
@@ -77,11 +80,11 @@ function summarize(
 ): Baseline['summary'] {
   const values = Object.values(entries)
   const correct = values.filter(
-    (e) => (e.probability >= 0.5 ? 'ai' : 'human') === e.label,
+    (e) => (e.score < AUTOMATION_THRESHOLD ? 'ai' : 'human') === e.label,
   ).length
   const logLoss =
     values.reduce((sum, e) => {
-      const p = Math.min(Math.max(e.probability, 1e-6), 1 - 1e-6)
+      const p = Math.min(Math.max(1 - e.score / 100, 1e-6), 1 - 1e-6)
       return sum - Math.log(e.label === 'ai' ? p : 1 - p)
     }, 0) / Math.max(values.length, 1)
   return {
@@ -134,23 +137,21 @@ describe('regression', () => {
     const now = current[name]
     const before = baseline.fixtures[name]
 
-    it.runIf(before)('probability does not move away from its label', () => {
+    it.runIf(before)('score does not move away from its label', () => {
       if (!before) {
         return
       }
-      const delta = round(now.probability - before.probability)
+      const delta = round(now.score - before.score)
       // Positive `drift` means moving away from the label.
-      const drift = now.label === 'ai' ? -delta : delta
+      const drift = now.label === 'ai' ? delta : -delta
 
       if (drift < -TOLERANCE) {
-        console.info(
-          `improved ${name}: ${before.probability} -> ${now.probability}`,
-        )
+        console.info(`improved ${name}: ${before.score} -> ${now.score}`)
       }
 
       expect(
         drift,
-        `${name} (${now.label}) regressed: probability ${before.probability} -> ${now.probability}\n${signalDiff(before, now)}`,
+        `${name} (${now.label}) regressed: score ${before.score} -> ${now.score}\n${signalDiff(before, now)}`,
       ).toBeLessThanOrEqual(TOLERANCE)
     })
   })

@@ -1,13 +1,13 @@
 <script setup lang="ts">
 const {
-  score = 82,
+  score = 18,
   owner = '',
   repo = '',
   number = '',
   type = 'pull',
   comment = false,
 } = defineProps<{
-  /** The score shown on the meter, 0 to 100. */
+  /** The score shown on the meter, 0 to 100. 100 is human. */
   score?: number
   /** With `repo` and `number`, the shared link the image is for. */
   owner?: string
@@ -119,7 +119,7 @@ const heading = comment
         </div>
         <div class="flex flex-col w-80" style="font-family: 'IBM Plex Mono'">
           <div class="flex justify-between text-5.5 text-[#8a919b]">
-            <span>AI score</span>
+            <span>Score</span>
             <span class="text-[#f0883e]">{{ score }}</span>
           </div>
           <div class="flex mt-3 h-2.5 rounded-full bg-[#262a30]">

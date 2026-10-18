@@ -338,10 +338,10 @@ function writeWeights(fitted: Signal[], w: number[], bias: number) {
   })
   writeFileSync(signalsPath, source)
 
-  const indexPath = join(ROOT, 'src', 'index.ts')
+  const scorePath = join(ROOT, 'src', 'score.ts')
   writeFileSync(
-    indexPath,
-    readFileSync(indexPath, 'utf-8').replace(
+    scorePath,
+    readFileSync(scorePath, 'utf-8').replace(
       /(const BIAS = )-?[\d.]+/,
       `$1${round(bias)}`,
     ),
@@ -352,12 +352,12 @@ function round(n: number) {
   return Math.round(n * 100) / 100
 }
 
-/** The fitted bias in `src/index.ts`. */
+/** The fitted bias in `src/score.ts`. */
 function currentBias() {
-  const source = readFileSync(join(ROOT, 'src', 'index.ts'), 'utf-8')
+  const source = readFileSync(join(ROOT, 'src', 'score.ts'), 'utf-8')
   const match = source.match(/const BIAS = (-?[\d.]+)/)
   if (!match) {
-    throw new Error('src/index.ts has no `const BIAS = <number>;`')
+    throw new Error('src/score.ts has no `const BIAS = <number>;`')
   }
   return Number(match[1])
 }
@@ -444,5 +444,5 @@ console.table(
 
 if (process.argv.includes('--write')) {
   writeWeights(fitted, w, bias)
-  console.log('wrote weights to src/signals.ts and src/index.ts')
+  console.log('wrote weights to src/signals.ts and src/score.ts')
 }
