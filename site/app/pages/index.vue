@@ -216,7 +216,7 @@ onMounted(() => {
         >
           How to read it
         </h2>
-        <div class="grid gap-x-8 gap-y-10 mt-5 sm:grid-cols-3">
+        <div class="grid gap-x-8 gap-y-10 mt-5 sm:grid-cols-2">
           <div>
             <div
               class="flex flex-col justify-center gap-1.5 h-26 px-5 rounded-lg border border-line bg-subtle font-mono text-12px leading-[1.8] text-soft"
@@ -225,16 +225,17 @@ onMounted(() => {
               <span>
                 <mark class="shadow-[inset_0_-1.5px_0_var(--agent)]"
                   >You're absolutely right</mark
-                >&nbsp;<mark class="shadow-[inset_0_-1.5px_0_var(--agent)]"
+                ><mark class="font-sans shadow-[inset_0_-1.5px_0_var(--agent)]"
                   >—</mark
-                >
-                fixed!
+                ><mark class="shadow-[inset_0_-1.5px_0_var(--agent)]"
+                  >great catch</mark
+                >!
               </span>
               <span class="truncate">
                 <mark class="shadow-[inset_0_-1.5px_0_var(--human)]"
                   >not sure</mark
                 >
-                it works
+                it's the right fix
                 <mark class="shadow-[inset_0_-1.5px_0_var(--human)]">lol</mark>
               </span>
             </div>
@@ -266,31 +267,11 @@ onMounted(() => {
             </h3>
             <p class="mt-1.5 text-13px text-muted leading-relaxed text-pretty">
               {{ signalCount }} patterns, weighted against PRs and issues
-              written before coding agents.
+              written before coding agents. A high score is a reason to look
+              closer, not to accuse someone.
             </p>
           </div>
 
-          <div>
-            <div
-              class="flex flex-col justify-center gap-2.5 h-26 px-5 rounded-lg border border-line bg-subtle text-13px"
-              aria-hidden="true"
-            >
-              <span class="flex items-center gap-2.5 text-fg">
-                <span class="flex-none w-3 font-mono text-ok">✓</span>
-                Look closer
-              </span>
-              <span class="flex items-center gap-2.5 text-muted">
-                <span class="flex-none w-3 font-mono">✕</span>
-                <span class="line-through decoration-muted/60">Accuse</span>
-              </span>
-            </div>
-            <h3 class="mt-4 font-display text-15px font-medium">
-              Judge with care
-            </h3>
-            <p class="mt-1.5 text-13px text-muted leading-relaxed text-pretty">
-              A high score is a reason to look closer, not to accuse someone.
-            </p>
-          </div>
         </div>
       </section>
 
