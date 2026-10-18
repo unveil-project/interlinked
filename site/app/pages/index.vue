@@ -131,7 +131,12 @@ onMounted(() => {
       <h2
         class="font-display text-[clamp(30px,5.5vw,44px)] font-medium leading-[1.1] tracking-[-0.025em] text-balance"
       >
-        Find signs of AI-written text in open source contributions
+        Find signs of
+        <mark
+          class="px-[0.1em] whitespace-nowrap font-mono text-[0.86em] font-medium tracking-normal bg-agent/22 shadow-[inset_0_-0.07em_0_var(--agent)]"
+          >AI-written</mark
+        >
+        text in open source contributions
       </h2>
       <p class="mt-3 text-15px text-soft leading-relaxed text-pretty">
         Paste a GitHub PR, issue or comment link, or any text, to check it for
@@ -271,12 +276,11 @@ onMounted(() => {
               closer, not to accuse someone.
             </p>
           </div>
-
         </div>
       </section>
 
       <p class="mt-6 text-12px text-muted">
-        An experimental,
+        An experimental
         <a
           target="_blank"
           rel="noopener"
@@ -284,7 +288,7 @@ onMounted(() => {
           href="https://github.com/unveil-project/interlinked"
           >open source</a
         >
-        project, made with love.
+        project made with love.
       </p>
     </div>
   </main>
