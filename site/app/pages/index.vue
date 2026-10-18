@@ -158,7 +158,7 @@ onMounted(() => {
           autofocus
           spellcheck="false"
           :readonly="loading"
-          placeholder="https://github.com/owner/repo/pull/123"
+          placeholder="https://github.com/owner/repo/pull/1"
           class="block w-full min-h-15 max-h-[45vh] px-4 pt-4 pb-1 bg-transparent font-mono text-13px leading-[1.7] resize-none outline-none [field-sizing:content] placeholder:text-muted"
           @paste="submitPaste"
           @keydown.enter="submitKey"
