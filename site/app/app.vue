@@ -24,12 +24,12 @@ async function submit() {
       >
         <NuxtLink
           to="/"
-          class="flex items-center gap-2 h-9 font-display text-15px font-bold"
+          class="flex items-center gap-2 h-9 font-display text-15px line-height-none font-bold"
           aria-label="interlinked, start over"
         >
           <svg
             viewBox="0 0 20 20"
-            class="size-4.5"
+            class="size-6"
             fill="none"
             stroke="currentColor"
             stroke-width="1.6"
@@ -38,10 +38,10 @@ async function submit() {
             <rect x="2" y="5" width="10" height="10" rx="2" />
             <rect x="8" y="5" width="10" height="10" rx="2" />
           </svg>
-          <span>interlinked</span>
+          <!-- <span>interlinked</span> -->
         </NuxtLink>
         <div
-          v-if="route.name === 'analyze'"
+          v-if="route.path === '/analyze'"
           class="flex flex-[999_1_320px] items-center gap-1 min-w-0 h-9 pl-3 pr-1 rounded-md bg-hair focus-within:(bg-panel shadow-[0_0_0_1px_var(--line)])"
         >
           <label for="link" class="sr-only">GitHub link</label>
