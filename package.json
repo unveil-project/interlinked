@@ -6,7 +6,7 @@
     "build": "pnpm --filter @unveil/interlinked build",
     "dev": "pnpm build && pnpm --parallel --filter @unveil/interlinked --filter site dev",
     "dev:site": "pnpm --filter site dev",
-    "build:site": "pnpm build && pnpm --filter site generate",
+    "build:site": "pnpm build && pnpm --filter site build",
     "test": "pnpm --filter @unveil/interlinked test",
     "typecheck": "pnpm --filter @unveil/interlinked typecheck",
     "lint": "eslint .",

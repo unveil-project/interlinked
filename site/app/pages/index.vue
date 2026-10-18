@@ -109,6 +109,8 @@ function tryExample(example: (typeof examples)[number]) {
   navigateTo('/analyze')
 }
 
+defineOgImage('Site')
+
 const router = useRouter()
 
 // Coming back here starts over. On mount, so the prerendered page hydrates

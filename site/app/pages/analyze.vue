@@ -31,6 +31,44 @@ const {
   templateLines,
   load,
 } = useAnalysis()
+
+const route = useRoute()
+/**
+ * The link shared in `?url=`, for the page title and preview image. Only with
+ * names GitHub allows, so a made-up link can't put any text it likes there.
+ */
+const sharedLink = computed(() => {
+  const ref =
+    typeof route.query.url === 'string'
+      ? parseGitHubUrl(route.query.url)
+      : undefined
+  if (
+    ref?.owner &&
+    ref.repo &&
+    ref.number &&
+    /^[\w-]{1,39}$/.test(ref.owner) &&
+    /^[\w.-]{1,100}$/.test(ref.repo)
+  ) {
+    return { ...ref, owner: ref.owner, repo: ref.repo, number: ref.number }
+  }
+  return undefined
+})
+
+useSeoMeta({
+  title: () =>
+    sharedLink.value
+      ? `${sharedLink.value.owner}/${sharedLink.value.repo}#${sharedLink.value.number} · agentscan · text`
+      : 'agentscan · text',
+})
+
+// A shared link's preview names what was shared.
+if (sharedLink.value) {
+  const { owner, repo, number, type, commentId } = sharedLink.value
+  defineOgImage('Site', { owner, repo, number, type, comment: !!commentId })
+} else {
+  defineOgImage('Site')
+}
+
 const showTemplate = ref(false)
 const textView = useTemplateRef('textView')
 
@@ -272,7 +310,7 @@ function showAll() {
 watch(markdown, showAll)
 
 const router = useRouter()
-// Analyze the link shared in `?url=`. On mount, so the prerendered page
+// Analyze the link shared in `?url=`. On mount, so the server-rendered page
 // hydrates first.
 onMounted(() => {
   const shared = router.currentRoute.value.query.url
