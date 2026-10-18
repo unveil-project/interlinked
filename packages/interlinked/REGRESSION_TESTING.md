@@ -27,11 +27,11 @@ A JSON file that maps each fixture to its expected classification:
   "fixtures": {
     "pr1.md": {
       "label": "ai",
-      "reason": "AI-generated: code-span-density, scope-disclaimer, imperative-action signals"
+      "reason": "AI-written: code-span-density, scope-disclaimer, imperative-action signals"
     },
     "pr2.md": {
       "label": "ai",
-      "reason": "AI-generated: validation-line, imperative-action, test-reference signals"
+      "reason": "AI-written: validation-line, imperative-action, test-reference signals"
     }
   }
 }
@@ -70,7 +70,7 @@ pnpm add-fixture --file ./my-pr.md --label human --reason "Written by maintainer
 
 ### Adding Your First Human Example
 
-Currently, all fixtures are AI-generated. To add a human-written example:
+Currently, all fixtures are AI-written. To add a human-written example:
 
 1. Create a markdown file with a human-written PR description:
 

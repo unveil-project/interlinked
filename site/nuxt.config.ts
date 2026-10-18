@@ -48,7 +48,7 @@ export default defineNuxtConfig({
         {
           name: 'description',
           content:
-            'Checks pull requests, issues and comments against a human baseline for signs of AI-generated text.',
+            'Checks pull requests, issues and comments against a human baseline for signs of AI-written text.',
         },
       ],
       link: [
