@@ -14,7 +14,7 @@ const stepIcon: Record<FetchStep, string> = {
     'border-1.5 border-line border-t-fg animate-spin animate-duration-700 motion-reduce:animate-duration-2000',
   done: 'bg-ok',
   none: 'border-1.5 border-muted',
-  failed: 'bg-agent',
+  failed: 'bg-error',
 }
 
 /** The template's kind, as GitHub calls it. */
@@ -37,7 +37,7 @@ const showTemplate = computed(() => {
 <template>
   <span
     class="flex items-center gap-2"
-    :class="{ 'text-agent': progress.body === 'failed' }"
+    :class="{ 'text-error': progress.body === 'failed' }"
   >
     <span
       class="flex-none size-1.5 rounded-full"
@@ -56,7 +56,7 @@ const showTemplate = computed(() => {
   <span
     v-if="showTemplate"
     class="flex items-center gap-2 min-w-0"
-    :class="{ 'text-agent': progress.template === 'failed' }"
+    :class="{ 'text-error': progress.template === 'failed' }"
   >
     <span
       class="flex-none size-1.5 rounded-full"

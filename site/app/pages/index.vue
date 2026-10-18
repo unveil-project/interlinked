@@ -135,7 +135,7 @@ onMounted(() => {
       >
         Find signs of
         <mark
-          class="px-[0.1em] whitespace-nowrap font-mono text-[0.86em] font-medium tracking-normal bg-agent/22 shadow-[inset_0_-0.07em_0_var(--agent)]"
+          class="px-[0.1em] whitespace-nowrap font-mono text-[0.86em] font-medium tracking-normal bg-automation/22 shadow-[inset_0_-0.07em_0_var(--automation)]"
           >AI-written</mark
         >
         text in open source contributions
@@ -191,7 +191,7 @@ onMounted(() => {
           :href="source?.url"
           :skipped="templateLines.size"
         />
-        <span v-if="error" class="text-agent font-sans text-13px">
+        <span v-if="error" class="text-error font-sans text-13px">
           {{ error }}
         </span>
       </div>
@@ -207,7 +207,7 @@ onMounted(() => {
         >
           <span
             class="flex-none size-1.5 rounded-full"
-            :class="example.expected === 'ai' ? 'bg-agent' : 'bg-human'"
+            :class="example.expected === 'ai' ? 'bg-automation' : 'bg-organic'"
           />
           {{ example.title }}
           <span class="font-mono text-11px text-muted max-sm:hidden">
@@ -231,28 +231,35 @@ onMounted(() => {
             >
               <span>
                 Thanks @alice
-                <mark class="font-sans shadow-[inset_0_-1.5px_0_var(--agent)]"
+                <mark
+                  class="font-sans underline underline-offset-3 decoration-1.5 decoration-automation"
                   >—</mark
                 >
-                <mark class="shadow-[inset_0_-1.5px_0_var(--agent)]">
+                <mark
+                  class="underline underline-offset-3 decoration-1.5 decoration-automation"
+                >
                   great catch</mark
                 >!
               </span>
               <span class="truncate">
-                <mark class="shadow-[inset_0_-1.5px_0_var(--human)]"
+                <mark
+                  class="underline underline-offset-3 decoration-2 decoration-dotted decoration-organic"
                   >Not sure</mark
                 >
                 it's the right fix
-                <mark class="shadow-[inset_0_-1.5px_0_var(--human)]">lol</mark>
+                <mark
+                  class="underline underline-offset-3 decoration-2 decoration-dotted decoration-organic"
+                  >lol</mark
+                >
               </span>
             </div>
             <h3 class="mt-4 font-display text-15px font-medium">
               Underlined phrases
             </h3>
             <p class="mt-1.5 text-13px text-muted leading-relaxed text-pretty">
-              <span class="text-agent">Orange</span> leans agent,
-              <span class="text-human">blue</span> leans human. Click one to see
-              why it counts.
+              <span class="text-automation">Solid red</span> leans agent,
+              <span class="text-organic">dotted green</span> leans human. Click
+              one to see why it counts.
             </p>
           </div>
 
@@ -262,12 +269,12 @@ onMounted(() => {
               aria-hidden="true"
             >
               <div class="flex items-baseline justify-between gap-2">
-                <span class="text-12px font-medium text-agent">
+                <span class="text-12px font-medium text-automation">
                   Automation signals
                 </span>
                 <span class="font-mono text-11px text-muted">18/100</span>
               </div>
-              <ScoreBar :score="18" fill="bg-agent" class="mt-3" />
+              <ScoreBar :score="18" fill="bg-automation" class="mt-3" />
             </div>
             <h3 class="mt-4 font-display text-15px font-medium">
               A score out of 100

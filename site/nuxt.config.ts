@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
-  devtools: { enabled: true },
+  devtools: { enabled: false },
 
   modules: ['@unocss/nuxt', '@nuxt/eslint', '@nuxt/fonts', 'nuxt-og-image'],
 
@@ -54,7 +54,8 @@ export default defineNuxtConfig({
       link: [
         {
           rel: 'icon',
-          href: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='6' fill='%23ff5b1f'/%3E%3C/svg%3E",
+          type: 'image/svg+xml',
+          href: '/favicon.svg',
         },
       ],
     },

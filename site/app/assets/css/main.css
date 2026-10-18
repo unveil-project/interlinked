@@ -7,8 +7,12 @@
   --fg: #0f1115;
   --soft: #374151;
   --muted: #6b7280;
-  --agent: #c2410c;
-  --human: #1d4ed8;
+  /* Classifications, after agentscan's hues but dark enough to read as text
+     (at least 4.5:1 on every background). */
+  --automation: #b91c1c;
+  --mixed: #f59e0b;
+  --organic: #15803d;
+  --error: var(--automation);
   --ok: #15803d;
   /* Underlines of highlights set aside while another signal is shown. */
   --faded: color-mix(in srgb, var(--muted) 45%, transparent);
@@ -25,8 +29,9 @@
     --fg: #e6e8eb;
     --soft: #b4bac3;
     --muted: #8a919b;
-    --agent: #f0883e;
-    --human: #6ca4f8;
+    --automation: #f85149;
+    --mixed: #e7b416;
+    --organic: #3fb950;
     --ok: #3fb950;
   }
 }

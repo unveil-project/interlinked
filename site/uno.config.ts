@@ -27,8 +27,10 @@ export default defineConfig({
       muted: 'var(--muted)',
       line: 'var(--line)',
       hair: 'var(--hair)',
-      agent: 'var(--agent)',
-      human: 'var(--human)',
+      automation: 'var(--automation)',
+      mixed: 'var(--mixed)',
+      organic: 'var(--organic)',
+      error: 'var(--error)',
       ok: 'var(--ok)',
     },
     font: {

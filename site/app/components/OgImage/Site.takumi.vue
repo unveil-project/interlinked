@@ -84,10 +84,10 @@ const heading = comment
       <div class="block text-8 leading-snug text-[#8a919b]">
         Check this {{ comment ? 'comment' : kind }} for signs of
         <span
-          class="mx-[0.25em] px-[0.1em] text-[#e6e8eb] bg-[#f0883e]/22"
+          class="mx-[0.25em] px-[0.1em] text-[#e6e8eb] bg-[#f85149]/22"
           style="
             font-family: 'IBM Plex Mono';
-            border-bottom: 0.07em solid #f0883e;
+            border-bottom: 0.07em solid #f85149;
           "
           >AI-written</span
         >
@@ -102,10 +102,10 @@ const heading = comment
       >
         Find signs of
         <span
-          class="mx-[0.25em] px-[0.1em] text-[0.86em] font-medium tracking-normal bg-[#f0883e]/22"
+          class="mx-[0.25em] px-[0.1em] text-[0.86em] font-medium tracking-normal bg-[#f85149]/22"
           style="
             font-family: 'IBM Plex Mono';
-            border-bottom: 0.07em solid #f0883e;
+            border-bottom: 0.07em solid #f85149;
           "
           >AI-written</span
         >
@@ -120,11 +120,11 @@ const heading = comment
         <div class="flex flex-col w-80" style="font-family: 'IBM Plex Mono'">
           <div class="flex justify-between text-5.5 text-[#8a919b]">
             <span>Score</span>
-            <span class="text-[#f0883e]">{{ score }}</span>
+            <span class="text-[#f85149]">{{ score }}</span>
           </div>
           <div class="flex mt-3 h-2.5 rounded-full bg-[#262a30]">
             <div
-              class="h-full rounded-full bg-[#f0883e]"
+              class="h-full rounded-full bg-[#f85149]"
               :style="{ width: `${score}%` }"
             />
           </div>

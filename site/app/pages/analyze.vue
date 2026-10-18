@@ -13,11 +13,11 @@ const looks: Record<
 > = {
   automation: {
     label: 'Automation signals',
-    text: 'text-agent',
-    fill: 'bg-agent',
+    text: 'text-automation',
+    fill: 'bg-automation',
   },
-  mixed: { label: 'Mixed signals', text: 'text-fg', fill: 'bg-muted' },
-  organic: { label: 'Organic writing', text: 'text-human', fill: 'bg-human' },
+  mixed: { label: 'Mixed signals', text: 'text-fg', fill: 'bg-mixed' },
+  organic: { label: 'Organic writing', text: 'text-organic', fill: 'bg-organic' },
   'insufficient-data': {
     label: 'Insufficient data',
     text: 'text-muted',
@@ -127,8 +127,8 @@ const occurrences = computed(() => {
 /** The tone of a highlight: by the signals it shows, AI if any leans AI. */
 function tone(ids: string[]) {
   return ids.some((id) => (signalsById.value.get(id)?.contribution ?? 0) > 0)
-    ? 'agent'
-    : 'human'
+    ? 'automation'
+    : 'organic'
 }
 
 /**
@@ -227,16 +227,20 @@ watch(selected, (ids) => {
   }
 })
 
+// Organic underlines are dotted, so the two tones tell apart without color.
 const markClass = {
-  agent: {
-    plain: 'shadow-[inset_0_-1.5px_0_var(--agent)]',
-    strong: 'bg-agent/22 shadow-[inset_0_-2px_0_var(--agent)]',
+  automation: {
+    plain: 'underline underline-offset-3 decoration-1.5 decoration-automation',
+    strong:
+      'bg-automation/22 underline underline-offset-3 decoration-2 decoration-automation',
   },
-  human: {
-    plain: 'shadow-[inset_0_-1.5px_0_var(--human)]',
-    strong: 'bg-human/22 shadow-[inset_0_-2px_0_var(--human)]',
+  organic: {
+    plain:
+      'underline underline-offset-3 decoration-2 decoration-dotted decoration-organic',
+    strong:
+      'bg-organic/22 underline underline-offset-3 decoration-2 decoration-dotted decoration-organic',
   },
-  faded: 'shadow-[inset_0_-1px_0_var(--faded)]',
+  faded: 'underline underline-offset-3 decoration-1 decoration-[var(--faded)]',
 }
 
 /**
@@ -371,7 +375,7 @@ onMounted(() => {
             }}
           </button>
         </template>
-        <span v-if="source?.expected" :class="{ 'text-agent': missed }">
+        <span v-if="source?.expected" :class="{ 'text-error': missed }">
           expected {{ source.expected === 'ai' ? 'AI' : 'human' }}
           <span
             class="size-3.5"
@@ -380,7 +384,7 @@ onMounted(() => {
             role="img"
           />
         </span>
-        <span v-if="error" class="text-agent font-sans text-13px">
+        <span v-if="error" class="text-error font-sans text-13px">
           {{ error }}
         </span>
       </div>
@@ -472,7 +476,7 @@ onMounted(() => {
               >
                 <span
                   class="flex-none size-1.5 rounded-full -translate-y-0.5"
-                  :class="tone([id]) === 'agent' ? 'bg-agent' : 'bg-human'"
+                  :class="tone([id]) === 'automation' ? 'bg-automation' : 'bg-organic'"
                 />
                 <span
                   class="flex-1 min-w-0"
@@ -483,7 +487,7 @@ onMounted(() => {
                     found {{ occurrences.get(id) }}× in this text ·
                     <span
                       :class="
-                        tone([id]) === 'agent' ? 'text-agent' : 'text-human'
+                        tone([id]) === 'automation' ? 'text-automation' : 'text-organic'
                       "
                       >{{
                         (signalsById.get(id)?.contribution ?? 0) > 0 ? '+' : ''
@@ -589,7 +593,7 @@ onMounted(() => {
                   >
                     <span
                       class="flex-none size-1.5 rounded-full -translate-y-0.5"
-                      :class="signal.contribution > 0 ? 'bg-agent' : 'bg-human'"
+                      :class="signal.contribution > 0 ? 'bg-automation' : 'bg-organic'"
                     />
                     <span class="flex-1 min-w-0 first-letter:uppercase">
                       {{ signal.description }}
@@ -606,7 +610,7 @@ onMounted(() => {
                     <span
                       class="flex-none w-10 font-mono text-11px text-right tabular-nums"
                       :class="
-                        signal.contribution > 0 ? 'text-agent' : 'text-human'
+                        signal.contribution > 0 ? 'text-automation' : 'text-organic'
                       "
                     >
                       {{ signal.contribution > 0 ? '+' : ''
