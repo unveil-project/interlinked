@@ -1,0 +1,7 @@
+# The site builds in `site/`, so Netlify finds the server function Nuxt
+# writes to `site/.netlify/functions-internal`. Without it only the
+# prerendered pages deploy, and `/analyze` is a 404 on reload.
+[build]
+  base = "site"
+  command = "pnpm -w build:site"
+  publish = "dist"
