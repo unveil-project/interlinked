@@ -131,7 +131,7 @@ onMounted(() => {
       <h2
         class="font-display text-[clamp(30px,5.5vw,44px)] font-medium leading-[1.1] tracking-[-0.025em] text-balance"
       >
-        Find signs of AI-written text in contributions
+        Find signs of AI-written text in open source contributions
       </h2>
       <p class="mt-3 text-15px text-soft leading-relaxed text-pretty">
         Paste a GitHub PR, issue or comment link, or any text, to check it for

@@ -13,8 +13,7 @@ async function submit() {
 <template>
   <div class="flex flex-col min-h-dvh bg-panel">
     <h1 class="sr-only">
-      interlinked: check a pull request, issue or comment for signs of
-      AI-generated text
+      Check a pull request, issue or comment for signs of AI-generated text
     </h1>
 
     <header class="border-b border-line">
