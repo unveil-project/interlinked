@@ -292,7 +292,7 @@ onMounted(() => {
       :class="{ 'opacity-50 pointer-events-none': loading }"
     >
       <div
-        class="flex flex-wrap items-center gap-x-5 gap-y-1 min-h-10 px-4 py-2 font-mono text-12px text-muted sm:px-6"
+        class="flex flex-wrap items-center gap-x-5 gap-y-1 w-full max-w-210 mx-auto min-h-10 px-4 py-2 font-mono text-12px text-muted sm:px-6"
         aria-live="polite"
       >
         <FetchStatus
@@ -328,14 +328,23 @@ onMounted(() => {
         </template>
         <span v-if="source?.expected" :class="{ 'text-agent': missed }">
           expected {{ source.expected === 'ai' ? 'AI' : 'human' }}
-          {{ missed ? '✕' : '✓' }}
+          <span
+            class="size-3.5"
+            :class="missed ? 'i-lucide-x' : 'i-lucide-check'"
+            :aria-label="missed ? 'missed' : 'matched'"
+            role="img"
+          />
         </span>
         <span v-if="error" class="text-agent font-sans text-13px">
           {{ error }}
         </span>
       </div>
 
-      <div v-if="showTemplate" id="template-field" class="px-4 pb-2 sm:px-6">
+      <div
+        v-if="showTemplate"
+        id="template-field"
+        class="w-full max-w-210 mx-auto px-4 pb-2 sm:px-6"
+      >
         <label for="template" class="sr-only">Template</label>
         <textarea
           id="template"
@@ -348,13 +357,13 @@ onMounted(() => {
 
       <div
         ref="textView"
-        class="relative flex-1"
+        class="relative flex-1 w-full max-w-210 mx-auto"
         aria-label="Analyzed text"
         role="region"
       >
         <div class="pt-2 pb-10 overflow-x-auto">
           <table
-            class="w-full max-w-210 border-collapse font-mono text-13px leading-[1.8]"
+            class="w-full border-collapse font-mono text-13px leading-[1.8]"
           >
             <tbody>
               <tr

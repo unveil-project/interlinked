@@ -1,7 +1,21 @@
-import { defineConfig, presetWind4, transformerVariantGroup } from 'unocss'
+import {
+  defineConfig,
+  presetIcons,
+  presetWind4,
+  transformerVariantGroup,
+} from 'unocss'
 
 export default defineConfig({
-  presets: [presetWind4()],
+  presets: [
+    presetWind4(),
+    presetIcons({
+      extraProperties: {
+        display: 'inline-block',
+        'vertical-align': 'middle',
+      },
+      warn: true,
+    }),
+  ],
   transformers: [transformerVariantGroup()],
   theme: {
     colors: {

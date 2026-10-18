@@ -271,25 +271,13 @@ onMounted(() => {
               A score out of 100
             </h3>
             <p class="mt-1.5 text-13px text-muted leading-relaxed text-pretty">
-              {{ signalCount }} patterns, weighted against PRs and issues
-              written before coding agents. A high score is a reason to look
-              closer, not to accuse someone.
+              {{ signalCount }} patterns, measured against a baseline of PRs and
+              issues written before coding agents. A high score is a reason to
+              look closer, not to accuse someone.
             </p>
           </div>
         </div>
       </section>
-
-      <p class="mt-6 text-12px text-muted">
-        An experimental
-        <a
-          target="_blank"
-          rel="noopener"
-          class="underline underline-offset-2 hover:text-fg"
-          href="https://github.com/unveil-project/interlinked"
-          >open source</a
-        >
-        project made with love.
-      </p>
     </div>
   </main>
 </template>

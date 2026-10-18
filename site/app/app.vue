@@ -18,26 +18,25 @@ async function submit() {
 
     <header class="border-b border-line">
       <form
-        class="flex flex-wrap items-center gap-x-4 gap-y-2 px-4 py-2 sm:px-5"
+        class="flex flex-wrap items-center gap-x-4 gap-y-2 w-full max-w-screen-xl mx-auto px-4 py-2 sm:px-5"
         @submit.prevent="submit"
       >
         <NuxtLink
           to="/"
-          class="flex items-center gap-2 h-9 font-display text-15px line-height-none font-bold"
-          aria-label="interlinked, start over"
+          class="flex items-center h-9"
+          aria-label="Agentscan text, start over"
         >
           <svg
             viewBox="0 0 20 20"
             class="size-6"
             fill="none"
             stroke="currentColor"
-            stroke-width="1.6"
+            stroke-width="1"
             aria-hidden="true"
           >
             <rect x="2" y="5" width="10" height="10" rx="2" />
             <rect x="8" y="5" width="10" height="10" rx="2" />
           </svg>
-          <!-- <span>interlinked</span> -->
         </NuxtLink>
         <div
           v-if="route.path === '/analyze'"
@@ -59,15 +58,7 @@ async function submit() {
             class="grid place-items-center size-7 rounded text-muted hover:text-fg"
             @click="navigateTo('/')"
           >
-            <svg viewBox="0 0 16 16" class="size-3.5" aria-hidden="true">
-              <path
-                d="M4 4l8 8M12 4l-8 8"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-              />
-            </svg>
+            <span class="i-lucide-x size-3.5" aria-hidden="true" />
           </button>
           <button
             type="submit"
@@ -80,14 +71,14 @@ async function submit() {
         <nav aria-label="Links" class="flex gap-4 ml-auto text-13px text-soft">
           <a
             target="_blank"
-            class="hover:text-fg"
+            class="hover:text-fg hover:underline"
             href="https://github.com/MatteoGabriele/interlinked"
             title="Check every new PR and issue in your repo automatically"
             >GitHub Action</a
           >
           <a
             target="_blank"
-            class="hover:text-fg"
+            class="hover:text-fg hover:underline"
             href="https://github.com/unveil-project/interlinked"
             >Source</a
           >
@@ -96,5 +87,40 @@ async function submit() {
     </header>
 
     <NuxtPage />
+
+    <footer
+      class="px-4 text-12px text-muted"
+      :class="
+        route.path === '/'
+          ? 'pb-6 sm:px-6'
+          : 'py-3 border-t border-line sm:px-5'
+      "
+    >
+      <div
+        class="flex flex-wrap items-center justify-between gap-x-4 gap-y-1"
+        :class="{ 'mx-auto max-w-180': route.path === '/' }"
+      >
+        <p>
+          An experimental
+          <a
+            target="_blank"
+            rel="noopener"
+            class="underline underline-offset-2 hover:text-fg"
+            href="https://github.com/unveil-project/interlinked"
+            >open source</a
+          >
+          project made with love.
+        </p>
+        <p>
+          Also check out
+          <a
+            class="underline underline-offset-2 hover:text-fg"
+            href="https://agentscan.tools"
+            title="Check GitHub accounts for signs of automation"
+            >Agentscan</a
+          >
+        </p>
+      </div>
+    </footer>
   </div>
 </template>

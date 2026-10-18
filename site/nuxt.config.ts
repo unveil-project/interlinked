@@ -13,7 +13,14 @@ export default defineNuxtConfig({
   app: {
     head: {
       htmlAttrs: { lang: 'en' },
-      title: 'interlinked',
+      title: 'agentscan · text',
+      meta: [
+        {
+          name: 'description',
+          content:
+            'Checks pull requests, issues and comments against a human baseline for signs of AI-generated text.',
+        },
+      ],
       link: [
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         {
