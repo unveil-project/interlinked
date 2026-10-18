@@ -230,17 +230,17 @@ onMounted(() => {
               aria-hidden="true"
             >
               <span>
-                <mark class="shadow-[inset_0_-1.5px_0_var(--agent)]"
-                  >You're absolutely right</mark
-                ><mark class="font-sans shadow-[inset_0_-1.5px_0_var(--agent)]"
+                Thanks @alice
+                <mark class="font-sans shadow-[inset_0_-1.5px_0_var(--agent)]"
                   >—</mark
-                ><mark class="shadow-[inset_0_-1.5px_0_var(--agent)]"
-                  >great catch</mark
+                >
+                <mark class="shadow-[inset_0_-1.5px_0_var(--agent)]">
+                  great catch</mark
                 >!
               </span>
               <span class="truncate">
                 <mark class="shadow-[inset_0_-1.5px_0_var(--human)]"
-                  >not sure</mark
+                  >Not sure</mark
                 >
                 it's the right fix
                 <mark class="shadow-[inset_0_-1.5px_0_var(--human)]">lol</mark>
