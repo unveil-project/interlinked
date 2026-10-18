@@ -7,7 +7,7 @@ export default defineNuxtConfig({
 
   // On Netlify the URL comes from its `URL` variable; elsewhere set
   // NUXT_PUBLIC_SITE_URL, so the OG image URL is absolute.
-  site: { name: 'agentscan · text' },
+  site: { name: 'AgentScan · Text' },
 
   // Fonts load here rather than from stylesheet links, so the OG image
   // renderer can use them too.
@@ -43,7 +43,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       htmlAttrs: { lang: 'en' },
-      title: 'agentscan · text',
+      title: 'AgentScan · Text',
       meta: [
         {
           name: 'description',

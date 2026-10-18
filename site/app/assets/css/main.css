@@ -7,7 +7,7 @@
   --fg: #0f1115;
   --soft: #374151;
   --muted: #6b7280;
-  /* Classifications, after agentscan's hues but dark enough to read as text
+  /* Classifications, after AgentScan's hues but dark enough to read as text
      (at least 4.5:1 on every background). */
   --automation: #b91c1c;
   --mixed: #f59e0b;

@@ -23,18 +23,18 @@ export { SIGNALS }
 
 export { issueFormLines } from './text'
 
-/** The same classifications as agentscan's accounts. */
+/** The same classifications as AgentScan's accounts. */
 export type TextClassification =
   'organic' | 'mixed' | 'automation' | 'insufficient-data'
 
 export interface AnalyzeTextResult {
   /** `human` when there's insufficient data, since there's nothing to flag. */
   verdict: 'ai' | 'human'
-  /** Where the score falls, like agentscan's account classification. */
+  /** Where the score falls, like AgentScan's account classification. */
   classification: TextClassification
   /**
    * How human the text reads, 0 to 100: 100 is human, 0 is agent. The same
-   * scale as agentscan's account score. `INSUFFICIENT_DATA_SCORE` when there's
+   * scale as AgentScan's account score. `INSUFFICIENT_DATA_SCORE` when there's
    * nothing to score.
    */
   score: number
@@ -57,7 +57,7 @@ export const AUTOMATION_THRESHOLD = 50
 /** Scores at or above this read as organic. Between the two is mixed. */
 export const ORGANIC_THRESHOLD = 70
 
-/** The score when there's nothing to score, as in agentscan. */
+/** The score when there's nothing to score, as in AgentScan. */
 export const INSUFFICIENT_DATA_SCORE = -1
 
 /**

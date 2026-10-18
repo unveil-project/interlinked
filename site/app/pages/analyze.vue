@@ -6,7 +6,7 @@ import {
   locateSignals,
 } from '@unveil/interlinked'
 
-/** How each classification shows, in agentscan's words for text. */
+/** How each classification shows, in AgentScan's words for text. */
 const looks: Record<
   TextClassification,
   { label: string; text: string; fill: string }
@@ -64,8 +64,8 @@ const sharedLink = computed(() => {
 useSeoMeta({
   title: () =>
     sharedLink.value
-      ? `${sharedLink.value.owner}/${sharedLink.value.repo}#${sharedLink.value.number} · agentscan · text`
-      : 'agentscan · text',
+      ? `${sharedLink.value.owner}/${sharedLink.value.repo}#${sharedLink.value.number} · AgentScan · Text`
+      : 'AgentScan · Text',
 })
 
 // A shared link's preview names what was shared.

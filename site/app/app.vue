@@ -24,7 +24,7 @@ async function submit() {
         <NuxtLink
           to="/"
           class="flex items-center h-9"
-          aria-label="Agentscan text, start over"
+          aria-label="AgentScan Text, start over"
         >
           <svg
             viewBox="0 0 20 20"
@@ -117,7 +117,7 @@ async function submit() {
             class="underline underline-offset-2 hover:text-fg"
             href="https://agentscan.tools"
             title="Check GitHub accounts for signs of automation"
-            >Agentscan</a
+            >AgentScan</a
           >
         </p>
       </div>

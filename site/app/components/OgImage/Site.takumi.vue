@@ -1,14 +1,11 @@
 <script setup lang="ts">
 const {
-  score = 18,
   owner = '',
   repo = '',
   number = '',
   type = 'pull',
   comment = false,
 } = defineProps<{
-  /** The score shown on the meter, 0 to 100. 100 is human. */
-  score?: number
   /** With `repo` and `number`, the shared link the image is for. */
   owner?: string
   repo?: string
@@ -18,7 +15,7 @@ const {
   comment?: boolean
 }>()
 
-const siteName = 'agentscan · text'
+const siteName = 'AgentScan · Text'
 const site = useSiteConfig()
 const host = site.url ? new URL(site.url).host : ''
 
@@ -112,23 +109,9 @@ const heading = comment
         text in open source contributions
       </div>
 
-      <div class="flex items-end justify-between gap-12">
-        <div class="flex flex-col text-7 leading-snug text-[#8a919b]">
-          <span>Pull requests, issues and comments,</span>
-          <span>checked against a human baseline.</span>
-        </div>
-        <div class="flex flex-col w-80" style="font-family: 'IBM Plex Mono'">
-          <div class="flex justify-between text-5.5 text-[#8a919b]">
-            <span>Score</span>
-            <span class="text-[#f85149]">{{ score }}</span>
-          </div>
-          <div class="flex mt-3 h-2.5 rounded-full bg-[#262a30]">
-            <div
-              class="h-full rounded-full bg-[#f85149]"
-              :style="{ width: `${score}%` }"
-            />
-          </div>
-        </div>
+      <div class="flex flex-col text-7 leading-snug text-[#8a919b]">
+        <span>Pull requests, issues and comments,</span>
+        <span>checked against a human baseline.</span>
       </div>
     </template>
   </div>
