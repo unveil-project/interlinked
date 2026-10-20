@@ -237,6 +237,12 @@ const signalGroups = computed(() => {
 })
 
 const sidebar = useTemplateRef('sidebar')
+/**
+ * On small screens the sidebar sits above the text, so it shows just the score
+ * until the reader asks for the rest.
+ */
+const expanded = ref(false)
+const collapsible = computed(() => (expanded.value ? '' : 'max-lg:hidden'))
 // Bring the picked signals into view, at the top of the list.
 watch(selected, (ids) => {
   if (ids.length) {
@@ -346,9 +352,10 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="flex flex-1 flex-wrap">
+  <!-- Side by side from lg. Below, the sidebar is a bar on top that collapses to the score, so the breakpoint here and on `collapsible` must match. -->
+  <div class="flex flex-1 flex-col lg:flex-row">
     <main
-      class="flex flex-col flex-[999_1_560px] min-w-0"
+      class="flex flex-col flex-1 min-w-0 lg:flex-[999_1_560px]"
       :class="{ 'opacity-50 pointer-events-none': loading }"
     >
       <div
@@ -551,15 +558,15 @@ onMounted(() => {
     </main>
 
     <aside
-      class="flex-[1_1_320px] min-w-0 bg-subtle border-line max-lg:(order-first border-b) lg:(max-w-90 border-l)"
+      class="min-w-0 bg-subtle border-line max-lg:(order-first border-b) lg:(flex-[1_1_320px] max-w-90 border-l)"
     >
       <div
         ref="sidebar"
-        class="flex flex-col gap-6 px-5 py-5 lg:(sticky top-0 max-h-dvh overflow-y-auto)"
+        class="flex flex-col gap-6 px-4 py-3 lg:(sticky top-0 max-h-dvh overflow-y-auto px-5 py-5)"
       >
         <template v-if="result">
           <section aria-labelledby="result">
-            <div class="flex items-baseline justify-between gap-3">
+            <div class="flex items-center justify-between gap-3">
               <h2
                 id="result"
                 class="font-display text-18px font-bold"
@@ -567,38 +574,61 @@ onMounted(() => {
               >
                 {{ look.label }}
               </h2>
-              <span class="font-mono text-12px text-muted tabular-nums">
-                {{ percent ?? '—' }}/100
+              <span class="flex items-center gap-3">
+                <span class="font-mono text-12px text-muted tabular-nums">
+                  {{ percent ?? '—' }}/100
+                </span>
+                <button
+                  type="button"
+                  class="flex items-center gap-1 -mr-2 px-2 py-1.5 rounded-md text-12px text-muted hover:(text-fg bg-hair) lg:hidden"
+                  :aria-expanded="expanded"
+                  aria-controls="result-details signals"
+                  @click="expanded = !expanded"
+                >
+                  {{ result.signals.length }}
+                  {{ result.signals.length === 1 ? 'signal' : 'signals' }}
+                  <span
+                    class="i-lucide-chevron-down size-3.5 transition-transform duration-150"
+                    :class="{ 'rotate-180': expanded }"
+                    aria-hidden="true"
+                  />
+                </button>
               </span>
             </div>
-            <p
-              v-if="result.classification === 'insufficient-data'"
-              class="mt-4 text-12px text-soft leading-normal text-pretty"
-            >
-              Nothing in it leans either way, so there's nothing to score.
-            </p>
-            <p class="mt-4 text-12px text-muted leading-normal text-pretty">
-              Checks {{ signalCount }} patterns in wording and markdown
-              structure, weighted against PRs and issues written before coding
-              agents.
-            </p>
-            <p class="mt-2 text-12px text-muted leading-normal text-pretty">
-              <template v-if="templateLines.size">
-                Left out {{ templateLines.size }}
-                {{ templateLines.size === 1 ? 'line' : 'lines' }} that match the
-                repo's {{ progress?.templateKind ?? 'PR or issue' }}
-                template, since template text isn't the author's writing.
-              </template>
-              <template v-else>
-                Lines from the repo's PR or issue template are left out, since
-                template text isn't the author's writing.
-              </template>
-            </p>
+            <div id="result-details" :class="collapsible">
+              <p
+                v-if="result.classification === 'insufficient-data'"
+                class="mt-4 text-12px text-soft leading-normal text-pretty"
+              >
+                Nothing in it leans either way, so there's nothing to score.
+              </p>
+              <p class="mt-4 text-12px text-muted leading-normal text-pretty">
+                Checks {{ signalCount }} patterns in wording and markdown
+                structure, weighted against PRs and issues written before coding
+                agents.
+              </p>
+              <p class="mt-2 text-12px text-muted leading-normal text-pretty">
+                <template v-if="templateLines.size">
+                  Left out {{ templateLines.size }}
+                  {{ templateLines.size === 1 ? 'line' : 'lines' }} that match
+                  the repo's {{ progress?.templateKind ?? 'PR or issue' }}
+                  template, since template text isn't the author's writing.
+                </template>
+                <template v-else>
+                  Lines from the repo's PR or issue template are left out, since
+                  template text isn't the author's writing.
+                </template>
+              </p>
+            </div>
           </section>
 
-          <section aria-labelledby="signals">
+          <section
+            id="signals"
+            aria-labelledby="signals-heading"
+            :class="collapsible"
+          >
             <div class="flex items-baseline justify-between gap-3 mb-1.5">
-              <h2 id="signals" class="text-12px font-medium text-soft">
+              <h2 id="signals-heading" class="text-12px font-medium text-soft">
                 Signals
               </h2>
               <span class="flex items-center gap-3 text-12px text-muted">
@@ -688,7 +718,7 @@ onMounted(() => {
               </ul>
             </template>
           </section>
-          <ScoreCaution />
+          <ScoreCaution :class="collapsible" />
         </template>
       </div>
     </aside>
