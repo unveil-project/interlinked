@@ -194,20 +194,30 @@ export function withoutTemplate(text: string, template: string | string[]) {
   return traceWithoutTemplate(trace(text), template).text
 }
 
-/** Blanks out code blocks and inline code. Indented list items stay. */
+const QUOTE_LINE = /^ {0,3}>.*$/gm
+
+function filledLines(text: string) {
+  return text.split('\n').filter((line) => /\S/.test(line)).length
+}
+
+/** Blanks out code and quotes. Quotes stay when they're most of the text. */
 export function traceProse(text: Traced) {
+  const withoutCode = traceReplace(
+    traceReplace(text, /```[\s\S]*?```/g, ''),
+    /^ {4,}(?![-*+] |\d+\. ).*$/gm,
+    '',
+  )
+  const withoutQuotes = traceReplace(withoutCode, QUOTE_LINE, '')
+  const mostlyQuote =
+    filledLines(withoutQuotes.text) < filledLines(withoutCode.text) / 2
   return traceReplace(
-    traceReplace(
-      traceReplace(text, /```[\s\S]*?```/g, ''),
-      /^ {4,}(?![-*+] |\d+\. ).*$/gm,
-      '',
-    ),
+    mostlyQuote ? withoutCode : withoutQuotes,
     /`[^`\n]*`/g,
     'X',
   )
 }
 
-/** Blanks out code blocks and inline code. Indented list items stay. */
+/** `traceProse` for a plain string. */
 export function prose(text: string) {
   return traceProse(trace(text)).text
 }

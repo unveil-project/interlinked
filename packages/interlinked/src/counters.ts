@@ -102,6 +102,11 @@ export function densityOutsideChecklists(pattern: RegExp) {
   return density(pattern, matchesOutsideChecklists(pattern))
 }
 
+/** Counts only past `floor`, for habits people have too, just less often. */
+export function beyond(count: Counter, floor: number) {
+  return counter((text) => Math.max(0, count(text) - floor), count.ranges)
+}
+
 /** The trimmed prose lines of a text. */
 function proseLines(text: string) {
   return prose(text)
@@ -146,19 +151,18 @@ function isTidy(line: string) {
   return /^[A-Z`X]/.test(line) && /[.:)]$/.test(line)
 }
 
-/**
- * Prose lines of 5 or more words, when every one of them starts with a capital
- * and ends with punctuation. One untidy line, or fewer than two lines, counts 0.
- */
+const TIDY_FLOOR = 2
+
+/** Sentence lines past the first two, when all are capitalized and punctuated. */
 export const tidyLines = counter(
   (text) => {
     const lines = proseLines(text).filter(isSentence)
-    return lines.every(isTidy) && lines.length >= 2 ? lines.length : 0
+    return lines.every(isTidy) ? Math.max(0, lines.length - TIDY_FLOOR) : 0
   },
   (text) => {
     const ranges = proseLineRanges(text, isSentence)
     const lines = proseLines(text).filter(isSentence)
-    return lines.every(isTidy) && lines.length >= 2 ? ranges : []
+    return lines.every(isTidy) && lines.length > TIDY_FLOOR ? ranges : []
   },
 )
 

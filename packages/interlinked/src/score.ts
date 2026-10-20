@@ -13,7 +13,7 @@ export interface SignalHit {
  * Starting log-odds. Set so at most about 3% of pre-agent PRs, issues or
  * comments score as AI, because a false accusation is worse than a miss.
  */
-const BIAS = -1.38
+const BIAS = -1.43
 
 /**
  * The model's score, 0 to 100 with 100 human, and the signals behind it.

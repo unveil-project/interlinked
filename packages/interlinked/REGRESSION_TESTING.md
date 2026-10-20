@@ -53,7 +53,26 @@ Vitest-based test suite that runs the following checks:
 5. **Confidence Thresholds**: Confidence scores meet minimum quality standards
 6. **Result Structure**: Analysis results have valid structure
 
-### 4. Helper Script (`scripts/add-fixture.ts`)
+### 4. Scorecard (`scripts/scorecard.ts`)
+
+Scores every fixture and sums them up in one scorecard, so you can compare the classifier before and after a change:
+
+```bash
+pnpm scorecard           # baseline vs current
+pnpm scorecard --misses  # also list fixtures on the wrong side of the threshold
+```
+
+| Metric              | Meaning                                                                      |
+| ------------------- | ---------------------------------------------------------------------------- |
+| `overall`           | 0-100, the mean of recall, 1 - false-positive rate and AUC. Higher is better |
+| `recall`            | Share of ai fixtures scored as ai                                            |
+| `falsePositiveRate` | Share of human fixtures scored as ai. Lower is better                        |
+| `auc`               | Chance a random ai fixture scores lower than a random human one              |
+| `logLoss`           | Mean log-loss against the folder labels. Lower is better                     |
+
+The scorecard is saved in `baseline.json` as `summary`. The regression test fails if `correct` or `overall` drop, or if `falsePositiveRate` or `logLoss` rise.
+
+### 5. Helper Script (`scripts/add-fixture.ts`)
 
 A CLI tool to easily add new fixtures:
 
@@ -130,12 +149,13 @@ When you intentionally change the classification behavior and some fixtures now 
 
 ## Test Commands
 
-| Command                                     | Description                          |
-| ------------------------------------------- | ------------------------------------ |
-| `pnpm test:regression`                      | Run only regression tests            |
-| `pnpm test`                                 | Run all tests (including regression) |
-| `pnpm add-fixture --interactive`            | Add a new fixture interactively      |
-| `pnpm add-fixture --file <path> --label <ai | human>`                              | Add a new fixture non-interactively |
+| Command                                     | Description                                   |
+| ------------------------------------------- | --------------------------------------------- |
+| `pnpm test:regression`                      | Run only regression tests                     |
+| `pnpm test`                                 | Run all tests (including regression)          |
+| `pnpm scorecard`                            | Compare the fixture scorecard to the baseline |
+| `pnpm add-fixture --interactive`            | Add a new fixture interactively               |
+| `pnpm add-fixture --file <path> --label <ai | human>`                                       | Add a new fixture non-interactively |
 
 ## Configuration Options
 

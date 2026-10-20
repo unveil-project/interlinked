@@ -215,11 +215,14 @@ function fitWeights(
         bias -= step
       } else {
         const next = w[j] - step
-        // Keep the original sign and stay within MAX_WEIGHT.
-        w[j] =
-          signs[j] > 0
-            ? Math.min(Math.max(next, 0), MAX_WEIGHT)
-            : Math.max(Math.min(next, 0), -MAX_WEIGHT)
+        // Keep the sign, within MAX_WEIGHT. Weight 0 stays off.
+        if (signs[j] > 0) {
+          w[j] = Math.min(Math.max(next, 0), MAX_WEIGHT)
+        } else if (signs[j] < 0) {
+          w[j] = Math.max(Math.min(next, 0), -MAX_WEIGHT)
+        } else {
+          w[j] = 0
+        }
       }
     }
   }
@@ -333,7 +336,9 @@ function writeWeights(fitted: Signal[], w: number[], bias: number) {
   const signalsPath = join(ROOT, 'src', 'signals.ts')
   let source = readFileSync(signalsPath, 'utf-8')
   fitted.forEach((signal, j) => {
-    const pattern = new RegExp(`(id: "${signal.id}",\\n[^]*?weight: )-?[\\d.]+`)
+    const pattern = new RegExp(
+      `(id: ['"]${signal.id}['"],\\n[^]*?weight: )-?[\\d.]+`,
+    )
     source = source.replace(pattern, `$1${round(w[j])}`)
   })
   writeFileSync(signalsPath, source)

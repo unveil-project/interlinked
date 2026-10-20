@@ -1,106 +1,33 @@
-import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { existsSync, readFileSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { describe, expect, it } from 'vitest'
-import { AUTOMATION_THRESHOLD } from '../src/index'
-import { scoreText } from '../src/score'
+import {
+  FIXTURES_DIR,
+  type FixtureScore,
+  type Scorecard,
+  round,
+  scoreFixtures,
+  summarize,
+} from '../scripts/scorecard'
 
 /**
- * Regression tests for the classifier.
- *
- * Fixtures live in `fixtures/ai/` and `fixtures/human/`: PR descriptions,
- * issues and comments alike. The folder is the label.
- * A `<name>.template.md` next to a fixture is used as its PR or issue template.
- *
- * `baseline.json` stores each fixture's last accepted score. A test fails if it
- * moves away from the label: up for ai, down for human.
- *
- * Update the baseline with `pnpm test:regression:update`.
+ * Fails if a fixture moves away from its label, or the scorecard gets worse,
+ * compared to `baseline.json`. Update with `pnpm test:regression:update`.
  */
 
-type Label = 'ai' | 'human'
-
-interface BaselineEntry {
-  label: Label
-  /** 0 to 100, 100 is human. */
-  score: number
-  /** Contribution per signal, to explain regressions. */
-  signals: Record<string, number>
-}
-
 interface Baseline {
-  summary: {
-    fixtures: number
-    correct: number
-    accuracy: number
-    /** Mean log-loss against the folder labels; lower is better. */
-    logLoss: number
-  }
-  fixtures: Record<string, BaselineEntry>
+  summary: Partial<Scorecard>
+  fixtures: Record<string, FixtureScore>
 }
 
 /** Allows for rounding noise (scores have 1 decimal). */
 const TOLERANCE = 0.1
-const LABELS: Label[] = ['ai', 'human']
-const FIXTURES_DIR = join(import.meta.dirname, 'fixtures')
+const RATE_TOLERANCE = 0.001
 const BASELINE_PATH = join(FIXTURES_DIR, 'baseline.json')
 const UPDATE = process.env.UPDATE_BASELINE === '1'
 
-function measure(): Record<string, BaselineEntry> {
-  const entries: Record<string, BaselineEntry> = {}
-  for (const label of LABELS) {
-    const dir = join(FIXTURES_DIR, label)
-    if (!existsSync(dir)) {
-      continue
-    }
-    const files = readdirSync(dir).filter(
-      (f) => f.endsWith('.md') && !f.endsWith('.template.md'),
-    )
-    for (const file of files.sort()) {
-      const templatePath = join(dir, file.replace(/\.md$/, '.template.md'))
-      const result = scoreText(
-        readFileSync(join(dir, file), 'utf-8'),
-        existsSync(templatePath)
-          ? readFileSync(templatePath, 'utf-8')
-          : undefined,
-      )
-      entries[`${label}/${file}`] = {
-        label,
-        score: result.score,
-        signals: Object.fromEntries(
-          result.signals.map((s) => [s.id, s.contribution]),
-        ),
-      }
-    }
-  }
-  return entries
-}
-
-function summarize(
-  entries: Record<string, BaselineEntry>,
-): Baseline['summary'] {
-  const values = Object.values(entries)
-  const correct = values.filter(
-    (e) => (e.score < AUTOMATION_THRESHOLD ? 'ai' : 'human') === e.label,
-  ).length
-  const logLoss =
-    values.reduce((sum, e) => {
-      const p = Math.min(Math.max(1 - e.score / 100, 1e-6), 1 - 1e-6)
-      return sum - Math.log(e.label === 'ai' ? p : 1 - p)
-    }, 0) / Math.max(values.length, 1)
-  return {
-    fixtures: values.length,
-    correct,
-    accuracy: round(values.length ? correct / values.length : 0),
-    logLoss: round(logLoss),
-  }
-}
-
-function round(n: number) {
-  return Math.round(n * 1000) / 1000
-}
-
 /** Signals whose contribution changed, as `id: before -> after`. */
-function signalDiff(before: BaselineEntry, after: BaselineEntry) {
+function signalDiff(before: FixtureScore, after: FixtureScore) {
   const ids = new Set([
     ...Object.keys(before.signals),
     ...Object.keys(after.signals),
@@ -114,7 +41,7 @@ function signalDiff(before: BaselineEntry, after: BaselineEntry) {
     .join('\n')
 }
 
-const current = measure()
+const current = scoreFixtures()
 
 if (UPDATE) {
   const baseline: Baseline = { summary: summarize(current), fixtures: current }
@@ -123,7 +50,7 @@ if (UPDATE) {
 
 const baseline: Baseline = existsSync(BASELINE_PATH)
   ? JSON.parse(readFileSync(BASELINE_PATH, 'utf-8'))
-  : { summary: summarize({}), fixtures: {} }
+  : { summary: {}, fixtures: {} }
 
 describe('regression', () => {
   it('baseline lists exactly the fixtures on disk', () => {
@@ -156,12 +83,19 @@ describe('regression', () => {
     })
   })
 
-  it('aggregate scores do not get worse', () => {
+  it('scorecard does not get worse', () => {
     const now = summarize(current)
-    console.table({ baseline: baseline.summary, current: now })
-    expect(now.correct).toBeGreaterThanOrEqual(baseline.summary.correct)
+    const before = baseline.summary
+    console.table({ baseline: before, current: now })
+    expect(now.correct).toBeGreaterThanOrEqual(before.correct ?? 0)
     expect(now.logLoss).toBeLessThanOrEqual(
-      baseline.summary.logLoss + TOLERANCE,
+      (before.logLoss ?? Infinity) + TOLERANCE,
+    )
+    expect(now.overall).toBeGreaterThanOrEqual(
+      (before.overall ?? 0) - RATE_TOLERANCE,
+    )
+    expect(now.falsePositiveRate).toBeLessThanOrEqual(
+      (before.falsePositiveRate ?? 1) + RATE_TOLERANCE,
     )
   })
 })
