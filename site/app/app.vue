@@ -1,6 +1,8 @@
 <script setup lang="ts">
 const { url, markdown, loading, load } = useAnalysis()
 const route = useRoute()
+/** The interlinked release doing the analysis, since scores change between them. */
+const { interlinkedVersion } = useRuntimeConfig().public
 
 /** Analyzes the link in the field, and keeps it in the address to share. */
 async function submit() {
@@ -101,6 +103,8 @@ async function submit() {
         :class="{ 'mx-auto max-w-180': route.path === '/' }"
       >
         <p>
+          <span>interlinked v{{ interlinkedVersion }}</span>
+          <span class="mx-1.5" aria-hidden="true">·</span>
           An experimental
           <a
             target="_blank"

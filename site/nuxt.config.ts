@@ -1,7 +1,14 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import interlinked from '@unveil/interlinked/package.json' with { type: 'json' }
+
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: false },
+
+  // Shown in the footer, so it's clear which detector gave a result.
+  runtimeConfig: {
+    public: { interlinkedVersion: interlinked.version },
+  },
 
   modules: ['@unocss/nuxt', '@nuxt/eslint', '@nuxt/fonts', 'nuxt-og-image'],
 
