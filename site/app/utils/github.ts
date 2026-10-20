@@ -44,36 +44,32 @@ export function parseGitHubUrl(url: string): GitHubRef | undefined {
   }
 }
 
-async function api(path: string) {
-  const response = await fetch(`https://api.github.com/repos/${path}`)
-
-  if (response.status === 403 || response.status === 429) {
-    throw new Error('GitHub rate limit hit. Paste the text instead.')
-  }
-
-  if (!response.ok) {
-    throw new Error(`GitHub API ${response.status}`)
-  }
-
-  return response.json()
+async function api<T = unknown>(path: string) {
+  return $fetch<T>(`https://api.github.com/repos/${path}`).catch(
+    (e: { status?: number }) => {
+      if (e.status === 403 || e.status === 429) {
+        throw new Error('GitHub rate limit hit. Paste the text instead.')
+      }
+      throw e.status ? new Error(`GitHub API ${e.status}`) : e
+    },
+  )
 }
 
 /** The comment's text if the link has one, otherwise the PR description or issue body. */
 export async function fetchBody({ owner, repo, number, commentId }: GitHubRef) {
-  // The issues endpoint serves PRs too.
-  const { body } = await api(
-    commentId
-      ? `${owner}/${repo}/issues/comments/${commentId}`
-      : `${owner}/${repo}/issues/${number}`,
-  )
-  return (body as string | null) ?? ''
+  const url: string = commentId
+    ? `${owner}/${repo}/issues/comments/${commentId}`
+    : `${owner}/${repo}/issues/${number}`
+
+  const { body } = await api<{ body: string | null }>(url)
+  return body ?? ''
 }
 
 async function raw({ owner, repo }: GitHubRef, path: string) {
-  const response = await fetch(
+  return $fetch<string>(
     `https://raw.githubusercontent.com/${owner}/${repo}/HEAD/${path}`,
-  )
-  return response.ok ? response.text() : undefined
+    { responseType: 'text' },
+  ).catch(() => undefined)
 }
 
 /** Markdown as is, and YAML issue forms as the lines they leave in an issue. */
@@ -87,22 +83,27 @@ async function fetchIssueTemplate(
   onTry: (path: string) => void,
 ) {
   const folder = '.github/ISSUE_TEMPLATE'
+
   onTry(`${folder}/`)
+
   const files = await api(`${ref.owner}/${ref.repo}/contents/${folder}`).catch(
     () => [],
   )
+
   const names = (Array.isArray(files) ? files : [])
     .map((file: { name: string }) => file.name)
     .filter(
       (name: string) =>
         /\.(?:md|ya?ml)$/i.test(name) && !/^config\.ya?ml$/i.test(name),
     )
+
   const texts = await Promise.all(
     names.map(async (name: string) => {
       const text = await raw(ref, `${folder}/${name}`)
       return text && templateText(name, text)
     }),
   )
+
   const found = texts.filter((text): text is string => !!text)
   if (found.length > 0) {
     return {
@@ -113,7 +114,9 @@ async function fetchIssueTemplate(
 
   for (const path of ISSUE_TEMPLATE_PATHS) {
     onTry(path)
+
     const text = await raw(ref, path)
+
     if (text) {
       return { path, text }
     }
@@ -155,8 +158,9 @@ export type FetchStep = 'loading' | 'done' | 'none' | 'failed'
 /** Per-request status of a fetch. `path` is the template path being checked, or the one found. */
 export interface FetchProgress {
   body: FetchStep
-  template: FetchStep
+  /** None for comments, which have no template. */
+  template?: FetchStep
   path?: string
-  /** What the body is: "description", "issue" or "comment". */
-  noun: string
+  /** The kind of template, as GitHub calls it. */
+  templateKind: 'PR' | 'issue'
 }

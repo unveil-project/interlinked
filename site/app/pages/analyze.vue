@@ -17,6 +17,8 @@ const looks: Record<TextClassification, { label: string; text: string }> = {
 /** How many signals the analysis checks. */
 const signalCount = SIGNALS.filter((signal) => signal.weight !== 0).length
 
+const route = useRoute()
+
 const {
   markdown,
   template,
@@ -24,11 +26,11 @@ const {
   error,
   progress,
   source,
+  templateRanges,
   templateLines,
-  load,
-} = useAnalysis()
-
-const route = useRoute()
+} = useAnalysis(() =>
+  typeof route.query.url === 'string' ? route.query.url : '',
+)
 /**
  * The link shared in `?url=`, for the page title and preview image. Only with
  * names GitHub allows, so a made-up link can't put any text it likes there.
@@ -83,6 +85,7 @@ const percent = computed(() =>
 )
 const look = computed(() => looks[result.value?.classification ?? 'organic'])
 const lines = computed(() => markdown.value.split('\n'))
+
 const missed = computed(
   () =>
     !!result.value &&
@@ -122,33 +125,58 @@ function tone(ids: string[]) {
 
 /**
  * Each line cut into segments where the set of signals found there changes,
- * so every segment can be highlighted as a whole.
+ * or where template text starts or ends, so every segment can be highlighted
+ * as a whole.
  */
 const rows = computed(() => {
   let start = 0
   return lines.value.map((line) => {
     const end = start + line.length
     const here = locations.value.filter((l) => l.start < end && l.end > start)
+    const templateHere = templateRanges.value.filter(
+      (r) => r.start < end && r.end > start,
+    )
     const cuts = new Set([0, line.length])
-    for (const l of here) {
+    for (const l of [...here, ...templateHere]) {
       cuts.add(Math.max(l.start - start, 0))
       cuts.add(Math.min(l.end - start, line.length))
     }
     const points = [...cuts].sort((a, b) => a - b)
     const segments = points.slice(0, -1).map((from, i) => {
       const to = points[i + 1]
-      const ids = [
-        ...new Set(
-          here
-            .filter((l) => l.start - start <= from && l.end - start >= to)
-            .map((l) => l.id),
-        ),
-      ]
-      return { text: line.slice(from, to), ids }
+      const covers = (l: { start: number; end: number }) =>
+        l.start - start <= from && l.end - start >= to
+      const ids = [...new Set(here.filter(covers).map((l) => l.id))]
+      return {
+        text: line.slice(from, to),
+        ids,
+        template: templateHere.some(covers),
+      }
     })
     start = end + 1
     return segments
   })
+})
+
+/**
+ * The first line of each run of lines with template text, where its label
+ * goes. Partly scored rows and blank lines don't end a run, so a filled-in
+ * table gets one label rather than one per answer.
+ */
+const templateStarts = computed(() => {
+  const starts = new Set<number>()
+  let inRun = false
+  rows.value.forEach((segments, i) => {
+    if (!lines.value[i]?.trim()) {
+      return
+    }
+    const template = segments.some((segment) => segment.template)
+    if (template && !inRun) {
+      starts.add(i)
+    }
+    inRun = template
+  })
+  return starts
 })
 
 /** The signals under the pointer, in the text or in the list. */
@@ -309,14 +337,8 @@ function showAll() {
 // A new text shows every signal again.
 watch(markdown, showAll)
 
-const router = useRouter()
-// Analyze the link shared in `?url=`. On mount, so the server-rendered page
-// hydrates first.
 onMounted(() => {
-  const shared = router.currentRoute.value.query.url
-  if (typeof shared === 'string' && shared) {
-    load(shared)
-  } else if (!markdown.value.trim()) {
+  if (!route.query.url && !markdown.value.trim()) {
     // Pasted text doesn't survive a reload.
     navigateTo('/', { replace: true })
   }
@@ -333,49 +355,54 @@ onMounted(() => {
         class="flex flex-wrap items-center gap-x-5 gap-y-1 w-full max-w-210 mx-auto min-h-10 px-4 py-2 font-mono text-12px text-muted sm:px-6"
         aria-live="polite"
       >
-        <FetchStatus
-          v-if="progress"
-          :progress
-          :name="source?.name"
-          :href="source?.url"
-          :skipped="templateLines.size"
-        />
-        <template v-else>
-          <a
-            v-if="source?.url"
-            :href="source.url"
-            target="_blank"
-            rel="noopener"
-            class="hover:text-fg underline-offset-2 hover:underline"
-            >{{ source.name }}</a
-          >
-          <span v-else>{{ source?.name ?? 'pasted text' }}</span>
-          <button
-            type="button"
-            class="hover:text-fg"
-            :aria-expanded="showTemplate"
-            aria-controls="template-field"
-            @click="showTemplate = !showTemplate"
-          >
-            {{
-              template
-                ? `${templateLines.size} template ${templateLines.size === 1 ? 'line' : 'lines'} not scored`
-                : '+ add PR or issue template'
-            }}
-          </button>
-        </template>
-        <span v-if="source?.expected" :class="{ 'text-error': missed }">
-          expected {{ source.expected === 'ai' ? 'AI' : 'human' }}
-          <span
-            class="size-3.5"
-            :class="missed ? 'i-lucide-x' : 'i-lucide-check'"
-            :aria-label="missed ? 'missed' : 'matched'"
-            role="img"
+        <!-- Which template path is being checked is only known here. -->
+        <ClientOnly>
+          <FetchStatus
+            v-if="progress"
+            :progress
+            :name="source?.name"
+            :href="source?.url"
+            :skipped="templateLines.size"
+            :expanded="showTemplate"
+            @toggle="showTemplate = !showTemplate"
           />
-        </span>
-        <span v-if="error" class="text-error font-sans text-13px">
-          {{ error }}
-        </span>
+          <template v-else>
+            <a
+              v-if="source?.url"
+              :href="source.url"
+              target="_blank"
+              rel="noopener"
+              class="hover:text-fg underline-offset-2 hover:underline"
+              >{{ source.name }}</a
+            >
+            <span v-else>{{ source?.name ?? 'pasted text' }}</span>
+            <button
+              type="button"
+              class="hover:text-fg"
+              :aria-expanded="showTemplate"
+              aria-controls="template-field"
+              @click="showTemplate = !showTemplate"
+            >
+              {{
+                template
+                  ? `${templateLines.size} template ${templateLines.size === 1 ? 'line' : 'lines'} left out of the score`
+                  : '+ add PR or issue template'
+              }}
+            </button>
+          </template>
+          <span v-if="source?.expected" :class="{ 'text-error': missed }">
+            expected {{ source.expected === 'ai' ? 'AI' : 'human' }}
+            <span
+              class="size-3.5"
+              :class="missed ? 'i-lucide-x' : 'i-lucide-check'"
+              :aria-label="missed ? 'missed' : 'matched'"
+              role="img"
+            />
+          </span>
+          <span v-if="error" class="text-error font-sans text-13px">
+            {{ error }}
+          </span>
+        </ClientOnly>
       </div>
 
       <div
@@ -407,10 +434,10 @@ onMounted(() => {
               <tr
                 v-for="(segments, i) in rows"
                 :key="i"
-                :class="{ 'text-muted/60': templateLines.has(i) }"
+                :class="{ 'bg-hair text-muted/60': templateLines.has(i) }"
                 :title="
                   templateLines.has(i)
-                    ? 'From the template, not scored'
+                    ? 'Part of the template, so it doesn’t count'
                     : undefined
                 "
               >
@@ -420,6 +447,27 @@ onMounted(() => {
                   {{ i + 1 }}
                 </td>
                 <td class="h-[1.8em] pr-6 whitespace-pre-wrap wrap-anywhere">
+                  <!-- Shading alone reads as styling, so each run of template lines says what it is. Below, as the text view clips anything above its first line. -->
+                  <Tooltip
+                    v-if="templateStarts.has(i)"
+                    label="Part of the template, so it doesn’t count"
+                    position="bottom"
+                    align="end"
+                    class="float-right ml-3 select-none"
+                  >
+                    <span
+                      tabindex="0"
+                      class="flex items-center h-[1.8em] text-muted rounded-sm outline-none focus-visible:(ring-1 ring-line)"
+                    >
+                      <span
+                        class="i-lucide-eye-off size-3.5"
+                        aria-hidden="true"
+                      />
+                      <span class="sr-only"
+                        >Part of the template, so it doesn’t count</span
+                      >
+                    </span>
+                  </Tooltip>
                   <template v-for="(segment, j) in segments" :key="j">
                     <mark
                       v-if="segment.ids.length"
@@ -429,6 +477,13 @@ onMounted(() => {
                       @mouseenter="hover(segment.ids)"
                       @mouseleave="unhover"
                       @click="openCard($event, segment.ids)"
+                      v-text="segment.text"
+                    />
+                    <!-- Template text on a line that's partly scored, like a table row with its answer filled in. -->
+                    <span
+                      v-else-if="segment.template && !templateLines.has(i)"
+                      class="rounded-sm bg-hair text-muted/60"
+                      title="Part of the template, so it doesn’t count"
                       v-text="segment.text"
                     />
                     <span v-else v-text="segment.text" />
@@ -526,6 +581,18 @@ onMounted(() => {
               Checks {{ signalCount }} patterns in wording and markdown
               structure, weighted against PRs and issues written before coding
               agents.
+            </p>
+            <p class="mt-2 text-12px text-muted leading-normal text-pretty">
+              <template v-if="templateLines.size">
+                Left out {{ templateLines.size }}
+                {{ templateLines.size === 1 ? 'line' : 'lines' }} that match the
+                repo's {{ progress?.templateKind ?? 'PR or issue' }}
+                template, since template text isn't the author's writing.
+              </template>
+              <template v-else>
+                Lines from the repo's PR or issue template are left out, since
+                template text isn't the author's writing.
+              </template>
             </p>
           </section>
 

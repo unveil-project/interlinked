@@ -7,6 +7,7 @@ import {
   locateSignals,
   locateTemplate,
 } from '../src/index'
+import { withoutTemplate } from '../src/text'
 
 /** The matched text of each location of one signal. */
 function found(markdown: string, id: string, template?: string) {
@@ -104,5 +105,37 @@ describe('locateTemplate', () => {
         text.slice(start, end),
       ),
     ).toEqual(['## Summary', '- [x] Tests pass'])
+  })
+
+  it('finds the HTML comments copied from the template', () => {
+    const template = '<!--\nRead the  guidelines.\n-->\n## Summary'
+    const text =
+      '<!-- Read the guidelines. -->\n## Summary\n<!-- my own note -->\nFixed it.'
+    expect(
+      locateTemplate(text, template).map(({ start, end }) =>
+        text.slice(start, end),
+      ),
+    ).toEqual(['<!-- Read the guidelines. -->', '## Summary'])
+  })
+
+  it('finds the template cells of table rows, not the filled-in answers', () => {
+    const template =
+      '| Q | A\n| --- | ---\n| Fixed Issues? | `Fixes #1`\n| Patch: Bug Fix? |\n| License | MIT'
+    const text =
+      '| Q | A\n| --- | ---\n| Fixed Issues? |\n| Patch: Bug Fix? | Yes, the cache one\n| License | MIT |\n| My own row | here'
+    expect(
+      locateTemplate(text, template).map(({ start, end }) =>
+        text.slice(start, end),
+      ),
+    ).toEqual([
+      '| Q | A',
+      '| --- | ---',
+      '| Fixed Issues? |',
+      '| Patch: Bug Fix? | ',
+      '| License | MIT |',
+    ])
+    expect(withoutTemplate(text, template)).toBe(
+      'Yes, the cache one\n| My own row | here',
+    )
   })
 })

@@ -26,8 +26,12 @@ const examples: {
   },
 ]
 
-const { loading, error, progress, source, templateLines, show, load, reset } =
-  useAnalysis()
+const pasted = usePastedText()
+
+/** The link being fetched. Shown here until it's in, so feedback is immediate. */
+const link = ref('')
+const { loading, error, progress, source, templateLines, refresh } =
+  useAnalysis(link)
 
 /** What is typed or pasted: a link or the text itself. */
 const draft = ref('')
@@ -66,12 +70,14 @@ async function submit() {
     return
   }
   if (draftIsLink.value) {
-    if (await load(text)) {
+    link.value = text
+    await refresh()
+    if (!error.value) {
       await navigateTo(analyzePath(text))
     }
     return
   }
-  show(draft.value)
+  pasted.value = { markdown: draft.value, template: '' }
   await navigateTo('/analyze')
 }
 
@@ -97,11 +103,15 @@ function submitKey(event: KeyboardEvent) {
 }
 
 function tryExample(example: (typeof examples)[number]) {
-  show(example.text, {
-    name: example.name,
-    url: example.url,
-    expected: example.expected,
-  })
+  pasted.value = {
+    markdown: example.text,
+    template: '',
+    source: {
+      name: example.name,
+      url: example.url,
+      expected: example.expected,
+    },
+  }
   navigateTo('/analyze')
 }
 
@@ -112,7 +122,7 @@ const router = useRouter()
 // Coming back here starts over. On mount, so the prerendered page hydrates
 // first.
 onMounted(() => {
-  reset()
+  pasted.value = undefined
   // Links shared before the analysis had a page of its own.
   const shared = router.currentRoute.value.query.url
   if (typeof shared === 'string' && shared) {

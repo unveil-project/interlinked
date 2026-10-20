@@ -131,17 +131,72 @@ function isIssueForm(template: string) {
   return /^body:\s*$/m.test(template) && /^\s*-\s+type:/m.test(template)
 }
 
+/** A table row's cells, as ranges in the line, or `undefined` for other lines. */
+function tableCells(line: string): Range[] | undefined {
+  if (!/^\s*\|/.test(line)) {
+    return undefined
+  }
+  const borders = [...line.matchAll(/(?<!\\)\|/g)].map((match) => match.index)
+  return borders.map((border, i) => [
+    border + 1,
+    i + 1 < borders.length ? borders[i + 1] : line.length,
+  ])
+}
+
+interface TemplateKeys {
+  lines: Set<string>
+  /** Per table row's first cell, the `column:cell` keys of the row's cells. */
+  rows: Map<string, Set<string>>
+}
+
 /** The template lines, as keys to look a text's lines up by. */
-function templateKeys(template: string | string[]) {
+function templateKeys(template: string | string[]): TemplateKeys {
   const templates = Array.isArray(template) ? template : [template]
-  return new Set(
-    templates
-      .flatMap((t) =>
-        isIssueForm(t) ? issueFormLines(t) : authoredText(t).split('\n'),
-      )
-      .map(templateKey)
-      .filter((line) => line.length > 2),
+  const lines = templates.flatMap((t) =>
+    isIssueForm(t) ? issueFormLines(t) : authoredText(t).split('\n'),
   )
+  const rows = new Map<string, Set<string>>()
+  for (const line of lines) {
+    const cells = tableCells(line)?.map(([s, e]) =>
+      templateKey(line.slice(s, e)),
+    )
+    if (!cells || cells[0].length <= 2) {
+      continue
+    }
+    const row = rows.get(cells[0]) ?? new Set()
+    cells.forEach((cell, i) => row.add(`${i}:${cell}`))
+    rows.set(cells[0], row)
+  }
+  return {
+    lines: new Set(lines.map(templateKey).filter((line) => line.length > 2)),
+    rows,
+  }
+}
+
+/**
+ * The parts of a line the author wrote, as ranges in it: none for a template
+ * line, the whole line for others. A table row starting like a template row
+ * keeps only the cells that differ from it, so `| Fixed Issues? | Fixes #1`
+ * keeps `Fixes #1` against the template's `| Fixed Issues? |`.
+ */
+function authoredParts(keys: TemplateKeys, line: string): Range[] {
+  if (keys.lines.has(templateKey(line))) {
+    return []
+  }
+  const cells = tableCells(line)
+  const row = cells && keys.rows.get(templateKey(line.slice(...cells[0])))
+  if (!row) {
+    return [[0, line.length]]
+  }
+  return cells
+    .filter(([s, e], i) => {
+      const cell = templateKey(line.slice(s, e))
+      return cell !== '' && !/^:?-+:?$/.test(cell) && !row.has(`${i}:${cell}`)
+    })
+    .map(([s, e]) => {
+      const cell = line.slice(s, e)
+      return [s + cell.search(/\S/), s + cell.trimEnd().length]
+    })
 }
 
 /** Removes lines copied from the PR or issue templates, ticked checklist items included. */
@@ -153,11 +208,19 @@ export function traceWithoutTemplate(
   const lines: Traced[] = []
   let start = 0
   for (const line of text.split('\n')) {
-    if (!keys.has(templateKey(line))) {
-      // Each kept line takes its line break along, the last one excepted.
+    const parts = authoredParts(keys, line)
+    if (parts.length > 0) {
+      // Parts are joined by a space, and each kept line takes its line break
+      // along, the last one excepted.
       lines.push({
-        text: line,
-        offsets: offsets.slice(start, start + line.length + 1),
+        text: parts.map(([s, e]) => line.slice(s, e)).join(' '),
+        offsets: [
+          ...parts.flatMap(([s, e], i) => [
+            ...(i > 0 ? [offsets[start + s]] : []),
+            ...offsets.slice(start + s, start + e),
+          ]),
+          ...offsets.slice(start + line.length, start + line.length + 1),
+        ],
       })
     }
     start += line.length + 1
@@ -181,12 +244,45 @@ export function traceTemplateLines(
   const ranges: Range[] = []
   let start = 0
   for (const line of markdown.text.split('\n')) {
-    if (keys.has(templateKey(line))) {
-      ranges.push(untrace(markdown, [start, start + line.length]))
+    // Whatever lies between the authored parts came from the template.
+    let from = 0
+    for (const [s, e] of [
+      ...authoredParts(keys, line),
+      [line.length, line.length],
+    ]) {
+      if (s > from) {
+        ranges.push(untrace(markdown, [start + from, start + s]))
+      }
+      from = e
     }
     start += line.length + 1
   }
   return ranges
+}
+
+const COMMENT = /<!--[\s\S]*?-->/g
+
+function commentKey(comment: string) {
+  return comment.replace(/\s+/g, ' ').trim()
+}
+
+/**
+ * Where the HTML comments copied from the PR or issue templates are. Never
+ * scored, as no comment is, but from the template all the same.
+ */
+export function templateComments(
+  markdown: string,
+  template: string | string[],
+): Range[] {
+  const templates = Array.isArray(template) ? template : [template]
+  const keys = new Set(
+    templates.flatMap((t) =>
+      [...t.matchAll(COMMENT)].map((match) => commentKey(match[0])),
+    ),
+  )
+  return [...markdown.matchAll(COMMENT)]
+    .filter((match) => keys.has(commentKey(match[0])))
+    .map((match) => [match.index, match.index + match[0].length])
 }
 
 /** Removes lines copied from the PR or issue templates, ticked checklist items included. */

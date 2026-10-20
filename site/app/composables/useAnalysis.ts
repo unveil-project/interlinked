@@ -1,3 +1,4 @@
+import type { AsyncDataRequestStatus } from '#app'
 import { locateTemplate } from '@unveil/interlinked'
 
 export type Label = 'ai' | 'human'
@@ -9,150 +10,135 @@ export interface Source {
   expected?: Label
 }
 
-/** Bumped by each fetch and by `reset`, so a stale fetch can tell it was superseded. */
-let request = 0
-let loadedUrl: string | undefined
+/** The text behind a GitHub link, or the pasted text when there is none. */
+export function useAnalysis(link: MaybeRefOrGetter<string>) {
+  const pasted = usePastedText()
+  const { href, github } = useGitHubLink(link)
+  const body = useGitHubBody(github)
+  const repoTemplate = useGitHubTemplate(github)
 
-/** The text being analyzed and where it came from, shared by every page. */
-export function useAnalysis() {
-  /** The link in the header field. */
-  const url = useState('url', () => '')
-  const markdown = useState('markdown', () => '')
-  const template = useState('template', () => '')
-  const loading = useState('loading', () => false)
-  const error = useState('error', () => '')
-  /** Per-request status of the last fetch. */
-  const progress = useState<FetchProgress | undefined>(
-    'progress',
-    () => undefined,
+  const markdown = computed(() => {
+    return href.value ? (body.data.value ?? '') : (pasted.value?.markdown ?? '')
+  })
+
+  const source = computed(() => {
+    if (!href.value) {
+      return pasted.value?.source
+    }
+
+    return github.value && { name: sourceName(github.value), url: href.value }
+  })
+
+  // Idle counts too: on the server, the fetch is still to come.
+  const loading = computed(() => {
+    if (!github.value) {
+      return false
+    }
+
+    return [body.status.value, repoTemplate.status.value].some(
+      (status) => status === 'pending' || status === 'idle',
+    )
+  })
+
+  const error = computed(() => {
+    if (href.value && !github.value) {
+      return "That isn't a GitHub issue, pull request or comment link."
+    }
+
+    return body.error.value?.message
+  })
+
+  /** Each step of the fetch, read from the status of its request. */
+  const progress = computed<FetchProgress | undefined>(() => {
+    if (!github.value) {
+      return undefined
+    }
+
+    return {
+      body: step(body.status.value, true),
+      // Comments have no template.
+      template: github.value.commentId
+        ? undefined
+        : step(repoTemplate.status.value, !!repoTemplate.data.value),
+      path: repoTemplate.path.value,
+      templateKind: github.value.type === 'pull' ? 'PR' : 'issue',
+    }
+  })
+
+  // Editable, so a template can be added by hand.
+  const template = ref('')
+  watch(
+    () => (href.value ? repoTemplate.data.value?.text : pasted.value?.template),
+    (value) => {
+      template.value = value ?? ''
+    },
+    { immediate: true },
   )
-  const source = useState<Source | undefined>('source', () => undefined)
 
-  /** The lines copied from the template, which don't count toward the score. */
+  /** Where the text copied from the template is, left out of the score. */
+  const templateRanges = computed(() => {
+    if (!template.value) {
+      return []
+    }
+
+    return locateTemplate(markdown.value, template.value)
+  })
+
+  /**
+   * The lines with nothing scored on them: template text and, besides it, only
+   * blanks and HTML comments, which aren't scored either. A table row with a
+   * filled-in answer isn't one, as the answer is scored.
+   */
   const templateLines = computed(() => {
     const found = new Set<number>()
-    if (!template.value) {
-      return found
+    const text = markdown.value
+    const unscored = new Uint8Array(text.length)
+    for (const { start, end } of templateRanges.value) {
+      unscored.fill(1, start, end)
     }
-    for (const { start, end } of locateTemplate(
-      markdown.value,
-      template.value,
-    )) {
-      const first = markdown.value.slice(0, start).split('\n').length - 1
-      const last =
-        first + markdown.value.slice(start, end).split('\n').length - 1
-      for (let i = first; i <= last; i++) {
+    for (const comment of text.matchAll(/<!--[\s\S]*?-->/g)) {
+      unscored.fill(1, comment.index, comment.index + comment[0].length)
+    }
+
+    let start = 0
+    text.split('\n').forEach((line, i) => {
+      const end = start + line.length
+      const hasTemplate = templateRanges.value.some(
+        (range) => range.start < end && range.end > start,
+      )
+      let scored = false
+      for (let k = start; k < end; k++) {
+        if (!unscored[k] && /\S/.test(text.charAt(k))) {
+          scored = true
+          break
+        }
+      }
+      if (hasTemplate && !scored) {
         found.add(i)
       }
-    }
+      start = end + 1
+    })
     return found
   })
 
-  /** Analyzes text given as is: pasted, or one of the examples. */
-  function show(text: string, from?: Source) {
-    request++
-    url.value = ''
-    error.value = ''
-    progress.value = undefined
-    source.value = from
-    template.value = ''
-    markdown.value = text
-    loadedUrl = undefined
-  }
-
-  /** Fetches the text behind a GitHub link. Resolves whether it is now shown. */
-  async function load(link: string) {
-    link = /^https?:\/\//.test(link) ? link : `https://${link}`
-    url.value = link
-    error.value = ''
-    const ref = parseGitHubUrl(link)
-    if (!ref) {
-      error.value = "That isn't a GitHub issue, pull request or comment link."
-      return false
-    }
-    // Only fetch when the link changes.
-    if (link === loadedUrl) {
-      return true
-    }
-    const id = ++request
-    loading.value = true
-    progress.value = {
-      body: 'loading',
-      // Comments have no template.
-      template: ref.commentId ? 'none' : 'loading',
-      noun: noun(ref),
-    }
-    const steps = progress.value
-    try {
-      const [body, found] = await Promise.all([
-        fetchBody(ref).then(
-          (text) => {
-            steps.body = 'done'
-            return text
-          },
-          (e) => {
-            steps.body = 'failed'
-            throw e
-          },
-        ),
-        fetchTemplate(ref, (path) => {
-          steps.path = path
-        }).then(
-          (found) => {
-            steps.template = found ? 'done' : 'none'
-            return found
-          },
-          () => {
-            steps.template = 'failed'
-            return undefined
-          },
-        ),
-      ])
-      if (id !== request) {
-        return false
-      }
-      markdown.value = body
-      template.value = found?.text ?? ''
-      source.value = { name: sourceName(ref), url: link }
-      loadedUrl = link
-      return true
-    } catch (e) {
-      if (id === request) {
-        error.value = (e as Error).message
-      }
-      return false
-    } finally {
-      if (id === request) {
-        loading.value = false
-      }
-    }
-  }
-
-  /** Drops the text and any fetch still in flight. */
-  function reset() {
-    request++
-    url.value = ''
-    markdown.value = ''
-    template.value = ''
-    error.value = ''
-    progress.value = undefined
-    source.value = undefined
-    loading.value = false
-    loadedUrl = undefined
+  /** Fetches the link again, or waits for the fetch already running. */
+  async function refresh() {
+    await Promise.all([
+      body.refresh({ dedupe: 'defer' }),
+      repoTemplate.refresh({ dedupe: 'defer' }),
+    ])
   }
 
   return {
-    url,
     markdown,
     template,
     loading,
     error,
     progress,
     source,
+    templateRanges,
     templateLines,
-    show,
-    load,
-    reset,
+    refresh,
   }
 }
 
@@ -163,11 +149,16 @@ export function analyzePath(link: string) {
   return `/analyze?url=${param.replaceAll('%2F', '/')}`
 }
 
-function noun(ref: GitHubRef) {
-  if (ref.commentId) {
-    return 'comment'
+function step(status: AsyncDataRequestStatus, found: boolean): FetchStep {
+  if (status === 'error') {
+    return 'failed'
   }
-  return ref.type === 'pull' ? 'description' : 'issue'
+
+  if (status === 'success') {
+    return found ? 'done' : 'none'
+  }
+
+  return 'loading'
 }
 
 function sourceName({ owner, repo, number, commentId }: GitHubRef) {

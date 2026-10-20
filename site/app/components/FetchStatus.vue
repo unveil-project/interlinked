@@ -7,7 +7,11 @@ const props = defineProps<{
   href?: string
   /** How many lines of the text came from the template. */
   skipped: number
+  /** Whether the template is shown. */
+  expanded: boolean
 }>()
+
+defineEmits<{ toggle: [] }>()
 
 const stepIcon: Record<FetchStep, string> = {
   loading:
@@ -17,20 +21,21 @@ const stepIcon: Record<FetchStep, string> = {
   failed: 'bg-error',
 }
 
-/** The template's kind, as GitHub calls it. */
-const kind = computed(() =>
-  props.progress.noun === 'description' ? 'PR' : props.progress.noun,
-)
-
-/** Whether a template exists isn't news; only show what it changed. */
-const showTemplate = computed(() => {
-  if (props.progress.template === 'none') {
-    return false
+/** What the template did to the score, so it's clear templates are looked for at all. */
+const templateText = computed(() => {
+  const kind = props.progress.templateKind
+  switch (props.progress.template) {
+    case 'loading':
+      return `checking ${props.progress.path}…`
+    case 'done':
+      return props.skipped > 0
+        ? `${props.skipped} ${props.skipped === 1 ? 'line' : 'lines'} from the ${kind} template left out of the score`
+        : `${kind} template found, none of it in this text`
+    case 'none':
+      return `no ${kind} template found, every line scored`
+    default:
+      return `couldn't load the ${kind} template, every line scored`
   }
-  if (props.progress.template === 'done') {
-    return props.skipped > 0
-  }
-  return true
 })
 </script>
 
@@ -51,10 +56,10 @@ const showTemplate = computed(() => {
       class="hover:text-fg underline-offset-2 hover:underline"
       >{{ name }}</a
     >
-    <template v-else>{{ name ?? progress.noun }}</template>
+    <template v-else>{{ name }}</template>
   </span>
   <span
-    v-if="showTemplate"
+    v-if="progress.template"
     class="flex items-center gap-2 min-w-0"
     :class="{ 'text-error': progress.template === 'failed' }"
   >
@@ -62,15 +67,19 @@ const showTemplate = computed(() => {
       class="flex-none size-1.5 rounded-full"
       :class="stepIcon[progress.template]"
     />
-    <span class="truncate">
-      <template v-if="progress.template === 'loading'">
-        checking {{ progress.path }}…
-      </template>
-      <template v-else-if="progress.template === 'done'">
-        {{ skipped }} {{ skipped === 1 ? 'line' : 'lines' }} from the
-        {{ kind }} template not scored
-      </template>
-      <template v-else>couldn't load the {{ kind }} template</template>
+    <span v-if="progress.template === 'loading'" class="truncate">
+      {{ templateText }}
     </span>
+    <!-- Opens the template, to see what was left out or add one by hand. -->
+    <button
+      v-else
+      type="button"
+      class="truncate hover:text-fg"
+      :aria-expanded="expanded"
+      aria-controls="template-field"
+      @click="$emit('toggle')"
+    >
+      {{ templateText }}
+    </button>
   </span>
 </template>

@@ -14,7 +14,12 @@
 import { locate } from './locate'
 import { type SignalHit, scoreText } from './score'
 import { SIGNALS } from './signals'
-import { trace, traceAuthored, traceTemplateLines } from './text'
+import {
+  templateComments,
+  trace,
+  traceAuthored,
+  traceTemplateLines,
+} from './text'
 import { round } from './utils'
 
 export type { Signal } from './signals'
@@ -144,8 +149,9 @@ export function locateSignals(
 }
 
 /**
- * Finds the lines copied from the PR or issue template, which `analyzeText`
- * leaves out of the score. Offsets index into `markdown` as given.
+ * Finds the text copied from the PR or issue template, which `analyzeText`
+ * leaves out of the score: its lines, the template cells of its table rows and
+ * its HTML comments. Offsets index into `markdown` as given, in order.
  *
  * @example
  * const skipped = locateTemplate(body, template);
@@ -154,7 +160,10 @@ export function locateTemplate(
   markdown: string,
   template: string | string[],
 ): { start: number; end: number }[] {
-  return traceTemplateLines(traceAuthored(trace(markdown)), template).map(
-    ([start, end]) => ({ start, end }),
-  )
+  return [
+    ...traceTemplateLines(traceAuthored(trace(markdown)), template),
+    ...templateComments(markdown, template),
+  ]
+    .sort(([a], [b]) => a - b)
+    .map(([start, end]) => ({ start, end }))
 }
