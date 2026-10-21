@@ -20,6 +20,7 @@ import {
   traceAuthored,
   traceTemplateLines,
 } from './text'
+import { round } from './utils'
 
 export type { Signal } from './signals'
 export type { SignalHit } from './score'
@@ -27,9 +28,11 @@ export { SIGNALS }
 
 export { issueFormLines } from './text'
 
-/** The same classifications as AgentScan's accounts. */
-export type TextClassification =
-  'organic' | 'mixed' | 'automation' | 'insufficient-data'
+/**
+ * Like AgentScan's account classifications, without `mixed`: a text in
+ * between gets the side it leans to, with a low `confidence`.
+ */
+export type TextClassification = 'organic' | 'automation' | 'insufficient-data'
 
 export interface AnalyzeTextResult {
   /** Where the score falls, like AgentScan's account classification. */
@@ -40,6 +43,12 @@ export interface AnalyzeTextResult {
    * nothing to score.
    */
   score: number
+  /**
+   * How sure `classification` is, 0.5 to 1: how far the score sits toward
+   * agent for `automation`, toward human for `organic`. Left out for
+   * `insufficient-data`, which doesn't lean either way.
+   */
+  confidence?: number
   signals: SignalHit[]
 }
 
@@ -51,11 +60,8 @@ export interface AnalyzeTextOptions {
   template?: string | string[]
 }
 
-/** Scores below this read as automation. */
+/** Scores below this read as automation, and the rest as organic. */
 export const AUTOMATION_THRESHOLD = 50
-
-/** Scores at or above this read as organic. Between the two is mixed. */
-export const ORGANIC_THRESHOLD = 70
 
 /** The score when there's nothing to score, as in AgentScan. */
 export const INSUFFICIENT_DATA_SCORE = -1
@@ -68,7 +74,7 @@ export const INSUFFICIENT_DATA_SCORE = -1
  * checklists don't count against the author.
  *
  * @example
- * const { classification, score } = analyzeText(pr.body ?? "", { template });
+ * const { classification, confidence } = analyzeText(pr.body ?? "", { template });
  * const { classification } = analyzeText(comment.body);
  */
 export function analyzeText(
@@ -86,17 +92,22 @@ export function analyzeText(
     }
   }
 
-  return { classification: classify(score), score, signals }
+  const classification = classify(score)
+
+  return {
+    classification,
+    score,
+    confidence: confidenceIn(classification, score),
+    signals,
+  }
+}
+
+function confidenceIn(classification: TextClassification, score: number) {
+  return round((classification === 'automation' ? 100 - score : score) / 100, 3)
 }
 
 function classify(score: number): TextClassification {
-  if (score < AUTOMATION_THRESHOLD) {
-    return 'automation'
-  }
-  if (score < ORGANIC_THRESHOLD) {
-    return 'mixed'
-  }
-  return 'organic'
+  return score < AUTOMATION_THRESHOLD ? 'automation' : 'organic'
 }
 
 export interface SignalLocation {

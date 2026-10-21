@@ -8,10 +8,12 @@ describe('analyzeText', () => {
       'LGTM',
       'This fixes the inability to bulk-delete ciphers from org vault views.',
     ]) {
-      expect(analyzeText(text)).toMatchObject({
+      const result = analyzeText(text)
+      expect(result).toMatchObject({
         classification: 'insufficient-data',
         score: INSUFFICIENT_DATA_SCORE,
       })
+      expect(result.confidence).toBeUndefined()
     }
   })
 
@@ -19,5 +21,6 @@ describe('analyzeText', () => {
     const result = analyzeText("not sure it's the right fix lol")
     expect(result.classification).toBe('organic')
     expect(result.score).toBeGreaterThanOrEqual(70)
+    expect(result.confidence).toBeCloseTo(result.score / 100)
   })
 })

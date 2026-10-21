@@ -13,7 +13,7 @@
   <a href="./packages/interlinked/package.json"><img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT license"></a>
 </p>
 
-Detects AI-agent-written text in pull request descriptions, issues and comments. It reads text the way [AgentScan](https://agentscan.tools) reads accounts, and labels it organic, mixed or automation. Text that's too short to judge gets insufficient data.
+Detects AI-agent-written text in pull request descriptions, issues and comments. It reads text the way [AgentScan](https://agentscan.tools) reads accounts, and labels it organic or automation, with how confident it is. Text that's too short to judge gets insufficient data.
 
 No model is involved. The label comes from signals in the text's structure and style, so treat it as a hint, not a verdict.
 
@@ -24,18 +24,19 @@ pnpm add @unveil/interlinked
 ```ts
 import { analyzeText } from '@unveil/interlinked'
 
-const { classification, signals } = analyzeText(pr.body ?? '', {
+const { classification, confidence, signals } = analyzeText(pr.body ?? '', {
   // Optional: the repo's PR or issue template, so its headings and
   // checklists don't count against the author.
   template,
 })
 ```
 
-You get the label back, along with the signals behind it. For [grafana/grafana#135600](https://github.com/grafana/grafana/pull/135600):
+You get the label back, how confident it is, and the signals behind it. For [grafana/grafana#135600](https://github.com/grafana/grafana/pull/135600):
 
 ```js
 {
   classification: 'organic',
+  confidence: 0.884, // 0.5 to 1, left out for insufficient data
   signals: [
     {
       id: 'code-span-density',

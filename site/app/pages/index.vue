@@ -285,7 +285,9 @@ onMounted(() => {
                 <span class="text-12px font-medium text-automation">
                   Automation signals
                 </span>
-                <span class="font-mono text-11px text-muted">18/100</span>
+                <span class="font-mono text-11px text-muted"
+                  >82% confident</span
+                >
               </div>
               <ul class="flex flex-col gap-1 mt-2.5 text-12px text-soft">
                 <li class="flex items-baseline gap-2.5">
@@ -307,11 +309,11 @@ onMounted(() => {
               </ul>
             </div>
             <h3 class="mt-4 font-display text-15px font-medium">
-              A score and the signals behind it
+              A label and how confident it is
             </h3>
             <p class="mt-1.5 text-13px text-muted leading-relaxed text-pretty">
-              Red signals lean agent, green ones lean human. A low score is a
-              reason to look closer, not to accuse.
+              Red signals lean agent, green ones lean human. An automation label
+              is a reason to look closer, not to accuse.
             </p>
           </div>
         </div>

@@ -9,8 +9,7 @@ import {
 /** How each classification shows, in AgentScan's words for text. */
 const looks: Record<TextClassification, { label: string; text: string }> = {
   automation: { label: 'Automation signals', text: 'text-automation' },
-  mixed: { label: 'Mixed signals', text: 'text-fg' },
-  organic: { label: 'Organic writing', text: 'text-organic' },
+  organic: { label: 'Organic signals', text: 'text-organic' },
   'insufficient-data': { label: 'Insufficient data', text: 'text-muted' },
 }
 
@@ -77,11 +76,11 @@ const result = computed(() =>
       })
     : undefined,
 )
-/** The score, rounded. None for insufficient data, where there's nothing scored. */
-const score = computed(() =>
-  result.value && result.value.classification !== 'insufficient-data'
-    ? Math.round(result.value.score)
-    : undefined,
+/** How sure the classification is, in percent. None for insufficient data. */
+const confidence = computed(() =>
+  result.value?.confidence === undefined
+    ? undefined
+    : Math.round(result.value.confidence * 100),
 )
 const look = computed(() => looks[result.value?.classification ?? 'organic'])
 const lines = computed(() => markdown.value.split('\n'))
@@ -581,10 +580,10 @@ onMounted(() => {
               </h2>
               <span class="flex items-center gap-3">
                 <span
-                  v-if="score !== undefined"
+                  v-if="confidence !== undefined"
                   class="font-mono text-12px text-muted tabular-nums"
                 >
-                  {{ score }}/100
+                  {{ confidence }}% confident
                 </span>
                 <button
                   type="button"

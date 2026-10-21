@@ -172,7 +172,7 @@ The classifier uses a logistic regression approach with signals that have positi
 
 - **Score**: 0-100, how human the text reads (100 is human, 0 is agent), the same scale as AgentScan
 - **Threshold**: Currently 50 - a score below `AUTOMATION_THRESHOLD` reads as automation, which an `ai` fixture should get
-- **Classification**: like AgentScan's - `automation` below 50, `mixed` below 70 (`ORGANIC_THRESHOLD`), `organic` above, or `insufficient-data` when no signal but the text's length counted. Then the score is `INSUFFICIENT_DATA_SCORE` (-1); the regression tests use the model's own score from `scoreText` instead, so every fixture has a number to compare
+- **Classification**: like AgentScan's but without `mixed` - `automation` below 50, `organic` from 50, with `confidence` saying how far the score sits toward that side, or `insufficient-data` when no signal but the text's length counted. Then the score is `INSUFFICIENT_DATA_SCORE` (-1); the regression tests use the model's own score from `scoreText` instead, so every fixture has a number to compare
 
 Each signal contributes to a logit, where positive leans AI. The sigmoid of the logit is the chance the text is agent-written, and the score is 100 minus that, as a percentage.
 
