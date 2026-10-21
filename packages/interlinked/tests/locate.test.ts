@@ -39,6 +39,16 @@ describe('locateSignals', () => {
     expect(found(text, 'template-headings', template)).toEqual([])
   })
 
+  it("doesn't highlight template lines between a match's parts", () => {
+    const template = 'Check:\n- [ ] Tested.\n- [ ] Documented.'
+    const text = 'Fixed it.\n\nCheck:\n- [ ] Tested.\n- [ ] Docs updated.'
+    expect(found(text, 'template-checkboxes', template)).toEqual(['- [ ]'])
+    const [location] = locateSignals(text, { template }, [
+      'template-checkboxes',
+    ])
+    expect(location.start).toBe(text.lastIndexOf('- [ ]'))
+  })
+
   it('skips code for prose signals', () => {
     const text =
       'Use it — like so.\n\n```\nconst a = b — c\n```\nAnd `x — y` too.'

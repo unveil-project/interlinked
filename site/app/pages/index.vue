@@ -295,7 +295,6 @@ onMounted(() => {
                   <span class="flex-1 min-w-0 truncate">
                     Uses em-dashes heavily
                   </span>
-                  <span class="font-mono text-11px text-automation">+3.50</span>
                 </li>
                 <li class="flex items-baseline gap-2.5">
                   <span
@@ -304,16 +303,15 @@ onMounted(() => {
                   <span class="flex-1 min-w-0 truncate">
                     Uses contractions (don't, it's, we'll)
                   </span>
-                  <span class="font-mono text-11px text-organic">-0.60</span>
                 </li>
               </ul>
             </div>
             <h3 class="mt-4 font-display text-15px font-medium">
-              A score out of 100
+              A score and the signals behind it
             </h3>
             <p class="mt-1.5 text-13px text-muted leading-relaxed text-pretty">
-              Red signals pull the score down, green ones push it up. A low
-              score is a reason to look closer, not to accuse.
+              Red signals lean agent, green ones lean human. A low score is a
+              reason to look closer, not to accuse.
             </p>
           </div>
         </div>

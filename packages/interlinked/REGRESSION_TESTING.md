@@ -157,14 +157,6 @@ When you intentionally change the classification behavior and some fixtures now 
 | `pnpm add-fixture --interactive`            | Add a new fixture interactively               |
 | `pnpm add-fixture --file <path> --label <ai | human>`                                       | Add a new fixture non-interactively |
 
-## Configuration Options
-
-The regression tests have a configurable minimum confidence threshold (currently 0.55). You can adjust this in `tests/regression.test.ts`:
-
-```typescript
-const MIN_CONFIDENCE = 0.55 // Adjust as needed
-```
-
 ## Best Practices
 
 1. **Diverse Examples**: Include a variety of AI and human examples
@@ -178,10 +170,8 @@ const MIN_CONFIDENCE = 0.55 // Adjust as needed
 
 The classifier uses a logistic regression approach with signals that have positive (AI-leaning) or negative (human-leaning) weights. Key metrics:
 
-- **Verdict**: `"ai"` or `"human"` - the final classification
 - **Score**: 0-100, how human the text reads (100 is human, 0 is agent), the same scale as AgentScan
-- **Confidence**: 0.5-1, confidence in the verdict (score / 100 for human, 1 - score / 100 for ai)
-- **Threshold**: Currently 50 - a score below `AUTOMATION_THRESHOLD` means "ai"
+- **Threshold**: Currently 50 - a score below `AUTOMATION_THRESHOLD` reads as automation, which an `ai` fixture should get
 - **Classification**: like AgentScan's - `automation` below 50, `mixed` below 70 (`ORGANIC_THRESHOLD`), `organic` above, or `insufficient-data` when no signal but the text's length counted. Then the score is `INSUFFICIENT_DATA_SCORE` (-1); the regression tests use the model's own score from `scoreText` instead, so every fixture has a number to compare
 
 Each signal contributes to a logit, where positive leans AI. The sigmoid of the logit is the chance the text is agent-written, and the score is 100 minus that, as a percentage.

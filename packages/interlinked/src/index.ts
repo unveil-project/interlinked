@@ -20,7 +20,6 @@ import {
   traceAuthored,
   traceTemplateLines,
 } from './text'
-import { round } from './utils'
 
 export type { Signal } from './signals'
 export type { SignalHit } from './score'
@@ -33,8 +32,6 @@ export type TextClassification =
   'organic' | 'mixed' | 'automation' | 'insufficient-data'
 
 export interface AnalyzeTextResult {
-  /** `human` when there's insufficient data, since there's nothing to flag. */
-  verdict: 'ai' | 'human'
   /** Where the score falls, like AgentScan's account classification. */
   classification: TextClassification
   /**
@@ -43,8 +40,6 @@ export interface AnalyzeTextResult {
    * nothing to score.
    */
   score: number
-  /** Confidence in `verdict`, 0.5 to 1. */
-  confidence: number
   signals: SignalHit[]
 }
 
@@ -56,7 +51,7 @@ export interface AnalyzeTextOptions {
   template?: string | string[]
 }
 
-/** Scores below this read as automation, and give the verdict `ai`. */
+/** Scores below this read as automation. */
 export const AUTOMATION_THRESHOLD = 50
 
 /** Scores at or above this read as organic. Between the two is mixed. */
@@ -73,8 +68,8 @@ export const INSUFFICIENT_DATA_SCORE = -1
  * checklists don't count against the author.
  *
  * @example
- * const { verdict, confidence } = analyzeText(pr.body ?? "", { template });
- * const { verdict } = analyzeText(comment.body);
+ * const { classification, score } = analyzeText(pr.body ?? "", { template });
+ * const { classification } = analyzeText(comment.body);
  */
 export function analyzeText(
   markdown: string,
@@ -85,23 +80,13 @@ export function analyzeText(
   // Nothing leaned either way but the text's length, so there's nothing to score.
   if (signals.every((signal) => signal.id === 'short-body')) {
     return {
-      verdict: 'human',
       classification: 'insufficient-data',
       score: INSUFFICIENT_DATA_SCORE,
-      confidence: 0.5,
       signals,
     }
   }
 
-  const verdict = score < AUTOMATION_THRESHOLD ? 'ai' : 'human'
-
-  return {
-    verdict,
-    classification: classify(score),
-    score,
-    confidence: round((verdict === 'ai' ? 100 - score : score) / 100, 3),
-    signals,
-  }
+  return { classification: classify(score), score, signals }
 }
 
 function classify(score: number): TextClassification {

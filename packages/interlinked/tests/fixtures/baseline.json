@@ -1,15 +1,15 @@
 {
 	"summary": {
-		"overall": 95.16,
-		"fixtures": 789,
-		"correct": 732,
-		"accuracy": 0.928,
-		"recall": 0.901,
+		"overall": 95.09,
+		"fixtures": 790,
+		"correct": 731,
+		"accuracy": 0.925,
+		"recall": 0.897,
 		"falsePositiveRate": 0.024,
-		"auc": 0.979,
-		"logLoss": 0.193,
+		"auc": 0.98,
+		"logLoss": 0.19,
 		"meanAiScore": 12.1,
-		"meanHumanScore": 88.3
+		"meanHumanScore": 88.6
 	},
 	"fixtures": {
 		"ai/428lab-debug-shrine-6104319832.md": {
@@ -347,11 +347,10 @@
 		},
 		"ai/Cvolton-GMDprivateServer-6209538487.md": {
 			"label": "ai",
-			"score": 82.2,
+			"score": 84.7,
 			"signals": {
 				"semicolons": 1,
 				"evidence-claims": 0.64,
-				"code-span-density": 0.18,
 				"first-person": -0.6,
 				"questions": -1.32
 			}
@@ -487,10 +486,8 @@
 		},
 		"ai/NVIDIA-NeMo-Curator-2464.md": {
 			"label": "ai",
-			"score": 80.1,
-			"signals": {
-				"code-span-density": 0.04
-			}
+			"score": 80.7,
+			"signals": {}
 		},
 		"ai/NVlabs-SoL-Pi-5692878606.md": {
 			"label": "ai",
@@ -1063,7 +1060,7 @@
 			"score": 0,
 			"signals": {
 				"agent-vocabulary": 2.9,
-				"em-dash": 2.05,
+				"em-dash": 2.09,
 				"colon-lists": 1.71,
 				"workflow-vocabulary": 1.33,
 				"so-chains": 1.25,
@@ -1072,12 +1069,12 @@
 				"lint-clean": 0.58,
 				"epistemic-hedge": 0.52,
 				"test-reference": 0.43,
-				"code-span-density": 0.25,
+				"code-span-density": 0.26,
 				"emoji-markers": 0.21,
 				"colon-bullets": 0.17,
 				"long-paragraphs": 0.13,
-				"tables": 0.06,
-				"first-person": -0.06,
+				"tables": 0.02,
+				"first-person": -0.07,
 				"bare-urls": -0.37,
 				"commit-shas": -0.71,
 				"this-pr": -1.25
@@ -1582,7 +1579,7 @@
 		},
 		"ai/babel-babel-18299.md": {
 			"label": "ai",
-			"score": 1.3,
+			"score": 0.2,
 			"signals": {
 				"ai-disclosure": 3,
 				"semicolons": 2,
@@ -1591,9 +1588,17 @@
 				"evidence-claims": 0.64,
 				"imperative-sentences": 0.59,
 				"test-reference": 0.43,
-				"tables": 0.22,
-				"this-pr": -0.42,
-				"questions": -2.64
+				"tables": 0.04,
+				"unpunctuated-lines": -0.39,
+				"this-pr": -0.42
+			}
+		},
+		"ai/babel-babel-18387.md": {
+			"label": "ai",
+			"score": 7.8,
+			"signals": {
+				"ai-disclosure": 3,
+				"engineering-jargon": 0.9
 			}
 		},
 		"ai/base-skills-5180619410.md": {
@@ -2181,8 +2186,7 @@
 				"semicolons": 1,
 				"test-tally": 0.9,
 				"imperative-sentences": 0.59,
-				"verification-label": 0.42,
-				"code-span-density": 0.02
+				"verification-label": 0.42
 			}
 		},
 		"ai/datnguye-dbterd-161.md": {
@@ -2766,10 +2770,9 @@
 		},
 		"ai/freeCodeCamp-freeCodeCamp-70546.md": {
 			"label": "ai",
-			"score": 49.9,
+			"score": 60.2,
 			"signals": {
-				"now-verbs": 1.02,
-				"code-span-density": 0.42
+				"now-verbs": 1.02
 			}
 		},
 		"ai/freeCodeCamp-freeCodeCamp-70556.md": {
@@ -3207,10 +3210,9 @@
 		},
 		"ai/helix-editor-helix-16337.md": {
 			"label": "ai",
-			"score": 60.2,
+			"score": 61.1,
 			"signals": {
 				"existing-reference": 1.16,
-				"code-span-density": 0.04,
 				"commit-shas": -0.18
 			}
 		},
@@ -3467,10 +3469,8 @@
 		},
 		"ai/huginn-huginn-3779.md": {
 			"label": "ai",
-			"score": 73.5,
-			"signals": {
-				"code-span-density": 0.41
-			}
+			"score": 80.7,
+			"signals": {}
 		},
 		"ai/hynek-structlog-4062081974.md": {
 			"label": "ai",
@@ -3488,11 +3488,10 @@
 		},
 		"ai/infiniflow-ragflow-5866457615.md": {
 			"label": "ai",
-			"score": 65.5,
+			"score": 67.8,
 			"signals": {
 				"now-verbs": 1.02,
 				"scope-disclaimer": 0.95,
-				"code-span-density": 0.1,
 				"first-person": -0.27,
 				"commit-shas": -0.35,
 				"questions": -0.66
@@ -3807,10 +3806,9 @@
 		},
 		"ai/kubernetes-website-57870.md": {
 			"label": "ai",
-			"score": 31.7,
+			"score": 32.5,
 			"signals": {
 				"ai-disclosure": 3,
-				"code-span-density": 0.04,
 				"first-person": -0.84
 			}
 		},
@@ -3902,12 +3900,11 @@
 		},
 		"ai/langgenius-dify-43329.md": {
 			"label": "ai",
-			"score": 29.7,
+			"score": 30.2,
 			"signals": {
 				"workflow-vocabulary": 1.33,
 				"engineering-jargon": 0.9,
 				"test-reference": 0.43,
-				"code-span-density": 0.02,
 				"tables": 0.02,
 				"this-pr": -0.42
 			}
@@ -4345,12 +4342,11 @@
 		},
 		"ai/mswjs-source-4840144466.md": {
 			"label": "ai",
-			"score": 31.6,
+			"score": 32.4,
 			"signals": {
 				"status-openers": 1.86,
 				"happy-to": 1.7,
 				"long-paragraphs": 0.13,
-				"code-span-density": 0.04,
 				"contractions": -0.63,
 				"first-person": -0.88
 			}
@@ -4477,10 +4473,9 @@
 		},
 		"ai/npmx-dev-npmx.dev-3854264061.md": {
 			"label": "ai",
-			"score": 23.6,
+			"score": 23.8,
 			"signals": {
 				"review-pleasantries": 3.43,
-				"code-span-density": 0.01,
 				"first-person": -0.21,
 				"contractions": -0.63
 			}
@@ -4513,10 +4508,9 @@
 		},
 		"ai/numpy-numpy-32923.md": {
 			"label": "ai",
-			"score": 46.6,
+			"score": 47.5,
 			"signals": {
 				"ai-disclosure": 3,
-				"code-span-density": 0.04,
 				"short-body": -1.47
 			}
 		},
@@ -5056,11 +5050,10 @@
 		},
 		"ai/openrct2-OpenRCT2-27224.md": {
 			"label": "ai",
-			"score": 15.7,
+			"score": 16.2,
 			"signals": {
 				"ai-disclosure": 3,
 				"scope-disclaimer": 0.95,
-				"code-span-density": 0.04,
 				"first-person": -0.88
 			}
 		},
@@ -5981,10 +5974,9 @@
 		},
 		"ai/rolldown-rolldown-11080.md": {
 			"label": "ai",
-			"score": 43.2,
+			"score": 53.5,
 			"signals": {
 				"now-verbs": 1.02,
-				"code-span-density": 0.42,
 				"which-clauses": 0.27
 			}
 		},
@@ -6320,10 +6312,9 @@
 		},
 		"ai/sindresorhus-eslint-plugin-unicorn-3868527618.md": {
 			"label": "ai",
-			"score": 29,
+			"score": 29.7,
 			"signals": {
 				"review-pleasantries": 3.43,
-				"code-span-density": 0.04,
 				"contractions": -1.14
 			}
 		},
@@ -6638,23 +6629,21 @@
 				"template-headings": 1.35,
 				"so-chains": 1.25,
 				"existing-reference": 1.16,
-				"code-span-density": 0.96,
+				"code-span-density": 1.02,
 				"scope-disclaimer": 0.95,
 				"contrast-phrases": 0.71,
 				"existing-precedent": 0.56,
 				"test-reference": 0.43,
 				"long-paragraphs": 0.26,
 				"emoji-markers": 0.21,
-				"bare-urls": -0.37,
-				"questions": -2.64
+				"bare-urls": -0.37
 			}
 		},
 		"ai/symfony-symfony-66625.md": {
 			"label": "ai",
-			"score": 96.4,
+			"score": 65.4,
 			"signals": {
-				"code-span-density": 0.79,
-				"questions": -2.64
+				"code-span-density": 0.79
 			}
 		},
 		"ai/taoqf-node-html-parser-5493460055.md": {
@@ -7587,9 +7576,8 @@
 		},
 		"human/CesiumGS-cesium-1231841099.md": {
 			"label": "human",
-			"score": 80.3,
+			"score": 86.1,
 			"signals": {
-				"code-span-density": 0.42,
 				"unpunctuated-lines": -0.39
 			}
 		},
@@ -7646,9 +7634,8 @@
 		},
 		"human/GoogleChrome-lighthouse-11554.md": {
 			"label": "human",
-			"score": 80,
+			"score": 85.8,
 			"signals": {
-				"code-span-density": 0.42,
 				"bare-urls": -0.37
 			}
 		},
@@ -7688,9 +7675,8 @@
 		},
 		"human/NativeScript-NativeScript-1230260656.md": {
 			"label": "human",
-			"score": 96.7,
+			"score": 96.8,
 			"signals": {
-				"code-span-density": 0.04,
 				"questions": -1.98
 			}
 		},
@@ -7858,9 +7844,8 @@
 		},
 		"human/apache-superset-11512.md": {
 			"label": "human",
-			"score": 94.3,
+			"score": 96.1,
 			"signals": {
-				"code-span-density": 0.4,
 				"commit-shas": -0.18,
 				"bare-urls": -0.37,
 				"screenshots": -0.44,
@@ -7910,9 +7895,8 @@
 		},
 		"human/bigskysoftware-htmx-1282556430.md": {
 			"label": "human",
-			"score": 92.3,
+			"score": 94.2,
 			"signals": {
-				"code-span-density": 0.29,
 				"commit-shas": -0.18,
 				"bare-urls": -0.37,
 				"first-person": -0.38,
@@ -8023,10 +8007,8 @@
 		},
 		"human/crowdsecurity-crowdsec-919.md": {
 			"label": "human",
-			"score": 80.1,
-			"signals": {
-				"code-span-density": 0.04
-			}
+			"score": 80.7,
+			"signals": {}
 		},
 		"human/dandavison-delta-683.md": {
 			"label": "human",
@@ -8042,9 +8024,8 @@
 		},
 		"human/dani-garcia-vaultwarden-631.md": {
 			"label": "human",
-			"score": 79.9,
+			"score": 85.8,
 			"signals": {
-				"code-span-density": 0.42,
 				"sentence-bullets": 0.27,
 				"contractions": -0.63
 			}
@@ -8074,9 +8055,8 @@
 		},
 		"human/denoland-deno-1009586748.md": {
 			"label": "human",
-			"score": 96.7,
+			"score": 96.8,
 			"signals": {
-				"code-span-density": 0.04,
 				"first-person": -0.84,
 				"contractions": -1.14
 			}
@@ -8108,7 +8088,6 @@
 			"label": "human",
 			"score": 99.6,
 			"signals": {
-				"code-span-density": 0.08,
 				"contractions": -0.38,
 				"questions": -0.66,
 				"first-person": -0.75,
@@ -8169,9 +8148,8 @@
 		},
 		"human/dotnet-aspnetcore-27409.md": {
 			"label": "human",
-			"score": 97.1,
+			"score": 97.2,
 			"signals": {
-				"code-span-density": 0.04,
 				"contractions": -0.63,
 				"short-body": -1.47
 			}
@@ -8235,9 +8213,8 @@
 		},
 		"human/emberjs-ember.js-1320825417.md": {
 			"label": "human",
-			"score": 93.4,
+			"score": 93.6,
 			"signals": {
-				"code-span-density": 0.04,
 				"tentative": -1.26
 			}
 		},
@@ -8322,10 +8299,9 @@
 		},
 		"human/expressjs-express-4174.md": {
 			"label": "human",
-			"score": 60.6,
+			"score": 61.5,
 			"signals": {
 				"plan-headings": 1.33,
-				"code-span-density": 0.04,
 				"bare-urls": -0.37
 			}
 		},
@@ -8445,9 +8421,8 @@
 		},
 		"human/godotengine-godot-43242.md": {
 			"label": "human",
-			"score": 78.8,
+			"score": 84.9,
 			"signals": {
-				"code-span-density": 0.42,
 				"bold-lead-bullets": 0.33,
 				"contractions": -0.63
 			}
@@ -8461,9 +8436,8 @@
 		},
 		"human/grafana-grafana-1233150875.md": {
 			"label": "human",
-			"score": 95.1,
+			"score": 96.7,
 			"signals": {
-				"code-span-density": 0.42,
 				"unpunctuated-lines": -0.39,
 				"first-person": -0.42,
 				"contractions": -1.14
@@ -8558,9 +8532,8 @@
 		},
 		"human/home-assistant-core-27080.md": {
 			"label": "human",
-			"score": 88.3,
+			"score": 88.7,
 			"signals": {
-				"code-span-density": 0.04,
 				"contractions": -0.63
 			}
 		},
@@ -8742,9 +8715,8 @@
 		},
 		"human/kubernetes-sigs-kustomize-1561.md": {
 			"label": "human",
-			"score": 92.3,
+			"score": 94.8,
 			"signals": {
-				"code-span-density": 0.42,
 				"short-body": -1.47
 			}
 		},
@@ -8757,9 +8729,8 @@
 		},
 		"human/kubernetes-website-16626.md": {
 			"label": "human",
-			"score": 96.3,
+			"score": 96.4,
 			"signals": {
-				"code-span-density": 0.04,
 				"unpunctuated-lines": -0.39,
 				"short-body": -1.47
 			}
@@ -8790,9 +8761,8 @@
 		},
 		"human/laravel-framework-30133.md": {
 			"label": "human",
-			"score": 85.9,
+			"score": 86.4,
 			"signals": {
-				"code-span-density": 0.04,
 				"this-pr": -0.42
 			}
 		},
@@ -8917,10 +8887,8 @@
 		},
 		"human/microsoft-vscode-1233917472.md": {
 			"label": "human",
-			"score": 73.4,
-			"signals": {
-				"code-span-density": 0.42
-			}
+			"score": 80.7,
+			"signals": {}
 		},
 		"human/mrdoob-three.js-17605.md": {
 			"label": "human",
@@ -8953,10 +8921,9 @@
 		},
 		"human/neovim-neovim-13180.md": {
 			"label": "human",
-			"score": 91.9,
+			"score": 92.5,
 			"signals": {
 				"long-paragraphs": 0.13,
-				"code-span-density": 0.09,
 				"contractions": -0.39,
 				"this-pr": -0.83
 			}
@@ -8993,9 +8960,8 @@
 		},
 		"human/nodejs-node-39128.md": {
 			"label": "human",
-			"score": 92,
+			"score": 92.3,
 			"signals": {
-				"code-span-density": 0.04,
 				"first-person": -0.42,
 				"contractions": -0.63
 			}
@@ -9020,17 +8986,15 @@
 		},
 		"human/nrwl-nx-3996.md": {
 			"label": "human",
-			"score": 94.6,
+			"score": 94.8,
 			"signals": {
-				"code-span-density": 0.04,
 				"short-body": -1.47
 			}
 		},
 		"human/numpy-numpy-14598.md": {
 			"label": "human",
-			"score": 92.3,
+			"score": 94.8,
 			"signals": {
-				"code-span-density": 0.42,
 				"short-body": -1.47
 			}
 		},
@@ -9068,17 +9032,14 @@
 		},
 		"human/nuxt-test-utils-884073813.md": {
 			"label": "human",
-			"score": 73.4,
-			"signals": {
-				"code-span-density": 0.42
-			}
+			"score": 80.7,
+			"signals": {}
 		},
 		"human/open-policy-agent-opa-1232806654.md": {
 			"label": "human",
-			"score": 51.5,
+			"score": 52.4,
 			"signals": {
-				"workflow-vocabulary": 1.33,
-				"code-span-density": 0.04
+				"workflow-vocabulary": 1.33
 			}
 		},
 		"human/open-policy-agent-opa-1797.md": {
@@ -9088,10 +9049,9 @@
 		},
 		"human/open-policy-agent-opa-2846.md": {
 			"label": "human",
-			"score": 77.4,
+			"score": 83.8,
 			"signals": {
 				"existing-precedent": 0.56,
-				"code-span-density": 0.42,
 				"unpunctuated-lines": -0.78
 			}
 		},
@@ -9117,9 +9077,8 @@
 		},
 		"human/pandas-dev-pandas-28677.md": {
 			"label": "human",
-			"score": 88.9,
+			"score": 91.4,
 			"signals": {
-				"code-span-density": 0.29,
 				"template-checkboxes": -0.13,
 				"unpunctuated-lines": -0.39,
 				"this-pr": -0.42
@@ -9173,9 +9132,8 @@
 		},
 		"human/pixijs-pixijs-904923267.md": {
 			"label": "human",
-			"score": 85.6,
+			"score": 86.1,
 			"signals": {
-				"code-span-density": 0.04,
 				"unpunctuated-lines": -0.39
 			}
 		},
@@ -9306,9 +9264,8 @@
 		},
 		"human/pulumi-pulumi-5612.md": {
 			"label": "human",
-			"score": 96.3,
+			"score": 96.4,
 			"signals": {
-				"code-span-density": 0.04,
 				"unpunctuated-lines": -0.39,
 				"short-body": -1.47
 			}
@@ -9343,9 +9300,8 @@
 		},
 		"human/pytest-dev-pytest-7976.md": {
 			"label": "human",
-			"score": 96.4,
+			"score": 96.5,
 			"signals": {
-				"code-span-density": 0.04,
 				"first-person": -0.42,
 				"short-body": -1.47
 			}
@@ -9609,10 +9565,8 @@
 		},
 		"human/supertokens-supertokens-core-890750667.md": {
 			"label": "human",
-			"score": 80.1,
-			"signals": {
-				"code-span-density": 0.04
-			}
+			"score": 80.7,
+			"signals": {}
 		},
 		"human/supertokens-supertokens-core-95.md": {
 			"label": "human",
@@ -9680,26 +9634,23 @@
 		},
 		"human/tailwindlabs-tailwindcss-2710.md": {
 			"label": "human",
-			"score": 80.7,
+			"score": 86.4,
 			"signals": {
-				"code-span-density": 0.42,
 				"this-pr": -0.42
 			}
 		},
 		"human/tailwindlabs-tailwindcss-4571.md": {
 			"label": "human",
-			"score": 96.4,
+			"score": 96.5,
 			"signals": {
-				"code-span-density": 0.04,
 				"this-pr": -0.42,
 				"short-body": -1.47
 			}
 		},
 		"human/tailwindlabs-tailwindcss-4666.md": {
 			"label": "human",
-			"score": 80.7,
+			"score": 86.4,
 			"signals": {
-				"code-span-density": 0.42,
 				"this-pr": -0.42
 			}
 		},
@@ -9768,9 +9719,8 @@
 		},
 		"human/umami-software-umami-1229978900.md": {
 			"label": "human",
-			"score": 97.6,
+			"score": 97.7,
 			"signals": {
-				"code-span-density": 0.04,
 				"first-person": -0.84,
 				"short-body": -1.47
 			}
@@ -9784,9 +9734,8 @@
 		},
 		"human/urfave-cli-1233696937.md": {
 			"label": "human",
-			"score": 87.5,
+			"score": 87.9,
 			"signals": {
-				"code-span-density": 0.04,
 				"commit-shas": -0.18,
 				"bare-urls": -0.37
 			}
@@ -9913,7 +9862,6 @@
 			"score": 85.2,
 			"signals": {
 				"semicolons": 1,
-				"code-span-density": 0,
 				"questions": -1.32
 			}
 		},

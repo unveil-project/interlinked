@@ -107,6 +107,16 @@ export function beyond(count: Counter, floor: number) {
   return counter((text) => Math.max(0, count(text) - floor), count.ranges)
 }
 
+/** Counts nothing until there are at least `min` matches, so a lone one never counts. */
+export function atLeast(count: Counter, min: number) {
+  return counter((text) => {
+    if (count.ranges(text).length < min) {
+      return 0
+    }
+    return count(text)
+  }, count.ranges)
+}
+
 /** The trimmed prose lines of a text. */
 function proseLines(text: string) {
   return prose(text)

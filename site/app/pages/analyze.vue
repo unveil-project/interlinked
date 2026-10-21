@@ -77,8 +77,8 @@ const result = computed(() =>
       })
     : undefined,
 )
-/** The score to show. None for insufficient data, where it's just the default. */
-const percent = computed(() =>
+/** The score, rounded. None for insufficient data, where there's nothing scored. */
+const score = computed(() =>
   result.value && result.value.classification !== 'insufficient-data'
     ? Math.round(result.value.score)
     : undefined,
@@ -90,7 +90,8 @@ const missed = computed(
   () =>
     !!result.value &&
     !!source.value?.expected &&
-    source.value.expected !== result.value.verdict,
+    source.value.expected !==
+      (result.value.classification === 'automation' ? 'ai' : 'human'),
 )
 
 /** The signal picked to show on its own, if any. */
@@ -324,13 +325,27 @@ function dismiss(event: Event) {
   }
 }
 
+/**
+ * The sticky sidebar starts below the header until the page scrolls past it,
+ * so it's only as tall as the viewport left under it and ends on screen.
+ */
+function fitSidebar() {
+  const top = sidebar.value?.getBoundingClientRect().top ?? 0
+  sidebar.value?.style.setProperty('--sidebar-top', `${Math.max(top, 0)}px`)
+}
+
 onMounted(() => {
   document.addEventListener('click', dismiss)
   document.addEventListener('keydown', dismiss)
+  window.addEventListener('scroll', fitSidebar, { passive: true })
+  window.addEventListener('resize', fitSidebar)
+  fitSidebar()
 })
 onBeforeUnmount(() => {
   document.removeEventListener('click', dismiss)
   document.removeEventListener('keydown', dismiss)
+  window.removeEventListener('scroll', fitSidebar)
+  window.removeEventListener('resize', fitSidebar)
   clearTimeout(unhoverTimer)
 })
 
@@ -537,17 +552,7 @@ onMounted(() => {
                 >
                   {{ signalsById.get(id)?.description }}
                   <span class="block mt-0.5 font-mono text-11px text-muted">
-                    found {{ occurrences.get(id) }}× in this text ·
-                    <span
-                      :class="
-                        tone([id]) === 'automation'
-                          ? 'text-automation'
-                          : 'text-organic'
-                      "
-                      >{{
-                        (signalsById.get(id)?.contribution ?? 0) > 0 ? '+' : ''
-                      }}{{ signalsById.get(id)?.contribution.toFixed(2) }}</span
-                    >
+                    found {{ occurrences.get(id) }}× in this text
                   </span>
                 </span>
               </button>
@@ -558,11 +563,11 @@ onMounted(() => {
     </main>
 
     <aside
-      class="min-w-0 bg-subtle border-line max-lg:(order-first border-b) lg:(flex-[1_1_320px] max-w-90 border-l)"
+      class="min-w-0 bg-subtle border-line max-lg:(order-first border-b) lg:(flex flex-col flex-[1_1_320px] max-w-90 border-l)"
     >
       <div
         ref="sidebar"
-        class="flex flex-col gap-6 px-4 py-3 lg:(sticky top-0 max-h-dvh overflow-y-auto px-5 py-5)"
+        class="flex flex-col gap-6 px-4 py-3 lg:(sticky top-0 flex-1 max-h-[calc(100dvh_-_var(--sidebar-top,0px))] overflow-y-auto px-5 py-5)"
       >
         <template v-if="result">
           <section aria-labelledby="result">
@@ -575,8 +580,11 @@ onMounted(() => {
                 {{ look.label }}
               </h2>
               <span class="flex items-center gap-3">
-                <span class="font-mono text-12px text-muted tabular-nums">
-                  {{ percent ?? '—' }}/100
+                <span
+                  v-if="score !== undefined"
+                  class="font-mono text-12px text-muted tabular-nums"
+                >
+                  {{ score }}/100
                 </span>
                 <button
                   type="button"
@@ -702,23 +710,13 @@ onMounted(() => {
                           : 'whole text'
                       }}
                     </span>
-                    <span
-                      class="flex-none w-10 font-mono text-11px text-right tabular-nums"
-                      :class="
-                        signal.contribution > 0
-                          ? 'text-automation'
-                          : 'text-organic'
-                      "
-                    >
-                      {{ signal.contribution > 0 ? '+' : ''
-                      }}{{ signal.contribution.toFixed(2) }}
-                    </span>
                   </component>
                 </li>
               </ul>
             </template>
           </section>
-          <ScoreCaution :class="collapsible" />
+          <!-- Sits at the bottom of the sidebar when there's room, and after the signals when they overflow. -->
+          <ScoreCaution class="lg:mt-auto" :class="collapsible" />
         </template>
       </div>
     </aside>

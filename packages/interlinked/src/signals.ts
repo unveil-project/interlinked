@@ -1,6 +1,7 @@
 import {
   type Counter,
   type Range,
+  atLeast,
   beyond,
   density,
   densityOutsideChecklists,
@@ -32,7 +33,7 @@ export interface Signal {
 }
 
 const disclosureStatements = matchesInStatements(
-  /\b(?:generated|authored|prepared|written|built|created|translated|drafted|produced|implemented)\b[^.\n]{0,30}\b(?:with|by|using|via)\b[^.\n]{0,25}\b(?:AI|LLM|Claude|Codex|Copilot|Cursor|ChatGPT|GPT-?\d|Gemini|an? (?:AI|coding) (?:assistant|agent))\b|\bAI[- ]assist(?:ed|ance)\b(?! development\b)|\bagent-assisted\b|\bwith (?:the help of )?an? AI\b|\bI used (?:Claude|Codex|Copilot|Cursor|ChatGPT|an AI)\b|\bused an AI assistant\b|\bAI[- ]generated (?:description|summary|PR|pull request|code|changes?|patch)\b|\bpair[- ]programmed with (?:an? )?(?:AI|Claude|Codex|Copilot|Cursor|ChatGPT)\b|\b(?:an? )?(?:AI|LLM)(?: agent| tool| assistant)? was used\b|\bhad (?:an? )?AI\b|^#{1,4}\s*AI (?:disclosure|usage|assistance)\b|^\s*(?:\*\*)?(?:Agent|Agent-Owner|AI tools? (?:and models )?used|AI (?:tool )?(?:use|usage)(?: disclosure)?|AI disclosure|Code assistance|Autonomy|Contribution source)(?:\*\*)?\s*:/im,
+  /\b(?:generated|authored|prepared|written|built|created|translated|drafted|produced|implemented)\b[^.\n]{0,30}\b(?:with|by|using|via)\b[^.\n]{0,25}\b(?:AI|LLM|Claude|Codex|Copilot|Cursor|ChatGPT|GPT-?\d|Gemini|an? (?:AI|coding) (?:assistant|agent))\b|\bAI[- ]assist(?:ed|ance)\b(?! development\b)|\bagent-assisted\b|\bwith (?:the help of )?an? AI\b|\bI used (?:Claude|Codex|Copilot|Cursor|ChatGPT|an AI)\b|\bused an AI assistant\b|\bAI[- ]generated (?:description|summary|PR|pull request|code|changes?|patch)\b|\bpair[- ]programmed with (?:an? )?(?:AI|Claude|Codex|Copilot|Cursor|ChatGPT)\b|\b(?:an? )?(?:AI|LLM)(?: agent| tool| assistant)? was used\b|\bhad (?:an? )?AI\b|^\s*Assisted-by:\s*(?:AI|LLM|Claude|Codex|Copilot|Cursor|ChatGPT|GPT-?\d|Gemini|Devin)\b|^#{1,4}\s*AI (?:disclosure|usage|assistance)\b|^\s*(?:\*\*)?(?:Agent|Agent-Owner|AI tools? (?:and models )?used|AI (?:tool )?(?:use|usage)(?: disclosure)?|AI disclosure|Code assistance|Autonomy|Contribution source)(?:\*\*)?\s*:/im,
 )
 
 /** A ticked checklist item saying AI was used. Unticked ones are template text. */
@@ -40,8 +41,8 @@ const disclosureCheckboxes = matches(/^\s*[-*] \[[xX]\] I _?did_? use AI\b/im)
 
 const soClauses = matches(/, so (?!that)\w+/i)
 
-/** Code spans past 3 per 1,000 characters. A few are normal. */
-const codeSpans = beyond(densityOutsideChecklists(/`[^`\n]+`/), 3)
+/** Code spans past 3 per 1,000 characters, once there are at least 3. A couple are normal. */
+const codeSpans = beyond(atLeast(densityOutsideChecklists(/`[^`\n]+`/), 3), 3)
 
 export const SIGNALS: Signal[] = [
   {
@@ -568,7 +569,7 @@ export const SIGNALS: Signal[] = [
     description: 'has a checkbox list',
     weight: -1.06,
     cap: 8,
-    count: matches(/^\s*[-*] \[[ x]\]/im),
+    count: matches(/^[ \t]*[-*] \[[ x]\]/im),
   },
   {
     id: 'unpunctuated-lines',

@@ -9,10 +9,8 @@ describe('analyzeText', () => {
       'This fixes the inability to bulk-delete ciphers from org vault views.',
     ]) {
       expect(analyzeText(text)).toMatchObject({
-        verdict: 'human',
         classification: 'insufficient-data',
         score: INSUFFICIENT_DATA_SCORE,
-        confidence: 0.5,
       })
     }
   })
