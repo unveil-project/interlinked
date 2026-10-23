@@ -4,7 +4,9 @@ import { describe, expect, it } from 'vitest'
 import {
   FIXTURES_DIR,
   type FixtureScore,
+  RATE_TOLERANCE,
   type Scorecard,
+  TOLERANCE,
   round,
   scoreFixtures,
   summarize,
@@ -20,9 +22,6 @@ interface Baseline {
   fixtures: Record<string, FixtureScore>
 }
 
-/** Allows for rounding noise (scores have 1 decimal). */
-const TOLERANCE = 0.1
-const RATE_TOLERANCE = 0.001
 const BASELINE_PATH = join(FIXTURES_DIR, 'baseline.json')
 const UPDATE = process.env.UPDATE_BASELINE === '1'
 

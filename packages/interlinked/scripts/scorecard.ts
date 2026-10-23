@@ -12,6 +12,10 @@ import { FIXTURES_DIR, type Label, readFixtures } from './fixtures'
 
 export { FIXTURES_DIR }
 
+/** Allows for rounding noise (scores have 1 decimal). */
+export const TOLERANCE = 0.1
+export const RATE_TOLERANCE = 0.001
+
 export interface FixtureScore {
   label: Label
   /** 0 to 100, 100 is human. */
@@ -80,12 +84,43 @@ function percent(n?: number) {
   return n === undefined ? '-' : `${(100 * n).toFixed(1)}%`
 }
 
-function printScorecard(entries: Record<string, FixtureScore>) {
-  const now = summarize(entries)
+function readBaselineSummary(): Partial<Scorecard> {
   const baselinePath = join(FIXTURES_DIR, 'baseline.json')
-  const before: Partial<Scorecard> = existsSync(baselinePath)
+  return existsSync(baselinePath)
     ? JSON.parse(readFileSync(baselinePath, 'utf-8')).summary
     : {}
+}
+
+/** What got worse than `before`, empty when nothing did. */
+export function worsened(now: Scorecard, before: Partial<Scorecard>) {
+  const reasons: string[] = []
+  if (before.score !== undefined && now.score < before.score - TOLERANCE) {
+    reasons.push(`score ${before.score} -> ${now.score}`)
+  }
+  if (
+    before.aiCaught !== undefined &&
+    now.aiCaught < before.aiCaught - RATE_TOLERANCE
+  ) {
+    reasons.push(
+      `AI texts caught ${percent(before.aiCaught)} -> ${percent(now.aiCaught)}`,
+    )
+  }
+  if (
+    before.humansCalledAi !== undefined &&
+    now.humansCalledAi > before.humansCalledAi + RATE_TOLERANCE
+  ) {
+    reasons.push(
+      `human texts called AI ${percent(before.humansCalledAi)} -> ${percent(now.humansCalledAi)}`,
+    )
+  }
+  return reasons
+}
+
+function printScorecard(
+  entries: Record<string, FixtureScore>,
+  before: Partial<Scorecard>,
+) {
+  const now = summarize(entries)
   const { ais, humans } = byLabel(entries)
   const caught = ais.filter(isCorrect).length
   const calledAi = humans.filter((e) => !isCorrect(e)).length
@@ -119,8 +154,16 @@ function printMisses(entries: Record<string, FixtureScore>) {
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const entries = scoreFixtures()
-  printScorecard(entries)
+  const before = readBaselineSummary()
+  printScorecard(entries, before)
   if (process.argv.includes('--misses')) {
     printMisses(entries)
+  }
+  const reasons = worsened(summarize(entries), before)
+  if (reasons.length > 0) {
+    console.error(
+      `\nScorecard is worse than baseline:\n  ${reasons.join('\n  ')}`,
+    )
+    process.exitCode = 1
   }
 }

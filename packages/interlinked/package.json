@@ -27,10 +27,11 @@
     "test:regression": "vitest run tests/regression.test.ts --reporter=verbose",
     "test:regression:update": "UPDATE_BASELINE=1 vitest run tests/regression.test.ts",
     "scorecard": "tsx scripts/scorecard.ts",
+    "verify": "vitest run && pnpm run scorecard",
     "typecheck": "tsc --noEmit",
-    "release": "pnpm run changes && bumpp",
+    "release": "pnpm run verify && pnpm run changes && bumpp",
     "changes": "git --no-pager log --oneline $(git describe --tags --abbrev=0)..HEAD -- .",
-    "prepublishOnly": "pnpm run test:regression && pnpm run build"
+    "prepublishOnly": "pnpm run verify && pnpm run build"
   },
   "devDependencies": {
     "@types/node": "^26.1.1",
