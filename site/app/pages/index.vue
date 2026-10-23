@@ -281,14 +281,13 @@ onMounted(() => {
               class="flex flex-col justify-center h-26 px-5 rounded-lg border border-line bg-subtle"
               aria-hidden="true"
             >
-              <div class="flex items-baseline justify-between gap-2">
-                <span class="text-12px font-medium text-automation">
-                  Automation signals
-                </span>
-                <span class="font-mono text-11px text-muted"
-                  >82% confident</span
-                >
-              </div>
+              <span class="text-12px font-medium text-automation">
+                Automation signals
+              </span>
+              <span class="mt-0.5 text-11px text-muted"
+                ><span class="font-medium text-fg">82%</span> chance it's
+                automated</span
+              >
               <ul class="flex flex-col gap-1 mt-2.5 text-12px text-soft">
                 <li class="flex items-baseline gap-2.5">
                   <span

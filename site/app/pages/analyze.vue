@@ -76,13 +76,17 @@ const result = computed(() =>
       })
     : undefined,
 )
-/** How sure the classification is, in percent. None for insufficient data. */
-const confidence = computed(() =>
+const look = computed(() => looks[result.value?.classification ?? 'organic'])
+/**
+ * The chance the text is what it's labeled, in percent: the confidence, worded
+ * as odds for the whole text so it can't read as a share of it. Capped at 99,
+ * as patterns can't make it certain. None for insufficient data.
+ */
+const chance = computed(() =>
   result.value?.confidence === undefined
     ? undefined
-    : Math.round(result.value.confidence * 100),
+    : Math.min(Math.round(result.value.confidence * 100), 99),
 )
-const look = computed(() => looks[result.value?.classification ?? 'organic'])
 const lines = computed(() => markdown.value.split('\n'))
 
 const missed = computed(
@@ -578,30 +582,32 @@ onMounted(() => {
               >
                 {{ look.label }}
               </h2>
-              <span class="flex items-center gap-3">
+              <button
+                type="button"
+                class="flex items-center gap-1 -mr-2 px-2 py-1.5 rounded-md text-12px text-muted hover:(text-fg bg-hair) lg:hidden"
+                :aria-expanded="expanded"
+                aria-controls="result-details signals"
+                @click="expanded = !expanded"
+              >
+                {{ result.signals.length }}
+                {{ result.signals.length === 1 ? 'signal' : 'signals' }}
                 <span
-                  v-if="confidence !== undefined"
-                  class="font-mono text-12px text-muted tabular-nums"
-                >
-                  {{ confidence }}% confident
-                </span>
-                <button
-                  type="button"
-                  class="flex items-center gap-1 -mr-2 px-2 py-1.5 rounded-md text-12px text-muted hover:(text-fg bg-hair) lg:hidden"
-                  :aria-expanded="expanded"
-                  aria-controls="result-details signals"
-                  @click="expanded = !expanded"
-                >
-                  {{ result.signals.length }}
-                  {{ result.signals.length === 1 ? 'signal' : 'signals' }}
-                  <span
-                    class="i-lucide-chevron-down size-3.5 transition-transform duration-150"
-                    :class="{ 'rotate-180': expanded }"
-                    aria-hidden="true"
-                  />
-                </button>
-              </span>
+                  class="i-lucide-chevron-down size-3.5 transition-transform duration-150"
+                  :class="{ 'rotate-180': expanded }"
+                  aria-hidden="true"
+                />
+              </button>
             </div>
+            <!-- Outside the details, so it still shows when the sidebar is collapsed. -->
+            <p v-if="chance !== undefined" class="mt-1 text-13px text-muted">
+              <span class="font-medium text-fg tabular-nums"
+                >{{ chance }}%</span
+              >
+              chance it's
+              {{
+                result.classification === 'automation' ? 'automated' : 'organic'
+              }}
+            </p>
             <div id="result-details" :class="collapsible">
               <p
                 v-if="result.classification === 'insufficient-data'"
