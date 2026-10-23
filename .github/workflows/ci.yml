@@ -33,8 +33,5 @@ jobs:
       - name: Typecheck
         run: pnpm typecheck
 
-      - name: Test
-        run: pnpm test
-
-      - name: Scorecard
-        run: pnpm scorecard
+      - name: Verify
+        run: pnpm verify
