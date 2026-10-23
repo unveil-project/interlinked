@@ -1,13 +1,13 @@
 import {
   type Counter,
-  type Range,
   atLeast,
   beyond,
   density,
-  densityOutsideChecklists,
+  either,
   longParagraphs,
   matches,
   matchesInStatements,
+  matchesOutsideChecklists,
   perLength,
   tidyLines,
   unpunctuatedLines,
@@ -16,34 +16,15 @@ import {
 export interface Signal {
   id: string
   description: string
-  /**
-   * Positive means agent, negative means human, 0 turns it off.
-   * Set by `scripts/fit-weights.ts`.
-   */
+  /** Positive leans agent, negative human, 0 is off. Set by `scripts/fit-weights.ts`. */
   weight: number
-  /** Hits at which the signal reaches full strength. */
+  /** Hits at full strength. */
   cap: number
-  /** Count prose only. Code syntax isn't the author's style. */
+  /** Count prose only, without code. */
   prose?: boolean
+  /** Without ranges, the signal is about the whole text. */
   count: Counter | ((text: string) => number)
-  /**
-   * Where the counted things are, to highlight them. Defaults to the counter's
-   * own ranges. Without either, the signal counts the whole text.
-   */
-  locate?: (text: string) => Range[]
 }
-
-const disclosureStatements = matchesInStatements(
-  /\b(?:generated|authored|prepared|written|built|created|translated|drafted|produced|implemented)\b[^.\n]{0,30}\b(?:with|by|using|via)\b[^.\n]{0,25}\b(?:AI|LLM|Claude|Codex|Copilot|Cursor|ChatGPT|GPT-?\d|Gemini|an? (?:AI|coding) (?:assistant|agent))\b|\bAI[- ]assist(?:ed|ance)\b(?! development\b)|\bagent-assisted\b|\bwith (?:the help of )?an? AI\b|\bI used (?:Claude|Codex|Copilot|Cursor|ChatGPT|an AI)\b|\bused an AI assistant\b|\bAI[- ]generated (?:description|summary|PR|pull request|code|changes?|patch)\b|\bpair[- ]programmed with (?:an? )?(?:AI|Claude|Codex|Copilot|Cursor|ChatGPT)\b|\b(?:an? )?(?:AI|LLM)(?: agent| tool| assistant)? was used\b|\bhad (?:an? )?AI\b|^\s*Assisted-by:\s*(?:AI|LLM|Claude|Codex|Copilot|Cursor|ChatGPT|GPT-?\d|Gemini|Devin)\b|^#{1,4}\s*AI (?:disclosure|usage|assistance)\b|^\s*(?:\*\*)?(?:Agent|Agent-Owner|AI tools? (?:and models )?used|AI (?:tool )?(?:use|usage)(?: disclosure)?|AI disclosure|Code assistance|Autonomy|Contribution source)(?:\*\*)?\s*:/im,
-)
-
-/** A ticked checklist item saying AI was used. Unticked ones are template text. */
-const disclosureCheckboxes = matches(/^\s*[-*] \[[xX]\] I _?did_? use AI\b/im)
-
-const soClauses = matches(/, so (?!that)\w+/i)
-
-/** Code spans past 3 per 1,000 characters, once there are at least 3. A couple are normal. */
-const codeSpans = beyond(atLeast(densityOutsideChecklists(/`[^`\n]+`/), 3), 3)
 
 export const SIGNALS: Signal[] = [
   {
@@ -60,11 +41,12 @@ export const SIGNALS: Signal[] = [
     description: 'discloses that an AI tool wrote or assisted the change',
     weight: 3,
     cap: 1,
-    count: (text) => disclosureStatements(text) + disclosureCheckboxes(text),
-    locate: (text) => [
-      ...disclosureStatements.ranges(text),
-      ...disclosureCheckboxes.ranges(text),
-    ],
+    count: either(
+      matchesInStatements(
+        /\b(?:generated|authored|prepared|written|built|created|translated|drafted|produced|implemented)\b[^.\n]{0,30}\b(?:with|by|using|via)\b[^.\n]{0,25}\b(?:AI|LLM|Claude|Codex|Copilot|Cursor|ChatGPT|GPT-?\d|Gemini|an? (?:AI|coding) (?:assistant|agent))\b|\bAI[- ]assist(?:ed|ance)\b(?! development\b)|\bagent-assisted\b|\bwith (?:the help of )?an? AI\b|\bI used (?:Claude|Codex|Copilot|Cursor|ChatGPT|an AI)\b|\bused an AI assistant\b|\bAI[- ]generated (?:description|summary|PR|pull request|code|changes?|patch)\b|\bpair[- ]programmed with (?:an? )?(?:AI|Claude|Codex|Copilot|Cursor|ChatGPT)\b|\b(?:an? )?(?:AI|LLM)(?: agent| tool| assistant)? was used\b|\bhad (?:an? )?AI\b|^\s*Assisted-by:\s*(?:AI|LLM|Claude|Codex|Copilot|Cursor|ChatGPT|GPT-?\d|Gemini|Devin)\b|^#{1,4}\s*AI (?:disclosure|usage|assistance)\b|^\s*(?:\*\*)?(?:Agent|Agent-Owner|AI tools? (?:and models )?used|AI (?:tool )?(?:use|usage)(?: disclosure)?|AI disclosure|Code assistance|Autonomy|Contribution source)(?:\*\*)?\s*:/im,
+      ),
+      matches(/^\s*[-*] \[[xX]\] I _?did_? use AI\b/im),
+    ),
   },
   {
     id: 'fails-before-fix',
@@ -183,7 +165,6 @@ export const SIGNALS: Signal[] = [
   // Style that leans agent-written.
   {
     id: 'semicolons',
-    // A count, not a density, so one semicolon is only a nudge.
     description: 'joins clauses with semicolons',
     weight: 4,
     cap: 4,
@@ -195,7 +176,10 @@ export const SIGNALS: Signal[] = [
     description: 'wraps many names in inline `code` spans',
     weight: 1.29,
     cap: 12,
-    count: codeSpans,
+    count: beyond(
+      atLeast(density(matchesOutsideChecklists(/`[^`\n]+`/)), 3),
+      3,
+    ),
   },
   {
     id: 'bold-lead-bullets',
@@ -214,7 +198,7 @@ export const SIGNALS: Signal[] = [
     weight: 4,
     cap: 4,
     prose: true,
-    count: density(/—/),
+    count: density(matches(/—/)),
   },
   {
     id: 'template-headings',
@@ -294,8 +278,7 @@ export const SIGNALS: Signal[] = [
     weight: 2.46,
     cap: 3,
     prose: true,
-    count: perLength((text) => Math.max(0, soClauses(text) - 1)),
-    locate: soClauses.ranges,
+    count: perLength(beyond(matches(/, so (?!that)\w+/i), 1)),
   },
   {
     id: 'existing-precedent',
@@ -546,7 +529,9 @@ export const SIGNALS: Signal[] = [
     weight: -0.79,
     cap: 7,
     prose: true,
-    count: densityOutsideChecklists(/\b(?:I|I'm|I've|I'd|I'll|my|me)\b/),
+    count: density(
+      matchesOutsideChecklists(/\b(?:I|I'm|I've|I'd|I'll|my|me)\b/),
+    ),
   },
   {
     id: 'screenshots',
@@ -572,7 +557,9 @@ export const SIGNALS: Signal[] = [
     cap: 6,
     prose: true,
     count: density(
-      /\b\w+(?:n't|'re|'ll|'ve|'d)\b|\b(?:it's|that's|there's|let's|what's)\b/i,
+      matches(
+        /\b\w+(?:n't|'re|'ll|'ve|'d)\b|\b(?:it's|that's|there's|let's|what's)\b/i,
+      ),
     ),
   },
   {

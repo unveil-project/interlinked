@@ -1,41 +1,27 @@
+import { signalText } from './measure'
 import { SIGNALS, type Signal } from './signals'
-import {
-  type Range,
-  type Traced,
-  trace,
-  traceAuthored,
-  traceProse,
-  traceWithoutTemplate,
-  untrace,
-} from './text'
+import type { Template } from './template'
+import { type Range, type Traced, untrace } from './text'
 
 export interface Location {
   signal: Signal
   range: Range
 }
 
-/**
- * Finds where each signal matches in a text, as offsets into `markdown`
- * itself. Reads the same text `measure` does, then maps each match back.
- */
+/** Where each signal matches, as offsets into `markdown`. */
 export function locate(
   markdown: string,
-  template?: string | string[],
+  template?: Template,
   signals: Signal[] = SIGNALS,
 ): Location[] {
-  const authored = traceAuthored(trace(markdown))
-  const text = template ? traceWithoutTemplate(authored, template) : authored
-  const proseText = traceProse(text)
-
+  const { text, prose } = signalText(markdown, template)
   const locations: Location[] = []
   for (const signal of signals) {
-    const find =
-      signal.locate ?? ('ranges' in signal.count ? signal.count.ranges : null)
-    if (!find) {
+    if (!('ranges' in signal.count)) {
       continue
     }
-    const source = signal.prose ? proseText : text
-    for (const range of find(source.text)) {
+    const source = signal.prose ? prose : text
+    for (const range of signal.count.ranges(source.text)) {
       for (const part of untraceParts(markdown, source, range)) {
         locations.push({ signal, range: part })
       }
@@ -44,11 +30,11 @@ export function locate(
   return locations.sort((a, b) => a.range[0] - b.range[0])
 }
 
-/**
- * A range in a traced text as ranges in `markdown`, split where whole lines
- * were cut out between its characters, like template lines, so they aren't
- * highlighted with it. Parts that are only whitespace are dropped.
- */
+function skipsLine(markdown: string, { offsets }: Traced, i: number) {
+  return markdown.slice(offsets[i - 1] + 1, offsets[i]).includes('\n')
+}
+
+/** A range as ranges in `markdown`, split where lines were cut out of it. */
 function untraceParts(
   markdown: string,
   source: Traced,
@@ -57,12 +43,7 @@ function untraceParts(
   const parts: Range[] = []
   let from = start
   for (let i = start + 1; i <= end; i++) {
-    const skipped =
-      i < end &&
-      markdown
-        .slice(source.offsets[i - 1] + 1, source.offsets[i])
-        .includes('\n')
-    if (i === end || skipped) {
+    if (i === end || skipsLine(markdown, source, i)) {
       const part = untrace(source, [from, i])
       if (/\S/.test(markdown.slice(...part))) {
         parts.push(part)

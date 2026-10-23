@@ -1,7 +1,14 @@
-import { existsSync, readFileSync, writeFileSync } from 'node:fs'
+import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { SIGNALS } from '../src/signals'
-import type { CorpusEntry } from './build-corpus'
+import {
+  arg,
+  buildUnlessExists,
+  CORPUS_DIR,
+  type CorpusEntry,
+  readRepos,
+  writeCorpus,
+} from './corpus'
 import {
   type Author,
   graphql,
@@ -13,26 +20,17 @@ import {
 } from './github'
 
 /**
- * Builds `corpus/issues.json`: issues and comments, alongside the PRs in
- * `corpus/entries.json`.
- *
- * Human text comes from the PR corpus's human repos, before ChatGPT: issues,
- * and comments on both issues and PRs. Agent text comes from two places:
- * anything carrying an agent's attribution line, capped per repo so a few busy
- * agent repos don't dominate, and what AgentScan's verified agent accounts
- * wrote, which mostly carries no attribution at all.
+ * Builds `corpus/issues.json`. Human issues and comments come from the PR
+ * corpus's repos, before ChatGPT. Agent ones carry an attribution line, or come
+ * from AgentScan's verified agent accounts.
  */
 
-const CORPUS_DIR = join(import.meta.dirname, '..', 'corpus')
 const ISSUES_PER_WINDOW = 6
 const HUMAN_COMMENTS_PER_ISSUE = 2
 const AI_PER_REPO = 4
 /** Per account and kind, so the most prolific agents don't dominate. */
 const AGENT_PER_AUTHOR = 30
-/**
- * Agent accounts also post one-liners (`/claim #12`, "thanks!") that may be
- * typed by their operator, and carry no style either way.
- */
+/** Agent accounts' one-liners may be typed by their operator. */
 const MIN_AGENT_LENGTH = 150
 /** Older text from an agent account may predate its automation. */
 const AGENT_SINCE = '2025-06-01'
@@ -107,11 +105,7 @@ function entry(
   }
 }
 
-/**
- * Issues and their comments, and comments on PRs. A PR's own description
- * belongs to the PR corpus, but its conversation is the same kind of text as
- * an issue's, and the replies agents get flagged on are mostly there.
- */
+/** Issues and their comments, and comments on PRs. */
 async function fetchHuman(repo: string): Promise<CorpusEntry[]> {
   const entries: CorpusEntry[] = []
   const searches = HUMAN_WINDOWS.flatMap((window) =>
@@ -177,7 +171,6 @@ async function fetchAiIssues(query: string, month: string) {
     .map((issue) => entry('ai', 'issue', issue, issue))
 }
 
-/** Comments on issues and PRs. A PR's conversation comments are the same kind of text. */
 async function fetchAiComments(query: string, month: string) {
   const fields = `${ISSUE_FIELDS} comments(last: 20) { nodes { ${COMMENT_FIELDS} } }`
   const data = await graphql<{ search: { nodes: IssueNode[] } }>(
@@ -266,10 +259,7 @@ function templateOf(body: string) {
     .trim()
 }
 
-/**
- * Drops repeats, and keeps at most `cap` entries per kind and `group` (the repo
- * by default).
- */
+/** Drops repeats, and keeps at most `cap` entries per kind and group. */
 function dedupe(
   entries: CorpusEntry[],
   cap = Number.POSITIVE_INFINITY,
@@ -345,32 +335,17 @@ async function fetchTemplates(repos: string[]) {
   return templates
 }
 
+/** The repos the PR corpus took human PRs from. */
+function humanPrRepos() {
+  const prs: CorpusEntry[] = JSON.parse(
+    readFileSync(join(CORPUS_DIR, 'entries.json'), 'utf-8'),
+  )
+  return [...new Set(prs.filter((e) => e.label === 'human').map((e) => e.repo))]
+}
+
 async function main() {
-  const arg = (name: string) =>
-    process.argv.find((a) => a.startsWith(`--${name}=`))?.split('=')[1]
   const reposFile = arg('repos')
-  // By default, AgentScan's published list.
-  const agentsFile = arg('agents')
-  // By default, the repos the PR corpus took human PRs from.
-  const repos = reposFile
-    ? [
-        ...new Set(
-          readFileSync(reposFile, 'utf-8').match(
-            /(?<=")[\w.-]+\/[\w.-]+(?=")/g,
-          ) ?? [],
-        ),
-      ]
-    : [
-        ...new Set(
-          (
-            JSON.parse(
-              readFileSync(join(CORPUS_DIR, 'entries.json'), 'utf-8'),
-            ) as CorpusEntry[]
-          )
-            .filter((e) => e.label === 'human')
-            .map((e) => e.repo),
-        ),
-      ]
+  const repos = reposFile ? readRepos(reposFile) : humanPrRepos()
 
   const human: CorpusEntry[] = []
   await pool(repos, async (repo) => {
@@ -396,7 +371,7 @@ async function main() {
   found.sort((a, b) => a.repo.localeCompare(b.repo) || a.number - b.number)
   const disclosed = dedupe(found, AI_PER_REPO)
 
-  const accounts = await loadAgentAccounts(agentsFile)
+  const accounts = await loadAgentAccounts(arg('agents'))
   const byAccount: CorpusEntry[] = []
   await pool(accounts, async ({ username }) => {
     const entries = await fetchAgentAccount(username)
@@ -424,11 +399,8 @@ async function main() {
     ...new Set(entries.filter((e) => e.kind === 'issue').map((e) => e.repo)),
   ])
 
-  writeFileSync(join(CORPUS_DIR, 'issues.json'), `${JSON.stringify(entries)}\n`)
-  writeFileSync(
-    join(CORPUS_DIR, 'issue-templates.json'),
-    `${JSON.stringify(templates)}\n`,
-  )
+  writeCorpus('issues.json', entries)
+  writeCorpus('issue-templates.json', templates)
 
   const count = (label: string, kind: string) =>
     entries.filter((e) => e.label === label && e.kind === kind).length
@@ -441,14 +413,4 @@ async function main() {
   )
 }
 
-if (
-  !existsSync(join(CORPUS_DIR, 'issues.json')) ||
-  process.argv.includes('--force')
-) {
-  main().catch((error) => {
-    console.error(error)
-    process.exit(1)
-  })
-} else {
-  console.log('corpus/issues.json exists; pass --force to rebuild')
-}
+buildUnlessExists('corpus/issues.json', main)

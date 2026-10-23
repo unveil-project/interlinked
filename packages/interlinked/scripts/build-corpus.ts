@@ -1,5 +1,12 @@
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
-import { join } from 'node:path'
+import { mkdirSync, readFileSync } from 'node:fs'
+import {
+  arg,
+  buildUnlessExists,
+  CORPUS_DIR,
+  type CorpusEntry,
+  readRepos,
+  writeCorpus,
+} from './corpus'
 import {
   type Author,
   graphql,
@@ -9,29 +16,16 @@ import {
   token,
 } from './github'
 
-export interface CorpusEntry {
-  label: 'ai' | 'human'
-  /** What the text is. Missing means "pr", from before issues were collected. */
-  kind?: 'pr' | 'issue' | 'comment'
-  repo: string
-  /** The PR or issue number. A comment has its issue's. */
-  number: number
-  body: string
-  /** The author's login. */
-  author?: string
-  url?: string
-  /**
-   * Written by a known AI agent account. Its text is labelled ai even when it
-   * doesn't say it was made with AI.
-   */
-  fromAgentAccount?: boolean
-}
-
-const CORPUS_DIR = join(import.meta.dirname, '..', 'corpus')
 const HUMAN_PER_WINDOW = 8
 const AI_PER_REPO = 20
 const PRS_PER_QUERY = 50
 const TELLS = new Set(['agent-attribution', 'ai-disclosure'])
+
+type PrNode = {
+  number: number
+  body: string
+  author: Author
+} | null
 
 async function fetchTemplate(repo: string): Promise<string | undefined> {
   const headers = { authorization: `bearer ${token}` }
@@ -55,12 +49,6 @@ async function fetchTemplate(repo: string): Promise<string | undefined> {
   return raw.ok ? raw.text() : undefined
 }
 
-type PrNode = {
-  number: number
-  body: string
-  author: Author
-} | null
-
 async function fetchHuman(repo: string): Promise<CorpusEntry[]> {
   const entries: CorpusEntry[] = []
   for (const window of HUMAN_WINDOWS) {
@@ -72,20 +60,15 @@ async function fetchHuman(repo: string): Promise<CorpusEntry[]> {
 			}`,
       { q: `repo:${repo} is:pr created:${window} sort:created-desc` },
     )
-    entries.push(
-      ...data.search.nodes
-        .filter(
-          (pr): pr is NonNullable<PrNode> =>
-            !!pr?.body && isHumanAuthor(pr.author),
-        )
-        .slice(0, HUMAN_PER_WINDOW)
-        .map((pr) => ({
-          label: 'human' as const,
-          repo,
-          number: pr.number,
-          body: pr.body,
-        })),
-    )
+    const prs = data.search.nodes
+      .filter(
+        (pr): pr is NonNullable<PrNode> =>
+          !!pr?.body && isHumanAuthor(pr.author),
+      )
+      .slice(0, HUMAN_PER_WINDOW)
+    for (const pr of prs) {
+      entries.push({ label: 'human', repo, number: pr.number, body: pr.body })
+    }
   }
   return entries
 }
@@ -97,8 +80,8 @@ async function fetchAi(
   const [owner, name] = repo.split('/')
   const entries: CorpusEntry[] = []
   for (let i = 0; i < numbers.length; i += PRS_PER_QUERY) {
-    const chunk = numbers.slice(i, i + PRS_PER_QUERY)
-    const fields = chunk
+    const fields = numbers
+      .slice(i, i + PRS_PER_QUERY)
       .map(
         (n) =>
           `pr${n}: pullRequest(number: ${n}) { number body author { __typename login } }`,
@@ -117,9 +100,22 @@ async function fetchAi(
   return entries
 }
 
+/** PRs that disclosed an agent, per repo, from an interlinked results file. */
+function readDisclosed(file: string) {
+  const disclosed = new Map<string, number[]>()
+  for (const r of JSON.parse(readFileSync(file, 'utf-8'))) {
+    if (r.signals.some((s: { id: string }) => TELLS.has(s.id))) {
+      const prs = disclosed.get(r.repo_name) ?? []
+      if (prs.length < AI_PER_REPO && !prs.includes(r.pr)) {
+        prs.push(r.pr)
+      }
+      disclosed.set(r.repo_name, prs)
+    }
+  }
+  return disclosed
+}
+
 async function main() {
-  const arg = (name: string) =>
-    process.argv.find((a) => a.startsWith(`--${name}=`))?.split('=')[1]
   const reposFile = arg('repos')
   const aiFrom = arg('ai-from')
   if (!reposFile || !aiFrom) {
@@ -127,32 +123,14 @@ async function main() {
       '--repos=<file> and --ai-from=<interlinked-results.json> are required',
     )
   }
-
-  const repos = [
-    ...new Set(
-      readFileSync(reposFile, 'utf-8').match(/(?<=")[\w.-]+\/[\w.-]+(?=")/g) ??
-        [],
-    ),
-  ]
-
-  // Disclosed agent PRs, capped per repo.
-  const disclosed = new Map<string, number[]>()
-  for (const r of JSON.parse(readFileSync(aiFrom, 'utf-8'))) {
-    if (r.signals.some((s: { id: string }) => TELLS.has(s.id))) {
-      const list = disclosed.get(r.repo_name) ?? []
-      if (list.length < AI_PER_REPO && !list.includes(r.pr)) {
-        list.push(r.pr)
-      }
-      disclosed.set(r.repo_name, list)
-    }
-  }
+  const repos = readRepos(reposFile)
+  const disclosed = readDisclosed(aiFrom)
 
   mkdirSync(CORPUS_DIR, { recursive: true })
   const entries: CorpusEntry[] = []
   const templates: Record<string, string> = {}
-  const allRepos = [...new Set([...repos, ...disclosed.keys()])]
 
-  await pool(allRepos, async (repo) => {
+  await pool([...new Set([...repos, ...disclosed.keys()])], async (repo) => {
     const [template, human, ai] = await Promise.all([
       fetchTemplate(repo),
       repos.includes(repo) ? fetchHuman(repo) : [],
@@ -166,14 +144,8 @@ async function main() {
   })
 
   entries.sort((a, b) => a.repo.localeCompare(b.repo) || a.number - b.number)
-  writeFileSync(
-    join(CORPUS_DIR, 'entries.json'),
-    `${JSON.stringify(entries)}\n`,
-  )
-  writeFileSync(
-    join(CORPUS_DIR, 'templates.json'),
-    `${JSON.stringify(templates)}\n`,
-  )
+  writeCorpus('entries.json', entries)
+  writeCorpus('templates.json', templates)
 
   const count = (label: string) =>
     entries.filter((e) => e.label === label).length
@@ -182,11 +154,4 @@ async function main() {
   )
 }
 
-if (!existsSync(CORPUS_DIR) || process.argv.includes('--force')) {
-  main().catch((error) => {
-    console.error(error)
-    process.exit(1)
-  })
-} else {
-  console.log('corpus/ exists; pass --force to rebuild')
-}
+buildUnlessExists('corpus/', main)

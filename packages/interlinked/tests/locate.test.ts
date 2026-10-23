@@ -7,7 +7,7 @@ import {
   locateSignals,
   locateTemplate,
 } from '../src/index'
-import { withoutTemplate } from '../src/text'
+import { withoutTemplate } from '../src/template'
 
 /** The matched text of each location of one signal. */
 function found(markdown: string, id: string, template?: string) {
@@ -74,7 +74,7 @@ describe('locateSignals', () => {
 describe('locateSignals on the fixtures', () => {
   const root = join(import.meta.dirname, 'fixtures')
   const locatable = new Set(
-    SIGNALS.filter((s) => s.locate || 'ranges' in s.count).map((s) => s.id),
+    SIGNALS.filter((s) => 'ranges' in s.count).map((s) => s.id),
   )
   const fixtures = ['ai', 'human'].flatMap((label) =>
     readdirSync(join(root, label))

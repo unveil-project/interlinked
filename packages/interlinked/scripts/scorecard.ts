@@ -1,19 +1,16 @@
-import { existsSync, readdirSync, readFileSync } from 'node:fs'
+import { existsSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { AUTOMATION_THRESHOLD } from '../src/index'
 import { scoreText } from '../src/score'
+import { FIXTURES_DIR, type Label, readFixtures } from './fixtures'
 
 /**
- * Sums up all fixture scores in one scorecard, to compare changes.
  * `pnpm scorecard`, or `pnpm scorecard --misses` to list misclassified fixtures.
- *
- * We trust a human fixture is human because it was written before ChatGPT
- * (November 2022), when AI couldn't have written it. So a human fixture scored
- * as AI is a real mistake.
+ * Human fixtures predate ChatGPT, so one scored as AI is a real mistake.
  */
 
-export type Label = 'ai' | 'human'
+export { FIXTURES_DIR }
 
 export interface FixtureScore {
   label: Label
@@ -24,61 +21,49 @@ export interface FixtureScore {
 }
 
 export interface Scorecard {
-  /** 0 to 100, higher is better: the average of AI caught and humans not called AI. */
+  /** The average of AI caught and humans not called AI. */
   score: number
-  /** Share of AI fixtures called AI. Higher is better. */
   aiCaught: number
-  /** Share of human fixtures called AI. Lower is better. */
   humansCalledAi: number
 }
 
-const LABELS: Label[] = ['ai', 'human']
-export const FIXTURES_DIR = join(import.meta.dirname, '..', 'tests', 'fixtures')
-
-/** Scores each fixture, keyed `<label>/<file>`, with its `.template.md` if any. */
+/** Keyed `<label>/<file>`. */
 export function scoreFixtures(): Record<string, FixtureScore> {
-  const entries: Record<string, FixtureScore> = {}
-  for (const label of LABELS) {
-    const dir = join(FIXTURES_DIR, label)
-    if (!existsSync(dir)) {
-      continue
-    }
-    const files = readdirSync(dir).filter(
-      (f) => f.endsWith('.md') && !f.endsWith('.template.md'),
-    )
-    for (const file of files.sort()) {
-      const templatePath = join(dir, file.replace(/\.md$/, '.template.md'))
-      const result = scoreText(
-        readFileSync(join(dir, file), 'utf-8'),
-        existsSync(templatePath)
-          ? readFileSync(templatePath, 'utf-8')
-          : undefined,
-      )
-      entries[`${label}/${file}`] = {
-        label,
-        score: result.score,
-        signals: Object.fromEntries(
-          result.signals.map((s) => [s.id, s.contribution]),
-        ),
-      }
-    }
-  }
-  return entries
+  return Object.fromEntries(
+    readFixtures().map(({ label, name, body, template }) => {
+      const { score, signals } = scoreText(body, template)
+      const contributions = signals.map((s) => [s.id, s.contribution])
+      return [
+        `${label}/${name}.md`,
+        { label, score, signals: Object.fromEntries(contributions) },
+      ]
+    }),
+  )
 }
 
 export function isCorrect({ label, score }: FixtureScore) {
   return (score < AUTOMATION_THRESHOLD ? 'ai' : 'human') === label
 }
 
-export function summarize(entries: Record<string, FixtureScore>): Scorecard {
+function byLabel(entries: Record<string, FixtureScore>) {
   const values = Object.values(entries)
-  const share = (label: Label, called: Label) => {
-    const of = values.filter((e) => e.label === label)
-    const hits = of.filter((e) => isCorrect(e) === (label === called)).length
-    return of.length ? hits / of.length : 0
+  return {
+    ais: values.filter((e) => e.label === 'ai'),
+    humans: values.filter((e) => e.label === 'human'),
   }
-  const aiCaught = share('ai', 'ai')
-  const humansCalledAi = share('human', 'ai')
+}
+
+function share(count: number, of: number) {
+  return of ? count / of : 0
+}
+
+export function summarize(entries: Record<string, FixtureScore>): Scorecard {
+  const { ais, humans } = byLabel(entries)
+  const aiCaught = share(ais.filter(isCorrect).length, ais.length)
+  const humansCalledAi = share(
+    humans.filter((e) => !isCorrect(e)).length,
+    humans.length,
+  )
   return {
     score: round((100 * (aiCaught + (1 - humansCalledAi))) / 2, 1),
     aiCaught: round(aiCaught),
@@ -91,43 +76,51 @@ export function round(n: number, digits = 3) {
   return Math.round(n * factor) / factor
 }
 
-if (process.argv[1] === fileURLToPath(import.meta.url)) {
-  const entries = scoreFixtures()
+function percent(n?: number) {
+  return n === undefined ? '-' : `${(100 * n).toFixed(1)}%`
+}
+
+function printScorecard(entries: Record<string, FixtureScore>) {
   const now = summarize(entries)
   const baselinePath = join(FIXTURES_DIR, 'baseline.json')
-  const baseline: Partial<Scorecard> = existsSync(baselinePath)
+  const before: Partial<Scorecard> = existsSync(baselinePath)
     ? JSON.parse(readFileSync(baselinePath, 'utf-8')).summary
     : {}
-  const values = Object.values(entries)
-  const count = (label: Label) => values.filter((e) => e.label === label)
-  const ais = count('ai')
-  const humans = count('human')
-  const percent = (n?: number) =>
-    n === undefined ? '-' : `${(100 * n).toFixed(1)}%`
+  const { ais, humans } = byLabel(entries)
+  const caught = ais.filter(isCorrect).length
+  const calledAi = humans.filter((e) => !isCorrect(e)).length
   console.table({
     'score, 0-100 (higher is better)': {
-      before: baseline.score ?? '-',
+      before: before.score ?? '-',
       now: now.score,
     },
     'AI texts caught (higher is better)': {
-      before: percent(baseline.aiCaught),
-      now: `${percent(now.aiCaught)} (${ais.filter(isCorrect).length} of ${ais.length})`,
+      before: percent(before.aiCaught),
+      now: `${percent(now.aiCaught)} (${caught} of ${ais.length})`,
     },
     'human texts called AI (lower is better)': {
-      before: percent(baseline.humansCalledAi),
-      now: `${percent(now.humansCalledAi)} (${humans.filter((e) => !isCorrect(e)).length} of ${humans.length})`,
+      before: percent(before.humansCalledAi),
+      now: `${percent(now.humansCalledAi)} (${calledAi} of ${humans.length})`,
     },
   })
+}
 
+function printMisses(entries: Record<string, FixtureScore>) {
+  const misses = Object.entries(entries)
+    .filter(([, e]) => !isCorrect(e))
+    .sort(([, a], [, b]) => a.score - b.score)
+  for (const [name, e] of misses) {
+    const signals = Object.entries(e.signals)
+      .map(([id, contribution]) => `${id} ${contribution}`)
+      .join(', ')
+    console.log(`${e.score.toFixed(1).padStart(5)}  ${name}\n       ${signals}`)
+  }
+}
+
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  const entries = scoreFixtures()
+  printScorecard(entries)
   if (process.argv.includes('--misses')) {
-    const misses = Object.entries(entries)
-      .filter(([, e]) => !isCorrect(e))
-      .sort(([, a], [, b]) => a.score - b.score)
-    for (const [name, e] of misses) {
-      const top = Object.entries(e.signals)
-        .map(([id, c]) => `${id} ${c}`)
-        .join(', ')
-      console.log(`${e.score.toFixed(1).padStart(5)}  ${name}\n       ${top}`)
-    }
+    printMisses(entries)
   }
 }

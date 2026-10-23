@@ -14,68 +14,48 @@
 import { locate } from './locate'
 import { type SignalHit, scoreText } from './score'
 import { SIGNALS } from './signals'
-import {
-  templateComments,
-  trace,
-  traceAuthored,
-  traceTemplateLines,
-} from './text'
+import { templateComments, traceTemplateLines } from './template'
+import { trace, traceAuthored } from './text'
 import { round } from './utils'
 
 export type { Signal } from './signals'
 export type { SignalHit } from './score'
 export { SIGNALS }
+export { issueFormLines } from './template'
 
-export { issueFormLines } from './text'
-
-/**
- * Like AgentScan's account classifications, without `mixed`: a text in
- * between gets the side it leans to, with a low `confidence`.
- */
 export type TextClassification = 'organic' | 'automation' | 'insufficient-data'
 
 export interface AnalyzeTextResult {
-  /** Where the score falls, like AgentScan's account classification. */
   classification: TextClassification
-  /**
-   * How human the text reads, 0 to 100: 100 is human, 0 is agent. The same
-   * scale as AgentScan's account score. `INSUFFICIENT_DATA_SCORE` when there's
-   * nothing to score.
-   */
+  /** 0 to 100: 100 is human, 0 is agent. `INSUFFICIENT_DATA_SCORE` when there's nothing to score. */
   score: number
-  /**
-   * How sure `classification` is, 0.5 to 1: how far the score sits toward
-   * agent for `automation`, toward human for `organic`. Left out for
-   * `insufficient-data`, which doesn't lean either way.
-   */
+  /** 0.5 to 1. Left out for `insufficient-data`. */
   confidence?: number
   signals: SignalHit[]
 }
 
 export interface AnalyzeTextOptions {
-  /**
-   * The repo's PR or issue template, raw markdown. Pass an array for a repo's
-   * several issue templates. YAML issue forms are understood too.
-   */
+  /** The repo's PR template, or its issue templates. YAML issue forms work too. */
   template?: string | string[]
 }
 
-/** Scores below this read as automation, and the rest as organic. */
+export interface SignalLocation {
+  id: string
+  start: number
+  end: number
+}
+
+/** Scores below this are automation. */
 export const AUTOMATION_THRESHOLD = 50
 
-/** The score when there's nothing to score, as in AgentScan. */
 export const INSUFFICIENT_DATA_SCORE = -1
 
 /**
- * Guesses whether a text, like a PR description, issue or comment, was written
- * by an AI agent. Every text is read the same way.
- *
- * Pass the repo's PR or issue template if you have it, so its headings and
- * checklists don't count against the author.
+ * Guesses whether a PR description, issue or comment was written by an AI
+ * agent. Pass the repo's template so its text doesn't count.
  *
  * @example
  * const { classification, confidence } = analyzeText(pr.body ?? "", { template });
- * const { classification } = analyzeText(comment.body);
  */
 export function analyzeText(
   markdown: string,
@@ -83,7 +63,6 @@ export function analyzeText(
 ): AnalyzeTextResult {
   const { score, signals } = scoreText(markdown, options.template)
 
-  // Nothing leaned either way but the text's length, so there's nothing to score.
   if (signals.every((signal) => signal.id === 'short-body')) {
     return {
       classification: 'insufficient-data',
@@ -92,43 +71,20 @@ export function analyzeText(
     }
   }
 
-  const classification = classify(score)
-
+  const automation = score < AUTOMATION_THRESHOLD
   return {
-    classification,
+    classification: automation ? 'automation' : 'organic',
     score,
-    confidence: confidenceIn(classification, score),
+    confidence: round((automation ? 100 - score : score) / 100, 3),
     signals,
   }
 }
 
-function confidenceIn(classification: TextClassification, score: number) {
-  return round((classification === 'automation' ? 100 - score : score) / 100, 3)
-}
-
-function classify(score: number): TextClassification {
-  return score < AUTOMATION_THRESHOLD ? 'automation' : 'organic'
-}
-
-export interface SignalLocation {
-  /** The signal's `id`, as in `SignalHit`. */
-  id: string
-  /** Offset of the first matched character in the markdown. */
-  start: number
-  /** Offset just past the last matched character. */
-  end: number
-}
-
 /**
- * Finds where in the text each signal matched, to highlight it. Offsets index
- * into `markdown` as given. Signals that weigh the whole text, like its length,
- * have no locations.
- *
- * Pass the ids from `analyzeText`'s result to locate only the signals that
- * counted toward the score.
+ * Where each signal matched, as offsets into `markdown`. Pass `ids` to locate
+ * only those signals.
  *
  * @example
- * const result = analyzeText(body, { template });
  * const locations = locateSignals(body, { template }, result.signals.map((s) => s.id));
  */
 export function locateSignals(
@@ -144,14 +100,7 @@ export function locateSignals(
   )
 }
 
-/**
- * Finds the text copied from the PR or issue template, which `analyzeText`
- * leaves out of the score: its lines, the template cells of its table rows and
- * its HTML comments. Offsets index into `markdown` as given, in order.
- *
- * @example
- * const skipped = locateTemplate(body, template);
- */
+/** Where the text copied from the template is, as offsets into `markdown`. */
 export function locateTemplate(
   markdown: string,
   template: string | string[],
