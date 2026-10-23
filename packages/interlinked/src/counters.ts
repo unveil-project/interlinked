@@ -102,6 +102,25 @@ export function densityOutsideChecklists(pattern: RegExp) {
   return density(pattern, matchesOutsideChecklists(pattern))
 }
 
+/** About a short PR description. */
+const LENGTH_UNIT = 1000
+
+/**
+ * Hits divided by the square root of the text's length in `LENGTH_UNIT`s, past
+ * the first. For habits a long text has more of just by being long: careful
+ * human writing piles up semicolons and "rather than"s over a long proposal.
+ * Halfway between a count and a density.
+ */
+export function perLength(count: Counter): Counter
+export function perLength(
+  count: (text: string) => number,
+): (text: string) => number
+export function perLength(count: Counter | ((text: string) => number)) {
+  const scaled = (text: string) =>
+    count(text) / Math.sqrt(Math.max(1, text.length / LENGTH_UNIT))
+  return 'ranges' in count ? counter(scaled, count.ranges) : scaled
+}
+
 /** Counts only past `floor`, for habits people have too, just less often. */
 export function beyond(count: Counter, floor: number) {
   return counter((text) => Math.max(0, count(text) - floor), count.ranges)

@@ -3,6 +3,7 @@ import { join } from 'node:path'
 import { measure } from '../src/measure'
 import { SIGNALS, type Signal } from '../src/signals'
 import type { CorpusEntry } from './build-corpus'
+import type { PolicyEntry, PolicyTemplates } from './build-policy-corpus'
 
 const ROOT = join(import.meta.dirname, '..')
 const FIXTURES_DIR = join(ROOT, 'tests', 'fixtures')
@@ -12,6 +13,16 @@ const LAMBDAS = [0.00003, 0.0001, 0.0003, 0.001]
 const MAX_WEIGHT = 4
 const MIN_SUPPORT = 30
 const TARGET_FPR = 0.03
+/**
+ * Target for text under a no-AI policy. Lower, because a threshold set on the
+ * fitted projects ran about a point higher on the held-out one: projects
+ * differ, and the next repo it runs on is a new one.
+ */
+const POLICY_TARGET_FPR = 0.02
+/** Share of the human side's weight that goes to text under a no-AI policy. */
+const POLICY_SHARE = Number(process.env.POLICY_SHARE ?? 0.5)
+/** Fewest human texts a group needs to set the threshold, else its quantile is noise. */
+const MIN_POOL = 100
 
 const labelSignals = SIGNALS.filter((s) => LABEL_SIGNALS.has(s.id))
 const candidates = SIGNALS.filter((s) => !LABEL_SIGNALS.has(s.id))
@@ -31,6 +42,11 @@ interface Example {
   x: number[]
   /** Logit from the hand-weighted signals. */
   offset: number
+  /**
+   * Human text by a member of a project that bans LLM-written contributions:
+   * "fitted", or "holdout" when it's only reported, never fitted on.
+   */
+  policy?: 'fitted' | 'holdout'
 }
 
 function discloses(text: string) {
@@ -43,6 +59,7 @@ function toExample(
   label: 'ai' | 'human',
   body: string,
   template?: string | string[],
+  policy?: Example['policy'],
 ): Example {
   const authored = body
     .split('\n')
@@ -61,12 +78,15 @@ function toExample(
     all: candidates.map((s) => strengths.get(s.id) ?? 0),
     x: [],
     offset: 0,
+    policy,
   }
 }
 
 /**
- * Hand-reviewed fixtures, labelled by folder. Their repo is the file name minus
- * the PR, issue or comment number.
+ * Hand-reviewed fixtures, labelled by folder. We trust a human fixture is human
+ * because it was written before ChatGPT (November 2022), when AI couldn't have
+ * written it. Their repo is the file name minus the PR, issue or comment
+ * number.
  */
 function loadFixtures(): (CorpusEntry & { template?: string })[] {
   const fixtures: (CorpusEntry & { template?: string })[] = []
@@ -97,7 +117,7 @@ function readCorpus<T>(file: string, fallback: T): T {
   return existsSync(path) ? JSON.parse(readFileSync(path, 'utf-8')) : fallback
 }
 
-function load(): Example[] {
+function load(): { examples: Example[]; holdout: Example[] } {
   const entries: CorpusEntry[] = [
     ...readCorpus<CorpusEntry[]>('entries.json', []),
     ...readCorpus<CorpusEntry[]>('issues.json', []),
@@ -132,15 +152,12 @@ function load(): Example[] {
     // Recheck labels with the current tells and skip mismatches. An agent
     // account's text is agent-written whether it discloses or not.
     const disclosed = measure(entry.body, template, labelSignals).length > 0
-    if (
-      entry.source !== 'agent-account' &&
-      disclosed !== (entry.label === 'ai')
-    ) {
+    if (!entry.fromAgentAccount && disclosed !== (entry.label === 'ai')) {
       continue
     }
     examples.push(
       toExample(
-        entry.source === 'agent-account' && entry.author
+        entry.fromAgentAccount && entry.author
           ? `@${entry.author}`
           : entry.repo,
         kind,
@@ -161,7 +178,37 @@ function load(): Example[] {
       ),
     )
   }
-  return examples
+
+  // Recent human text, grouped by author so a member's texts share a fold.
+  const policyTemplates: Record<string, PolicyTemplates> = readCorpus(
+    'policy-templates.json',
+    {},
+  )
+  const holdout: Example[] = []
+  for (const entry of readCorpus<PolicyEntry[]>('policy.json', [])) {
+    const kind = entry.kind ?? 'pr'
+    const templates = policyTemplates[entry.repo]
+    const template =
+      kind === 'pr'
+        ? templates?.pr
+        : kind === 'issue'
+          ? templates?.issues
+          : undefined
+    // Mentions of the policy itself read as a disclosure.
+    if (measure(entry.body, template, labelSignals).length > 0) {
+      continue
+    }
+    const example = toExample(
+      `@${entry.author}`,
+      kind,
+      'human',
+      entry.body,
+      template,
+      entry.holdout ? 'holdout' : 'fitted',
+    )
+    ;(entry.holdout ? holdout : examples).push(example)
+  }
+  return { examples, holdout }
 }
 
 const sigmoid = (z: number) => 1 / (1 + Math.exp(-z))
@@ -185,8 +232,16 @@ function fitWeights(
   signs: number[],
 ) {
   const positives = examples.filter((e) => e.y === 1).length
+  const recent = examples.filter((e) => e.y === 0 && e.policy).length
+  const older = examples.length - positives - recent
+  // Recent humans are few next to pre-ChatGPT ones, so they get their own share.
+  const recentShare = recent > 0 ? POLICY_SHARE : 0
   const weightOf = (e: Example) =>
-    e.y === 1 ? 0.5 / positives : 0.5 / (examples.length - positives)
+    e.y === 1
+      ? 0.5 / positives
+      : e.policy
+        ? (0.5 * recentShare) / recent
+        : (0.5 * (1 - recentShare)) / older
 
   const w = [...start]
   let bias = 0
@@ -281,49 +336,100 @@ function thresholdAt(examples: Example[], logits: Logits, fpr: number) {
   return humans[Math.min(Math.floor(fpr * humans.length), humans.length - 1)]
 }
 
-/** Chance a random agent text scores above a random human one. */
-function auc(examples: Example[], logits: Logits) {
-  const humans = logitsOf(examples, logits, 0)
-  const ais = logitsOf(examples, logits, 1)
-  let wins = 0
-  for (const a of ais) {
-    for (const h of humans) {
-      wins += a > h ? 1 : a === h ? 0.5 : 0
+/** Chance a random agent logit is above a random human one, ties counting half. */
+function auc(ais: number[], humans: number[]) {
+  const all = [
+    ...ais.map((x) => ({ x, ai: true })),
+    ...humans.map((x) => ({ x, ai: false })),
+  ].sort((a, b) => a.x - b.x)
+  let rankSum = 0
+  for (let i = 0; i < all.length;) {
+    let j = i
+    while (j < all.length && all[j].x === all[i].x) {
+      j++
     }
+    // Tied values share the mean of their 1-based ranks.
+    const rank = (i + 1 + j) / 2
+    for (let k = i; k < j; k++) {
+      if (all[k].ai) {
+        rankSum += rank
+      }
+    }
+    i = j
   }
-  return wins / (ais.length * humans.length)
+  const n = ais.length
+  return (rankSum - (n * (n + 1)) / 2) / (n * humans.length)
 }
 
 /**
  * The logit at which no source's human texts score above it more often than
- * `fpr`, so one threshold is safe for PRs, issues and comments alike.
+ * their target, so one threshold is safe for PRs, issues and comments alike,
+ * both before ChatGPT (`TARGET_FPR`) and under a no-AI policy today
+ * (`POLICY_TARGET_FPR`).
  */
-function safeThreshold(examples: Example[], logits: Logits, fpr: number) {
+function safeThreshold(examples: Example[], logits: Logits) {
+  const pools = (['pr', 'issue', 'comment'] as const).flatMap((source) =>
+    [false, true].map((policy) =>
+      examples.flatMap((e, i) =>
+        e.source === source && (e.policy !== undefined) === policy ? [i] : [],
+      ),
+    ),
+  )
   return Math.max(
-    ...(['pr', 'issue', 'comment'] as const).map((source) => {
-      const of = examples.flatMap((e, i) => (e.source === source ? [i] : []))
-      return thresholdAt(
-        of.map((i) => examples[i]),
-        of.map((i) => logits[i]),
-        fpr,
-      )
-    }),
+    ...pools
+      .filter((of) => of.filter((i) => examples[i].y === 0).length >= MIN_POOL)
+      .map((of) =>
+        thresholdAt(
+          of.map((i) => examples[i]),
+          of.map((i) => logits[i]),
+          examples[of[0]].policy ? POLICY_TARGET_FPR : TARGET_FPR,
+        ),
+      ),
   )
 }
 
-/** AUC, and false-positive rate and recall at threshold `t`, overall and by source. */
+interface Row {
+  name: string
+  human: (e: Example) => boolean
+  /** Agent texts to compare against. Missing means all, without a recall. */
+  ai?: (e: Example) => boolean
+}
+
+const ROWS: Row[] = [
+  { name: 'all', human: (e) => e.policy !== 'holdout', ai: () => true },
+  ...SOURCES.map((source) => ({
+    name: source,
+    human: (e: Example) => e.source === source && e.policy === undefined,
+    ai: (e: Example) => e.source === source,
+  })),
+  { name: 'policy', human: (e) => e.policy === 'fitted' },
+  { name: 'holdout', human: (e) => e.policy === 'holdout' },
+]
+
+/**
+ * AUC, and false-positive rate and recall at threshold `t`, overall, by source
+ * and for recent human text, which also gets its false-positive rate by kind.
+ */
 function report(name: string, examples: Example[], logits: Logits, t: number) {
-  const rows = [undefined, ...SOURCES].map((source) => {
-    const of = examples.flatMap((e, i) =>
-      source === undefined || e.source === source ? [i] : [],
-    )
-    const sub = of.map((i) => examples[i])
-    const subLogits = of.map((i) => logits[i])
-    const share = (y: 0 | 1) => {
-      const xs = logitsOf(sub, subLogits, y)
-      return pct(xs.filter((x) => x >= t).length / xs.length)
+  const above = (xs: number[]) =>
+    pct(xs.filter((x) => x >= t).length / xs.length)
+  const rows = ROWS.flatMap(({ name: row, human, ai }) => {
+    const of = (test: (e: Example) => boolean) =>
+      logits.filter((_, i) => test(examples[i]))
+    const humans = of((e) => e.y === 0 && human(e))
+    if (humans.length === 0) {
+      return []
     }
-    return `${(source ?? 'all').padEnd(8)} AUC ${auc(sub, subLogits).toFixed(3)}  FPR ${share(0).padStart(6)}  recall ${share(1).padStart(6)}`
+    const ais = of((e) => e.y === 1 && (ai?.(e) ?? true))
+    const line = `${row.padEnd(8)} AUC ${auc(ais, humans).toFixed(3)}  FPR ${above(humans).padStart(6)}`
+    if (ai) {
+      return [`${line}  recall ${above(ais).padStart(6)}`]
+    }
+    const kinds = (['pr', 'issue', 'comment'] as const).map(
+      (kind) =>
+        `${kind} ${above(of((e) => e.y === 0 && human(e) && e.source === kind))}`,
+    )
+    return [`${line}  (${kinds.join(', ')}; ${humans.length} texts)`]
   })
   console.log(`${name}\n  ${rows.join('\n  ')}`)
 }
@@ -367,13 +473,13 @@ function currentBias() {
   return Number(match[1])
 }
 
-const examples = load()
+const { examples, holdout } = load()
 const support = candidates.map(
   (_, j) => examples.filter((e) => e.all[j] > 0).length,
 )
 const fitted = candidates.filter((_, j) => support[j] >= MIN_SUPPORT)
 const fixed = candidates.filter((_, j) => support[j] < MIN_SUPPORT)
-for (const e of examples) {
+for (const e of [...examples, ...holdout]) {
   e.x = candidates.flatMap((_, j) =>
     support[j] >= MIN_SUPPORT ? [e.all[j]] : [],
   )
@@ -387,7 +493,10 @@ const counts = SOURCES.map(
     `${source} ${examples.filter((e) => e.source === source && e.y === 0).length}/${examples.filter((e) => e.source === source && e.y === 1).length}`,
 )
 console.log(
-  `${examples.length} texts (human/ai): ${counts.join(', ')}; ${new Set(examples.map((e) => e.group)).size} repos and agent accounts`,
+  `${examples.length} texts (human/ai): ${counts.join(', ')}; ${new Set(examples.map((e) => e.group)).size} repos, agent accounts and policy authors`,
+)
+console.log(
+  `${examples.filter((e) => e.policy).length} of the human texts are under a no-AI policy; ${holdout.length} more held out`,
 )
 console.log(
   `hand weights kept (< ${MIN_SUPPORT} texts): ${fixed.map((s) => s.id).join(', ')}\n`,
@@ -396,19 +505,20 @@ console.log(
 const before = currentBias()
 const start = fitted.map((s) => s.weight)
 const signs = fitted.map((s) => Math.sign(s.weight))
+const scored = [...examples, ...holdout]
 report(
   'current (at 0.5)',
-  examples,
-  examples.map((e) => logit(start, before, e)),
+  scored,
+  scored.map((e) => logit(start, before, e)),
   0,
 )
 
-// Pick the λ with the best out-of-fold recall at TARGET_FPR.
+// Pick the λ with the best out-of-fold recall at the target FPRs.
 const best = LAMBDAS.map((lambda) => {
   const logits = outOfFold(examples, lambda, start, signs)
-  const t = safeThreshold(examples, logits, TARGET_FPR)
+  const t = safeThreshold(examples, logits)
   report(
-    `fit λ=${lambda}, out of fold, at ${pct(TARGET_FPR)} FPR`,
+    `fit λ=${lambda}, out of fold, at ${pct(TARGET_FPR)} FPR (${pct(POLICY_TARGET_FPR)} policy)`,
     examples,
     logits,
     t,
@@ -417,17 +527,17 @@ const best = LAMBDAS.map((lambda) => {
   return { lambda, logits, recall }
 }).reduce((a, b) => (b.recall > a.recall ? b : a))
 
-// Fit on all data, then shift the bias so TARGET_FPR lands at 0.5.
+// Fit on all data, then shift the bias so the target FPRs land at 0.5.
 const { w, bias: fittedBias } = fitWeights(examples, best.lambda, start, signs)
-const bias = fittedBias - safeThreshold(examples, best.logits, TARGET_FPR)
+const bias = fittedBias - safeThreshold(examples, best.logits)
 report(
-  'chosen (in-sample, at 0.5)',
-  examples,
-  examples.map((e) => logit(w, bias, e)),
+  'chosen (in-sample but for the holdout, at 0.5)',
+  scored,
+  scored.map((e) => logit(w, bias, e)),
   0,
 )
 console.log(
-  `\nλ=${best.lambda}, bias ${before} -> ${round(bias)} (calibrated to ${pct(TARGET_FPR)} FPR in each source)`,
+  `\nλ=${best.lambda}, bias ${before} -> ${round(bias)} (calibrated to ${pct(TARGET_FPR)} FPR in each source, ${pct(POLICY_TARGET_FPR)} under a no-AI policy)`,
 )
 const humans = examples.filter((e) => e.y === 0).length
 console.table(

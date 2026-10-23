@@ -21,11 +21,10 @@ export interface CorpusEntry {
   author?: string
   url?: string
   /**
-   * Where an agent label comes from. Missing means an attribution line or
-   * disclosure in the text; "agent-account" means a verified agent account
-   * wrote it, disclosed or not.
+   * Written by a known AI agent account. Its text is labelled ai even when it
+   * doesn't say it was made with AI.
    */
-  source?: 'agent-account'
+  fromAgentAccount?: boolean
 }
 
 const CORPUS_DIR = join(import.meta.dirname, '..', 'corpus')

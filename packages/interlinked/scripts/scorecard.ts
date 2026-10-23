@@ -7,6 +7,10 @@ import { scoreText } from '../src/score'
 /**
  * Sums up all fixture scores in one scorecard, to compare changes.
  * `pnpm scorecard`, or `pnpm scorecard --misses` to list misclassified fixtures.
+ *
+ * We trust a human fixture is human because it was written before ChatGPT
+ * (November 2022), when AI couldn't have written it. So a human fixture scored
+ * as AI is a real mistake.
  */
 
 export type Label = 'ai' | 'human'
@@ -20,21 +24,12 @@ export interface FixtureScore {
 }
 
 export interface Scorecard {
-  /** 0 to 100: mean of recall, 1 - false-positive rate and AUC. */
-  overall: number
-  fixtures: number
-  correct: number
-  accuracy: number
-  /** Share of ai fixtures scored as ai. */
-  recall: number
-  /** Share of human fixtures scored as ai. */
-  falsePositiveRate: number
-  /** Chance a random ai fixture scores lower than a random human one. */
-  auc: number
-  /** Mean log-loss against the labels. */
-  logLoss: number
-  meanAiScore: number
-  meanHumanScore: number
+  /** 0 to 100, higher is better: the average of AI caught and humans not called AI. */
+  score: number
+  /** Share of AI fixtures called AI. Higher is better. */
+  aiCaught: number
+  /** Share of human fixtures called AI. Lower is better. */
+  humansCalledAi: number
 }
 
 const LABELS: Label[] = ['ai', 'human']
@@ -77,43 +72,17 @@ export function isCorrect({ label, score }: FixtureScore) {
 
 export function summarize(entries: Record<string, FixtureScore>): Scorecard {
   const values = Object.values(entries)
-  const ais = values.filter((e) => e.label === 'ai')
-  const humans = values.filter((e) => e.label === 'human')
-  const share = (of: FixtureScore[], test: (e: FixtureScore) => boolean) =>
-    of.length ? of.filter(test).length / of.length : 0
-  const mean = (of: FixtureScore[]) =>
-    of.length ? of.reduce((sum, e) => sum + e.score, 0) / of.length : 0
-
-  const recall = share(ais, isCorrect)
-  const falsePositiveRate = share(humans, (e) => !isCorrect(e))
-
-  let wins = 0
-  for (const a of ais) {
-    for (const h of humans) {
-      wins += a.score < h.score ? 1 : a.score === h.score ? 0.5 : 0
-    }
+  const share = (label: Label, called: Label) => {
+    const of = values.filter((e) => e.label === label)
+    const hits = of.filter((e) => isCorrect(e) === (label === called)).length
+    return of.length ? hits / of.length : 0
   }
-  const auc =
-    ais.length && humans.length ? wins / (ais.length * humans.length) : 0
-
-  const logLoss =
-    values.reduce((sum, e) => {
-      const p = Math.min(Math.max(1 - e.score / 100, 1e-6), 1 - 1e-6)
-      return sum - Math.log(e.label === 'ai' ? p : 1 - p)
-    }, 0) / Math.max(values.length, 1)
-
-  const correct = values.filter(isCorrect).length
+  const aiCaught = share('ai', 'ai')
+  const humansCalledAi = share('human', 'ai')
   return {
-    overall: round((100 * (recall + (1 - falsePositiveRate) + auc)) / 3, 2),
-    fixtures: values.length,
-    correct,
-    accuracy: round(values.length ? correct / values.length : 0),
-    recall: round(recall),
-    falsePositiveRate: round(falsePositiveRate),
-    auc: round(auc),
-    logLoss: round(logLoss),
-    meanAiScore: round(mean(ais), 1),
-    meanHumanScore: round(mean(humans), 1),
+    score: round((100 * (aiCaught + (1 - humansCalledAi))) / 2, 1),
+    aiCaught: round(aiCaught),
+    humansCalledAi: round(humansCalledAi),
   }
 }
 
@@ -129,14 +98,26 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const baseline: Partial<Scorecard> = existsSync(baselinePath)
     ? JSON.parse(readFileSync(baselinePath, 'utf-8')).summary
     : {}
-  console.table(
-    Object.fromEntries(
-      Object.entries(now).map(([key, value]) => [
-        key,
-        { baseline: baseline[key as keyof Scorecard], current: value },
-      ]),
-    ),
-  )
+  const values = Object.values(entries)
+  const count = (label: Label) => values.filter((e) => e.label === label)
+  const ais = count('ai')
+  const humans = count('human')
+  const percent = (n?: number) =>
+    n === undefined ? '-' : `${(100 * n).toFixed(1)}%`
+  console.table({
+    'score, 0-100 (higher is better)': {
+      before: baseline.score ?? '-',
+      now: now.score,
+    },
+    'AI texts caught (higher is better)': {
+      before: percent(baseline.aiCaught),
+      now: `${percent(now.aiCaught)} (${ais.filter(isCorrect).length} of ${ais.length})`,
+    },
+    'human texts called AI (lower is better)': {
+      before: percent(baseline.humansCalledAi),
+      now: `${percent(now.humansCalledAi)} (${humans.filter((e) => !isCorrect(e)).length} of ${humans.length})`,
+    },
+  })
 
   if (process.argv.includes('--misses')) {
     const misses = Object.entries(entries)

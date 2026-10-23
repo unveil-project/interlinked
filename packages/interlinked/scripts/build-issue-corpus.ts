@@ -254,9 +254,7 @@ async function fetchAgentAccount(login: string): Promise<CorpusEntry[]> {
       entries.push(entry('ai', 'issue', issue, issue))
     }
   }
-  return entries
-    .reverse()
-    .map((e) => ({ ...e, source: 'agent-account' as const }))
+  return entries.reverse().map((e) => ({ ...e, fromAgentAccount: true }))
 }
 
 /** A body without links and numbers, so one bot template filled in many times counts once. */
@@ -435,8 +433,7 @@ async function main() {
   const count = (label: string, kind: string) =>
     entries.filter((e) => e.label === label && e.kind === kind).length
   const fromAccounts = (kind: string) =>
-    entries.filter((e) => e.source === 'agent-account' && e.kind === kind)
-      .length
+    entries.filter((e) => e.fromAgentAccount && e.kind === kind).length
   console.log(
     `\nissues: ${count('human', 'issue')} human, ${count('ai', 'issue')} ai (${fromAccounts('issue')} from agent accounts)` +
       `\ncomments: ${count('human', 'comment')} human, ${count('ai', 'comment')} ai (${fromAccounts('comment')} from agent accounts)` +

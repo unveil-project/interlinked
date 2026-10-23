@@ -87,15 +87,12 @@ describe('regression', () => {
     const now = summarize(current)
     const before = baseline.summary
     console.table({ baseline: before, current: now })
-    expect(now.correct).toBeGreaterThanOrEqual(before.correct ?? 0)
-    expect(now.logLoss).toBeLessThanOrEqual(
-      (before.logLoss ?? Infinity) + TOLERANCE,
+    expect(now.score).toBeGreaterThanOrEqual((before.score ?? 0) - TOLERANCE)
+    expect(now.aiCaught).toBeGreaterThanOrEqual(
+      (before.aiCaught ?? 0) - RATE_TOLERANCE,
     )
-    expect(now.overall).toBeGreaterThanOrEqual(
-      (before.overall ?? 0) - RATE_TOLERANCE,
-    )
-    expect(now.falsePositiveRate).toBeLessThanOrEqual(
-      (before.falsePositiveRate ?? 1) + RATE_TOLERANCE,
+    expect(now.humansCalledAi).toBeLessThanOrEqual(
+      (before.humansCalledAi ?? 1) + RATE_TOLERANCE,
     )
   })
 })

@@ -1,0 +1,25 @@
+[
+  {
+    "forge": "forgejo",
+    "host": "https://codeberg.org/api/v1",
+    "repo": "ziglang/zig",
+    "org": "ziglang",
+    "policy": "https://ziglang.org/code-of-conduct/#strict-no-llm-no-ai-policy",
+    "since": "2025-01-01"
+  },
+  {
+    "forge": "github",
+    "repo": "gentoo/gentoo",
+    "org": "gentoo",
+    "policy": "https://wiki.gentoo.org/wiki/Project:Council/AI_policy",
+    "since": "2025-01-01"
+  },
+  {
+    "forge": "github",
+    "repo": "servo/servo",
+    "org": "servo",
+    "policy": "https://book.servo.org/policy/ai-usage.html",
+    "since": "2025-01-01",
+    "holdout": true
+  }
+]
