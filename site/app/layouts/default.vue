@@ -1,7 +1,5 @@
 <script setup lang="ts">
 const route = useRoute()
-/** The interlinked release doing the analysis, since scores change between them. */
-const { interlinkedVersion } = useRuntimeConfig().public
 </script>
 
 <template>
@@ -27,8 +25,6 @@ const { interlinkedVersion } = useRuntimeConfig().public
         :class="{ 'mx-auto max-w-180': route.path === '/' }"
       >
         <p>
-          <span>interlinked v{{ interlinkedVersion }}</span>
-          <span class="mx-1.5" aria-hidden="true">·</span>
           An experimental
           <a
             target="_blank"
