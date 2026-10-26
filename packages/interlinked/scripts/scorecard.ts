@@ -1,3 +1,4 @@
+import { execFileSync } from 'node:child_process'
 import { existsSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -84,7 +85,18 @@ function percent(n?: number) {
   return n === undefined ? '-' : `${(100 * n).toFixed(1)}%`
 }
 
+/** The last commit's, so updating the baseline doesn't hide the change. */
 function readBaselineSummary(): Partial<Scorecard> {
+  try {
+    const committed = execFileSync('git', ['show', 'HEAD:./baseline.json'], {
+      cwd: FIXTURES_DIR,
+      encoding: 'utf-8',
+      stdio: ['ignore', 'pipe', 'ignore'],
+    })
+    return JSON.parse(committed).summary
+  } catch {
+    // Not a git checkout, or the baseline isn't committed yet.
+  }
   const baselinePath = join(FIXTURES_DIR, 'baseline.json')
   return existsSync(baselinePath)
     ? JSON.parse(readFileSync(baselinePath, 'utf-8')).summary
@@ -124,20 +136,50 @@ function printScorecard(
   const { ais, humans } = byLabel(entries)
   const caught = ais.filter(isCorrect).length
   const calledAi = humans.filter((e) => !isCorrect(e)).length
-  console.table({
-    'score, 0-100 (higher is better)': {
-      before: before.score ?? '-',
-      now: now.score,
-    },
-    'AI texts caught (higher is better)': {
-      before: percent(before.aiCaught),
-      now: `${percent(now.aiCaught)} (${caught} of ${ais.length})`,
-    },
-    'human texts called AI (lower is better)': {
-      before: percent(before.humansCalledAi),
-      now: `${percent(now.humansCalledAi)} (${calledAi} of ${humans.length})`,
-    },
-  })
+  const rows = [
+    ['', 'before', 'now', 'change', ''],
+    [
+      'AI caught',
+      ...compare(before.aiCaught, now.aiCaught),
+      `${caught} of ${ais.length}`,
+    ],
+    [
+      'humans flagged',
+      ...compare(before.humansCalledAi, now.humansCalledAi),
+      `${calledAi} of ${humans.length}`,
+    ],
+    [
+      'overall',
+      ...compare(
+        before.score === undefined ? undefined : before.score / 100,
+        now.score / 100,
+      ),
+      '',
+    ],
+  ]
+  const widths = rows[0].map((_, i) =>
+    Math.max(...rows.map((row) => row[i].length)),
+  )
+  for (const row of rows) {
+    const [label, ...cells] = row
+    const padded = cells.map((cell, i) =>
+      i === cells.length - 1 ? cell : cell.padStart(widths[i + 1]),
+    )
+    console.log(`${label.padEnd(widths[0])}  ${padded.join('  ')}`.trimEnd())
+  }
+}
+
+/** Before, now, and the change in points. */
+function compare(before: number | undefined, now: number) {
+  if (before === undefined) {
+    return ['-', percent(now), '']
+  }
+  const points = round(100 * (now - before), 1)
+  let change = '·'
+  if (points !== 0) {
+    change = points > 0 ? `+${points}` : `${points}`
+  }
+  return [percent(before), percent(now), change]
 }
 
 function printMisses(entries: Record<string, FixtureScore>) {

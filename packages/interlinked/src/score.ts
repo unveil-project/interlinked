@@ -11,7 +11,7 @@ export interface SignalHit {
 }
 
 /** Set by `scripts/fit-weights.ts`, so few human texts score as AI. */
-const BIAS = -2.11
+const BIAS = -1.72
 
 /** The score, 0 to 100 with 100 human, and the signals behind it. */
 export function scoreText(markdown: string, template?: Template) {
