@@ -2,8 +2,8 @@
 const { position = 'top', align = 'center' } = defineProps<{
   label: string
   position?: 'top' | 'bottom'
-  /** `end` lines it up with the right edge, for things at the edge of the page. */
-  align?: 'center' | 'end'
+  /** `start`/`end` line it up with the left/right edge, for things at the edge of the page. */
+  align?: 'center' | 'start' | 'end'
 }>()
 
 const positionClasses = computed(() => {
@@ -15,6 +15,10 @@ const positionClasses = computed(() => {
 })
 
 const alignClasses = computed(() => {
+  if (align === 'start') {
+    return 'left-0'
+  }
+
   if (align === 'end') {
     return 'right-0'
   }

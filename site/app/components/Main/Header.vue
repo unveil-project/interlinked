@@ -29,6 +29,18 @@ function submit() {
       >
         <Logo />
       </NuxtLink>
+      <Tooltip
+        label="An experiment: results can be wrong and things may change"
+        position="bottom"
+        align="start"
+        class="-ml-2"
+      >
+        <span
+          tabindex="0"
+          class="px-1.5 py-0.5 rounded-full border border-line text-10px font-medium uppercase tracking-wider text-muted leading-none outline-none focus-visible:(text-fg border-muted)"
+          >Beta</span
+        >
+      </Tooltip>
       <div
         v-if="route.path === '/analyze'"
         class="flex flex-[999_1_320px] items-center gap-1 min-w-0 h-9 pl-3 pr-1 rounded-md bg-hair focus-within:(bg-panel shadow-[0_0_0_1px_var(--line)])"
