@@ -1,7 +1,7 @@
 {
 	"summary": {
-		"score": 91.1,
-		"aiCaught": 0.821,
+		"score": 90.5,
+		"aiCaught": 0.811,
 		"humansCalledAi": 0
 	},
 	"fixtures": {
@@ -401,6 +401,18 @@
 				"code-span-density": 0.27,
 				"template-checkboxes": -0.05,
 				"contractions": -0.37
+			}
+		},
+		"ai/KimVianney-claimline-26.md": {
+			"label": "ai",
+			"score": 0.1,
+			"signals": {
+				"agent-attribution": 4,
+				"em-dash": 2.88,
+				"template-headings": 0.96,
+				"code-span-density": 0.54,
+				"engineering-jargon": 0.47,
+				"bare-urls": -0.33
 			}
 		},
 		"ai/LukeZGD-Legacy-iOS-Kit-1019.md": {
@@ -872,6 +884,38 @@
 				"colon-bullets": 0.38,
 				"verification-label": 0.26,
 				"test-reference": 0.21
+			}
+		},
+		"ai/TheHalfMoon-Wispral-53.md": {
+			"label": "ai",
+			"score": 0.2,
+			"signals": {
+				"coined-compounds": 2.13,
+				"colon-bullets": 1.51,
+				"unchanged-claims": 1.16,
+				"engineering-jargon": 1.1,
+				"plan-headings": 1.05,
+				"scope-disclaimer": 0.89,
+				"code-span-density": 0.5,
+				"semicolons": 0.4,
+				"contrast-phrases": 0.11,
+				"commit-shas": -0.83
+			}
+		},
+		"ai/TheHalfMoon-commandMed-251.md": {
+			"label": "ai",
+			"score": 11.5,
+			"signals": {
+				"coined-compounds": 2.93,
+				"engineering-jargon": 0.84,
+				"sentence-bullets": 0.78,
+				"scope-disclaimer": 0.44,
+				"semicolons": 0.41,
+				"agent-vocabulary": 0.16,
+				"colon-bullets": 0.11,
+				"commit-shas": -0.21,
+				"unpunctuated-lines": -0.37,
+				"bare-urls": -1.32
 			}
 		},
 		"ai/ToolJet-ToolJet-18202.md": {
@@ -1429,6 +1473,21 @@
 			"signals": {
 				"code-span-density": 1.17,
 				"imperative-sentences": 0.25
+			}
+		},
+		"ai/athompson83-captivate-75.md": {
+			"label": "ai",
+			"score": 0,
+			"signals": {
+				"agent-attribution": 4,
+				"ai-disclosure": 3,
+				"semicolons": 1.37,
+				"em-dash": 1.24,
+				"sentence-bullets": 0.26,
+				"emoji-markers": 0.22,
+				"code-span-density": 0.19,
+				"arrows": 0.11,
+				"bare-urls": -0.33
 			}
 		},
 		"ai/atuinsh-atuin-4310.md": {
@@ -4347,6 +4406,16 @@
 				"bare-urls": -1.32
 			}
 		},
+		"ai/nandurpm-poly-pmna-pdf-files-4.md": {
+			"label": "ai",
+			"score": 28.2,
+			"signals": {
+				"coined-compounds": 1.47,
+				"engineering-jargon": 0.94,
+				"agent-vocabulary": 0.27,
+				"this-pr": -0.02
+			}
+		},
 		"ai/neovim-neovim-42215.md": {
 			"label": "ai",
 			"score": 28.9,
@@ -6368,6 +6437,21 @@
 				"first-person": -0.13
 			}
 		},
+		"ai/stefanogebara-roca-27.md": {
+			"label": "ai",
+			"score": 0,
+			"signals": {
+				"agent-attribution": 4,
+				"ai-disclosure": 3,
+				"semicolons": 2.73,
+				"sentence-bullets": 0.85,
+				"em-dash": 0.66,
+				"colon-bullets": 0.46,
+				"emoji-markers": 0.22,
+				"arrows": 0.09,
+				"bare-urls": -0.33
+			}
+		},
 		"ai/storybookjs-storybook-36699.md": {
 			"label": "ai",
 			"score": 3.4,
@@ -6592,6 +6676,27 @@
 				"existing-precedent": 0.28
 			}
 		},
+		"ai/tjorim-scat-101.md": {
+			"label": "ai",
+			"score": 0,
+			"signals": {
+				"agent-attribution": 4,
+				"ai-disclosure": 3,
+				"em-dash": 2.16,
+				"template-headings": 1.92,
+				"coined-compounds": 1.62,
+				"existing-reference": 1.01,
+				"code-span-density": 0.98,
+				"unchanged-claims": 0.58,
+				"sentence-bullets": 0.58,
+				"so-chains": 0.38,
+				"emoji-markers": 0.22,
+				"agent-vocabulary": 0.2,
+				"contractions": -0.12,
+				"template-checkboxes": -0.16,
+				"bare-urls": -0.33
+			}
+		},
 		"ai/toeverything-AFFiNE-15691.md": {
 			"label": "ai",
 			"score": 8.8,
@@ -6787,6 +6892,1831 @@
 				"engineering-jargon": 0.45,
 				"this-pr": -0.02,
 				"first-person": -0.11
+			}
+		},
+		"ai/user-01d5bfa3-repo-5faa5e07-7.md": {
+			"label": "ai",
+			"score": 0,
+			"signals": {
+				"ai-disclosure": 3,
+				"template-headings": 1.92,
+				"semicolons": 1.9,
+				"existing-reference": 1.51,
+				"coined-compounds": 1.36,
+				"engineering-jargon": 0.65,
+				"unchanged-claims": 0.58,
+				"scope-disclaimer": 0.44,
+				"test-tally": 0.43,
+				"git-diff-check": 0.4,
+				"tables": 0.37,
+				"sentence-bullets": 0.37,
+				"code-span-density": 0.16,
+				"this-pr": -0.02,
+				"unpunctuated-lines": -0.19,
+				"commit-shas": -0.21,
+				"template-checkboxes": -0.33
+			}
+		},
+		"ai/user-047fd4ac-repo-5519d7bd-6769072738.md": {
+			"label": "ai",
+			"score": 16.2,
+			"signals": {
+				"code-span-density": 1.35,
+				"not-contrast": 0.69,
+				"semicolons": 0.68,
+				"sentence-bullets": 0.52,
+				"colon-bullets": 0.38,
+				"this-pr": -0.06,
+				"commit-shas": -0.21
+			}
+		},
+		"ai/user-047fd4ac-repo-5519d7bd-6769082886.md": {
+			"label": "ai",
+			"score": 36.8,
+			"signals": {
+				"code-span-density": 1.36,
+				"semicolons": 0.68,
+				"not-contrast": 0.35,
+				"existing-precedent": 0.28,
+				"sentence-bullets": 0.26,
+				"this-pr": -0.02,
+				"commit-shas": -0.21,
+				"contractions": -0.45
+			}
+		},
+		"ai/user-047fd4ac-repo-5519d7bd-8031.md": {
+			"label": "ai",
+			"score": 0,
+			"signals": {
+				"agent-attribution": 4,
+				"ai-disclosure": 3,
+				"sentence-bullets": 1.3,
+				"template-headings": 0.96,
+				"semicolons": 0.56,
+				"fails-before-fix": 0.51,
+				"code-span-density": 0.31,
+				"emoji-markers": 0.22,
+				"colon-bullets": 0.16,
+				"tables": 0.11,
+				"bare-urls": -0.33
+			}
+		},
+		"ai/user-047fd4ac-repo-5519d7bd-8032.md": {
+			"label": "ai",
+			"score": 2.1,
+			"signals": {
+				"agent-attribution": 4,
+				"template-headings": 0.96,
+				"sentence-bullets": 0.86,
+				"engineering-jargon": 0.62,
+				"semicolons": 0.45,
+				"so-chains": 0.34,
+				"code-span-density": 0.32,
+				"colon-bullets": 0.12,
+				"tables": 0.11,
+				"this-pr": -0.02,
+				"contractions": -0.19,
+				"questions": -0.34,
+				"unpunctuated-lines": -0.37,
+				"bare-urls": -1.32
+			}
+		},
+		"ai/user-197854d8-repo-535d150f-191513.md": {
+			"label": "ai",
+			"score": 0,
+			"signals": {
+				"agent-attribution": 4,
+				"coined-compounds": 2.93,
+				"semicolons": 2.73,
+				"review-severity": 2,
+				"workflow-vocabulary": 1.6,
+				"existing-reference": 1.51,
+				"scope-disclaimer": 1.33,
+				"sentence-bullets": 1.31,
+				"unchanged-claims": 1.16,
+				"not-contrast": 1.04,
+				"template-headings": 0.96,
+				"maintainer-mention": 0.95,
+				"status-openers": 0.88,
+				"so-chains": 0.86,
+				"bold-lead-bullets": 0.84,
+				"engineering-jargon": 0.68,
+				"test-tally": 0.64,
+				"ci-green": 0.59,
+				"existing-precedent": 0.57,
+				"fails-before-fix": 0.51,
+				"denominal-verbs": 0.45,
+				"test-reference": 0.41,
+				"now-verbs": 0.3,
+				"epistemic-hedge": 0.27,
+				"em-dash": 0.26,
+				"evidence-claims": 0.19,
+				"lint-clean": 0.13,
+				"agent-vocabulary": 0.11,
+				"colon-bullets": 0.04,
+				"arrows": 0.02,
+				"this-pr": -0.02,
+				"unpunctuated-lines": -0.37,
+				"commit-shas": -0.83
+			}
+		},
+		"ai/user-1d93b9f9-repo-c4dff3e8-23529.md": {
+			"label": "ai",
+			"score": 0.1,
+			"signals": {
+				"ai-disclosure": 3,
+				"semicolons": 1.54,
+				"existing-reference": 1.01,
+				"template-headings": 0.96,
+				"unchanged-claims": 0.58,
+				"coined-compounds": 0.55,
+				"workflow-vocabulary": 0.53,
+				"scope-disclaimer": 0.44,
+				"not-contrast": 0.26,
+				"test-reference": 0.21,
+				"agent-vocabulary": 0.2,
+				"code-span-density": 0.13,
+				"first-person": -0.07,
+				"commit-shas": -0.21
+			}
+		},
+		"ai/user-1d93b9f9-repo-c4dff3e8-23592.md": {
+			"label": "ai",
+			"score": 0,
+			"signals": {
+				"ai-disclosure": 3,
+				"coined-compounds": 2.93,
+				"semicolons": 1.98,
+				"sentence-bullets": 0.76,
+				"existing-precedent": 0.57,
+				"workflow-vocabulary": 0.53,
+				"existing-reference": 0.5,
+				"maintainer-mention": 0.48,
+				"not-contrast": 0.25,
+				"test-tally": 0.21,
+				"colon-bullets": 0.14,
+				"code-span-density": 0.02,
+				"first-person": -0.19,
+				"commit-shas": -0.83
+			}
+		},
+		"ai/user-1d93b9f9-repo-c4dff3e8-23691.md": {
+			"label": "ai",
+			"score": 0.1,
+			"signals": {
+				"ai-disclosure": 3,
+				"semicolons": 1.65,
+				"coined-compounds": 1.18,
+				"unchanged-claims": 0.58,
+				"workflow-vocabulary": 0.53,
+				"fails-before-fix": 0.51,
+				"existing-reference": 0.5,
+				"scope-disclaimer": 0.44,
+				"code-span-density": 0.37,
+				"arrows": 0.27,
+				"agent-vocabulary": 0.22,
+				"test-reference": 0.21,
+				"first-person": -0.08,
+				"commit-shas": -0.21
+			}
+		},
+		"ai/user-1d93b9f9-repo-c4dff3e8-23694.md": {
+			"label": "ai",
+			"score": 0.1,
+			"signals": {
+				"ai-disclosure": 3,
+				"coined-compounds": 2.93,
+				"semicolons": 1.15,
+				"existing-reference": 1.01,
+				"unchanged-claims": 0.58,
+				"engineering-jargon": 0.4,
+				"code-span-density": 0.24,
+				"first-person": -0.08
+			}
+		},
+		"ai/user-1d93b9f9-repo-c4dff3e8-23745.md": {
+			"label": "ai",
+			"score": 1.2,
+			"signals": {
+				"ai-disclosure": 3,
+				"semicolons": 1.23,
+				"coined-compounds": 0.66,
+				"unchanged-claims": 0.58,
+				"existing-reference": 0.5,
+				"existing-precedent": 0.28,
+				"evidence-claims": 0.19,
+				"code-span-density": 0.01,
+				"first-person": -0.1,
+				"commit-shas": -0.21
+			}
+		},
+		"ai/user-1d93b9f9-repo-c4dff3e8-6354240298.md": {
+			"label": "ai",
+			"score": 2.4,
+			"signals": {
+				"ai-disclosure": 3,
+				"semicolons": 1.37,
+				"coined-compounds": 0.73,
+				"code-span-density": 0.47,
+				"first-person": -0.13
+			}
+		},
+		"ai/user-1d93b9f9-repo-c4dff3e8-6559992749.md": {
+			"label": "ai",
+			"score": 0.7,
+			"signals": {
+				"ai-disclosure": 3,
+				"coined-compounds": 1.97,
+				"semicolons": 1.22,
+				"not-contrast": 0.31,
+				"verification-label": 0.26,
+				"code-span-density": 0.19,
+				"first-person": -0.09,
+				"commit-shas": -0.21
+			}
+		},
+		"ai/user-1d93b9f9-repo-d61432ae-6230.md": {
+			"label": "ai",
+			"score": 14.7,
+			"signals": {
+				"ai-disclosure": 3,
+				"code-span-density": 0.48
+			}
+		},
+		"ai/user-2a289e32-repo-6e5a3e3c-45512.md": {
+			"label": "ai",
+			"score": 0.4,
+			"signals": {
+				"semicolons": 2.73,
+				"coined-compounds": 1.94,
+				"work-claim": 1.12,
+				"sentence-bullets": 0.69,
+				"not-contrast": 0.46,
+				"engineering-jargon": 0.41,
+				"colon-bullets": 0.25,
+				"tables": 0.24,
+				"evidence-claims": 0.19,
+				"contrast-phrases": 0.17,
+				"template-checkboxes": -0.22,
+				"commit-shas": -0.62
+			}
+		},
+		"ai/user-2a863219-repo-5186216e-74.md": {
+			"label": "ai",
+			"score": 11.6,
+			"signals": {
+				"plan-headings": 1.05,
+				"code-span-density": 0.75,
+				"sentence-bullets": 0.72,
+				"semicolons": 0.63,
+				"agent-vocabulary": 0.25,
+				"imperative-sentences": 0.25,
+				"test-reference": 0.21,
+				"colon-bullets": 0.17,
+				"lint-clean": 0.13,
+				"contractions": -0.19,
+				"template-checkboxes": -0.22
+			}
+		},
+		"ai/user-2a863219-repo-5186216e-75.md": {
+			"label": "ai",
+			"score": 2.5,
+			"signals": {
+				"plan-headings": 1.05,
+				"sentence-bullets": 0.71,
+				"code-span-density": 0.69,
+				"coined-compounds": 0.66,
+				"semicolons": 0.61,
+				"so-chains": 0.47,
+				"denominal-verbs": 0.45,
+				"colon-bullets": 0.34,
+				"imperative-sentences": 0.25,
+				"agent-vocabulary": 0.24,
+				"test-reference": 0.21,
+				"lint-clean": 0.13,
+				"contractions": -0.18,
+				"template-checkboxes": -0.22
+			}
+		},
+		"ai/user-2a863219-repo-5186216e-76.md": {
+			"label": "ai",
+			"score": 2,
+			"signals": {
+				"semicolons": 1.96,
+				"code-span-density": 1.26,
+				"plan-headings": 1.05,
+				"coined-compounds": 0.7,
+				"sentence-bullets": 0.5,
+				"agent-vocabulary": 0.26,
+				"colon-bullets": 0.18,
+				"lint-clean": 0.13,
+				"contractions": -0.2,
+				"template-checkboxes": -0.22
+			}
+		},
+		"ai/user-2a863219-repo-5186216e-77.md": {
+			"label": "ai",
+			"score": 16.3,
+			"signals": {
+				"code-span-density": 1.25,
+				"plan-headings": 1.05,
+				"sentence-bullets": 0.74,
+				"colon-bullets": 0.36,
+				"agent-vocabulary": 0.26,
+				"lint-clean": 0.13,
+				"contractions": -0.2,
+				"template-checkboxes": -0.22
+			}
+		},
+		"ai/user-2a863219-repo-5186216e-78.md": {
+			"label": "ai",
+			"score": 4.6,
+			"signals": {
+				"semicolons": 1.35,
+				"plan-headings": 1.05,
+				"sentence-bullets": 0.78,
+				"so-chains": 0.52,
+				"existing-reference": 0.5,
+				"code-span-density": 0.49,
+				"colon-bullets": 0.37,
+				"lint-clean": 0.13,
+				"contractions": -0.22,
+				"template-checkboxes": -0.22
+			}
+		},
+		"ai/user-31e2db50-repo-0eb169c4-15366.md": {
+			"label": "ai",
+			"score": 57.2,
+			"signals": {
+				"sentence-bullets": 1.31,
+				"template-headings": 0.96,
+				"colon-bullets": 0.27,
+				"test-tally": 0.21,
+				"lint-clean": 0.13,
+				"code-span-density": 0.09,
+				"this-pr": -0.02,
+				"first-person": -0.06,
+				"template-checkboxes": -0.11,
+				"contractions": -0.33,
+				"questions": -1.01
+			}
+		},
+		"ai/user-31e2db50-repo-0eb169c4-15367.md": {
+			"label": "ai",
+			"score": 44.6,
+			"signals": {
+				"sentence-bullets": 1.31,
+				"template-headings": 0.96,
+				"colon-bullets": 0.45,
+				"not-contrast": 0.28,
+				"test-reference": 0.21,
+				"code-span-density": 0.01,
+				"this-pr": -0.02,
+				"template-checkboxes": -0.11,
+				"contractions": -0.14,
+				"questions": -1.01
+			}
+		},
+		"ai/user-31e2db50-repo-0eb169c4-15410.md": {
+			"label": "ai",
+			"score": 79.9,
+			"signals": {
+				"template-headings": 0.96,
+				"now-verbs": 0.45,
+				"sentence-bullets": 0.24,
+				"lint-clean": 0.13,
+				"this-pr": -0.02,
+				"first-person": -0.1,
+				"template-checkboxes": -0.11,
+				"contractions": -0.19,
+				"questions": -1.01
+			}
+		},
+		"ai/user-3252a479-repo-465d73cd-353.md": {
+			"label": "ai",
+			"score": 0.3,
+			"signals": {
+				"plan-headings": 2.09,
+				"coined-compounds": 1.75,
+				"sentence-bullets": 1.25,
+				"unchanged-claims": 0.58,
+				"semicolons": 0.54,
+				"existing-reference": 0.5,
+				"scope-disclaimer": 0.44,
+				"test-reference": 0.21,
+				"contrast-phrases": 0.15
+			}
+		},
+		"ai/user-3252a479-repo-465d73cd-356.md": {
+			"label": "ai",
+			"score": 7.9,
+			"signals": {
+				"coined-compounds": 1.28,
+				"sentence-bullets": 0.91,
+				"semicolons": 0.59,
+				"existing-reference": 0.5,
+				"maintainer-mention": 0.48,
+				"engineering-jargon": 0.41
+			}
+		},
+		"ai/user-3252a479-repo-cf1f3462-1.md": {
+			"label": "ai",
+			"score": 0,
+			"signals": {
+				"semicolons": 2.73,
+				"plan-headings": 2.09,
+				"coined-compounds": 1.68,
+				"scope-disclaimer": 0.89,
+				"sentence-bullets": 0.72,
+				"unchanged-claims": 0.58,
+				"evidence-claims": 0.38,
+				"agent-vocabulary": 0.37,
+				"not-contrast": 0.32,
+				"imperative-sentences": 0.25,
+				"test-reference": 0.21,
+				"colon-bullets": 0.09,
+				"contrast-phrases": 0.09,
+				"commit-shas": -0.21,
+				"template-checkboxes": -0.38
+			}
+		},
+		"ai/user-3252a479-repo-cf1f3462-10.md": {
+			"label": "ai",
+			"score": 0.9,
+			"signals": {
+				"coined-compounds": 2.68,
+				"sentence-bullets": 1.31,
+				"semicolons": 1.25,
+				"unchanged-claims": 0.58,
+				"engineering-jargon": 0.43,
+				"evidence-claims": 0.19
+			}
+		},
+		"ai/user-3252a479-repo-cf1f3462-13.md": {
+			"label": "ai",
+			"score": 0,
+			"signals": {
+				"coined-compounds": 2.93,
+				"plan-headings": 2.09,
+				"semicolons": 2.06,
+				"engineering-jargon": 1.74,
+				"sentence-bullets": 1.31,
+				"template-headings": 0.96,
+				"scope-disclaimer": 0.89,
+				"imperative-sentences": 0.76,
+				"evidence-claims": 0.57,
+				"workflow-vocabulary": 0.53,
+				"existing-reference": 0.5,
+				"not-contrast": 0.47,
+				"arrows": 0.23,
+				"test-reference": 0.21,
+				"agent-vocabulary": 0.09,
+				"commit-shas": -0.21,
+				"template-checkboxes": -0.44
+			}
+		},
+		"ai/user-3252a479-repo-cf1f3462-16.md": {
+			"label": "ai",
+			"score": 0,
+			"signals": {
+				"coined-compounds": 2.4,
+				"semicolons": 2.23,
+				"engineering-jargon": 1.88,
+				"existing-reference": 1.51,
+				"sentence-bullets": 1.31,
+				"unchanged-claims": 1.16,
+				"plan-headings": 1.05,
+				"em-dash": 0.54,
+				"agent-vocabulary": 0.53,
+				"workflow-vocabulary": 0.53,
+				"imperative-sentences": 0.51,
+				"evidence-claims": 0.38,
+				"not-contrast": 0.23,
+				"colon-bullets": 0.06,
+				"contrast-phrases": 0.06,
+				"template-checkboxes": -0.44,
+				"commit-shas": -0.83
+			}
+		},
+		"ai/user-3252a479-repo-cf1f3462-17.md": {
+			"label": "ai",
+			"score": 0,
+			"signals": {
+				"agent-attribution": 4,
+				"plan-headings": 3.14,
+				"coined-compounds": 2.93,
+				"existing-reference": 1.51,
+				"sentence-bullets": 0.96,
+				"imperative-sentences": 0.76,
+				"semicolons": 0.72,
+				"engineering-jargon": 0.49,
+				"colon-bullets": 0.3,
+				"evidence-claims": 0.19,
+				"agent-vocabulary": 0.14,
+				"contrast-phrases": 0.1,
+				"template-checkboxes": -0.38
+			}
+		},
+		"ai/user-3252a479-repo-cf1f3462-18.md": {
+			"label": "ai",
+			"score": 0,
+			"signals": {
+				"semicolons": 2.73,
+				"engineering-jargon": 1.88,
+				"coined-compounds": 1.63,
+				"existing-reference": 1.51,
+				"work-claim": 1.12,
+				"plan-headings": 1.05,
+				"imperative-sentences": 0.76,
+				"evidence-claims": 0.57,
+				"maintainer-mention": 0.48,
+				"scope-disclaimer": 0.44,
+				"test-tally": 0.43,
+				"tables": 0.37,
+				"bold-lead-bullets": 0.27,
+				"agent-vocabulary": 0.26,
+				"sentence-bullets": 0.25,
+				"epistemic-hedge": 0.14,
+				"not-contrast": 0.11,
+				"em-dash": 0.1,
+				"colon-bullets": 0.06,
+				"template-checkboxes": -0.44,
+				"commit-shas": -0.62
+			}
+		},
+		"ai/user-3252a479-repo-cf1f3462-5.md": {
+			"label": "ai",
+			"score": 0,
+			"signals": {
+				"coined-compounds": 2.93,
+				"semicolons": 2.73,
+				"existing-reference": 1.51,
+				"sentence-bullets": 1.17,
+				"work-claim": 1.12,
+				"workflow-vocabulary": 1.07,
+				"plan-headings": 1.05,
+				"engineering-jargon": 1.05,
+				"fails-before-fix": 1.02,
+				"test-tally": 0.64,
+				"unchanged-claims": 0.58,
+				"evidence-claims": 0.57,
+				"imperative-sentences": 0.51,
+				"not-contrast": 0.48,
+				"bold-lead-bullets": 0.46,
+				"scope-disclaimer": 0.44,
+				"tables": 0.32,
+				"agent-vocabulary": 0.23,
+				"contrast-phrases": 0.11,
+				"em-dash": 0.08,
+				"template-checkboxes": -0.44,
+				"commit-shas": -0.83
+			}
+		},
+		"ai/user-3252a479-repo-cf1f3462-8.md": {
+			"label": "ai",
+			"score": 1.7,
+			"signals": {
+				"semicolons": 1.57,
+				"sentence-bullets": 1.21,
+				"work-claim": 1.12,
+				"engineering-jargon": 1.08,
+				"coined-compounds": 0.56,
+				"imperative-sentences": 0.25
+			}
+		},
+		"ai/user-3533979d-repo-104d408f-2114.md": {
+			"label": "ai",
+			"score": 4.6,
+			"signals": {
+				"ai-disclosure": 3,
+				"sentence-bullets": 0.7,
+				"semicolons": 0.61,
+				"code-span-density": 0.31,
+				"existing-precedent": 0.28,
+				"colon-bullets": 0.17,
+				"template-checkboxes": -0.11,
+				"commit-shas": -0.21
+			}
+		},
+		"ai/user-3770a397-repo-847eac38-2030.md": {
+			"label": "ai",
+			"score": 15.1,
+			"signals": {
+				"happy-to": 0.88,
+				"engineering-jargon": 0.74,
+				"coined-compounds": 0.57,
+				"workflow-vocabulary": 0.53,
+				"sentence-bullets": 0.41,
+				"animate-code": 0.2,
+				"contrast-phrases": 0.15,
+				"code-span-density": 0.11,
+				"first-person": -0.14
+			}
+		},
+		"ai/user-4453c970-repo-0e9c1d8b-5.md": {
+			"label": "ai",
+			"score": 66.1,
+			"signals": {
+				"em-dash": 1.1,
+				"semicolons": 0.68,
+				"evidence-claims": 0.19,
+				"template-checkboxes": -0.44,
+				"contractions": -0.49
+			}
+		},
+		"ai/user-53ec2bf6-repo-3e80088a-35308.md": {
+			"label": "ai",
+			"score": 0,
+			"signals": {
+				"agent-attribution": 4,
+				"ai-disclosure": 3,
+				"code-span-density": 1.36,
+				"sentence-bullets": 1.23,
+				"status-openers": 0.88,
+				"bold-lead-bullets": 0.84,
+				"so-chains": 0.73,
+				"coined-compounds": 0.69,
+				"maintainer-mention": 0.48,
+				"test-tally": 0.43,
+				"semicolons": 0.32,
+				"existing-precedent": 0.28,
+				"now-verbs": 0.23,
+				"emoji-markers": 0.22,
+				"agent-vocabulary": 0.13,
+				"colon-bullets": 0.09,
+				"contrast-phrases": 0.09,
+				"this-pr": -0.02,
+				"commit-shas": -0.21,
+				"bare-urls": -0.33,
+				"contractions": -0.39,
+				"questions": -1.35
+			}
+		},
+		"ai/user-53ec2bf6-repo-3e80088a-35312.md": {
+			"label": "ai",
+			"score": 0.1,
+			"signals": {
+				"agent-attribution": 4,
+				"code-span-density": 0.99,
+				"scope-disclaimer": 0.89,
+				"semicolons": 0.82,
+				"so-chains": 0.63,
+				"engineering-jargon": 0.57,
+				"bold-lead-bullets": 0.55,
+				"fails-before-fix": 0.51,
+				"maintainer-mention": 0.48,
+				"denominal-verbs": 0.45,
+				"em-dash": 0.36,
+				"sentence-bullets": 0.32,
+				"tables": 0.21,
+				"not-contrast": 0.21,
+				"agent-vocabulary": 0.16,
+				"template-checkboxes": -0.05,
+				"commit-shas": -0.21,
+				"first-person": -0.21,
+				"contractions": -0.24,
+				"questions": -1.35
+			}
+		},
+		"ai/user-53ec2bf6-repo-3e80088a-6731798633.md": {
+			"label": "ai",
+			"score": 71.6,
+			"signals": {
+				"code-span-density": 0.88,
+				"so-chains": 0.52,
+				"sentence-bullets": 0.26,
+				"colon-bullets": 0.19,
+				"contrast-phrases": 0.19,
+				"this-pr": -0.06,
+				"contractions": -1.19
+			}
+		},
+		"ai/user-53ec2bf6-repo-eeef5e83-6731266666.md": {
+			"label": "ai",
+			"score": 56.4,
+			"signals": {
+				"ci-green": 0.59,
+				"sentence-bullets": 0.52,
+				"code-span-density": 0.4,
+				"not-contrast": 0.35,
+				"bold-lead-bullets": 0.21,
+				"this-pr": -0.06,
+				"contractions": -0.55
+			}
+		},
+		"ai/user-53ec2bf6-repo-eeef5e83-7070.md": {
+			"label": "ai",
+			"score": 0,
+			"signals": {
+				"agent-attribution": 4,
+				"ai-disclosure": 3,
+				"bold-lead-bullets": 1.78,
+				"sentence-bullets": 1.31,
+				"template-headings": 0.96,
+				"now-verbs": 0.83,
+				"code-span-density": 0.63,
+				"workflow-vocabulary": 0.53,
+				"so-chains": 0.45,
+				"coined-compounds": 0.32,
+				"emoji-markers": 0.22,
+				"engineering-jargon": 0.2,
+				"agent-vocabulary": 0.12,
+				"contrast-phrases": 0.08,
+				"this-pr": -0.02,
+				"first-person": -0.07,
+				"commit-shas": -0.21,
+				"contractions": -0.29,
+				"bare-urls": -0.33
+			}
+		},
+		"ai/user-55378e8f-repo-173a5c99-23228.md": {
+			"label": "ai",
+			"score": 30.1,
+			"signals": {
+				"semicolons": 1.17,
+				"coined-compounds": 0.63,
+				"unchanged-claims": 0.58,
+				"code-span-density": 0.18,
+				"tables": 0.13,
+				"this-pr": -0.04,
+				"first-person": -0.09
+			}
+		},
+		"ai/user-55378e8f-repo-173a5c99-6739429690.md": {
+			"label": "ai",
+			"score": 24.5,
+			"signals": {
+				"coined-compounds": 0.73,
+				"semicolons": 0.68,
+				"unchanged-claims": 0.58,
+				"fails-before-fix": 0.51,
+				"code-span-density": 0.34,
+				"test-tally": 0.21,
+				"commit-shas": -0.21
+			}
+		},
+		"ai/user-5d5f2b81-repo-5faa5e07-63013.md": {
+			"label": "ai",
+			"score": 0,
+			"signals": {
+				"ai-disclosure": 3,
+				"semicolons": 2.73,
+				"template-headings": 1.92,
+				"coined-compounds": 1.33,
+				"sentence-bullets": 1.11,
+				"bold-lead-bullets": 0.59,
+				"workflow-vocabulary": 0.53,
+				"existing-reference": 0.5,
+				"scope-disclaimer": 0.44,
+				"engineering-jargon": 0.28,
+				"agent-vocabulary": 0.16,
+				"epistemic-hedge": 0.14,
+				"code-span-density": 0.1,
+				"this-pr": -0.02,
+				"unpunctuated-lines": -0.19,
+				"commit-shas": -0.21,
+				"template-checkboxes": -0.33
+			}
+		},
+		"ai/user-5d5f2b81-repo-5faa5e07-63237.md": {
+			"label": "ai",
+			"score": 0,
+			"signals": {
+				"ai-disclosure": 3,
+				"semicolons": 2.39,
+				"template-headings": 1.92,
+				"coined-compounds": 1.92,
+				"existing-reference": 1.51,
+				"unchanged-claims": 1.16,
+				"sentence-bullets": 1.03,
+				"engineering-jargon": 0.82,
+				"scope-disclaimer": 0.44,
+				"now-verbs": 0.21,
+				"colon-bullets": 0.17,
+				"lint-clean": 0.13,
+				"code-span-density": 0.13,
+				"agent-vocabulary": 0.12,
+				"this-pr": -0.02,
+				"unpunctuated-lines": -0.19,
+				"template-checkboxes": -0.33,
+				"commit-shas": -0.41
+			}
+		},
+		"ai/user-5d5f2b81-repo-5faa5e07-63457.md": {
+			"label": "ai",
+			"score": 0.1,
+			"signals": {
+				"ai-disclosure": 3,
+				"template-headings": 1.92,
+				"semicolons": 1.21,
+				"coined-compounds": 0.97,
+				"unchanged-claims": 0.58,
+				"sentence-bullets": 0.46,
+				"scope-disclaimer": 0.44,
+				"engineering-jargon": 0.42,
+				"git-diff-check": 0.4,
+				"existing-precedent": 0.28,
+				"tables": 0.21,
+				"code-span-density": 0.13,
+				"this-pr": -0.04,
+				"unpunctuated-lines": -0.19,
+				"template-checkboxes": -0.33,
+				"commit-shas": -0.83
+			}
+		},
+		"ai/user-5d5f2b81-repo-5faa5e07-63460.md": {
+			"label": "ai",
+			"score": 0,
+			"signals": {
+				"ai-disclosure": 3,
+				"semicolons": 2.35,
+				"template-headings": 1.92,
+				"coined-compounds": 1.89,
+				"existing-reference": 1.51,
+				"scope-disclaimer": 0.89,
+				"unchanged-claims": 0.58,
+				"workflow-vocabulary": 0.53,
+				"git-diff-check": 0.4,
+				"sentence-bullets": 0.34,
+				"test-reference": 0.21,
+				"test-tally": 0.21,
+				"engineering-jargon": 0.2,
+				"animate-code": 0.2,
+				"evidence-claims": 0.19,
+				"code-span-density": 0.17,
+				"not-contrast": 0.15,
+				"epistemic-hedge": 0.14,
+				"agent-vocabulary": 0.12,
+				"this-pr": -0.04,
+				"template-checkboxes": -0.33,
+				"unpunctuated-lines": -0.37
+			}
+		},
+		"ai/user-5d5f2b81-repo-5faa5e07-66518.md": {
+			"label": "ai",
+			"score": 0,
+			"signals": {
+				"ai-disclosure": 3,
+				"semicolons": 2.09,
+				"template-headings": 1.92,
+				"engineering-jargon": 1.65,
+				"workflow-vocabulary": 1.6,
+				"existing-reference": 1.51,
+				"coined-compounds": 1.28,
+				"unchanged-claims": 1.16,
+				"sentence-bullets": 0.69,
+				"scope-disclaimer": 0.44,
+				"test-tally": 0.21,
+				"evidence-claims": 0.19,
+				"not-contrast": 0.15,
+				"epistemic-hedge": 0.14,
+				"code-span-density": 0.09,
+				"this-pr": -0.02,
+				"unpunctuated-lines": -0.19,
+				"template-checkboxes": -0.33
+			}
+		},
+		"ai/user-5fd00a5b-repo-ced84ca9-51933.md": {
+			"label": "ai",
+			"score": 64.9,
+			"signals": {
+				"sentence-bullets": 0.63,
+				"unchanged-claims": 0.58,
+				"now-verbs": 0.57,
+				"code-span-density": 0.45,
+				"coined-compounds": 0.44,
+				"semicolons": 0.41,
+				"colon-bullets": 0.11,
+				"contractions": -0.16,
+				"unpunctuated-lines": -0.19,
+				"commit-shas": -0.41,
+				"bare-urls": -1.32
+			}
+		},
+		"ai/user-5fd00a5b-repo-ced84ca9-51944.md": {
+			"label": "ai",
+			"score": 87,
+			"signals": {
+				"semicolons": 0.91,
+				"so-chains": 0.35,
+				"sentence-bullets": 0.35,
+				"code-span-density": 0.3,
+				"template-checkboxes": -0.16,
+				"unpunctuated-lines": -0.19,
+				"commit-shas": -0.41,
+				"bare-urls": -1.32
+			}
+		},
+		"ai/user-5fd00a5b-repo-ced84ca9-52127.md": {
+			"label": "ai",
+			"score": 3.2,
+			"signals": {
+				"coined-compounds": 2.71,
+				"sentence-bullets": 1.31,
+				"engineering-jargon": 0.65,
+				"unchanged-claims": 0.58,
+				"existing-reference": 0.5,
+				"scope-disclaimer": 0.44,
+				"existing-precedent": 0.28,
+				"colon-bullets": 0.26,
+				"so-chains": 0.24,
+				"code-span-density": 0.23,
+				"animate-code": 0.2,
+				"arrows": 0.05,
+				"unpunctuated-lines": -0.19,
+				"commit-shas": -0.41,
+				"contractions": -0.42,
+				"bare-urls": -1.32
+			}
+		},
+		"ai/user-5fd00a5b-repo-ced84ca9-52129.md": {
+			"label": "ai",
+			"score": 87.5,
+			"signals": {
+				"coined-compounds": 0.94,
+				"fails-before-fix": 0.51,
+				"code-span-density": 0.33,
+				"contractions": -0.09,
+				"unpunctuated-lines": -0.19,
+				"commit-shas": -0.41,
+				"bare-urls": -1.32
+			}
+		},
+		"ai/user-5fd00a5b-repo-ced84ca9-6332681905.md": {
+			"label": "ai",
+			"score": 47,
+			"signals": {
+				"happy-to": 0.88,
+				"workflow-vocabulary": 0.53,
+				"scope-disclaimer": 0.44,
+				"contrast-phrases": 0.19,
+				"this-pr": -0.02,
+				"unpunctuated-lines": -0.19
+			}
+		},
+		"ai/user-5fd00a5b-repo-ced84ca9-6343725991.md": {
+			"label": "ai",
+			"score": 37.7,
+			"signals": {
+				"coined-compounds": 0.73,
+				"code-span-density": 0.66,
+				"colon-bullets": 0.38,
+				"sentence-bullets": 0.26,
+				"contrast-phrases": 0.19
+			}
+		},
+		"ai/user-5fd00a5b-repo-ced84ca9-6357095420.md": {
+			"label": "ai",
+			"score": 16.1,
+			"signals": {
+				"coined-compounds": 1.47,
+				"code-span-density": 1.18,
+				"so-chains": 0.52,
+				"test-reference": 0.21
+			}
+		},
+		"ai/user-60c254d1-repo-5da1d3b3-6281558143.md": {
+			"label": "ai",
+			"score": 66.9,
+			"signals": {
+				"code-span-density": 1.03,
+				"existing-precedent": 0.28,
+				"first-person": -0.3
+			}
+		},
+		"ai/user-60c254d1-repo-5da1d3b3-8048.md": {
+			"label": "ai",
+			"score": 5.4,
+			"signals": {
+				"scope-disclaimer": 1.33,
+				"fails-before-fix": 1.02,
+				"code-span-density": 0.69,
+				"so-chains": 0.69,
+				"semicolons": 0.45,
+				"sentence-bullets": 0.35,
+				"now-verbs": 0.32,
+				"engineering-jargon": 0.31,
+				"test-reference": 0.21,
+				"test-tally": 0.21,
+				"lint-clean": 0.13,
+				"questions": -0.34,
+				"contractions": -0.38,
+				"template-checkboxes": -0.38
+			}
+		},
+		"ai/user-6bb11f9d-repo-5e6e4ca4-1267.md": {
+			"label": "ai",
+			"score": 81.3,
+			"signals": {
+				"code-span-density": 0.64,
+				"template-checkboxes": -0.38
+			}
+		},
+		"ai/user-747ed1fb-repo-ba74ffe9-20.md": {
+			"label": "ai",
+			"score": 17.2,
+			"signals": {
+				"sentence-bullets": 0.87,
+				"imperative-sentences": 0.76,
+				"unchanged-claims": 0.58,
+				"scope-disclaimer": 0.44,
+				"so-chains": 0.43,
+				"existing-precedent": 0.28,
+				"contrast-phrases": 0.16,
+				"code-span-density": 0.14,
+				"contractions": -0.15,
+				"template-checkboxes": -0.22
+			}
+		},
+		"ai/user-74be1fd2-repo-07dd9ac4-178.md": {
+			"label": "ai",
+			"score": 50.3,
+			"signals": {
+				"code-span-density": 0.5,
+				"now-verbs": 0.48,
+				"engineering-jargon": 0.47,
+				"verification-label": 0.26
+			}
+		},
+		"ai/user-764441a9-repo-ea0c5fde-6695851142.md": {
+			"label": "ai",
+			"score": 89.8,
+			"signals": {
+				"review-pleasantries": 1.05,
+				"maintainer-mention": 0.48,
+				"this-pr": -0.02,
+				"questions": -0.34,
+				"short-body": -1.62
+			}
+		},
+		"ai/user-7ba9250b-repo-dcb472f5-37494.md": {
+			"label": "ai",
+			"score": 6.7,
+			"signals": {
+				"ai-disclosure": 3,
+				"code-span-density": 1.36
+			}
+		},
+		"ai/user-7ba9250b-repo-dcb472f5-37495.md": {
+			"label": "ai",
+			"score": 38.4,
+			"signals": {
+				"code-span-density": 1.25,
+				"coined-compounds": 0.71,
+				"verification-label": 0.26,
+				"contrast-phrases": 0.19,
+				"contractions": -0.21
+			}
+		},
+		"ai/user-7ba9250b-repo-dcb472f5-37496.md": {
+			"label": "ai",
+			"score": 10.7,
+			"signals": {
+				"so-chains": 1.5,
+				"code-span-density": 1.36,
+				"engineering-jargon": 0.45,
+				"agent-vocabulary": 0.26,
+				"sentence-bullets": 0.25,
+				"test-tally": 0.21,
+				"contractions": -0.2
+			}
+		},
+		"ai/user-7ba9250b-repo-dcb472f5-37497.md": {
+			"label": "ai",
+			"score": 1.9,
+			"signals": {
+				"code-span-density": 1.19,
+				"fails-before-fix": 1.02,
+				"so-chains": 0.95,
+				"sentence-bullets": 0.72,
+				"coined-compounds": 0.67,
+				"semicolons": 0.63,
+				"scope-disclaimer": 0.44,
+				"engineering-jargon": 0.43,
+				"contractions": -0.37
+			}
+		},
+		"ai/user-7ba9250b-repo-dcb472f5-37498.md": {
+			"label": "ai",
+			"score": 39.8,
+			"signals": {
+				"code-span-density": 1.36,
+				"unchanged-claims": 0.58,
+				"engineering-jargon": 0.47,
+				"contractions": -0.28
+			}
+		},
+		"ai/user-7ba9250b-repo-dcb472f5-6277241584.md": {
+			"label": "ai",
+			"score": 78.6,
+			"signals": {
+				"review-pleasantries": 1.05,
+				"happy-to": 0.88,
+				"maintainer-mention": 0.48,
+				"this-pr": -0.02,
+				"questions": -0.34,
+				"short-body": -1.62
+			}
+		},
+		"ai/user-7ba9250b-repo-dcb472f5-6693293747.md": {
+			"label": "ai",
+			"score": 1.7,
+			"signals": {
+				"em-dash": 3.33,
+				"review-pleasantries": 1.05,
+				"happy-to": 0.88,
+				"existing-reference": 0.5
+			}
+		},
+		"ai/user-7ba9250b-repo-dcb472f5-6693293781.md": {
+			"label": "ai",
+			"score": 25,
+			"signals": {
+				"em-dash": 3.33,
+				"coined-compounds": 0.73,
+				"first-person": -0.39,
+				"tentative": -0.86
+			}
+		},
+		"ai/user-7e78b673-repo-f66a4d81-531.md": {
+			"label": "ai",
+			"score": 0,
+			"signals": {
+				"coined-compounds": 2.3,
+				"scope-disclaimer": 1.33,
+				"unchanged-claims": 1.16,
+				"plan-headings": 1.05,
+				"sentence-bullets": 1.03,
+				"template-headings": 0.96,
+				"existing-reference": 0.5,
+				"git-diff-check": 0.4,
+				"code-span-density": 0.37,
+				"engineering-jargon": 0.37,
+				"animate-code": 0.2,
+				"epistemic-hedge": 0.14,
+				"this-pr": -0.02
+			}
+		},
+		"ai/user-7e78b673-repo-f66a4d81-546.md": {
+			"label": "ai",
+			"score": 80.3,
+			"signals": {
+				"code-span-density": 1.24,
+				"unpunctuated-lines": -0.93
+			}
+		},
+		"ai/user-8809b222-repo-8f9d6f8c-100.md": {
+			"label": "ai",
+			"score": 67.7,
+			"signals": {
+				"plan-headings": 1.05,
+				"agent-vocabulary": 0.27,
+				"questions": -0.34
+			}
+		},
+		"ai/user-8809b222-repo-8f9d6f8c-83.md": {
+			"label": "ai",
+			"score": 31.2,
+			"signals": {
+				"plan-headings": 1.05,
+				"coined-compounds": 0.73,
+				"semicolons": 0.68,
+				"code-span-density": 0.39,
+				"questions": -0.34
+			}
+		},
+		"ai/user-8809b222-repo-8f9d6f8c-85.md": {
+			"label": "ai",
+			"score": 39,
+			"signals": {
+				"plan-headings": 1.05,
+				"code-span-density": 0.73,
+				"coined-compounds": 0.73,
+				"questions": -0.34
+			}
+		},
+		"ai/user-8e9eff7b-repo-88ca0580-322.md": {
+			"label": "ai",
+			"score": 34.1,
+			"signals": {
+				"agent-attribution": 4,
+				"short-body": -1.62
+			}
+		},
+		"ai/user-8e9eff7b-repo-88ca0580-6719528231.md": {
+			"label": "ai",
+			"score": 87.3,
+			"signals": {
+				"semicolons": 0.68,
+				"contrast-phrases": 0.19,
+				"first-person": -0.38,
+				"contractions": -0.71
+			}
+		},
+		"ai/user-93bf0bd8-repo-0d155176-1334.md": {
+			"label": "ai",
+			"score": 59.5,
+			"signals": {
+				"code-span-density": 0.77,
+				"emoji-markers": 0.67,
+				"sentence-bullets": 0.41,
+				"now-verbs": 0.38,
+				"test-reference": 0.21,
+				"test-tally": 0.21,
+				"first-person": -0.14,
+				"template-checkboxes": -0.22,
+				"contractions": -0.95
+			}
+		},
+		"ai/user-97374de4-repo-3bfec0a7-11413.md": {
+			"label": "ai",
+			"score": 0,
+			"signals": {
+				"agent-attribution": 4,
+				"sentence-bullets": 1.31,
+				"so-chains": 1.3,
+				"template-headings": 0.96,
+				"semicolons": 0.68,
+				"denominal-verbs": 0.45,
+				"scope-disclaimer": 0.44,
+				"bold-lead-bullets": 0.4,
+				"coined-compounds": 0.37,
+				"imperative-sentences": 0.25,
+				"contrast-phrases": 0.19,
+				"not-contrast": 0.17,
+				"code-span-density": 0.13,
+				"tables": 0.13,
+				"this-pr": -0.04,
+				"template-checkboxes": -0.16,
+				"contractions": -0.28
+			}
+		},
+		"ai/user-97374de4-repo-3bfec0a7-6755167041.md": {
+			"label": "ai",
+			"score": 68.9,
+			"signals": {
+				"status-openers": 0.88,
+				"semicolons": 0.68,
+				"contractions": -0.64
+			}
+		},
+		"ai/user-a16593f0-repo-da23a7db-31.md": {
+			"label": "ai",
+			"score": 6.4,
+			"signals": {
+				"plan-headings": 2.09,
+				"sentence-bullets": 1.31,
+				"existing-reference": 1.01
+			}
+		},
+		"ai/user-a16593f0-repo-da23a7db-32.md": {
+			"label": "ai",
+			"score": 5.1,
+			"signals": {
+				"plan-headings": 2.09,
+				"sentence-bullets": 1.31,
+				"workflow-vocabulary": 0.53,
+				"existing-reference": 0.5,
+				"test-reference": 0.21
+			}
+		},
+		"ai/user-a16593f0-repo-da23a7db-34.md": {
+			"label": "ai",
+			"score": 10.4,
+			"signals": {
+				"plan-headings": 2.09,
+				"sentence-bullets": 1.31,
+				"engineering-jargon": 0.47
+			}
+		},
+		"ai/user-a16593f0-repo-da23a7db-36.md": {
+			"label": "ai",
+			"score": 5.1,
+			"signals": {
+				"plan-headings": 2.09,
+				"sentence-bullets": 1.31,
+				"coined-compounds": 0.73,
+				"existing-reference": 0.5
+			}
+		},
+		"ai/user-a16593f0-repo-da23a7db-40.md": {
+			"label": "ai",
+			"score": 2.9,
+			"signals": {
+				"plan-headings": 2.09,
+				"sentence-bullets": 1.31,
+				"coined-compounds": 0.73,
+				"unchanged-claims": 0.58,
+				"existing-reference": 0.5
+			}
+		},
+		"ai/user-af636340-repo-44764586-6737515626.md": {
+			"label": "ai",
+			"score": 11.3,
+			"signals": {
+				"so-chains": 1.13,
+				"code-span-density": 1.08,
+				"sentence-bullets": 0.76,
+				"bold-lead-bullets": 0.53,
+				"not-contrast": 0.25,
+				"test-reference": 0.21,
+				"first-person": -0.06,
+				"contractions": -0.12
+			}
+		},
+		"ai/user-af636340-repo-44764586-6737516608.md": {
+			"label": "ai",
+			"score": 71.2,
+			"signals": {
+				"sentence-bullets": 0.76,
+				"code-span-density": 0.26,
+				"contractions": -0.21
+			}
+		},
+		"ai/user-af636340-repo-44764586-6737517824.md": {
+			"label": "ai",
+			"score": 23.4,
+			"signals": {
+				"semicolons": 1.35,
+				"code-span-density": 0.9,
+				"bold-lead-bullets": 0.39,
+				"agent-vocabulary": 0.27
+			}
+		},
+		"ai/user-af636340-repo-44764586-6737518489.md": {
+			"label": "ai",
+			"score": 68.4,
+			"signals": {
+				"code-span-density": 0.95
+			}
+		},
+		"ai/user-af636340-repo-44764586-6737519544.md": {
+			"label": "ai",
+			"score": 44.5,
+			"signals": {
+				"bold-lead-bullets": 1.05,
+				"so-chains": 1.04,
+				"code-span-density": 0.46,
+				"first-person": -0.13,
+				"contractions": -0.48
+			}
+		},
+		"ai/user-af636340-repo-44764586-6737521707.md": {
+			"label": "ai",
+			"score": 16.1,
+			"signals": {
+				"code-span-density": 0.98,
+				"sentence-bullets": 0.97,
+				"so-chains": 0.77,
+				"coined-compounds": 0.54,
+				"not-contrast": 0.26,
+				"this-pr": -0.02,
+				"contractions": -0.12
+			}
+		},
+		"ai/user-af636340-repo-44764586-6737524291.md": {
+			"label": "ai",
+			"score": 21.3,
+			"signals": {
+				"so-chains": 1.02,
+				"sentence-bullets": 0.85,
+				"code-span-density": 0.55,
+				"coined-compounds": 0.48,
+				"bold-lead-bullets": 0.26,
+				"test-reference": 0.21,
+				"animate-code": 0.2,
+				"this-pr": -0.02,
+				"first-person": -0.05,
+				"contractions": -0.47
+			}
+		},
+		"ai/user-af636340-repo-44764586-6737526473.md": {
+			"label": "ai",
+			"score": 6.8,
+			"signals": {
+				"so-chains": 1.09,
+				"code-span-density": 0.58,
+				"unchanged-claims": 0.58,
+				"sentence-bullets": 0.55,
+				"workflow-vocabulary": 0.53,
+				"semicolons": 0.48,
+				"bold-lead-bullets": 0.27,
+				"animate-code": 0.2,
+				"contrast-phrases": 0.13,
+				"this-pr": -0.02,
+				"first-person": -0.06
+			}
+		},
+		"ai/user-af636340-repo-44764586-6737527401.md": {
+			"label": "ai",
+			"score": 45.4,
+			"signals": {
+				"code-span-density": 1.36,
+				"coined-compounds": 0.73,
+				"so-chains": 0.52,
+				"animate-code": 0.2,
+				"first-person": -0.19,
+				"contractions": -0.72
+			}
+		},
+		"ai/user-af636340-repo-44764586-6737528714.md": {
+			"label": "ai",
+			"score": 8.6,
+			"signals": {
+				"so-chains": 1.31,
+				"coined-compounds": 1.23,
+				"bold-lead-bullets": 0.51,
+				"existing-reference": 0.5,
+				"sentence-bullets": 0.44,
+				"not-contrast": 0.29,
+				"test-reference": 0.21,
+				"animate-code": 0.2,
+				"code-span-density": 0.17,
+				"contractions": -0.78
+			}
+		},
+		"ai/user-af636340-repo-44764586-6737674410.md": {
+			"label": "ai",
+			"score": 71.7,
+			"signals": {
+				"code-span-density": 0.73,
+				"so-chains": 0.52,
+				"contractions": -0.46
+			}
+		},
+		"ai/user-af636340-repo-44764586-6737675314.md": {
+			"label": "ai",
+			"score": 58.7,
+			"signals": {
+				"code-span-density": 0.62,
+				"ci-green": 0.59,
+				"denominal-verbs": 0.45,
+				"sentence-bullets": 0.26,
+				"contractions": -0.55
+			}
+		},
+		"ai/user-af636340-repo-44764586-6737677231.md": {
+			"label": "ai",
+			"score": 45.2,
+			"signals": {
+				"coined-compounds": 0.51,
+				"bold-lead-bullets": 0.41,
+				"so-chains": 0.36,
+				"code-span-density": 0.3,
+				"not-contrast": 0.24,
+				"agent-vocabulary": 0.19,
+				"contractions": -0.11
+			}
+		},
+		"ai/user-af636340-repo-44764586-6737679392.md": {
+			"label": "ai",
+			"score": 13.1,
+			"signals": {
+				"code-span-density": 0.79,
+				"sentence-bullets": 0.74,
+				"bold-lead-bullets": 0.68,
+				"unchanged-claims": 0.58,
+				"so-chains": 0.37,
+				"existing-precedent": 0.28,
+				"math-symbols": 0.21,
+				"animate-code": 0.2,
+				"this-pr": -0.02,
+				"contractions": -0.22
+			}
+		},
+		"ai/user-af636340-repo-44764586-6737681909.md": {
+			"label": "ai",
+			"score": 11.3,
+			"signals": {
+				"code-span-density": 0.98,
+				"coined-compounds": 0.97,
+				"bold-lead-bullets": 0.89,
+				"unchanged-claims": 0.58,
+				"so-chains": 0.34,
+				"test-reference": 0.21,
+				"animate-code": 0.2,
+				"contractions": -0.39
+			}
+		},
+		"ai/user-af636340-repo-44764586-6737683237.md": {
+			"label": "ai",
+			"score": 9.1,
+			"signals": {
+				"coined-compounds": 2,
+				"semicolons": 0.62,
+				"code-span-density": 0.62,
+				"engineering-jargon": 0.43,
+				"bold-lead-bullets": 0.35
+			}
+		},
+		"ai/user-af636340-repo-44764586-6737685155.md": {
+			"label": "ai",
+			"score": 45.1,
+			"signals": {
+				"code-span-density": 0.57,
+				"bold-lead-bullets": 0.53,
+				"coined-compounds": 0.49,
+				"semicolons": 0.46,
+				"so-chains": 0.35,
+				"agent-vocabulary": 0.18,
+				"this-pr": -0.02,
+				"first-person": -0.05,
+				"contractions": -0.59
+			}
+		},
+		"ai/user-af636340-repo-44764586-6741839190.md": {
+			"label": "ai",
+			"score": 15.1,
+			"signals": {
+				"sentence-bullets": 0.83,
+				"so-chains": 0.82,
+				"coined-compounds": 0.77,
+				"code-span-density": 0.68,
+				"workflow-vocabulary": 0.53,
+				"bold-lead-bullets": 0.51,
+				"engineering-jargon": 0.25,
+				"animate-code": 0.2,
+				"this-pr": -0.02,
+				"first-person": -0.03,
+				"contractions": -0.25,
+				"tentative": -0.86
+			}
+		},
+		"ai/user-af636340-repo-44764586-6741840506.md": {
+			"label": "ai",
+			"score": 46.8,
+			"signals": {
+				"sentence-bullets": 0.79,
+				"code-span-density": 0.65,
+				"now-verbs": 0.48,
+				"colon-bullets": 0.19,
+				"contractions": -0.26
+			}
+		},
+		"ai/user-af636340-repo-44764586-6742732879.md": {
+			"label": "ai",
+			"score": 14.5,
+			"signals": {
+				"coined-compounds": 1,
+				"sentence-bullets": 0.89,
+				"bold-lead-bullets": 0.54,
+				"existing-reference": 0.5,
+				"semicolons": 0.46,
+				"so-chains": 0.35,
+				"engineering-jargon": 0.32,
+				"existing-precedent": 0.28,
+				"animate-code": 0.2,
+				"code-span-density": 0.18,
+				"contrast-phrases": 0.13,
+				"contractions": -0.51,
+				"tentative": -0.86
+			}
+		},
+		"ai/user-af636340-repo-44764586-6744208266.md": {
+			"label": "ai",
+			"score": 74.2,
+			"signals": {
+				"coined-compounds": 0.66,
+				"workflow-vocabulary": 0.53,
+				"code-span-density": 0.42,
+				"existing-precedent": 0.28,
+				"tables": 0.11,
+				"this-pr": -0.02,
+				"contractions": -0.18,
+				"first-person": -0.29,
+				"tentative": -0.86
+			}
+		},
+		"ai/user-af636340-repo-44764586-6745212958.md": {
+			"label": "ai",
+			"score": 9.1,
+			"signals": {
+				"so-chains": 1.2,
+				"code-span-density": 0.82,
+				"engineering-jargon": 0.54,
+				"existing-reference": 0.5,
+				"bold-lead-bullets": 0.45,
+				"coined-compounds": 0.42,
+				"sentence-bullets": 0.3,
+				"existing-precedent": 0.28,
+				"contractions": -0.51
+			}
+		},
+		"ai/user-af636340-repo-44764586-6745215243.md": {
+			"label": "ai",
+			"score": 9,
+			"signals": {
+				"code-span-density": 1.32,
+				"sentence-bullets": 1.13,
+				"so-chains": 0.9,
+				"semicolons": 0.59,
+				"now-verbs": 0.42,
+				"contractions": -0.33
+			}
+		},
+		"ai/user-af636340-repo-44764586-6745215909.md": {
+			"label": "ai",
+			"score": 95.6,
+			"signals": {
+				"semicolons": 0.68,
+				"first-person": -0.73,
+				"contractions": -1.32
+			}
+		},
+		"ai/user-af636340-repo-44764586-6745216550.md": {
+			"label": "ai",
+			"score": 96.2,
+			"signals": {
+				"contractions": -0.73,
+				"first-person": -0.78
+			}
+		},
+		"ai/user-af636340-repo-44764586-6745217202.md": {
+			"label": "ai",
+			"score": 97.9,
+			"signals": {
+				"first-person": -0.78,
+				"contractions": -1.32
+			}
+		},
+		"ai/user-af636340-repo-44764586-6745217984.md": {
+			"label": "ai",
+			"score": 86.9,
+			"signals": {
+				"coined-compounds": 0.73,
+				"agent-vocabulary": 0.27,
+				"contractions": -0.57,
+				"first-person": -0.61
+			}
+		},
+		"ai/user-af636340-repo-44764586-6745218657.md": {
+			"label": "ai",
+			"score": 96.2,
+			"signals": {
+				"contractions": -0.73,
+				"first-person": -0.78
+			}
+		},
+		"ai/user-af636340-repo-44764586-6745219263.md": {
+			"label": "ai",
+			"score": 84.8,
+			"signals": {
+				"code-span-density": 0.75,
+				"workflow-vocabulary": 0.53,
+				"contractions": -0.62,
+				"first-person": -0.66
+			}
+		},
+		"ai/user-ba08a68a-repo-0a721bb5-51876.md": {
+			"label": "ai",
+			"score": 18.4,
+			"signals": {
+				"code-span-density": 1.15,
+				"template-headings": 0.96,
+				"existing-reference": 0.5,
+				"test-tally": 0.43,
+				"imperative-sentences": 0.25,
+				"sentence-bullets": 0.21,
+				"animate-code": 0.2,
+				"template-checkboxes": -0.16,
+				"bare-urls": -0.33
+			}
+		},
+		"ai/user-ba08a68a-repo-0a721bb5-51878.md": {
+			"label": "ai",
+			"score": 9.2,
+			"signals": {
+				"code-span-density": 1.13,
+				"coined-compounds": 1.02,
+				"template-headings": 0.96,
+				"sentence-bullets": 0.55,
+				"engineering-jargon": 0.33,
+				"test-tally": 0.21,
+				"this-pr": -0.02,
+				"template-checkboxes": -0.16
+			}
+		},
+		"ai/user-ba08a68a-repo-0a721bb5-51886.md": {
+			"label": "ai",
+			"score": 6.7,
+			"signals": {
+				"template-headings": 0.96,
+				"code-span-density": 0.94,
+				"engineering-jargon": 0.75,
+				"sentence-bullets": 0.62,
+				"unchanged-claims": 0.58,
+				"existing-reference": 0.5,
+				"scope-disclaimer": 0.44,
+				"existing-precedent": 0.28,
+				"first-person": -0.15,
+				"template-checkboxes": -0.16,
+				"contractions": -0.42
+			}
+		},
+		"ai/user-ba08a68a-repo-0a721bb5-51887.md": {
+			"label": "ai",
+			"score": 60.3,
+			"signals": {
+				"template-headings": 0.96,
+				"code-span-density": 0.51,
+				"template-checkboxes": -0.16
+			}
+		},
+		"ai/user-ba08a68a-repo-0a721bb5-6275547730.md": {
+			"label": "ai",
+			"score": 41.6,
+			"signals": {
+				"review-pleasantries": 1.05,
+				"happy-to": 0.88,
+				"maintainer-mention": 0.48,
+				"questions": -0.34
+			}
+		},
+		"ai/user-c100d49a-repo-e9827321-6275549568.md": {
+			"label": "ai",
+			"score": 41.6,
+			"signals": {
+				"review-pleasantries": 1.05,
+				"happy-to": 0.88,
+				"maintainer-mention": 0.48,
+				"questions": -0.34
+			}
+		},
+		"ai/user-c833cb02-repo-91004067-27984.md": {
+			"label": "ai",
+			"score": 0.2,
+			"signals": {
+				"ai-disclosure": 3,
+				"code-span-density": 1.36,
+				"template-headings": 0.96,
+				"semicolons": 0.68,
+				"so-chains": 0.52,
+				"sentence-bullets": 0.52,
+				"existing-reference": 0.5,
+				"now-verbs": 0.48,
+				"engineering-jargon": 0.47,
+				"first-person": -0.29
+			}
+		},
+		"ai/user-c833cb02-repo-91004067-27985.md": {
+			"label": "ai",
+			"score": 0.6,
+			"signals": {
+				"ai-disclosure": 3,
+				"code-span-density": 1.36,
+				"template-headings": 0.96,
+				"happy-to": 0.88,
+				"semicolons": 0.59,
+				"now-verbs": 0.42,
+				"colon-bullets": 0.33,
+				"sentence-bullets": 0.23,
+				"first-person": -0.27,
+				"contractions": -0.66
+			}
+		},
+		"ai/user-c833cb02-repo-91004067-27986.md": {
+			"label": "ai",
+			"score": 0.1,
+			"signals": {
+				"ai-disclosure": 3,
+				"coined-compounds": 1.68,
+				"template-headings": 0.96,
+				"happy-to": 0.88,
+				"so-chains": 0.8,
+				"code-span-density": 0.69,
+				"now-verbs": 0.37,
+				"engineering-jargon": 0.36,
+				"colon-bullets": 0.29,
+				"test-reference": 0.21,
+				"sentence-bullets": 0.2,
+				"first-person": -0.14,
+				"contractions": -0.52
+			}
+		},
+		"ai/user-ff28b1cc-repo-689ecd02-22026.md": {
+			"label": "ai",
+			"score": 0.2,
+			"signals": {
+				"ai-disclosure": 3,
+				"sentence-bullets": 1.02,
+				"template-headings": 0.96,
+				"engineering-jargon": 0.79,
+				"workflow-vocabulary": 0.53,
+				"fails-before-fix": 0.51,
+				"coined-compounds": 0.41,
+				"semicolons": 0.38,
+				"so-chains": 0.29,
+				"code-span-density": 0.27,
+				"now-verbs": 0.27,
+				"emoji-markers": 0.22,
+				"test-reference": 0.21,
+				"colon-bullets": 0.21,
+				"math-symbols": 0.21,
+				"tables": 0.11,
+				"this-pr": -0.02,
+				"template-checkboxes": -0.11,
+				"commit-shas": -0.62,
+				"bare-urls": -0.66
 			}
 		},
 		"ai/valkey-io-valkey-4846.md": {

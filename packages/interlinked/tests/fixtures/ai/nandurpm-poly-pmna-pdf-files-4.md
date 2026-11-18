@@ -1,0 +1,5 @@
+Preserves the original diploma-notes PDF bytes under legacy/diploma-notes/<source-commit>/<original-path>. Files are verified against the source Git blob hash before and after copying. A final manifest records the original path, archive path, size, SHA-256 and Git blob hash.
+
+The coordinated migration in nandurpm/diploma-notes#356 removes tracked source PDFs only after the complete remote archive is verified and every public website file compares byte-for-byte identical. The public builder restores these exact PDFs at their existing URLs, preserving download buttons and embedded viewers.
+
+Migration is still running. Do not merge until the final manifest contains all 237 PDFs and source PR verification passes. Merge this archive PR first. This PR does not replace existing canonical study-note versions.
