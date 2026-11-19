@@ -1,7 +1,7 @@
 {
 	"summary": {
-		"score": 90.5,
-		"aiCaught": 0.811,
+		"score": 92.9,
+		"aiCaught": 0.858,
 		"humansCalledAi": 0
 	},
 	"fixtures": {
@@ -75,8 +75,8 @@
 				"colon-bullets": 0.1,
 				"contrast-phrases": 0.1,
 				"this-pr": -0.02,
-				"bare-urls": -0.33,
-				"commit-shas": -0.41
+				"commit-shas": -0.21,
+				"bare-urls": -0.33
 			}
 		},
 		"ai/AndrewGMorgan-libcap_mirror-15.md": {
@@ -237,7 +237,7 @@
 		},
 		"ai/BerriAI-litellm-44103.md": {
 			"label": "ai",
-			"score": 13.6,
+			"score": 7.5,
 			"signals": {
 				"agent-attribution": 4,
 				"coined-compounds": 1.23,
@@ -245,7 +245,7 @@
 				"contractions": -0.16,
 				"unpunctuated-lines": -0.19,
 				"template-checkboxes": -0.22,
-				"bare-urls": -1.32
+				"bare-urls": -0.66
 			}
 		},
 		"ai/BerriAI-litellm-44187.md": {
@@ -674,12 +674,12 @@
 				"bold-lead-bullets": 0.28,
 				"imperative-sentences": 0.25,
 				"now-verbs": 0.24,
-				"commit-shas": -0.83
+				"commit-shas": -0.41
 			}
 		},
 		"ai/PostHog-posthog-110396.md": {
 			"label": "ai",
-			"score": 28.8,
+			"score": 7.5,
 			"signals": {
 				"ai-disclosure": 3,
 				"sentence-bullets": 0.71,
@@ -687,9 +687,7 @@
 				"test-reference": 0.21,
 				"colon-bullets": 0.17,
 				"epistemic-hedge": 0.14,
-				"unpunctuated-lines": -0.56,
-				"commit-shas": -0.62,
-				"bare-urls": -0.99
+				"unpunctuated-lines": -0.56
 			}
 		},
 		"ai/PostHog-posthog-110397.md": {
@@ -771,7 +769,7 @@
 		},
 		"ai/Stirling-Tools-Stirling-PDF-8312.md": {
 			"label": "ai",
-			"score": 5.4,
+			"score": 0.7,
 			"signals": {
 				"so-chains": 1.19,
 				"coined-compounds": 1.12,
@@ -790,9 +788,7 @@
 				"this-pr": -0.02,
 				"template-checkboxes": -0.05,
 				"first-person": -0.19,
-				"unpunctuated-lines": -0.74,
-				"commit-shas": -0.83,
-				"bare-urls": -1.32
+				"unpunctuated-lines": -0.74
 			}
 		},
 		"ai/Stirling-Tools-Stirling-PDF-8338.md": {
@@ -904,7 +900,7 @@
 		},
 		"ai/TheHalfMoon-commandMed-251.md": {
 			"label": "ai",
-			"score": 11.5,
+			"score": 3.3,
 			"signals": {
 				"coined-compounds": 2.93,
 				"engineering-jargon": 0.84,
@@ -914,8 +910,7 @@
 				"agent-vocabulary": 0.16,
 				"colon-bullets": 0.11,
 				"commit-shas": -0.21,
-				"unpunctuated-lines": -0.37,
-				"bare-urls": -1.32
+				"unpunctuated-lines": -0.37
 			}
 		},
 		"ai/ToolJet-ToolJet-18202.md": {
@@ -1160,7 +1155,7 @@
 		},
 		"ai/apache-airflow-74141.md": {
 			"label": "ai",
-			"score": 0.1,
+			"score": 0,
 			"signals": {
 				"ai-disclosure": 3,
 				"sentence-bullets": 1.25,
@@ -1169,6 +1164,7 @@
 				"so-chains": 0.83,
 				"code-span-density": 0.71,
 				"test-tally": 0.64,
+				"fails-before-fix": 0.51,
 				"bold-lead-bullets": 0.47,
 				"coined-compounds": 0.29,
 				"test-reference": 0.21,
@@ -1364,17 +1360,16 @@
 		},
 		"ai/appwrite-appwrite-14189.md": {
 			"label": "ai",
-			"score": 78.3,
+			"score": 1.2,
 			"signals": {
+				"agent-attribution": 4,
 				"unchanged-claims": 0.58,
 				"semicolons": 0.51,
 				"code-span-density": 0.49,
 				"scope-disclaimer": 0.44,
 				"sentence-bullets": 0.2,
 				"colon-bullets": 0.14,
-				"unpunctuated-lines": -0.19,
-				"commit-shas": -0.41,
-				"bare-urls": -1.32
+				"unpunctuated-lines": -0.19
 			}
 		},
 		"ai/aquasecurity-trivy-11341.md": {
@@ -1519,7 +1514,7 @@
 		},
 		"ai/axios-axios-11264.md": {
 			"label": "ai",
-			"score": 0.9,
+			"score": 0.2,
 			"signals": {
 				"semicolons": 1.35,
 				"scope-disclaimer": 1.33,
@@ -1537,8 +1532,7 @@
 				"template-checkboxes": -0.16,
 				"commit-shas": -0.21,
 				"unpunctuated-lines": -0.37,
-				"emoticons": -0.56,
-				"bare-urls": -1.32
+				"emoticons": -0.56
 			}
 		},
 		"ai/axios-axios-11265.md": {
@@ -1565,8 +1559,7 @@
 				"template-checkboxes": -0.16,
 				"commit-shas": -0.21,
 				"unpunctuated-lines": -0.37,
-				"emoticons": -0.56,
-				"bare-urls": -1.32
+				"emoticons": -0.56
 			}
 		},
 		"ai/axios-axios-11279.md": {
@@ -1596,9 +1589,9 @@
 				"colon-bullets": 0.08,
 				"this-pr": -0.04,
 				"template-checkboxes": -0.05,
+				"bare-urls": -0.33,
 				"unpunctuated-lines": -0.56,
-				"commit-shas": -0.83,
-				"bare-urls": -1.32
+				"commit-shas": -0.83
 			}
 		},
 		"ai/babel-babel-18299.md": {
@@ -1642,12 +1635,12 @@
 		},
 		"ai/bazelbuild-bazel-31630.md": {
 			"label": "ai",
-			"score": 77.5,
+			"score": 71.2,
 			"signals": {
 				"engineering-jargon": 1.41,
 				"now-verbs": 0.48,
 				"commit-shas": -0.41,
-				"bare-urls": -0.99
+				"bare-urls": -0.66
 			}
 		},
 		"ai/bevyengine-bevy-26025.md": {
@@ -1743,8 +1736,9 @@
 		},
 		"ai/caddyserver-caddy-8160.md": {
 			"label": "ai",
-			"score": 58,
+			"score": 6.4,
 			"signals": {
+				"ai-disclosure": 3,
 				"semicolons": 0.68,
 				"now-verbs": 0.48,
 				"verification-label": 0.26,
@@ -1754,7 +1748,7 @@
 		},
 		"ai/calcom-cal.diy-30315.md": {
 			"label": "ai",
-			"score": 52.6,
+			"score": 15.2,
 			"signals": {
 				"bold-lead-bullets": 1.61,
 				"sentence-bullets": 1.18,
@@ -1768,10 +1762,9 @@
 				"not-contrast": 0.16,
 				"contractions": -0.04,
 				"template-checkboxes": -0.05,
-				"commit-shas": -0.83,
+				"bare-urls": -0.33,
 				"unpunctuated-lines": -0.93,
-				"questions": -1.01,
-				"bare-urls": -1.32
+				"questions": -1.01
 			}
 		},
 		"ai/capricorn86-happy-dom-6115412620.md": {
@@ -1940,8 +1933,9 @@
 		},
 		"ai/cilium-cilium-49201.md": {
 			"label": "ai",
-			"score": 57.8,
+			"score": 6.4,
 			"signals": {
+				"ai-disclosure": 3,
 				"semicolons": 0.68,
 				"fails-before-fix": 0.51,
 				"test-tally": 0.21
@@ -2429,10 +2423,11 @@
 		},
 		"ai/elastic-elasticsearch-160737.md": {
 			"label": "ai",
-			"score": 50.7,
+			"score": 38.2,
 			"signals": {
 				"code-span-density": 0.81,
 				"semicolons": 0.68,
+				"fails-before-fix": 0.51,
 				"animate-code": 0.2
 			}
 		},
@@ -2869,11 +2864,9 @@
 		},
 		"ai/getsentry-sentry-126286.md": {
 			"label": "ai",
-			"score": 99.2,
+			"score": 93.4,
 			"signals": {
-				"commit-shas": -0.83,
-				"unpunctuated-lines": -0.93,
-				"bare-urls": -1.32
+				"unpunctuated-lines": -0.93
 			}
 		},
 		"ai/getsentry-sentry-126329.md": {
@@ -3246,8 +3239,9 @@
 		},
 		"ai/helix-editor-helix-16358.md": {
 			"label": "ai",
-			"score": 71.2,
+			"score": 4.3,
 			"signals": {
+				"agent-attribution": 4,
 				"template-headings": 0.96,
 				"first-person": -0.14
 			}
@@ -3603,7 +3597,7 @@
 				"arrows": 0.07,
 				"unpunctuated-lines": -0.19,
 				"commit-shas": -0.21,
-				"bare-urls": -0.99
+				"bare-urls": -0.33
 			}
 		},
 		"ai/jestjs-jest-16478.md": {
@@ -3700,6 +3694,7 @@
 				"happy-to": 0.88,
 				"code-span-density": 0.72,
 				"workflow-vocabulary": 0.53,
+				"fails-before-fix": 0.51,
 				"contrast-phrases": 0.3,
 				"now-verbs": 0.25,
 				"engineering-jargon": 0.24,
@@ -3837,7 +3832,7 @@
 		},
 		"ai/langchain-ai-langchain-41001.md": {
 			"label": "ai",
-			"score": 0.8,
+			"score": 0.6,
 			"signals": {
 				"coined-compounds": 1.93,
 				"semicolons": 1.35,
@@ -3850,7 +3845,6 @@
 				"agent-vocabulary": 0.18,
 				"contrast-phrases": 0.13,
 				"colon-bullets": 0.12,
-				"commit-shas": -0.21,
 				"bare-urls": -0.33
 			}
 		},
@@ -4335,10 +4329,11 @@
 		},
 		"ai/mrdoob-three.js-34729.md": {
 			"label": "ai",
-			"score": 55,
+			"score": 42.3,
 			"signals": {
 				"code-span-density": 0.78,
 				"workflow-vocabulary": 0.53,
+				"fails-before-fix": 0.51,
 				"test-reference": 0.21
 			}
 		},
@@ -4380,20 +4375,19 @@
 		},
 		"ai/n8n-io-n8n-40082.md": {
 			"label": "ai",
-			"score": 96.7,
+			"score": 86.9,
 			"signals": {
 				"sentence-bullets": 1.05,
 				"coined-compounds": 0.49,
 				"this-pr": -0.02,
 				"contractions": -0.1,
-				"commit-shas": -0.83,
-				"unpunctuated-lines": -0.93,
-				"bare-urls": -1.32
+				"bare-urls": -0.66,
+				"unpunctuated-lines": -0.93
 			}
 		},
 		"ai/n8n-io-n8n-40469.md": {
 			"label": "ai",
-			"score": 25.2,
+			"score": 11.1,
 			"signals": {
 				"semicolons": 1.25,
 				"now-verbs": 0.88,
@@ -4403,7 +4397,7 @@
 				"verification-label": 0.26,
 				"arrows": 0.21,
 				"unpunctuated-lines": -0.19,
-				"bare-urls": -1.32
+				"bare-urls": -0.33
 			}
 		},
 		"ai/nandurpm-poly-pmna-pdf-files-4.md": {
@@ -4621,8 +4615,7 @@
 				"now-verbs": 0.18,
 				"not-contrast": 0.13,
 				"commit-shas": -0.21,
-				"unpunctuated-lines": -0.37,
-				"bare-urls": -1.32
+				"unpunctuated-lines": -0.37
 			}
 		},
 		"ai/onyx-dot-app-onyx-15406.md": {
@@ -4651,8 +4644,7 @@
 				"not-contrast": 0.13,
 				"this-pr": -0.02,
 				"commit-shas": -0.21,
-				"unpunctuated-lines": -0.37,
-				"bare-urls": -1.32
+				"unpunctuated-lines": -0.37
 			}
 		},
 		"ai/open-circle-valibot-1594.md": {
@@ -4933,7 +4925,7 @@
 				"engineering-jargon": 0.29,
 				"agent-vocabulary": 0.16,
 				"code-span-density": 0.14,
-				"commit-shas": -0.62
+				"commit-shas": -0.21
 			}
 		},
 		"ai/openclaw-openclaw-163555.md": {
@@ -5305,7 +5297,7 @@
 		},
 		"ai/pnpm-pnpm-16507.md": {
 			"label": "ai",
-			"score": 0.3,
+			"score": 0.1,
 			"signals": {
 				"ai-disclosure": 3,
 				"semicolons": 2.73,
@@ -5323,13 +5315,12 @@
 				"agent-vocabulary": 0.1,
 				"this-pr": -0.02,
 				"questions": -0.34,
-				"unpunctuated-lines": -0.93,
-				"bare-urls": -1.32
+				"unpunctuated-lines": -0.93
 			}
 		},
 		"ai/pnpm-pnpm-16510.md": {
 			"label": "ai",
-			"score": 91.8,
+			"score": 80.7,
 			"signals": {
 				"so-chains": 0.65,
 				"now-verbs": 0.6,
@@ -5337,9 +5328,9 @@
 				"engineering-jargon": 0.29,
 				"this-pr": -0.02,
 				"template-checkboxes": -0.05,
+				"bare-urls": -0.33,
 				"questions": -0.34,
-				"unpunctuated-lines": -0.93,
-				"bare-urls": -1.32
+				"unpunctuated-lines": -0.93
 			}
 		},
 		"ai/pnpm-pnpm-16512.md": {
@@ -5360,20 +5351,19 @@
 		},
 		"ai/pnpm-pnpm-16524.md": {
 			"label": "ai",
-			"score": 87.3,
+			"score": 64.8,
 			"signals": {
 				"template-headings": 0.96,
 				"code-span-density": 0.47,
 				"test-reference": 0.41,
 				"this-pr": -0.02,
 				"questions": -0.34,
-				"unpunctuated-lines": -0.37,
-				"bare-urls": -1.32
+				"unpunctuated-lines": -0.37
 			}
 		},
 		"ai/pnpm-pnpm-16658.md": {
 			"label": "ai",
-			"score": 16,
+			"score": 4.8,
 			"signals": {
 				"ai-disclosure": 3,
 				"scope-disclaimer": 0.89,
@@ -5384,8 +5374,7 @@
 				"code-span-density": 0.1,
 				"this-pr": -0.04,
 				"questions": -0.34,
-				"unpunctuated-lines": -0.93,
-				"bare-urls": -1.32
+				"unpunctuated-lines": -0.93
 			}
 		},
 		"ai/pola-rs-polars-29733.md": {
@@ -5732,7 +5721,7 @@
 		},
 		"ai/pytorch-pytorch-199415.md": {
 			"label": "ai",
-			"score": 14.5,
+			"score": 1.9,
 			"signals": {
 				"ai-disclosure": 3,
 				"semicolons": 1.2,
@@ -5743,9 +5732,7 @@
 				"so-chains": 0.23,
 				"this-pr": -0.04,
 				"unpunctuated-lines": -0.19,
-				"questions": -0.34,
-				"commit-shas": -0.83,
-				"bare-urls": -1.32
+				"questions": -0.34
 			}
 		},
 		"ai/pytorch-pytorch-199416.md": {
@@ -6099,21 +6086,19 @@
 				"engineering-jargon": 0.29,
 				"not-contrast": 0.21,
 				"agent-vocabulary": 0.16,
-				"unpunctuated-lines": -0.19,
-				"bare-urls": -0.99
+				"unpunctuated-lines": -0.19
 			}
 		},
 		"ai/seaweedfs-seaweedfs-11574.md": {
 			"label": "ai",
-			"score": 0.6,
+			"score": 0.2,
 			"signals": {
 				"agent-attribution": 4,
 				"plan-headings": 2.09,
 				"template-headings": 0.96,
 				"sentence-bullets": 0.7,
 				"engineering-jargon": 0.31,
-				"unpunctuated-lines": -0.19,
-				"bare-urls": -0.99
+				"unpunctuated-lines": -0.19
 			}
 		},
 		"ai/seaweedfs-seaweedfs-11619.md": {
@@ -6158,7 +6143,7 @@
 		},
 		"ai/sgl-project-sglang-42047.md": {
 			"label": "ai",
-			"score": 0.2,
+			"score": 0.1,
 			"signals": {
 				"ai-disclosure": 3,
 				"semicolons": 2.41,
@@ -6172,12 +6157,12 @@
 				"not-contrast": 0.2,
 				"template-checkboxes": -0.16,
 				"unpunctuated-lines": -0.19,
-				"emoticons": -1.13
+				"emoticons": -0.56
 			}
 		},
 		"ai/sgl-project-sglang-42093.md": {
 			"label": "ai",
-			"score": 0.1,
+			"score": 0,
 			"signals": {
 				"ai-disclosure": 3,
 				"coined-compounds": 2.19,
@@ -6191,26 +6176,24 @@
 				"sentence-bullets": 0.2,
 				"code-span-density": 0.17,
 				"epistemic-hedge": 0.14,
-				"questions": -0.34,
-				"emoticons": -1.13
+				"questions": -0.34
 			}
 		},
 		"ai/sgl-project-sglang-42151.md": {
 			"label": "ai",
-			"score": 74.7,
+			"score": 48.8,
 			"signals": {
 				"fails-before-fix": 0.51,
 				"existing-reference": 0.5,
 				"scope-disclaimer": 0.44,
 				"colon-bullets": 0.28,
 				"sentence-bullets": 0.19,
-				"template-checkboxes": -0.16,
-				"emoticons": -1.13
+				"template-checkboxes": -0.16
 			}
 		},
 		"ai/sgl-project-sglang-43187.md": {
 			"label": "ai",
-			"score": 2.5,
+			"score": 0.8,
 			"signals": {
 				"semicolons": 1.86,
 				"so-chains": 0.71,
@@ -6225,8 +6208,7 @@
 				"agent-vocabulary": 0.18,
 				"sentence-bullets": 0.18,
 				"code-span-density": 0.12,
-				"template-checkboxes": -0.11,
-				"emoticons": -1.13
+				"template-checkboxes": -0.11
 			}
 		},
 		"ai/shadcn-ui-ui-12206.md": {
@@ -6314,16 +6296,18 @@
 		},
 		"ai/slegarraga-json-from-llm-10.md": {
 			"label": "ai",
-			"score": 52.6,
+			"score": 28,
 			"signals": {
+				"plan-headings": 1.05,
 				"code-span-density": 0.89,
 				"coined-compounds": 0.73
 			}
 		},
 		"ai/slegarraga-llm-sse-1.md": {
 			"label": "ai",
-			"score": 72.9,
+			"score": 48.5,
 			"signals": {
+				"plan-headings": 1.05,
 				"coined-compounds": 0.73
 			}
 		},
@@ -6833,7 +6817,7 @@
 		},
 		"ai/umami-software-umami-4592.md": {
 			"label": "ai",
-			"score": 0.4,
+			"score": 0.1,
 			"signals": {
 				"ai-disclosure": 3,
 				"coined-compounds": 1.66,
@@ -6847,21 +6831,19 @@
 				"contrast-phrases": 0.11,
 				"this-pr": -0.02,
 				"questions": -0.34,
-				"unpunctuated-lines": -0.37,
-				"bare-urls": -1.32
+				"unpunctuated-lines": -0.37
 			}
 		},
 		"ai/unjs-unhead-1004.md": {
 			"label": "ai",
-			"score": 13.8,
+			"score": 11.5,
 			"signals": {
 				"sentence-bullets": 1.31,
 				"coined-compounds": 1.04,
 				"so-chains": 0.74,
 				"stacked-pr": 0.28,
 				"existing-precedent": 0.28,
-				"code-span-density": 0.11,
-				"commit-shas": -0.21
+				"code-span-density": 0.11
 			}
 		},
 		"ai/unjs-unhead-998.md": {
@@ -6919,8 +6901,9 @@
 		},
 		"ai/user-047fd4ac-repo-5519d7bd-6769072738.md": {
 			"label": "ai",
-			"score": 16.2,
+			"score": 0.4,
 			"signals": {
+				"agent-attribution": 4,
 				"code-span-density": 1.35,
 				"not-contrast": 0.69,
 				"semicolons": 0.68,
@@ -6932,8 +6915,9 @@
 		},
 		"ai/user-047fd4ac-repo-5519d7bd-6769082886.md": {
 			"label": "ai",
-			"score": 36.8,
+			"score": 1.1,
 			"signals": {
+				"agent-attribution": 4,
 				"code-span-density": 1.36,
 				"semicolons": 0.68,
 				"not-contrast": 0.35,
@@ -6963,12 +6947,13 @@
 		},
 		"ai/user-047fd4ac-repo-5519d7bd-8032.md": {
 			"label": "ai",
-			"score": 2.1,
+			"score": 0.3,
 			"signals": {
 				"agent-attribution": 4,
 				"template-headings": 0.96,
 				"sentence-bullets": 0.86,
 				"engineering-jargon": 0.62,
+				"fails-before-fix": 0.51,
 				"semicolons": 0.45,
 				"so-chains": 0.34,
 				"code-span-density": 0.32,
@@ -6977,8 +6962,7 @@
 				"this-pr": -0.02,
 				"contractions": -0.19,
 				"questions": -0.34,
-				"unpunctuated-lines": -0.37,
-				"bare-urls": -1.32
+				"unpunctuated-lines": -0.37
 			}
 		},
 		"ai/user-197854d8-repo-535d150f-191513.md": {
@@ -7163,9 +7147,10 @@
 		},
 		"ai/user-2a863219-repo-5186216e-74.md": {
 			"label": "ai",
-			"score": 11.6,
+			"score": 0.1,
 			"signals": {
-				"plan-headings": 1.05,
+				"agent-attribution": 4,
+				"plan-headings": 2.09,
 				"code-span-density": 0.75,
 				"sentence-bullets": 0.72,
 				"semicolons": 0.63,
@@ -7180,9 +7165,9 @@
 		},
 		"ai/user-2a863219-repo-5186216e-75.md": {
 			"label": "ai",
-			"score": 2.5,
+			"score": 0.9,
 			"signals": {
-				"plan-headings": 1.05,
+				"plan-headings": 2.09,
 				"sentence-bullets": 0.71,
 				"code-span-density": 0.69,
 				"coined-compounds": 0.66,
@@ -7200,11 +7185,11 @@
 		},
 		"ai/user-2a863219-repo-5186216e-76.md": {
 			"label": "ai",
-			"score": 2,
+			"score": 0.7,
 			"signals": {
+				"plan-headings": 2.09,
 				"semicolons": 1.96,
 				"code-span-density": 1.26,
-				"plan-headings": 1.05,
 				"coined-compounds": 0.7,
 				"sentence-bullets": 0.5,
 				"agent-vocabulary": 0.26,
@@ -7216,10 +7201,10 @@
 		},
 		"ai/user-2a863219-repo-5186216e-77.md": {
 			"label": "ai",
-			"score": 16.3,
+			"score": 6.4,
 			"signals": {
+				"plan-headings": 2.09,
 				"code-span-density": 1.25,
-				"plan-headings": 1.05,
 				"sentence-bullets": 0.74,
 				"colon-bullets": 0.36,
 				"agent-vocabulary": 0.26,
@@ -7230,10 +7215,10 @@
 		},
 		"ai/user-2a863219-repo-5186216e-78.md": {
 			"label": "ai",
-			"score": 4.6,
+			"score": 1.7,
 			"signals": {
+				"plan-headings": 2.09,
 				"semicolons": 1.35,
-				"plan-headings": 1.05,
 				"sentence-bullets": 0.78,
 				"so-chains": 0.52,
 				"existing-reference": 0.5,
@@ -7342,11 +7327,12 @@
 		},
 		"ai/user-3252a479-repo-cf1f3462-10.md": {
 			"label": "ai",
-			"score": 0.9,
+			"score": 0.3,
 			"signals": {
 				"coined-compounds": 2.68,
 				"sentence-bullets": 1.31,
 				"semicolons": 1.25,
+				"plan-headings": 1.05,
 				"unchanged-claims": 0.58,
 				"engineering-jargon": 0.43,
 				"evidence-claims": 0.19
@@ -7474,20 +7460,22 @@
 		},
 		"ai/user-3252a479-repo-cf1f3462-8.md": {
 			"label": "ai",
-			"score": 1.7,
+			"score": 0.6,
 			"signals": {
 				"semicolons": 1.57,
 				"sentence-bullets": 1.21,
 				"work-claim": 1.12,
 				"engineering-jargon": 1.08,
+				"plan-headings": 1.05,
 				"coined-compounds": 0.56,
 				"imperative-sentences": 0.25
 			}
 		},
 		"ai/user-3533979d-repo-104d408f-2114.md": {
 			"label": "ai",
-			"score": 4.6,
+			"score": 0.1,
 			"signals": {
+				"agent-attribution": 4,
 				"ai-disclosure": 3,
 				"sentence-bullets": 0.7,
 				"semicolons": 0.61,
@@ -7515,8 +7503,9 @@
 		},
 		"ai/user-4453c970-repo-0e9c1d8b-5.md": {
 			"label": "ai",
-			"score": 66.1,
+			"score": 3.5,
 			"signals": {
+				"agent-attribution": 4,
 				"em-dash": 1.1,
 				"semicolons": 0.68,
 				"evidence-claims": 0.19,
@@ -7580,8 +7569,9 @@
 		},
 		"ai/user-53ec2bf6-repo-3e80088a-6731798633.md": {
 			"label": "ai",
-			"score": 71.6,
+			"score": 4.4,
 			"signals": {
+				"agent-attribution": 4,
 				"code-span-density": 0.88,
 				"so-chains": 0.52,
 				"sentence-bullets": 0.26,
@@ -7593,8 +7583,9 @@
 		},
 		"ai/user-53ec2bf6-repo-eeef5e83-6731266666.md": {
 			"label": "ai",
-			"score": 56.4,
+			"score": 2.3,
 			"signals": {
+				"agent-attribution": 4,
 				"ci-green": 0.59,
 				"sentence-bullets": 0.52,
 				"code-span-density": 0.4,
@@ -7631,8 +7622,9 @@
 		},
 		"ai/user-55378e8f-repo-173a5c99-23228.md": {
 			"label": "ai",
-			"score": 30.1,
+			"score": 2.1,
 			"signals": {
+				"ai-disclosure": 3,
 				"semicolons": 1.17,
 				"coined-compounds": 0.63,
 				"unchanged-claims": 0.58,
@@ -7778,8 +7770,9 @@
 		},
 		"ai/user-5fd00a5b-repo-ced84ca9-51933.md": {
 			"label": "ai",
-			"score": 64.9,
+			"score": 0.6,
 			"signals": {
+				"agent-attribution": 4,
 				"sentence-bullets": 0.63,
 				"unchanged-claims": 0.58,
 				"now-verbs": 0.57,
@@ -7788,29 +7781,27 @@
 				"semicolons": 0.41,
 				"colon-bullets": 0.11,
 				"contractions": -0.16,
-				"unpunctuated-lines": -0.19,
-				"commit-shas": -0.41,
-				"bare-urls": -1.32
+				"unpunctuated-lines": -0.19
 			}
 		},
 		"ai/user-5fd00a5b-repo-ced84ca9-51944.md": {
 			"label": "ai",
-			"score": 87,
+			"score": 2.1,
 			"signals": {
+				"agent-attribution": 4,
 				"semicolons": 0.91,
 				"so-chains": 0.35,
 				"sentence-bullets": 0.35,
 				"code-span-density": 0.3,
 				"template-checkboxes": -0.16,
-				"unpunctuated-lines": -0.19,
-				"commit-shas": -0.41,
-				"bare-urls": -1.32
+				"unpunctuated-lines": -0.19
 			}
 		},
 		"ai/user-5fd00a5b-repo-ced84ca9-52127.md": {
 			"label": "ai",
-			"score": 3.2,
+			"score": 0,
 			"signals": {
+				"agent-attribution": 4,
 				"coined-compounds": 2.71,
 				"sentence-bullets": 1.31,
 				"engineering-jargon": 0.65,
@@ -7824,22 +7815,19 @@
 				"animate-code": 0.2,
 				"arrows": 0.05,
 				"unpunctuated-lines": -0.19,
-				"commit-shas": -0.41,
-				"contractions": -0.42,
-				"bare-urls": -1.32
+				"contractions": -0.42
 			}
 		},
 		"ai/user-5fd00a5b-repo-ced84ca9-52129.md": {
 			"label": "ai",
-			"score": 87.5,
+			"score": 2.2,
 			"signals": {
+				"agent-attribution": 4,
 				"coined-compounds": 0.94,
 				"fails-before-fix": 0.51,
 				"code-span-density": 0.33,
 				"contractions": -0.09,
-				"unpunctuated-lines": -0.19,
-				"commit-shas": -0.41,
-				"bare-urls": -1.32
+				"unpunctuated-lines": -0.19
 			}
 		},
 		"ai/user-5fd00a5b-repo-ced84ca9-6332681905.md": {
@@ -7914,8 +7902,9 @@
 		},
 		"ai/user-747ed1fb-repo-ba74ffe9-20.md": {
 			"label": "ai",
-			"score": 17.2,
+			"score": 6.8,
 			"signals": {
+				"plan-headings": 1.05,
 				"sentence-bullets": 0.87,
 				"imperative-sentences": 0.76,
 				"unchanged-claims": 0.58,
@@ -8067,18 +8056,20 @@
 		},
 		"ai/user-8809b222-repo-8f9d6f8c-100.md": {
 			"label": "ai",
-			"score": 67.7,
+			"score": 0.5,
 			"signals": {
-				"plan-headings": 1.05,
+				"agent-attribution": 4,
+				"plan-headings": 3.14,
 				"agent-vocabulary": 0.27,
 				"questions": -0.34
 			}
 		},
 		"ai/user-8809b222-repo-8f9d6f8c-83.md": {
 			"label": "ai",
-			"score": 31.2,
+			"score": 0.1,
 			"signals": {
-				"plan-headings": 1.05,
+				"agent-attribution": 4,
+				"plan-headings": 3.14,
 				"coined-compounds": 0.73,
 				"semicolons": 0.68,
 				"code-span-density": 0.39,
@@ -8087,9 +8078,10 @@
 		},
 		"ai/user-8809b222-repo-8f9d6f8c-85.md": {
 			"label": "ai",
-			"score": 39,
+			"score": 0.1,
 			"signals": {
-				"plan-headings": 1.05,
+				"agent-attribution": 4,
+				"plan-headings": 3.14,
 				"code-span-density": 0.73,
 				"coined-compounds": 0.73,
 				"questions": -0.34
@@ -8105,8 +8097,9 @@
 		},
 		"ai/user-8e9eff7b-repo-88ca0580-6719528231.md": {
 			"label": "ai",
-			"score": 87.3,
+			"score": 11.2,
 			"signals": {
+				"agent-attribution": 4,
 				"semicolons": 0.68,
 				"contrast-phrases": 0.19,
 				"first-person": -0.38,
@@ -8153,8 +8146,9 @@
 		},
 		"ai/user-97374de4-repo-3bfec0a7-6755167041.md": {
 			"label": "ai",
-			"score": 68.9,
+			"score": 3.9,
 			"signals": {
+				"agent-attribution": 4,
 				"status-openers": 0.88,
 				"semicolons": 0.68,
 				"contractions": -0.64
@@ -8212,8 +8206,9 @@
 		},
 		"ai/user-af636340-repo-44764586-6737515626.md": {
 			"label": "ai",
-			"score": 11.3,
+			"score": 0.2,
 			"signals": {
+				"agent-attribution": 4,
 				"so-chains": 1.13,
 				"code-span-density": 1.08,
 				"sentence-bullets": 0.76,
@@ -8226,8 +8221,9 @@
 		},
 		"ai/user-af636340-repo-44764586-6737516608.md": {
 			"label": "ai",
-			"score": 71.2,
+			"score": 4.3,
 			"signals": {
+				"agent-attribution": 4,
 				"sentence-bullets": 0.76,
 				"code-span-density": 0.26,
 				"contractions": -0.21
@@ -8235,8 +8231,9 @@
 		},
 		"ai/user-af636340-repo-44764586-6737517824.md": {
 			"label": "ai",
-			"score": 23.4,
+			"score": 0.6,
 			"signals": {
+				"agent-attribution": 4,
 				"semicolons": 1.35,
 				"code-span-density": 0.9,
 				"bold-lead-bullets": 0.39,
@@ -8245,15 +8242,17 @@
 		},
 		"ai/user-af636340-repo-44764586-6737518489.md": {
 			"label": "ai",
-			"score": 68.4,
+			"score": 3.8,
 			"signals": {
+				"agent-attribution": 4,
 				"code-span-density": 0.95
 			}
 		},
 		"ai/user-af636340-repo-44764586-6737519544.md": {
 			"label": "ai",
-			"score": 44.5,
+			"score": 1.4,
 			"signals": {
+				"agent-attribution": 4,
 				"bold-lead-bullets": 1.05,
 				"so-chains": 1.04,
 				"code-span-density": 0.46,
@@ -8263,8 +8262,9 @@
 		},
 		"ai/user-af636340-repo-44764586-6737521707.md": {
 			"label": "ai",
-			"score": 16.1,
+			"score": 0.3,
 			"signals": {
+				"agent-attribution": 4,
 				"code-span-density": 0.98,
 				"sentence-bullets": 0.97,
 				"so-chains": 0.77,
@@ -8276,8 +8276,9 @@
 		},
 		"ai/user-af636340-repo-44764586-6737524291.md": {
 			"label": "ai",
-			"score": 21.3,
+			"score": 0.5,
 			"signals": {
+				"agent-attribution": 4,
 				"so-chains": 1.02,
 				"sentence-bullets": 0.85,
 				"code-span-density": 0.55,
@@ -8292,8 +8293,9 @@
 		},
 		"ai/user-af636340-repo-44764586-6737526473.md": {
 			"label": "ai",
-			"score": 6.8,
+			"score": 0.1,
 			"signals": {
+				"agent-attribution": 4,
 				"so-chains": 1.09,
 				"code-span-density": 0.58,
 				"unchanged-claims": 0.58,
@@ -8309,8 +8311,9 @@
 		},
 		"ai/user-af636340-repo-44764586-6737527401.md": {
 			"label": "ai",
-			"score": 45.4,
+			"score": 1.5,
 			"signals": {
+				"agent-attribution": 4,
 				"code-span-density": 1.36,
 				"coined-compounds": 0.73,
 				"so-chains": 0.52,
@@ -8321,8 +8324,9 @@
 		},
 		"ai/user-af636340-repo-44764586-6737528714.md": {
 			"label": "ai",
-			"score": 8.6,
+			"score": 0.2,
 			"signals": {
+				"agent-attribution": 4,
 				"so-chains": 1.31,
 				"coined-compounds": 1.23,
 				"bold-lead-bullets": 0.51,
@@ -8337,8 +8341,9 @@
 		},
 		"ai/user-af636340-repo-44764586-6737674410.md": {
 			"label": "ai",
-			"score": 71.7,
+			"score": 4.4,
 			"signals": {
+				"agent-attribution": 4,
 				"code-span-density": 0.73,
 				"so-chains": 0.52,
 				"contractions": -0.46
@@ -8346,8 +8351,9 @@
 		},
 		"ai/user-af636340-repo-44764586-6737675314.md": {
 			"label": "ai",
-			"score": 58.7,
+			"score": 2.5,
 			"signals": {
+				"agent-attribution": 4,
 				"code-span-density": 0.62,
 				"ci-green": 0.59,
 				"denominal-verbs": 0.45,
@@ -8357,8 +8363,9 @@
 		},
 		"ai/user-af636340-repo-44764586-6737677231.md": {
 			"label": "ai",
-			"score": 45.2,
+			"score": 1.5,
 			"signals": {
+				"agent-attribution": 4,
 				"coined-compounds": 0.51,
 				"bold-lead-bullets": 0.41,
 				"so-chains": 0.36,
@@ -8370,8 +8377,9 @@
 		},
 		"ai/user-af636340-repo-44764586-6737679392.md": {
 			"label": "ai",
-			"score": 13.1,
+			"score": 0.3,
 			"signals": {
+				"agent-attribution": 4,
 				"code-span-density": 0.79,
 				"sentence-bullets": 0.74,
 				"bold-lead-bullets": 0.68,
@@ -8386,8 +8394,9 @@
 		},
 		"ai/user-af636340-repo-44764586-6737681909.md": {
 			"label": "ai",
-			"score": 11.3,
+			"score": 0.2,
 			"signals": {
+				"agent-attribution": 4,
 				"code-span-density": 0.98,
 				"coined-compounds": 0.97,
 				"bold-lead-bullets": 0.89,
@@ -8400,8 +8409,9 @@
 		},
 		"ai/user-af636340-repo-44764586-6737683237.md": {
 			"label": "ai",
-			"score": 9.1,
+			"score": 0.2,
 			"signals": {
+				"agent-attribution": 4,
 				"coined-compounds": 2,
 				"semicolons": 0.62,
 				"code-span-density": 0.62,
@@ -8411,8 +8421,9 @@
 		},
 		"ai/user-af636340-repo-44764586-6737685155.md": {
 			"label": "ai",
-			"score": 45.1,
+			"score": 1.5,
 			"signals": {
+				"agent-attribution": 4,
 				"code-span-density": 0.57,
 				"bold-lead-bullets": 0.53,
 				"coined-compounds": 0.49,
@@ -8426,8 +8437,9 @@
 		},
 		"ai/user-af636340-repo-44764586-6741839190.md": {
 			"label": "ai",
-			"score": 15.1,
+			"score": 0.3,
 			"signals": {
+				"agent-attribution": 4,
 				"sentence-bullets": 0.83,
 				"so-chains": 0.82,
 				"coined-compounds": 0.77,
@@ -8444,8 +8456,9 @@
 		},
 		"ai/user-af636340-repo-44764586-6741840506.md": {
 			"label": "ai",
-			"score": 46.8,
+			"score": 1.6,
 			"signals": {
+				"agent-attribution": 4,
 				"sentence-bullets": 0.79,
 				"code-span-density": 0.65,
 				"now-verbs": 0.48,
@@ -8455,8 +8468,9 @@
 		},
 		"ai/user-af636340-repo-44764586-6742732879.md": {
 			"label": "ai",
-			"score": 14.5,
+			"score": 0.3,
 			"signals": {
+				"agent-attribution": 4,
 				"coined-compounds": 1,
 				"sentence-bullets": 0.89,
 				"bold-lead-bullets": 0.54,
@@ -8474,8 +8488,9 @@
 		},
 		"ai/user-af636340-repo-44764586-6744208266.md": {
 			"label": "ai",
-			"score": 74.2,
+			"score": 5,
 			"signals": {
+				"agent-attribution": 4,
 				"coined-compounds": 0.66,
 				"workflow-vocabulary": 0.53,
 				"code-span-density": 0.42,
@@ -8489,8 +8504,9 @@
 		},
 		"ai/user-af636340-repo-44764586-6745212958.md": {
 			"label": "ai",
-			"score": 9.1,
+			"score": 0.2,
 			"signals": {
+				"agent-attribution": 4,
 				"so-chains": 1.2,
 				"code-span-density": 0.82,
 				"engineering-jargon": 0.54,
@@ -8504,8 +8520,9 @@
 		},
 		"ai/user-af636340-repo-44764586-6745215243.md": {
 			"label": "ai",
-			"score": 9,
+			"score": 0.2,
 			"signals": {
+				"agent-attribution": 4,
 				"code-span-density": 1.32,
 				"sentence-bullets": 1.13,
 				"so-chains": 0.9,
@@ -8516,8 +8533,9 @@
 		},
 		"ai/user-af636340-repo-44764586-6745215909.md": {
 			"label": "ai",
-			"score": 95.6,
+			"score": 28.6,
 			"signals": {
+				"agent-attribution": 4,
 				"semicolons": 0.68,
 				"first-person": -0.73,
 				"contractions": -1.32
@@ -8525,24 +8543,27 @@
 		},
 		"ai/user-af636340-repo-44764586-6745216550.md": {
 			"label": "ai",
-			"score": 96.2,
+			"score": 31.7,
 			"signals": {
+				"agent-attribution": 4,
 				"contractions": -0.73,
 				"first-person": -0.78
 			}
 		},
 		"ai/user-af636340-repo-44764586-6745217202.md": {
 			"label": "ai",
-			"score": 97.9,
+			"score": 45.5,
 			"signals": {
+				"agent-attribution": 4,
 				"first-person": -0.78,
 				"contractions": -1.32
 			}
 		},
 		"ai/user-af636340-repo-44764586-6745217984.md": {
 			"label": "ai",
-			"score": 86.9,
+			"score": 10.9,
 			"signals": {
+				"agent-attribution": 4,
 				"coined-compounds": 0.73,
 				"agent-vocabulary": 0.27,
 				"contractions": -0.57,
@@ -8551,16 +8572,18 @@
 		},
 		"ai/user-af636340-repo-44764586-6745218657.md": {
 			"label": "ai",
-			"score": 96.2,
+			"score": 31.7,
 			"signals": {
+				"agent-attribution": 4,
 				"contractions": -0.73,
 				"first-person": -0.78
 			}
 		},
 		"ai/user-af636340-repo-44764586-6745219263.md": {
 			"label": "ai",
-			"score": 84.8,
+			"score": 9.2,
 			"signals": {
+				"agent-attribution": 4,
 				"code-span-density": 0.75,
 				"workflow-vocabulary": 0.53,
 				"contractions": -0.62,
@@ -8695,7 +8718,7 @@
 		},
 		"ai/user-ff28b1cc-repo-689ecd02-22026.md": {
 			"label": "ai",
-			"score": 0.2,
+			"score": 0.1,
 			"signals": {
 				"ai-disclosure": 3,
 				"sentence-bullets": 1.02,
@@ -8715,7 +8738,6 @@
 				"tables": 0.11,
 				"this-pr": -0.02,
 				"template-checkboxes": -0.11,
-				"commit-shas": -0.62,
 				"bare-urls": -0.66
 			}
 		},
@@ -8752,15 +8774,14 @@
 		},
 		"ai/vendurehq-vendure-5506.md": {
 			"label": "ai",
-			"score": 91.2,
+			"score": 73.4,
 			"signals": {
 				"fails-before-fix": 0.51,
 				"semicolons": 0.48,
 				"code-span-density": 0.44,
 				"this-pr": -0.02,
 				"questions": -0.34,
-				"unpunctuated-lines": -0.37,
-				"bare-urls": -1.32
+				"unpunctuated-lines": -0.37
 			}
 		},
 		"ai/vercel-ai-21950.md": {
@@ -8868,20 +8889,19 @@
 		},
 		"ai/vercel-next.js-99931.md": {
 			"label": "ai",
-			"score": 36.7,
+			"score": 32.1,
 			"signals": {
 				"template-headings": 0.96,
 				"maintainer-mention": 0.95,
 				"sentence-bullets": 0.87,
 				"so-chains": 0.43,
 				"code-span-density": 0.26,
-				"commit-shas": -0.21,
 				"bare-urls": -0.99
 			}
 		},
 		"ai/vercel-swr-4344.md": {
 			"label": "ai",
-			"score": 1.7,
+			"score": 3.4,
 			"signals": {
 				"plan-headings": 2.09,
 				"code-span-density": 1.36,
@@ -8890,7 +8910,8 @@
 				"engineering-jargon": 0.47,
 				"existing-precedent": 0.28,
 				"animate-code": 0.2,
-				"questions": -0.34
+				"questions": -0.34,
+				"typing-quirks": -0.71
 			}
 		},
 		"ai/vercel-turborepo-14419.md": {
@@ -9357,9 +9378,10 @@
 		},
 		"human/Automattic-mongoose-1232856422.md": {
 			"label": "human",
-			"score": 71.6,
+			"score": 83.8,
 			"signals": {
-				"code-span-density": 0.79
+				"code-span-density": 0.79,
+				"typing-quirks": -0.71
 			}
 		},
 		"human/BabylonJS-Babylon.js-6906.md": {
@@ -9391,19 +9413,17 @@
 		},
 		"human/Budibase-budibase-12.md": {
 			"label": "human",
-			"score": 89.4,
-			"signals": {
-				"commit-shas": -0.41
-			}
+			"score": 84.8,
+			"signals": {}
 		},
 		"human/Budibase-budibase-809.md": {
 			"label": "human",
-			"score": 93.8,
+			"score": 89,
 			"signals": {
 				"evidence-claims": 0.19,
 				"this-pr": -0.02,
-				"bare-urls": -0.33,
-				"commit-shas": -0.83
+				"commit-shas": -0.21,
+				"bare-urls": -0.33
 			}
 		},
 		"human/CesiumGS-cesium-1231841099.md": {
@@ -9458,10 +9478,9 @@
 		},
 		"human/GoogleChrome-lighthouse-12988.md": {
 			"label": "human",
-			"score": 94.3,
+			"score": 93.1,
 			"signals": {
 				"unpunctuated-lines": -0.19,
-				"commit-shas": -0.21,
 				"bare-urls": -0.33,
 				"contractions": -0.37
 			}
@@ -9528,11 +9547,10 @@
 		},
 		"human/SerenityOS-serenity-3880.md": {
 			"label": "human",
-			"score": 90.7,
+			"score": 88.8,
 			"signals": {
 				"now-verbs": 0.48,
 				"code-span-density": 0.05,
-				"commit-shas": -0.21,
 				"first-person": -0.32,
 				"unpunctuated-lines": -0.56
 			}
@@ -9570,16 +9588,16 @@
 		},
 		"human/TanStack-table-1545.md": {
 			"label": "human",
-			"score": 95.1,
+			"score": 86.2,
 			"signals": {
-				"template-checkboxes": -0.11,
-				"emoticons": -1.13
+				"template-checkboxes": -0.11
 			}
 		},
 		"human/TanStack-table-2759.md": {
 			"label": "human",
-			"score": 96.6,
+			"score": 98.3,
 			"signals": {
+				"typing-quirks": -0.71,
 				"short-body": -1.62
 			}
 		},
@@ -9603,10 +9621,9 @@
 		},
 		"human/apache-airflow-12007.md": {
 			"label": "human",
-			"score": 87.5,
+			"score": 85.1,
 			"signals": {
-				"this-pr": -0.02,
-				"commit-shas": -0.21
+				"this-pr": -0.02
 			}
 		},
 		"human/apache-airflow-6215.md": {
@@ -9657,20 +9674,19 @@
 		},
 		"human/apache-superset-11512.md": {
 			"label": "human",
-			"score": 93.3,
+			"score": 89,
 			"signals": {
-				"commit-shas": -0.21,
-				"bare-urls": -0.33,
 				"unpunctuated-lines": -0.37
 			}
 		},
 		"human/apache-superset-8304.md": {
 			"label": "human",
-			"score": 94.2,
+			"score": 97.1,
 			"signals": {
 				"unpunctuated-lines": -0.19,
 				"bare-urls": -0.33,
-				"contractions": -0.55
+				"contractions": -0.55,
+				"typing-quirks": -0.71
 			}
 		},
 		"human/appwrite-appwrite-1508.md": {
@@ -9707,12 +9723,13 @@
 		},
 		"human/bigskysoftware-htmx-1282556430.md": {
 			"label": "human",
-			"score": 93.3,
+			"score": 96.6,
 			"signals": {
 				"this-pr": -0.02,
 				"commit-shas": -0.21,
 				"bare-urls": -0.33,
-				"first-person": -0.36
+				"first-person": -0.36,
+				"typing-quirks": -0.71
 			}
 		},
 		"human/bigskysoftware-htmx-198.md": {
@@ -9724,9 +9741,10 @@
 		},
 		"human/bitwarden-server-543.md": {
 			"label": "human",
-			"score": 72.9,
+			"score": 84.6,
 			"signals": {
 				"coined-compounds": 1.47,
+				"typing-quirks": -0.71,
 				"contractions": -0.73
 			}
 		},
@@ -9739,10 +9757,11 @@
 		},
 		"human/caddyserver-caddy-1233387618.md": {
 			"label": "human",
-			"score": 95.8,
+			"score": 99,
 			"signals": {
 				"questions": -0.67,
-				"contractions": -0.73
+				"contractions": -0.73,
+				"typing-quirks": -1.43
 			}
 		},
 		"human/calcom-cal.diy-909404686.md": {
@@ -9790,10 +9809,8 @@
 		},
 		"human/cilium-cilium-9294.md": {
 			"label": "human",
-			"score": 88.6,
-			"signals": {
-				"bare-urls": -0.33
-			}
+			"score": 84.8,
+			"signals": {}
 		},
 		"human/cli-cli-2312.md": {
 			"label": "human",
@@ -9805,7 +9822,7 @@
 		},
 		"human/containerd-containerd-7321.md": {
 			"label": "human",
-			"score": 97.6,
+			"score": 95.5,
 			"signals": {
 				"engineering-jargon": 1.11,
 				"sentence-bullets": 0.21,
@@ -9813,14 +9830,16 @@
 				"contractions": -0.27,
 				"questions": -0.34,
 				"unpunctuated-lines": -0.37,
-				"tentative": -0.86,
-				"bare-urls": -1.32
+				"bare-urls": -0.66,
+				"tentative": -0.86
 			}
 		},
 		"human/crowdsecurity-crowdsec-919.md": {
 			"label": "human",
-			"score": 84.8,
-			"signals": {}
+			"score": 91.9,
+			"signals": {
+				"typing-quirks": -0.71
+			}
 		},
 		"human/dandavison-delta-683.md": {
 			"label": "human",
@@ -9844,13 +9863,12 @@
 		},
 		"human/date-fns-date-fns-907798073.md": {
 			"label": "human",
-			"score": 99.4,
+			"score": 98.9,
 			"signals": {
 				"not-contrast": 0.35,
 				"code-span-density": 0.07,
-				"commit-shas": -0.21,
+				"bare-urls": -0.33,
 				"unpunctuated-lines": -0.37,
-				"bare-urls": -0.66,
 				"questions": -0.67,
 				"tentative": -0.86,
 				"contractions": -0.96
@@ -9882,15 +9900,14 @@
 		},
 		"human/denoland-deno-8199.md": {
 			"label": "human",
-			"score": 95.6,
+			"score": 92.6,
 			"signals": {
 				"code-span-density": 0.41,
 				"this-pr": -0.02,
 				"unpunctuated-lines": -0.19,
-				"commit-shas": -0.21,
 				"first-person": -0.24,
-				"contractions": -0.44,
-				"bare-urls": -0.66
+				"bare-urls": -0.33,
+				"contractions": -0.44
 			}
 		},
 		"human/diesel-rs-diesel-2144.md": {
@@ -9917,30 +9934,31 @@
 		},
 		"human/django-django-1234599952.md": {
 			"label": "human",
-			"score": 62.3,
+			"score": 52.1,
 			"signals": {
 				"review-pleasantries": 1.05,
 				"code-span-density": 0.7,
 				"semicolons": 0.68,
 				"unpunctuated-lines": -0.19,
-				"commit-shas": -0.41,
 				"contractions": -0.61
 			}
 		},
 		"human/django-django-14534.md": {
 			"label": "human",
-			"score": 58.9,
+			"score": 74.6,
 			"signals": {
-				"code-span-density": 1.36
+				"code-span-density": 1.36,
+				"typing-quirks": -0.71
 			}
 		},
 		"human/django-django-14538.md": {
 			"label": "human",
-			"score": 97.4,
+			"score": 98.7,
 			"signals": {
 				"sentence-bullets": 0.26,
 				"code-span-density": 0.24,
 				"this-pr": -0.02,
+				"typing-quirks": -0.71,
 				"contractions": -0.75,
 				"first-person": -0.8,
 				"tentative": -0.86
@@ -10161,11 +10179,9 @@
 		},
 		"human/freeCodeCamp-freeCodeCamp-40118.md": {
 			"label": "human",
-			"score": 96,
+			"score": 93.3,
 			"signals": {
 				"unpunctuated-lines": -0.19,
-				"commit-shas": -0.21,
-				"bare-urls": -0.33,
 				"first-person": -0.73
 			}
 		},
@@ -10252,17 +10268,13 @@
 		},
 		"human/grpc-grpc-20398.md": {
 			"label": "human",
-			"score": 87.3,
-			"signals": {
-				"commit-shas": -0.21
-			}
+			"score": 84.8,
+			"signals": {}
 		},
 		"human/grpc-grpc-24613.md": {
 			"label": "human",
-			"score": 88.6,
-			"signals": {
-				"bare-urls": -0.33
-			}
+			"score": 84.8,
+			"signals": {}
 		},
 		"human/grpc-grpc-908101518.md": {
 			"label": "human",
@@ -10298,12 +10310,12 @@
 		},
 		"human/heroui-inc-heroui-713.md": {
 			"label": "human",
-			"score": 92.4,
+			"score": 90.8,
 			"signals": {
 				"colon-bullets": 0.18,
+				"commit-shas": -0.21,
 				"first-person": -0.21,
-				"bare-urls": -0.33,
-				"commit-shas": -0.41
+				"bare-urls": -0.33
 			}
 		},
 		"human/home-assistant-core-27080.md": {
@@ -10385,13 +10397,14 @@
 		},
 		"human/intlify-vue-i18n-659.md": {
 			"label": "human",
-			"score": 92.6,
+			"score": 96.3,
 			"signals": {
 				"evidence-claims": 0.19,
 				"first-person": -0.15,
 				"template-checkboxes": -0.22,
 				"contractions": -0.29,
-				"questions": -0.34
+				"questions": -0.34,
+				"typing-quirks": -0.71
 			}
 		},
 		"human/istio-istio-17493.md": {
@@ -10403,17 +10416,19 @@
 		},
 		"human/istio-istio-28457.md": {
 			"label": "human",
-			"score": 94.8,
+			"score": 97.4,
 			"signals": {
 				"unpunctuated-lines": -0.19,
+				"typing-quirks": -0.71,
 				"bare-urls": -0.99
 			}
 		},
 		"human/jestjs-jest-10757.md": {
 			"label": "human",
-			"score": 97.1,
+			"score": 98.6,
 			"signals": {
 				"unpunctuated-lines": -0.19,
+				"typing-quirks": -0.71,
 				"short-body": -1.62
 			}
 		},
@@ -10480,12 +10495,13 @@
 		},
 		"human/keystonejs-keystone-7849.md": {
 			"label": "human",
-			"score": 76.1,
+			"score": 86.7,
 			"signals": {
 				"code-span-density": 0.74,
 				"agent-vocabulary": 0.27,
 				"unpunctuated-lines": -0.19,
-				"contractions": -0.26
+				"contractions": -0.26,
+				"typing-quirks": -0.71
 			}
 		},
 		"human/kubernetes-sigs-kustomize-1561.md": {
@@ -10527,9 +10543,10 @@
 		},
 		"human/labstack-echo-1656.md": {
 			"label": "human",
-			"score": 98.8,
+			"score": 99.4,
 			"signals": {
 				"unpunctuated-lines": -0.19,
+				"typing-quirks": -0.71,
 				"tentative": -0.86,
 				"short-body": -1.62
 			}
@@ -10596,10 +10613,11 @@
 		},
 		"human/lucide-icons-lucide-1228558724.md": {
 			"label": "human",
-			"score": 93.3,
+			"score": 98.3,
 			"signals": {
 				"unpunctuated-lines": -0.19,
-				"contractions": -0.73
+				"contractions": -0.73,
+				"typing-quirks": -1.43
 			}
 		},
 		"human/matomo-org-matomo-14907.md": {
@@ -10630,10 +10648,11 @@
 		},
 		"human/micronaut-projects-micronaut-core-1237997259.md": {
 			"label": "human",
-			"score": 92,
+			"score": 95.9,
 			"signals": {
 				"questions": -0.34,
-				"first-person": -0.39
+				"first-person": -0.39,
+				"typing-quirks": -0.71
 			}
 		},
 		"human/microsoft-TypeScript-909652355.md": {
@@ -10661,11 +10680,9 @@
 		},
 		"human/mrdoob-three.js-20597.md": {
 			"label": "human",
-			"score": 92,
+			"score": 87.1,
 			"signals": {
-				"unpunctuated-lines": -0.19,
-				"commit-shas": -0.21,
-				"bare-urls": -0.33
+				"unpunctuated-lines": -0.19
 			}
 		},
 		"human/neovim-neovim-11117.md": {
@@ -10724,10 +10741,11 @@
 		},
 		"human/nodejs-node-39187.md": {
 			"label": "human",
-			"score": 98.2,
+			"score": 99.1,
 			"signals": {
 				"semicolons": 0.68,
 				"unpunctuated-lines": -0.19,
+				"typing-quirks": -0.71,
 				"first-person": -0.82,
 				"tentative": -0.86,
 				"contractions": -1.09
@@ -10843,8 +10861,9 @@
 		},
 		"human/pandas-dev-pandas-37545.md": {
 			"label": "human",
-			"score": 96.6,
+			"score": 98.3,
 			"signals": {
+				"typing-quirks": -0.71,
 				"short-body": -1.62
 			}
 		},
@@ -10889,19 +10908,21 @@
 		},
 		"human/pixijs-pixijs-904923267.md": {
 			"label": "human",
-			"score": 87.1,
+			"score": 96.6,
 			"signals": {
-				"unpunctuated-lines": -0.19
+				"unpunctuated-lines": -0.19,
+				"typing-quirks": -1.43
 			}
 		},
 		"human/plausible-analytics-1234422503.md": {
 			"label": "human",
-			"score": 79,
+			"score": 88.5,
 			"signals": {
 				"sentence-bullets": 0.52,
 				"existing-reference": 0.5,
 				"contractions": -0.24,
-				"first-person": -0.39
+				"first-person": -0.39,
+				"typing-quirks": -0.71
 			}
 		},
 		"human/playcanvas-engine-1227395979.md": {
@@ -10959,28 +10980,27 @@
 		},
 		"human/processing-p5.js-4033.md": {
 			"label": "human",
-			"score": 96.6,
+			"score": 98.3,
 			"signals": {
+				"typing-quirks": -0.71,
 				"short-body": -1.62
 			}
 		},
 		"human/processing-p5.js-4859.md": {
 			"label": "human",
-			"score": 91.4,
+			"score": 89.7,
 			"signals": {
 				"code-span-density": 0.2,
 				"this-pr": -0.02,
-				"commit-shas": -0.21,
 				"first-person": -0.3,
 				"bare-urls": -0.33
 			}
 		},
 		"human/prometheus-prometheus-1232982419.md": {
 			"label": "human",
-			"score": 99.6,
+			"score": 99.5,
 			"signals": {
 				"code-span-density": 0.13,
-				"commit-shas": -0.21,
 				"first-person": -0.44,
 				"questions": -0.67,
 				"contractions": -0.82,
@@ -11003,15 +11023,17 @@
 		},
 		"human/prometheus-prometheus-9266.md": {
 			"label": "human",
-			"score": 84.8,
-			"signals": {}
+			"score": 91.9,
+			"signals": {
+				"typing-quirks": -0.71
+			}
 		},
 		"human/pulumi-pulumi-3261.md": {
 			"label": "human",
-			"score": 92.2,
+			"score": 94.1,
 			"signals": {
 				"bare-urls": -0.33,
-				"commit-shas": -0.41
+				"typing-quirks": -0.71
 			}
 		},
 		"human/pulumi-pulumi-5612.md": {
@@ -11044,10 +11066,11 @@
 		},
 		"human/pytest-dev-pytest-5882.md": {
 			"label": "human",
-			"score": 89.2,
+			"score": 97.2,
 			"signals": {
 				"this-pr": -0.02,
-				"unpunctuated-lines": -0.37
+				"unpunctuated-lines": -0.37,
+				"typing-quirks": -1.43
 			}
 		},
 		"human/pytest-dev-pytest-7976.md": {
@@ -11060,9 +11083,10 @@
 		},
 		"human/python-mypy-1246924339.md": {
 			"label": "human",
-			"score": 89.2,
+			"score": 94.4,
 			"signals": {
-				"first-person": -0.39
+				"first-person": -0.39,
+				"typing-quirks": -0.71
 			}
 		},
 		"human/pytorch-pytorch-910905633.md": {
@@ -11105,10 +11129,9 @@
 		},
 		"human/react-react-909302344.md": {
 			"label": "human",
-			"score": 87.5,
+			"score": 85.1,
 			"signals": {
-				"this-pr": -0.02,
-				"commit-shas": -0.21
+				"this-pr": -0.02
 			}
 		},
 		"human/redis-redis-6405.md": {
@@ -11169,12 +11192,13 @@
 		},
 		"human/rust-lang-cargo-9577.md": {
 			"label": "human",
-			"score": 72.6,
+			"score": 91.7,
 			"signals": {
 				"engineering-jargon": 0.47,
 				"code-span-density": 0.3,
 				"sentence-bullets": 0.26,
-				"first-person": -0.29
+				"first-person": -0.29,
+				"typing-quirks": -1.43
 			}
 		},
 		"human/rust-lang-cargo-9586.md": {
@@ -11266,12 +11290,10 @@
 		},
 		"human/strapi-strapi-4144.md": {
 			"label": "human",
-			"score": 96,
+			"score": 89.2,
 			"signals": {
 				"this-pr": -0.02,
-				"unpunctuated-lines": -0.37,
-				"commit-shas": -0.41,
-				"bare-urls": -0.66
+				"unpunctuated-lines": -0.37
 			}
 		},
 		"human/strapi-strapi-8521.md": {
@@ -11301,11 +11323,10 @@
 		},
 		"human/supabase-supabase-262.md": {
 			"label": "human",
-			"score": 95.9,
+			"score": 95,
 			"signals": {
 				"this-pr": -0.02,
 				"unpunctuated-lines": -0.19,
-				"commit-shas": -0.21,
 				"questions": -1.01
 			}
 		},
@@ -11325,9 +11346,10 @@
 		},
 		"human/sveltejs-kit-1234264392.md": {
 			"label": "human",
-			"score": 58.9,
+			"score": 74.6,
 			"signals": {
-				"code-span-density": 1.36
+				"code-span-density": 1.36,
+				"typing-quirks": -0.71
 			}
 		},
 		"human/sveltejs-language-tools-632.md": {
@@ -11344,10 +11366,11 @@
 		},
 		"human/sveltejs-svelte-6429.md": {
 			"label": "human",
-			"score": 54,
+			"score": 70.6,
 			"signals": {
 				"code-span-density": 1.36,
-				"animate-code": 0.2
+				"animate-code": 0.2,
+				"typing-quirks": -0.71
 			}
 		},
 		"human/sveltejs-svelte-912311071.md": {
@@ -11401,12 +11424,11 @@
 		},
 		"human/tauri-apps-tauri-2549.md": {
 			"label": "human",
-			"score": 77.5,
+			"score": 73.7,
 			"signals": {
 				"sentence-bullets": 1,
 				"first-person": -0.11,
-				"contractions": -0.2,
-				"commit-shas": -0.21
+				"contractions": -0.2
 			}
 		},
 		"human/tensorflow-tensorflow-51769.md": {
@@ -11552,12 +11574,13 @@
 		},
 		"human/visgl-deck.gl-5080.md": {
 			"label": "human",
-			"score": 96.2,
+			"score": 99.1,
 			"signals": {
 				"code-span-density": 0.18,
 				"contractions": -0.18,
 				"first-person": -0.67,
-				"tentative": -0.86
+				"tentative": -0.86,
+				"typing-quirks": -1.43
 			}
 		},
 		"human/vitejs-vite-4802.md": {
@@ -11591,18 +11614,17 @@
 		},
 		"human/vuejs-language-tools-1793.md": {
 			"label": "human",
-			"score": 98.2,
+			"score": 96.6,
 			"signals": {
+				"commit-shas": -0.21,
 				"bare-urls": -0.33,
-				"commit-shas": -0.83,
 				"contractions": -1.1
 			}
 		},
 		"human/vuejs-router-1539.md": {
 			"label": "human",
-			"score": 56.2,
+			"score": 84.7,
 			"signals": {
-				"coined-compounds": 1.47,
 				"semicolons": 0.68,
 				"questions": -0.67
 			}
